@@ -86,7 +86,7 @@ Data Model
 
         Long id
         String emailAddress
-        String password
+        String shaPassword
         String name
         Date creationDate
 
@@ -95,3 +95,36 @@ Data Model
         Long id
         URL thumbnailUrl
         URL fullUrl
+
+
+URL Design
+----------
+
+    GET     /                           # Display list of Regions
+
+    GET     /signup                     # Signup Form
+    POST    /signup                     # Save Signup Data
+
+    POST    /login                      # Login
+
+    GET     /feed/:region               # RSS Feed for the specified Region
+    GET     /feed/:region/:route        # RSS Feed for the specified Route
+
+    POST    /subscribe/:region          # Subscribe to Region Updates via Email
+
+    GET     /:region/addroute           # Add Route to a Region Form
+    POST    /:region/addroute           # Save Route to a Region
+
+    POST    /:region/:route/addrating   # Add Rating to a Route
+
+    GET     /:region/:route/addcomment  # Add Comment to a Route Form
+    POST    /:region/:route/addcomment  # Save Comment to a Route
+
+    GET     /:region                    # Display list of Routes in a Region
+
+
+Open Questions
+--------------
+
+* Should we add a property to Region and Route for using their names in a URL?  Or just have a set algorithm for doing it?  (e.g. turn "Dakota Ridge, Red Rocks, Matthews Winters Loop" into "dakota_ridge_red_rocks_matthews_winters_loop")
+* Should we define data constraints here?
