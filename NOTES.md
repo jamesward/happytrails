@@ -48,7 +48,7 @@ Data Model
         String name
         String distance
         Region region
-        String Location
+        String location
         List<Direction> directions
         URL mapUrl
         List<Rating> ratings
