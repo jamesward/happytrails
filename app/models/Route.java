@@ -15,8 +15,11 @@ public class Route extends Model {
 
   public String name;
 
+  public String description;
+
   public String distance;
 
+  @ManyToOne
   public Region region;
 
   public String location;
@@ -32,6 +35,7 @@ public class Route extends Model {
   @OneToMany(cascade = CascadeType.ALL)
   public List<Comment> comments;
 
+  @OneToOne
   public Photo photo;
 
   public Date creationDate;

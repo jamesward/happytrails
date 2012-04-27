@@ -6,7 +6,9 @@
 create table comment (
   id                        bigint not null,
   route_id                  bigint not null,
+  user_id                   bigint,
   value                     varchar(255),
+  photo_id                  bigint,
   creation_date             timestamp,
   constraint pk_comment primary key (id))
 ;
@@ -29,6 +31,7 @@ create table photo (
 create table rating (
   id                        bigint not null,
   route_id                  bigint not null,
+  user_id                   bigint,
   value                     integer,
   creation_date             timestamp,
   constraint pk_rating primary key (id))
@@ -43,20 +46,24 @@ create table region (
 create table route (
   id                        bigint not null,
   name                      varchar(255),
+  description               varchar(255),
   distance                  varchar(255),
+  region_id                 bigint,
   location                  varchar(255),
   map_url                   varchar(255),
+  photo_id                  bigint,
   creation_date             timestamp,
   constraint pk_route primary key (id))
 ;
 
-create table user (
+create table account (
   id                        bigint not null,
-  email_address             varchar(255),
-  password                  varchar(255),
-  name                      varchar(255),
-  creation_date             timestamp,
-  constraint pk_user primary key (id))
+  email_address             varchar(255) not null,
+  sha_password              varbinary(64) not null,
+  full_name                 varchar(255) not null,
+  creation_date             timestamp not null,
+  constraint uq_account_email_address unique (email_address),
+  constraint pk_account primary key (id))
 ;
 
 create sequence comment_seq;
@@ -71,14 +78,24 @@ create sequence region_seq;
 
 create sequence route_seq;
 
-create sequence user_seq;
+create sequence account_seq;
 
 alter table comment add constraint fk_comment_route_1 foreign key (route_id) references route (id) on delete restrict on update restrict;
 create index ix_comment_route_1 on comment (route_id);
-alter table direction add constraint fk_direction_route_2 foreign key (route_id) references route (id) on delete restrict on update restrict;
-create index ix_direction_route_2 on direction (route_id);
-alter table rating add constraint fk_rating_route_3 foreign key (route_id) references route (id) on delete restrict on update restrict;
-create index ix_rating_route_3 on rating (route_id);
+alter table comment add constraint fk_comment_user_2 foreign key (user_id) references account (id) on delete restrict on update restrict;
+create index ix_comment_user_2 on comment (user_id);
+alter table comment add constraint fk_comment_photo_3 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
+create index ix_comment_photo_3 on comment (photo_id);
+alter table direction add constraint fk_direction_route_4 foreign key (route_id) references route (id) on delete restrict on update restrict;
+create index ix_direction_route_4 on direction (route_id);
+alter table rating add constraint fk_rating_route_5 foreign key (route_id) references route (id) on delete restrict on update restrict;
+create index ix_rating_route_5 on rating (route_id);
+alter table rating add constraint fk_rating_user_6 foreign key (user_id) references account (id) on delete restrict on update restrict;
+create index ix_rating_user_6 on rating (user_id);
+alter table route add constraint fk_route_region_7 foreign key (region_id) references region (id) on delete restrict on update restrict;
+create index ix_route_region_7 on route (region_id);
+alter table route add constraint fk_route_photo_8 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
+create index ix_route_photo_8 on route (photo_id);
 
 
 
@@ -98,7 +115,7 @@ drop table if exists region;
 
 drop table if exists route;
 
-drop table if exists user;
+drop table if exists account;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 
@@ -114,5 +131,5 @@ drop sequence if exists region_seq;
 
 drop sequence if exists route_seq;
 
-drop sequence if exists user_seq;
+drop sequence if exists account_seq;
 

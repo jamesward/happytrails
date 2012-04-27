@@ -13,4 +13,10 @@ public class Region extends Model {
 
   public String name;
 
+  public Region() {
+  }
+
+  public Region(String name) {
+    this.name = name;
+  }
 }
