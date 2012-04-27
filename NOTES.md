@@ -24,11 +24,9 @@ Technical Goals
 Presentation Agenda
 -------------------
 
-1) Framework Overviews
-
-2) Emperical Data (Load Test, LOC, etc)
-
-3) Developer Experience
+1. Framework Overviews
+2. Emperical Data (Load Test, LOC, etc)
+3. Developer Experience
 
 
 Schedule
