@@ -89,3 +89,8 @@ Data Model
         String name
         Date creationDate
 
+* Photo
+
+        Long id
+        URL thumbnailUrl
+        URL fullUrl
