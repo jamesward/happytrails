@@ -25,7 +25,9 @@ Presentation Agenda
 -------------------
 
 1) Framework Overviews
+
 2) Emperical Data (Load Test, LOC, etc)
+
 3) Developer Experience
 
 
@@ -44,49 +46,48 @@ Data Model
 
 * Route
 
-    Long id
-    String name
-    String distance
-    Region region
-    String Location
-    List<Direction> directions
-    URL mapUrl
-    List<Rating> ratings
-    List<Comment> comments
-    Photo photo
-    Date creationDate
+        Long id
+        String name
+        String distance
+        Region region
+        String Location
+        List<Direction> directions
+        URL mapUrl
+        List<Rating> ratings
+        List<Comment> comments
+        Photo photo
+        Date creationDate
 
 * Direction
 
-    Long id
-    Integer stepNumber
-    String instruction
+        Long id
+        Integer stepNumber
+        String instruction
 
 * Region
 
-    Long id
-    String name
+        Long id
+        String name
 
 * Rating
 
-    Long id
-    User user
-    Integer value
-    Date creationDate
+        Long id
+        User user
+        Integer value
+        Date creationDate
 
 * Comment
 
-    Long id
-    User user
-    String value
-    Date creationDate
+        Long id
+        User user
+        String value
+        Date creationDate
 
 * User
 
-    Long id
-    String emailAddress
-    String password
-    String name
-    Date creationDate
-
+        Long id
+        String emailAddress
+        String password
+        String name
+        Date creationDate
 
