@@ -4,6 +4,7 @@ import play.db.ebean.Model;
 
 import javax.persistence.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,15 +29,15 @@ public class Route extends Model {
   public String location;
 
   @OneToMany(cascade = CascadeType.ALL)
-  public List<Direction> directions;
+  public List<Direction> directions = new ArrayList<Direction>();
 
   public URL mapUrl;
 
   @OneToMany(cascade = CascadeType.ALL)
-  public List<Rating> ratings;
+  public List<Rating> ratings  = new ArrayList<Rating>();
 
   @OneToMany(cascade = CascadeType.ALL)
-  public List<Comment> comments;
+  public List<Comment> comments = new ArrayList<Comment>();
 
   @OneToOne
   public Photo photo;
