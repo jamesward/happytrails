@@ -15,4 +15,12 @@ public class Direction extends Model {
 
   public String instruction;
 
+
+  public Direction() {
+  }
+
+  public Direction(Integer stepNumber, String instruction) {
+    this.stepNumber = stepNumber;
+    this.instruction = instruction;
+  }
 }

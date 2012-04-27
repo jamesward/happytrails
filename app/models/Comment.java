@@ -12,8 +12,10 @@ public class Comment extends Model {
   public Long id;
 
   @ManyToOne
+  @Column(nullable = false)
   public User user;
 
+  @Column(nullable = false)
   public String value;
 
   @OneToOne
@@ -21,4 +23,9 @@ public class Comment extends Model {
 
   public Date creationDate;
 
+  public Comment(User user, String value) {
+    this.user = user;
+    this.value = value;
+    this.creationDate = new Date();
+  }
 }

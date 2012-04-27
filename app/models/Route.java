@@ -13,15 +13,18 @@ public class Route extends Model {
   @Id
   public Long id;
 
+  @Column(nullable = false)
   public String name;
 
+  @Column(nullable = false)
   public String description;
 
-  public String distance;
+  public Double distanceInMiles;
 
   @ManyToOne
   public Region region;
 
+  @Column(nullable = false)
   public String location;
 
   @OneToMany(cascade = CascadeType.ALL)
@@ -40,4 +43,16 @@ public class Route extends Model {
 
   public Date creationDate;
 
+  public Route() {
+    this.creationDate = new Date();
+  }
+
+  public Route(String name, String description, Double distanceInMiles, Region region, String location) {
+    this.name = name;
+    this.description = description;
+    this.distanceInMiles = distanceInMiles;
+    this.region = region;
+    this.location = location;
+    this.creationDate = new Date();
+  }
 }

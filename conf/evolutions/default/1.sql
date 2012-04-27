@@ -7,7 +7,7 @@ create table comment (
   id                        bigint not null,
   route_id                  bigint not null,
   user_id                   bigint,
-  value                     varchar(255),
+  value                     varchar(255) not null,
   photo_id                  bigint,
   creation_date             timestamp,
   constraint pk_comment primary key (id))
@@ -32,7 +32,7 @@ create table rating (
   id                        bigint not null,
   route_id                  bigint not null,
   user_id                   bigint,
-  value                     integer,
+  value                     integer not null,
   creation_date             timestamp,
   constraint pk_rating primary key (id))
 ;
@@ -45,11 +45,11 @@ create table region (
 
 create table route (
   id                        bigint not null,
-  name                      varchar(255),
-  description               varchar(255),
-  distance                  varchar(255),
+  name                      varchar(255) not null,
+  description               varchar(255) not null,
+  distance_in_miles         double,
   region_id                 bigint,
-  location                  varchar(255),
+  location                  varchar(255) not null,
   map_url                   varchar(255),
   photo_id                  bigint,
   creation_date             timestamp,
