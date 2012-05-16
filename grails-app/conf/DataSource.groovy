@@ -20,7 +20,7 @@ environments {
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:postgresql://localhost:5432/happytrails"
+            url = "jdbc:h2:mem:testDb;MVCC=TRUE"
         }
     }
     production {

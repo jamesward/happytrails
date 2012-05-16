@@ -96,3 +96,8 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'happytrails.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'happytrails.UserRole'
 grails.plugins.springsecurity.authority.className = 'happytrails.Role'
+
+// Cloudbees Plugin:
+cloudbees.account='happytrails'
+cloudbees.api.key='3160AB4C28E2FC90'
+cloudbees.api.secret='SHSLTMEQEQXKN8RI0IHOTUZVAMUPKGQFBMKGJT9YT7G='
