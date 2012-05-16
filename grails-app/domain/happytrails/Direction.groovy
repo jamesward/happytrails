@@ -3,9 +3,10 @@ package happytrails
 class Direction {
 
     static constraints = {
+        stepNumber blank: false
+        instruction blank: false
     }
 
-    Long id
     Integer stepNumber
     String instruction
 }

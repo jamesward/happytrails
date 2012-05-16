@@ -2,10 +2,12 @@ package happytrails
 
 class Photo {
 
+    static belongsTo = [route:Route]
+
     static constraints = {
+        thumbnailUrl blank: false
     }
 
-    Long id
     URL thumbnailUrl
     URL fullUrl
 }
