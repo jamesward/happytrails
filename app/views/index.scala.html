@@ -1,7 +1,11 @@
-@(message: String)
+@(regions: List[Region])
 
-@main("Welcome to Play 2.0") {
-    
-    @play20.welcome(message, style = "Java")
-    
+@main("Happy Trails - Regions") {
+
+  <ul>
+  @for(region <- regions) {
+    <li>@region.name</li>
+  }
+  </ul>
+
 }

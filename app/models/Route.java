@@ -1,5 +1,6 @@
 package models;
 
+import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
@@ -11,49 +12,52 @@ import java.util.List;
 @Entity
 public class Route extends Model {
 
-  @Id
-  public Long id;
+    @Id
+    public Long id;
 
-  @Column(nullable = false)
-  public String name;
+    @Column(nullable = false)
+    @Constraints.Required
+    public String name;
 
-  @Column(nullable = false)
-  public String description;
+    @Column(nullable = false)
+    @Constraints.Required
+    public String description;
 
-  public Double distanceInMiles;
+    public Double distanceInMiles;
 
-  @ManyToOne
-  public Region region;
+    @ManyToOne
+    public Region region;
 
-  @Column(nullable = false)
-  public String location;
+    @Column(nullable = false)
+    @Constraints.Required
+    public String location;
 
-  @OneToMany(cascade = CascadeType.ALL)
-  public List<Direction> directions = new ArrayList<Direction>();
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<Direction> directions = new ArrayList<Direction>();
 
-  public URL mapUrl;
+    public URL mapUrl;
 
-  @OneToMany(cascade = CascadeType.ALL)
-  public List<Rating> ratings  = new ArrayList<Rating>();
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<Rating> ratings  = new ArrayList<Rating>();
 
-  @OneToMany(cascade = CascadeType.ALL)
-  public List<Comment> comments = new ArrayList<Comment>();
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<Comment> comments = new ArrayList<Comment>();
 
-  @OneToOne
-  public Photo photo;
+    @OneToOne
+    public Photo photo;
 
-  public Date creationDate;
+    public Date creationDate;
 
-  public Route() {
-    this.creationDate = new Date();
-  }
+    public Route() {
+        this.creationDate = new Date();
+    }
 
-  public Route(String name, String description, Double distanceInMiles, Region region, String location) {
-    this.name = name;
-    this.description = description;
-    this.distanceInMiles = distanceInMiles;
-    this.region = region;
-    this.location = location;
-    this.creationDate = new Date();
-  }
+    public Route(String name, String description, Double distanceInMiles, Region region, String location) {
+        this.name = name;
+        this.description = description;
+        this.distanceInMiles = distanceInMiles;
+        this.region = region;
+        this.location = location;
+        this.creationDate = new Date();
+    }
 }

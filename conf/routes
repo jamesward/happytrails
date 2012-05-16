@@ -5,14 +5,14 @@
 # Home page
 GET     /                           controllers.ApplicationController.index()
 
-GET     /signup                     controllers.ApplicationController.signup()
+GET     /signup                     controllers.ApplicationController.signupForm()
 POST    /signup                     controllers.ApplicationController.signup()
 
 POST    /login                      controllers.ApplicationController.login()
 
-GET     /feed/:region               controllers.RegionController.getRegionFeed(regionName)
+GET     /feed/:region               controllers.RegionController.getRegionFeed(region)
 
-POST    /subscribe/:region          controllers.RegionController.subscribe(regionName)
+POST    /subscribe/:region          controllers.RegionController.subscribe(region)
 
 GET     /:region/addroute           controllers.RegionController.addRoute(region)
 POST    /:region/addroute           controllers.RegionController.saveRoute(region)
@@ -22,7 +22,7 @@ POST    /:region/:route/addrating   controllers.RouteController.addRating(region
 GET     /:region/:route/addcomment  controllers.RouteController.addComment(region, route)
 POST    /:region/:route/addcomment  controllers.RouteController.saveComment(region, route)
 
-GET     /:region                    controllers.RegionController.getRegionHtml(regionName)
+GET     /:region                    controllers.RegionController.getRegionHtml(region)
 
 
 # Map static resources from the /public folder to the /assets URL path

@@ -1,0 +1,12 @@
+@(signupForm: Form[models.User])
+
+@main("Happy Trails - Signup") {
+
+    @helper.form(action = routes.ApplicationController.signup()) {
+        @helper.inputText(signupForm("emailAddress"))
+        @helper.inputText(signupForm("fullName"))
+        @helper.inputPassword(signupForm("password"))
+        <input type="submit" value="Create Account"/>
+    }
+
+}

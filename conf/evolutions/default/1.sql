@@ -5,19 +5,19 @@
 
 create table comment (
   id                        bigint not null,
-  route_id                  bigint not null,
   user_id                   bigint,
-  value                     varchar(255) not null,
+  value                     varchar(1024) not null,
   photo_id                  bigint,
-  creation_date             timestamp,
+  creation_date             timestamp not null,
+  route_id                  bigint,
   constraint pk_comment primary key (id))
 ;
 
 create table direction (
   id                        bigint not null,
-  route_id                  bigint not null,
-  step_number               integer,
-  instruction               varchar(255),
+  step_number               integer not null,
+  instruction               varchar(1024) not null,
+  route_id                  bigint,
   constraint pk_direction primary key (id))
 ;
 
@@ -30,16 +30,16 @@ create table photo (
 
 create table rating (
   id                        bigint not null,
-  route_id                  bigint not null,
   user_id                   bigint,
   value                     integer not null,
-  creation_date             timestamp,
+  creation_date             timestamp not null,
+  route_id                  bigint,
   constraint pk_rating primary key (id))
 ;
 
 create table region (
   id                        bigint not null,
-  name                      varchar(255),
+  name                      varchar(128) not null,
   constraint pk_region primary key (id))
 ;
 
@@ -58,9 +58,9 @@ create table route (
 
 create table account (
   id                        bigint not null,
-  email_address             varchar(255) not null,
+  email_address             varchar(256) not null,
   sha_password              varbinary(64) not null,
-  full_name                 varchar(255) not null,
+  full_name                 varchar(256) not null,
   creation_date             timestamp not null,
   constraint uq_account_email_address unique (email_address),
   constraint pk_account primary key (id))
@@ -80,18 +80,18 @@ create sequence route_seq;
 
 create sequence account_seq;
 
-alter table comment add constraint fk_comment_route_1 foreign key (route_id) references route (id) on delete restrict on update restrict;
-create index ix_comment_route_1 on comment (route_id);
-alter table comment add constraint fk_comment_user_2 foreign key (user_id) references account (id) on delete restrict on update restrict;
-create index ix_comment_user_2 on comment (user_id);
-alter table comment add constraint fk_comment_photo_3 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
-create index ix_comment_photo_3 on comment (photo_id);
+alter table comment add constraint fk_comment_user_1 foreign key (user_id) references account (id) on delete restrict on update restrict;
+create index ix_comment_user_1 on comment (user_id);
+alter table comment add constraint fk_comment_photo_2 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
+create index ix_comment_photo_2 on comment (photo_id);
+alter table comment add constraint fk_comment_route_3 foreign key (route_id) references route (id) on delete restrict on update restrict;
+create index ix_comment_route_3 on comment (route_id);
 alter table direction add constraint fk_direction_route_4 foreign key (route_id) references route (id) on delete restrict on update restrict;
 create index ix_direction_route_4 on direction (route_id);
-alter table rating add constraint fk_rating_route_5 foreign key (route_id) references route (id) on delete restrict on update restrict;
-create index ix_rating_route_5 on rating (route_id);
-alter table rating add constraint fk_rating_user_6 foreign key (user_id) references account (id) on delete restrict on update restrict;
-create index ix_rating_user_6 on rating (user_id);
+alter table rating add constraint fk_rating_user_5 foreign key (user_id) references account (id) on delete restrict on update restrict;
+create index ix_rating_user_5 on rating (user_id);
+alter table rating add constraint fk_rating_route_6 foreign key (route_id) references route (id) on delete restrict on update restrict;
+create index ix_rating_route_6 on rating (route_id);
 alter table route add constraint fk_route_region_7 foreign key (region_id) references region (id) on delete restrict on update restrict;
 create index ix_route_region_7 on route (region_id);
 alter table route add constraint fk_route_photo_8 foreign key (photo_id) references photo (id) on delete restrict on update restrict;

@@ -9,11 +9,11 @@ import java.net.URL;
 @Entity
 public class Photo extends Model {
 
-  @Id
-  public Long id;
+    @Id
+    public Long id;
 
-  public URL thumbnailUrl;
+    public URL thumbnailUrl;
 
-  public URL fullUrl;
+    public URL fullUrl;
 
 }
