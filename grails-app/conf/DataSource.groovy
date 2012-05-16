@@ -26,7 +26,11 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:postgresql://localhost:5432/happytrails"
+            driverClassName = "org.postgresql.Driver"
+            uri = new URI(System.env.DATABASE_URL?:"postgres://postgres:postgres@localhost/happytrails")
+            url = "jdbc:postgresql://"+uri.host+uri.path
+            username = uri.userInfo.split(":")[0]
+            password = uri.userInfo.split(":")[1]
             pooled = true
             properties {
                maxActive = -1
