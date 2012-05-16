@@ -58,6 +58,7 @@ create table route (
 
 create table account (
   id                        bigint not null,
+  token                     varchar(255),
   email_address             varchar(256) not null,
   sha_password              varbinary(64) not null,
   full_name                 varchar(256) not null,

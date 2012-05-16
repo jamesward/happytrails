@@ -15,6 +15,8 @@ public class User extends Model {
 
     @Id
     public Long id;
+    
+    public String token;
 
     @Column(length = 256, unique = true, nullable = false)
     @Constraints.MaxLength(256)

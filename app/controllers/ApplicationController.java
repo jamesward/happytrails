@@ -1,11 +1,12 @@
 package controllers;
 
-import core.Login;
 import models.Region;
 import models.User;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+
+import java.util.UUID;
 
 public class ApplicationController extends Controller {
 
@@ -31,16 +32,27 @@ public class ApplicationController extends Controller {
     }
 
     public static Result login() {
-        Login loginForm = form(Login.class).bindFromRequest().get();
+        Login login = form(Login.class).bindFromRequest().get();
         
-        User user = User.findByEmailAddressAndPassword(loginForm.emailAddress, loginForm.password);
-        
+        User user = User.findByEmailAddressAndPassword(login.emailAddress, login.password);
+
+        // todo: redirect back to the page the user is already on for both cases
         if (user == null) {
-            return unauthorized();
+            return badRequest();
         }
         else {
+            user.token = UUID.randomUUID().toString();
+            user.save();
+            session("token", user.token);
             return redirect(controllers.routes.ApplicationController.index());
         }
+    }
+    
+    public static class Login {
+        
+        public String emailAddress;
+
+        public String password;
         
     }
 

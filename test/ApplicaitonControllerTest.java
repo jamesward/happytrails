@@ -69,4 +69,20 @@ public class ApplicaitonControllerTest {
         });
     }
 
+    @Test
+    public void testLoginWithBadPassword() {
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                Map<String,String> data = new HashMap<java.lang.String, java.lang.String>();
+                data.put("emailAddress", "james@demo.com");
+                data.put("password", "wrong");
+
+                Result result = callAction(routes.ref.ApplicationController.login(), fakeRequest().withFormUrlEncodedBody(data));
+                assertThat(status(result)).isEqualTo(BAD_REQUEST);
+            }
+        });
+    }
+
 }
