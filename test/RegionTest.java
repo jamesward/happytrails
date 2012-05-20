@@ -16,7 +16,8 @@ public class RegionTest {
                 Region region = new Region("region");
                 region.save();
                 assertThat(region.id).isNotNull();
-                assertThat(region.name).isEqualTo("region");
+                assertThat(region.getName()).isEqualTo("region");
+                assertThat(region.getUrlFriendlyName()).isEqualTo("region");
             }
         });
     }
@@ -29,6 +30,12 @@ public class RegionTest {
                 region.save();
             }
         });
+    }
+
+    @Test
+    public void testUrlFriendlyName() {
+        Region region = new Region("Foo  foo `~1!2@3#4$5%6^7&8*9(0)-_=+[{]}\\|;:'\",<.>/?");
+        assertThat(region.getUrlFriendlyName()).isEqualTo("foo-foo-1234567890-");
     }
 
 }

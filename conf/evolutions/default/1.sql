@@ -40,6 +40,8 @@ create table rating (
 create table region (
   id                        bigint not null,
   name                      varchar(128) not null,
+  url_friendly_name         varchar(128) not null,
+  constraint uq_region_url_friendly_name unique (url_friendly_name),
   constraint pk_region primary key (id))
 ;
 

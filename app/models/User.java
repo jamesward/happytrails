@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name="account")  // because "user" is an invalid table name in some databases
@@ -16,7 +17,7 @@ public class User extends Model {
     @Id
     public Long id;
     
-    public String token;
+    private String token;
 
     @Column(length = 256, unique = true, nullable = false)
     @Constraints.MaxLength(256)
@@ -62,6 +63,12 @@ public class User extends Model {
         this.fullName = fullName;
         this.creationDate = new Date();
     }
+    
+    public String createToken() {
+        token = UUID.randomUUID().toString();
+        save();
+        return token;
+    }
 
 
     public static byte[] getSha512(String value) {
@@ -82,6 +89,19 @@ public class User extends Model {
     public static User findByEmailAddressAndPassword(String emailAddress, String password) {
         try  {
             return find.where().eq("emailAddress", emailAddress.toLowerCase()).eq("shaPassword", getSha512(password)).findUnique();
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static User findByToken(String token) {
+        if (token == null) {
+            return null;
+        }
+        
+        try  {
+            return find.where().eq("token", token).findUnique();
         }
         catch (Exception e) {
             return null;

@@ -7,11 +7,18 @@
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
     </head>
     <body>
-        <form action="@routes.ApplicationController.login()" method="post">
-            <input name="emailAddress"/>
-            <input name="password" type="password"/>
-            <input type="submit" value="Login"/>
-        </form>
+        @userHeader(user: User) = {
+            @if(user != null) {
+                Hello, @user.fullName
+            } else {
+                <form action="@routes.ApplicationController.login()" method="post">
+                    Email: <input name="emailAddress"/>
+                    Passoword: <input name="password" type="password"/>
+                    <input type="submit" value="Login"/>
+                </form>
+            }
+        }
+        @userHeader(User.findByToken(session.get("token")))
         
         @content
     </body>

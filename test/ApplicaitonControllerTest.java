@@ -45,9 +45,13 @@ public class ApplicaitonControllerTest {
                 data.put("fullName", "Foo Bar");
                 data.put("password", "password");
                 
-                Result result = callAction(routes.ref.ApplicationController.signup(), fakeRequest().withFormUrlEncodedBody(data));
-                assertThat(status(result)).isEqualTo(OK);
-                assertThat(contentAsString(result)).contains("Foo Bar");
+                Result signupResult = callAction(routes.ref.ApplicationController.signup(), fakeRequest().withFormUrlEncodedBody(data));
+                assertThat(status(signupResult)).isEqualTo(OK);
+                assertThat(contentAsString(signupResult)).contains("Foo Bar");
+
+                Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest().withFormUrlEncodedBody(data));
+                assertThat(status(loginResult)).isEqualTo(SEE_OTHER);
+                assertThat(redirectLocation(loginResult)).isEqualTo("/");
             }
         });
     }
@@ -62,9 +66,9 @@ public class ApplicaitonControllerTest {
                 data.put("emailAddress", "james@demo.com");
                 data.put("password", "password");
 
-                Result result = callAction(routes.ref.ApplicationController.login(), fakeRequest().withFormUrlEncodedBody(data));
-                assertThat(status(result)).isEqualTo(SEE_OTHER);
-                assertThat(redirectLocation(result)).isEqualTo("/");
+                Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest().withFormUrlEncodedBody(data));
+                assertThat(status(loginResult)).isEqualTo(SEE_OTHER);
+                assertThat(redirectLocation(loginResult)).isEqualTo("/");
             }
         });
     }

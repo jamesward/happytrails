@@ -23,3 +23,4 @@ Experience Notes
 * Unit testing Form not working
 * I wish `play ~test` only ran the tests that changed
 * Getting request params directly is difficult
+* Username only available on secured resources - workaround: get it directly from the session

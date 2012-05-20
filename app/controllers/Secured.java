@@ -14,7 +14,7 @@ public class Secured extends Security.Authenticator {
     @Override
     public Result onUnauthorized(Context ctx) {
         // todo: display something
-        return unauthorized();
+        return unauthorized("Unauthorized");
     }
 
 }

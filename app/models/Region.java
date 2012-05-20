@@ -16,16 +16,51 @@ public class Region extends Model {
     @Column(length = 128, nullable = false)
     @Constraints.Required
     @Constraints.MaxLength(128)
-    public String name;
+    private String name;
+    
+    public void setName(String name) {
+        this.name = name;
+        this.urlFriendlyName = getUrlFriendlyName(name);
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    @Column(length = 128, nullable = false, unique = true)
+    private String urlFriendlyName;
+    
+    public String getUrlFriendlyName() {
+        return urlFriendlyName;
+    }
+    
+    // converts the name to a URL friendly name
+    // lowercase
+    // consecutive whitespace becomes a single dash
+    // all a-z, 0-9, and dashes are removed
+    public static String getUrlFriendlyName(String name) {
+        String urlFriendlyName = name.toLowerCase().replaceAll("\\s+", "-");
+        urlFriendlyName = urlFriendlyName.replaceAll("[^a-z0-9\\-]","");
+        return urlFriendlyName;
+    }
 
     public Region() {
     }
 
     public Region(String name) {
-        this.name = name;
+        setName(name);
     }
 
 
     public static Finder<Long, Region> find = new Finder<Long, Region>(Long.class, Region.class);
+
+    public static Region findByUrlFriendlyName(String urlFriendlyName) {
+        try  {
+            return find.where().eq("urlFriendlyName", urlFriendlyName).findUnique();
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
     
 }

@@ -124,4 +124,24 @@ public class UserTest {
         });
     }
 
+    @Test
+    public void createToken() {
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                User newUser = new User("foo@foo.com", "password", "John Doe");
+                newUser.save();
+                
+                assertThat(newUser.id).isNotNull();
+                
+                String token = newUser.createToken();
+                
+                assertThat(token).isNotNull();
+
+                User foundUser = User.findByToken(token);
+
+                assertThat(newUser.id).isEqualTo(foundUser.id);
+            }
+        });
+    }
+
 }

@@ -38,12 +38,10 @@ public class ApplicationController extends Controller {
 
         // todo: redirect back to the page the user is already on for both cases
         if (user == null) {
-            return badRequest();
+            return badRequest("Invalid Login");
         }
         else {
-            user.token = UUID.randomUUID().toString();
-            user.save();
-            session("token", user.token);
+            session("token", user.createToken());
             return redirect(controllers.routes.ApplicationController.index());
         }
     }

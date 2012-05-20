@@ -1,14 +1,14 @@
 package controllers;
 
+import models.Region;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 
-
 public class RegionController extends Controller {
 
     public static Result getRegionFeed(String region) {
-        return ok();
+        return ok(region);
     }
 
     @Security.Authenticated(Secured.class)
@@ -26,8 +26,9 @@ public class RegionController extends Controller {
         return ok();
     }
 
-    public static Result getRegionHtml(String region) {
-        return ok();
+    public static Result getRegionHtml(String urlFriendlyRegionName) {
+        Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
+        return ok(region.getName());
     }
     
 }
