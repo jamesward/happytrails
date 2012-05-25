@@ -4,6 +4,7 @@ import models.Region;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import views.html.region;
 
 public class RegionController extends Controller {
 
@@ -28,7 +29,7 @@ public class RegionController extends Controller {
 
     public static Result getRegionHtml(String urlFriendlyRegionName) {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
-        return ok(region.getName());
+        return ok(views.html.region.render(region));
     }
     
 }

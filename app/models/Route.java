@@ -65,6 +65,7 @@ public class Route extends Model {
     public Photo photo;
 
     public Date creationDate;
+    
 
     public Route() {
         this.creationDate = new Date();
@@ -77,6 +78,17 @@ public class Route extends Model {
         this.region = region;
         this.location = location;
         this.creationDate = new Date();
+    }
+    
+    
+    public Integer getAverageRating() {
+        Integer ratingTotal = 0;
+        
+        for (Rating rating : ratings) {
+            ratingTotal += rating.value;
+        }
+        
+        return ratingTotal / ratings.size();
     }
 
 

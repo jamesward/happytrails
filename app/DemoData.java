@@ -45,7 +45,7 @@ public class DemoData {
         dakotaRedWintersRoute.directions.add(new Direction(23, "Continue heading towards Matthews Winters until you reach the bike-only trail to the right."));
         dakotaRedWintersRoute.directions.add(new Direction(24, "Enjoy the flowy and fast ride back to your car."));
 
-        dakotaRedWintersRoute.ratings.add(new Rating(jamesUser, 4));
+        dakotaRedWintersRoute.ratings.add(new Rating(jamesUser, 3));
         dakotaRedWintersRoute.ratings.add(new Rating(mattUser, 5));
 
         dakotaRedWintersRoute.comments.add(new Comment(jamesUser, "This route is one of the best in the Denver area!"));

@@ -1,0 +1,23 @@
+@(route: Route)
+
+@main("Happy Trails - Regions - " + route.region.getName + " - " + route.getName) {
+
+    <h1>@route.getName</h1>
+
+    <h2>Directions:</h2>
+    <ul>
+    @for(direction <- route.directions) {
+        <li>@direction.stepNumber - @direction.instruction</li>
+    }
+    </ul>
+    
+    <h2>Comments:</h2>
+    <ul>
+    @for(comment <- route.comments) {
+        <li>@comment.value - @comment.value</li>
+    }
+    </ul>
+
+    <h2>Rating: @route.getAverageRating</h2>
+
+}

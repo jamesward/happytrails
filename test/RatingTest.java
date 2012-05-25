@@ -38,6 +38,7 @@ public class RatingTest {
         });
     }
 
+    // todo: test constraints
     /*
     @Test
     public void testCreateValueBelowMin() {

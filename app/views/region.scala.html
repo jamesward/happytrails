@@ -4,7 +4,7 @@
 
   <ul>
   @for(route <- region.routes) {
-    <li>@region.getName</li>
+    <li><a href="@routes.RouteController.getRouteHtml(region.getUrlFriendlyName, route.getUrlFriendlyName)">@route.getName</a></li>
   }
   </ul>
 

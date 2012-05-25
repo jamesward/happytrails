@@ -25,7 +25,7 @@ public class RouteController extends Controller {
 
     public static Result getRouteHtml(String urlFriendlyRegionName, String urlFriendlyRouteName) {
         Route route = Route.findByUrlFriendlyName(urlFriendlyRouteName);
-        return ok(route.getName());
+        return ok(views.html.route.render(route));
     }
     
 }
