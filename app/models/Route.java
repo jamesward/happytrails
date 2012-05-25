@@ -2,6 +2,7 @@ package models;
 
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
+import utils.UrlUtils;
 
 import javax.persistence.*;
 import java.net.URL;
@@ -15,9 +16,26 @@ public class Route extends Model {
     @Id
     public Long id;
 
-    @Column(nullable = false)
+    @Column(length = 128, nullable = false)
     @Constraints.Required
-    public String name;
+    @Constraints.MaxLength(128)
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+        this.urlFriendlyName = UrlUtils.getUrlFriendlyName(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Column(length = 128, nullable = false)
+    private String urlFriendlyName;
+
+    public String getUrlFriendlyName() {
+        return urlFriendlyName;
+    }
 
     @Column(nullable = false)
     @Constraints.Required
@@ -53,11 +71,23 @@ public class Route extends Model {
     }
 
     public Route(String name, String description, Double distanceInMiles, Region region, String location) {
-        this.name = name;
+        setName(name);
         this.description = description;
         this.distanceInMiles = distanceInMiles;
         this.region = region;
         this.location = location;
         this.creationDate = new Date();
+    }
+
+
+    public static Finder<Long, Route> find = new Finder<Long, Route>(Long.class, Route.class);
+
+    public static Route findByUrlFriendlyName(String urlFriendlyName) {
+        try  {
+            return find.where().eq("urlFriendlyName", urlFriendlyName).findUnique();
+        }
+        catch (Exception e) {
+            return null;
+        }
     }
 }

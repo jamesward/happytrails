@@ -22,7 +22,10 @@ POST    /:region/:route/addrating   controllers.RouteController.addRating(region
 GET     /:region/:route/addcomment  controllers.RouteController.addComment(region, route)
 POST    /:region/:route/addcomment  controllers.RouteController.saveComment(region, route)
 
+GET     /:region/:route             controllers.RouteController.getRouteHtml(region, route)
+
 GET     /:region                    controllers.RegionController.getRegionHtml(region)
+
 
 
 # Map static resources from the /public folder to the /assets URL path

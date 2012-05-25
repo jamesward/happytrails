@@ -2,6 +2,7 @@ import controllers.routes;
 import models.Region;
 import org.junit.Test;
 import play.mvc.Result;
+import utils.UrlUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +18,7 @@ public class RegionControllerTest {
             public void run() {
                 DemoData.loadDemoData();
                 
-                Result result = callAction(routes.ref.RegionController.getRegionHtml(Region.getUrlFriendlyName("Denver Front Range")));
+                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName("Denver Front Range")));
                 assertThat(status(result)).isEqualTo(OK);
                 assertThat(contentAsString(result)).contains("Denver Front Range");
             }

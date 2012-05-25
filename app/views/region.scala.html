@@ -1,0 +1,11 @@
+@(region: Region)
+
+@main("Happy Trails - Regions - " + region.getName) {
+
+  <ul>
+  @for(route <- region.routes) {
+    <li>@region.getName</li>
+  }
+  </ul>
+
+}

@@ -2,10 +2,11 @@ package models;
 
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
+import utils.UrlUtils;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Region extends Model {
@@ -20,7 +21,7 @@ public class Region extends Model {
     
     public void setName(String name) {
         this.name = name;
-        this.urlFriendlyName = getUrlFriendlyName(name);
+        this.urlFriendlyName = UrlUtils.getUrlFriendlyName(name);
     }
     
     public String getName() {
@@ -33,17 +34,11 @@ public class Region extends Model {
     public String getUrlFriendlyName() {
         return urlFriendlyName;
     }
-    
-    // converts the name to a URL friendly name
-    // lowercase
-    // consecutive whitespace becomes a single dash
-    // all a-z, 0-9, and dashes are removed
-    public static String getUrlFriendlyName(String name) {
-        String urlFriendlyName = name.toLowerCase().replaceAll("\\s+", "-");
-        urlFriendlyName = urlFriendlyName.replaceAll("[^a-z0-9\\-]","");
-        return urlFriendlyName;
-    }
 
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<Route> routes = new ArrayList<Route>();
+
+    
     public Region() {
     }
 

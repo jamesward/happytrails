@@ -47,7 +47,8 @@ create table region (
 
 create table route (
   id                        bigint not null,
-  name                      varchar(255) not null,
+  name                      varchar(128) not null,
+  url_friendly_name         varchar(128) not null,
   description               varchar(255) not null,
   distance_in_miles         double,
   region_id                 bigint,
