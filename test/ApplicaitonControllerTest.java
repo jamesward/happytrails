@@ -1,6 +1,7 @@
 import controllers.routes;
 import org.junit.Test;
 import play.mvc.Result;
+import utils.DemoData;
 
 
 import java.util.HashMap;
@@ -51,7 +52,7 @@ public class ApplicaitonControllerTest {
 
                 Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest().withFormUrlEncodedBody(data));
                 assertThat(status(loginResult)).isEqualTo(SEE_OTHER);
-                assertThat(redirectLocation(loginResult)).isEqualTo("/");
+                assertThat(redirectLocation(loginResult)).isEqualTo(routes.ApplicationController.index().url());
             }
         });
     }
@@ -68,7 +69,7 @@ public class ApplicaitonControllerTest {
 
                 Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest().withFormUrlEncodedBody(data));
                 assertThat(status(loginResult)).isEqualTo(SEE_OTHER);
-                assertThat(redirectLocation(loginResult)).isEqualTo("/");
+                assertThat(redirectLocation(loginResult)).isEqualTo(routes.ApplicationController.index().url());
             }
         });
     }

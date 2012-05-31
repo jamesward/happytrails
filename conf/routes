@@ -17,10 +17,9 @@ POST    /subscribe/:region          controllers.RegionController.subscribe(regio
 GET     /:region/addroute           controllers.RegionController.addRoute(region)
 POST    /:region/addroute           controllers.RegionController.saveRoute(region)
 
-POST    /:region/:route/addrating   controllers.RouteController.addRating(region, route)
+POST    /:region/:route/rating      controllers.RouteController.saveRating(region, route)
 
-GET     /:region/:route/addcomment  controllers.RouteController.addComment(region, route)
-POST    /:region/:route/addcomment  controllers.RouteController.saveComment(region, route)
+POST    /:region/:route/comment     controllers.RouteController.saveComment(region, route)
 
 GET     /:region/:route             controllers.RouteController.getRouteHtml(region, route)
 

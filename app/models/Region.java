@@ -37,6 +37,10 @@ public class Region extends Model {
 
     @OneToMany(cascade = CascadeType.ALL)
     public List<Route> routes = new ArrayList<Route>();
+    
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<RegionSubscription> regionSubscriptions = new ArrayList<RegionSubscription>();
 
     
     public Region() {

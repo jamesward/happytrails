@@ -10,14 +10,27 @@
         <li>@direction.stepNumber - @direction.instruction</li>
     }
     </ul>
-    
+
+    <h2>Rating: @route.getAverageRating</h2>
+
+    @if(User.findByToken(session.get("token")) != null) {
+        <form action="@routes.RouteController.saveComment(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" method="post">
+            <select name="value">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <input type="submit" value="Rate!"/>
+        </form>
+    }
+
     <h2>Comments:</h2>
     <ul>
     @for(comment <- route.comments) {
         <li>@comment.value - @comment.value</li>
     }
     </ul>
-
-    <h2>Rating: @route.getAverageRating</h2>
 
 }

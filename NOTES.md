@@ -24,3 +24,7 @@ Experience Notes
 * I wish `play ~test` only ran the tests that changed
 * Getting request params directly is difficult
 * Username only available on secured resources - workaround: get it directly from the session
+
+* Typesafe reverse routeing is nice - makes refactoring URLs very easy
+
+* Dualing compilers (~run, ~test, IntelliJ)

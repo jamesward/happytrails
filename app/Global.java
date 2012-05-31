@@ -2,6 +2,7 @@ import models.User;
 import play.Application;
 import play.GlobalSettings;
 import play.Play;
+import utils.DemoData;
 
 public class Global extends GlobalSettings {
 

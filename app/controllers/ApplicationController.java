@@ -2,6 +2,7 @@ package controllers;
 
 import models.Region;
 import models.User;
+import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;

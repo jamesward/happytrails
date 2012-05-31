@@ -18,7 +18,7 @@ public class UserTest {
                 User user = new User("foo@foo.com", "password", "John Doe");
                 user.save();
                 assertThat(user.id).isNotNull();
-                assertThat(user.emailAddress).isEqualTo("foo@foo.com");
+                assertThat(user.getEmailAddress()).isEqualTo("foo@foo.com");
                 assertThat(user.fullName).isEqualTo("John Doe");
                 assertThat(user.creationDate).isNotNull();
 

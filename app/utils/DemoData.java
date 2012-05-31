@@ -1,3 +1,5 @@
+package utils;
+
 import models.*;
 import play.Logger;
 

@@ -9,12 +9,7 @@ import play.mvc.Security;
 public class RouteController extends Controller {
 
     @Security.Authenticated(Secured.class)
-    public static Result addRating(String region, String route) {
-        return ok();
-    }
-
-    @Security.Authenticated(Secured.class)
-    public static Result addComment(String region, String route) {
+    public static Result saveRating(String region, String route) {
         return ok();
     }
 

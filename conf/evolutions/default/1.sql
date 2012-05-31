@@ -45,6 +45,14 @@ create table region (
   constraint pk_region primary key (id))
 ;
 
+create table region_subscription (
+  id                        bigint not null,
+  user_id                   bigint,
+  region_id                 bigint,
+  last_send                 timestamp,
+  constraint pk_region_subscription primary key (id))
+;
+
 create table route (
   id                        bigint not null,
   name                      varchar(128) not null,
@@ -80,6 +88,8 @@ create sequence rating_seq;
 
 create sequence region_seq;
 
+create sequence region_subscription_seq;
+
 create sequence route_seq;
 
 create sequence account_seq;
@@ -96,10 +106,14 @@ alter table rating add constraint fk_rating_user_5 foreign key (user_id) referen
 create index ix_rating_user_5 on rating (user_id);
 alter table rating add constraint fk_rating_route_6 foreign key (route_id) references route (id) on delete restrict on update restrict;
 create index ix_rating_route_6 on rating (route_id);
-alter table route add constraint fk_route_region_7 foreign key (region_id) references region (id) on delete restrict on update restrict;
-create index ix_route_region_7 on route (region_id);
-alter table route add constraint fk_route_photo_8 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
-create index ix_route_photo_8 on route (photo_id);
+alter table region_subscription add constraint fk_region_subscription_user_7 foreign key (user_id) references account (id) on delete restrict on update restrict;
+create index ix_region_subscription_user_7 on region_subscription (user_id);
+alter table region_subscription add constraint fk_region_subscription_region_8 foreign key (region_id) references region (id) on delete restrict on update restrict;
+create index ix_region_subscription_region_8 on region_subscription (region_id);
+alter table route add constraint fk_route_region_9 foreign key (region_id) references region (id) on delete restrict on update restrict;
+create index ix_route_region_9 on route (region_id);
+alter table route add constraint fk_route_photo_10 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
+create index ix_route_photo_10 on route (photo_id);
 
 
 
@@ -117,6 +131,8 @@ drop table if exists rating;
 
 drop table if exists region;
 
+drop table if exists region_subscription;
+
 drop table if exists route;
 
 drop table if exists account;
@@ -132,6 +148,8 @@ drop sequence if exists photo_seq;
 drop sequence if exists rating_seq;
 
 drop sequence if exists region_seq;
+
+drop sequence if exists region_subscription_seq;
 
 drop sequence if exists route_seq;
 

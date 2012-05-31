@@ -41,4 +41,8 @@ public class Comment extends Model {
         this.value = value;
         this.creationDate = new Date();
     }
+
+
+    public static Finder<Long, Comment> find = new Finder<Long, Comment>(Long.class, Comment.class);
+    
 }

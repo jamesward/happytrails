@@ -1,5 +1,6 @@
 package models;
 
+import play.Logger;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
@@ -7,8 +8,12 @@ import javax.persistence.*;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
+
+import static play.libs.Json.toJson;
 
 @Entity
 @Table(name="account")  // because "user" is an invalid table name in some databases
@@ -23,7 +28,15 @@ public class User extends Model {
     @Constraints.MaxLength(256)
     @Constraints.Required
     @Constraints.Email
-    public String emailAddress;
+    private String emailAddress;
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress.toLowerCase();
+    }
 
     @Column(length = 64, nullable = false)
     private byte[] shaPassword;
@@ -51,14 +64,17 @@ public class User extends Model {
 
     @Column(nullable = false)
     public Date creationDate;
-
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<RegionSubscription> regionSubscriptions = new ArrayList<RegionSubscription>();
+    
 
     public User() {
         this.creationDate = new Date();
     }
 
     public User(String emailAddress, String password, String fullName) {
-        this.emailAddress = emailAddress.toLowerCase();
+        setEmailAddress(emailAddress);
         setPassword(password);
         this.fullName = fullName;
         this.creationDate = new Date();
@@ -87,12 +103,8 @@ public class User extends Model {
     public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);
 
     public static User findByEmailAddressAndPassword(String emailAddress, String password) {
-        try  {
-            return find.where().eq("emailAddress", emailAddress.toLowerCase()).eq("shaPassword", getSha512(password)).findUnique();
-        }
-        catch (Exception e) {
-            return null;
-        }
+        // todo: verify this query is correct.  Does it need an "and" statement?
+        return find.where().eq("emailAddress", emailAddress.toLowerCase()).eq("shaPassword", getSha512(password)).findUnique();
     }
 
     public static User findByToken(String token) {
@@ -107,5 +119,12 @@ public class User extends Model {
             return null;
         }
     }
+    
+    /*
+    @Override
+    public String toString() {
+        return toJson(this).toString();
+    }
+    */
 
 }

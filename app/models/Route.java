@@ -94,6 +94,7 @@ public class Route extends Model {
 
     public static Finder<Long, Route> find = new Finder<Long, Route>(Long.class, Route.class);
 
+    // todo: Current setup means that route names must be globally unique.  They should only have to be unique to the region.
     public static Route findByUrlFriendlyName(String urlFriendlyName) {
         try  {
             return find.where().eq("urlFriendlyName", urlFriendlyName).findUnique();
