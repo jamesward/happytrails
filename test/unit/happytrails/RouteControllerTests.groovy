@@ -1,7 +1,5 @@
 package happytrails
 
-
-
 import org.junit.*
 import grails.test.mixin.*
 
@@ -9,11 +7,12 @@ import grails.test.mixin.*
 @Mock(Route)
 class RouteControllerTests {
 
-
     def populateValidParams(params) {
       assert params != null
-      // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
+      params["region.name"] = "Colorado"
+      params["name"] = "Matthew Winters"
+      params["distance"] = 12.0
+      params["location"] = "Morrison, CO"
     }
 
     void testIndex() {
@@ -57,7 +56,6 @@ class RouteControllerTests {
         assert flash.message != null
         assert response.redirectedUrl == '/route/list'
 
-
         populateValidParams(params)
         def route = new Route(params)
 
@@ -75,7 +73,6 @@ class RouteControllerTests {
 
         assert flash.message != null
         assert response.redirectedUrl == '/route/list'
-
 
         populateValidParams(params)
         def route = new Route(params)
@@ -97,7 +94,6 @@ class RouteControllerTests {
 
         response.reset()
 
-
         populateValidParams(params)
         def route = new Route(params)
 
@@ -105,7 +101,7 @@ class RouteControllerTests {
 
         // test invalid parameters in update
         params.id = route.id
-        //TODO: add invalid values to params object
+        params.name = ''
 
         controller.update()
 

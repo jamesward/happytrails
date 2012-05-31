@@ -11,7 +11,13 @@ import org.junit.*
 @TestFor(Direction)
 class DirectionTests {
 
-    void testSomething() {
-        fail "Implement me"
+    void testConstraints() {
+        def direction = new Direction(stepNumber: 1, instruction: "Go Right")
+        mockForConstraintsTests(Direction, [direction])
+
+        // validation should fail if required properties are null
+        def emptyInstruction = new Direction(stepNumber: 1)
+        assert !emptyInstruction.validate()
+        assert "nullable" == emptyInstruction.errors["instruction"]
     }
 }

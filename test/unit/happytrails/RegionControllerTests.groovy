@@ -1,7 +1,5 @@
 package happytrails
 
-
-
 import org.junit.*
 import grails.test.mixin.*
 
@@ -9,11 +7,9 @@ import grails.test.mixin.*
 @Mock(Region)
 class RegionControllerTests {
 
-
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["name"] = 'Colorado'
     }
 
     void testIndex() {
@@ -97,7 +93,6 @@ class RegionControllerTests {
 
         response.reset()
 
-
         populateValidParams(params)
         def region = new Region(params)
 
@@ -105,7 +100,7 @@ class RegionControllerTests {
 
         // test invalid parameters in update
         params.id = region.id
-        //TODO: add invalid values to params object
+        params.name = '' // invalid: must be populated
 
         controller.update()
 

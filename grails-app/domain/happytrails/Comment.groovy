@@ -4,6 +4,7 @@ class Comment {
     static belongsTo = [route:Route]
 
     static constraints = {
+        value blank: false
         creationDate nullable: true
     }
 
