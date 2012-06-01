@@ -1,7 +1,10 @@
 import controllers.routes;
 import org.junit.Test;
+import play.mvc.Http;
 import play.mvc.Result;
+import play.test.FakeRequest;
 import utils.DemoData;
+import utils.UrlUtils;
 
 
 import java.util.HashMap;
@@ -47,8 +50,8 @@ public class ApplicaitonControllerTest {
                 data.put("password", "password");
                 
                 Result signupResult = callAction(routes.ref.ApplicationController.signup(), fakeRequest().withFormUrlEncodedBody(data));
-                assertThat(status(signupResult)).isEqualTo(OK);
-                assertThat(contentAsString(signupResult)).contains("Foo Bar");
+                assertThat(status(signupResult)).isEqualTo(SEE_OTHER);
+                assertThat(redirectLocation(signupResult)).isEqualTo(routes.ApplicationController.index().url());
 
                 Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest().withFormUrlEncodedBody(data));
                 assertThat(status(loginResult)).isEqualTo(SEE_OTHER);
@@ -67,9 +70,16 @@ public class ApplicaitonControllerTest {
                 data.put("emailAddress", "james@demo.com");
                 data.put("password", "password");
 
-                Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest().withFormUrlEncodedBody(data));
+                FakeRequest fakeRequest = fakeRequest().withFormUrlEncodedBody(data);
+
+                Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
                 assertThat(status(loginResult)).isEqualTo(SEE_OTHER);
                 assertThat(redirectLocation(loginResult)).isEqualTo(routes.ApplicationController.index().url());
+                String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
+
+                Result result = callAction(routes.ref.ApplicationController.index(), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
+                assertThat(status(result)).isEqualTo(OK);
+                assertThat(contentAsString(result)).contains("Hello, James Ward");
             }
         });
     }

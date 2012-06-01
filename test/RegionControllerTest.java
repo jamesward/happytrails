@@ -53,6 +53,53 @@ public class RegionControllerTest {
             }
         });
     }
+    
+    @Test
+    public void addRoute() {
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                Map<String,String> data = new HashMap<String, String>();
+                data.put("emailAddress", "james@demo.com");
+                data.put("password", "password");
+
+                FakeRequest fakeRequest = fakeRequest().withFormUrlEncodedBody(data);
+
+                Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
+                String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
+
+                Result result = callAction(routes.ref.RegionController.addRoute(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
+                assertThat(status(result)).isEqualTo(OK);
+                assertThat(contentAsString(result)).contains("Denver Front Range - Add New Route");
+            }
+        });
+    }
+
+    @Test
+    public void saveRoute() {
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                Map<String,String> data = new HashMap<String, String>();
+                data.put("emailAddress", "james@demo.com");
+                data.put("password", "password");
+
+                FakeRequest fakeRequest = fakeRequest().withFormUrlEncodedBody(data);
+
+                Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
+                String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
+
+                Map<String,String> routeData = new HashMap<String, String>();
+                routeData.put("name", "foo");
+                
+                Result result = callAction(routes.ref.RegionController.addRoute(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(routeData));
+                assertThat(status(result)).isEqualTo(SEE_OTHER);
+                assertThat(redirectLocation(result)).isEqualTo(routes.RouteController.getRouteHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "foo").url());                
+            }
+        });
+    }
 
     @Test
     public void subscribe() {

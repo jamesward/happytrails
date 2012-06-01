@@ -16,19 +16,19 @@ public class ApplicationController extends Controller {
     }
 
     public static Result signupForm() {
-        return ok(views.html.signup.render(form(User.class)));
+        return ok(views.html.signupForm.render(form(User.class)));
     }
 
     public static Result signup() {
         Form<User> signupForm = form(User.class).bindFromRequest();
         if (signupForm.hasErrors()) {
-            return badRequest(views.html.signup.render(signupForm));
+            return badRequest(views.html.signupForm.render(signupForm));
         }
         else {
             User user = signupForm.get();
             user.save();
             
-            return ok(views.html.signupComplete.render(user));
+            return redirect(controllers.routes.ApplicationController.index());
         }
     }
 
