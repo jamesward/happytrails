@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Trails</title>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 50px;
+        }
+
+        .breadcrumb {
+            border-radius: 0;
+            margin-top: -10px;
+        }
+
+        .content .span3 {
+            border: 1px solid silver;
+            padding: 5px;
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+<section id="navbar" class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Happy Trails</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li class="nav-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--div class="btn-group pull-right">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="icon-user"></i> Username
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Sign Out</a></li>
+                  </ul>
+                </div-->
+                <form class="navbar-form pull-right" action="">
+                  <input type="text" class="span2" placeholder="Username">
+                  <input type="text" class="span2" placeholder="Password">
+                </form>
+            </div>
+            <!-- /.nav-collapse -->
+        </div>
+    </div>
+    <!-- /navbar-inner -->
+</section>
+
+<ul class="breadcrumb">
+    <li><a href="#">Home</a> <span class="divider">/</span></li>
+    <li><a href="#">Library</a> <span class="divider">/</span></li>
+    <li class="active">Data</li>
+</ul>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+  <div class="span12 intro">
+    <p>Welcome to Happy Trails, where all your dreams will come true.</p>
+    <div class="row-fluid">
+        <div class="span10 content">
+            <!--Body content-->
+            <div class="row-fluid">
+              <div class="span2">spacer</div>
+              <div class="span3">region1</div>
+              <div class="span3">region2</div>
+              <div class="span2">spacer</div>
+            </div>
+        </div>
+        <div class="span2 sidebar">
+            <!--Sidebar content-->
+            sidebar
+        </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.min.js"></script>
+</body>
+</html>
+
