@@ -4,6 +4,9 @@
 
     @helper.form(action = routes.RegionController.saveRoute(region.getUrlFriendlyName)) {
         @helper.inputText(routeForm("name"))
+        @helper.inputText(routeForm("description"))
+        @helper.inputText(routeForm("distanceInMiles"))
+        @helper.inputText(routeForm("location"))
         <input type="submit" value="Create Route"/>
     }
 

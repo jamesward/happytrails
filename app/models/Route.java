@@ -82,6 +82,10 @@ public class Route extends Model {
     
     
     public Integer getAverageRating() {
+        if (ratings.size() == 0) {
+            return 0;
+        }
+        
         Integer ratingTotal = 0;
         
         for (Rating rating : ratings) {

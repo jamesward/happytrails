@@ -93,7 +93,10 @@ public class RegionControllerTest {
 
                 Map<String,String> routeData = new HashMap<String, String>();
                 routeData.put("name", "foo");
-                
+                routeData.put("description", "this is foo");
+                routeData.put("distanceInMiles", "1");
+                routeData.put("location", "nowhere");
+
                 Result result = callAction(routes.ref.RegionController.addRoute(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(routeData));
                 assertThat(status(result)).isEqualTo(SEE_OTHER);
                 assertThat(redirectLocation(result)).isEqualTo(routes.RouteController.getRouteHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "foo").url());                
