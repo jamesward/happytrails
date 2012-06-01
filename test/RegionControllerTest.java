@@ -32,6 +32,29 @@ public class RegionControllerTest {
     }
 
     @Test
+    public void getRegionHtmlLoggedIn() {
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                Map<String,String> data = new HashMap<String, String>();
+                data.put("emailAddress", "james@demo.com");
+                data.put("password", "password");
+
+                FakeRequest fakeRequest = fakeRequest().withFormUrlEncodedBody(data);
+
+                Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
+                String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
+
+                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
+                assertThat(status(result)).isEqualTo(OK);
+                assertThat(contentAsString(result)).contains("Denver Front Range");
+                assertThat(contentAsString(result)).contains("Add a New Route");
+            }
+        });
+    }
+
+    @Test
     public void subscribe() {
         running(fakeApplication(), new Runnable() {
             public void run() {

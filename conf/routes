@@ -12,7 +12,7 @@ POST    /login                      controllers.ApplicationController.login()
 
 GET     /feed/:region               controllers.RegionController.getRegionFeed(region)
 
-POST    /subscribe/:region          controllers.RegionController.subscribe(region)
+POST    /:region/subscribe          controllers.RegionController.subscribe(region)
 
 GET     /:region/addroute           controllers.RegionController.addRoute(region)
 POST    /:region/addroute           controllers.RegionController.saveRoute(region)

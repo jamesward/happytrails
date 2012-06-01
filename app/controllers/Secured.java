@@ -1,5 +1,7 @@
 package controllers;
 
+import models.User;
+import play.mvc.Http;
 import play.mvc.Http.Context;
 import play.mvc.Result;
 import play.mvc.Security;

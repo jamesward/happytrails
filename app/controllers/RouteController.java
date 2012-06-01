@@ -1,11 +1,12 @@
 package controllers;
 
-import models.Region;
 import models.Route;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import play.mvc.With;
 
+@With(CurrentUser.class)
 public class RouteController extends Controller {
 
     @Security.Authenticated(Secured.class)

@@ -6,8 +6,9 @@ import models.User;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
-import views.html.region;
+import play.mvc.With;
 
+@With(CurrentUser.class)
 public class RegionController extends Controller {
 
     public static Result getRegionFeed(String urlFriendlyRegionName) {
@@ -21,7 +22,7 @@ public class RegionController extends Controller {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
         
         RegionSubscription regionSubscription = new RegionSubscription(user, region);
-        regionSubscription.save();        
+        regionSubscription.save();
         
         return redirect(routes.RegionController.getRegionHtml(urlFriendlyRegionName));
     }

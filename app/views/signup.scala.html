@@ -3,8 +3,8 @@
 @main("Happy Trails - Signup") {
 
     @helper.form(action = routes.ApplicationController.signup()) {
-        @helper.inputText(signupForm("emailAddress"))
         @helper.inputText(signupForm("fullName"))
+        @helper.inputText(signupForm("emailAddress"))
         @helper.inputPassword(signupForm("password"))
         <input type="submit" value="Create Account"/>
     }

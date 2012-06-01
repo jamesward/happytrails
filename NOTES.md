@@ -28,3 +28,4 @@ Experience Notes
 * Typesafe reverse routeing is nice - makes refactoring URLs very easy
 
 * Dualing compilers (~run, ~test, IntelliJ)
+* No auto CRUD UI

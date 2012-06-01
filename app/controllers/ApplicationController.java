@@ -2,13 +2,13 @@ package controllers;
 
 import models.Region;
 import models.User;
-import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.With;
 
-import java.util.UUID;
 
+@With(CurrentUser.class)
 public class ApplicationController extends Controller {
 
     public static Result index() {

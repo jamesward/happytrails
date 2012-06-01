@@ -2,10 +2,14 @@
 
 @main("Happy Trails - Regions - " + region.getName) {
 
-  <ul>
-  @for(route <- region.routes) {
-    <li><a href="@routes.RouteController.getRouteHtml(region.getUrlFriendlyName, route.getUrlFriendlyName)">@route.getName</a></li>
-  }
-  </ul>
+    <ul>
+        @for(route <- region.routes) {
+        <li><a href="@routes.RouteController.getRouteHtml(region.getUrlFriendlyName, route.getUrlFriendlyName)">@route.getName</a></li>
+        }
+    </ul>
+
+    @if(CurrentUser.get() != null) {
+        <a href="@routes.RegionController.addRoute(region.getUrlFriendlyName)">Add a New Route</a>
+    }
 
 }
