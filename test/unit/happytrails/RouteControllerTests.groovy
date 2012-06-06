@@ -11,6 +11,7 @@ class RouteControllerTests {
       assert params != null
       params["region.name"] = "Colorado"
       params["name"] = "Matthew Winters"
+      params["seoName"] = "matthew-winters"
       params["distance"] = 12.0
       params["location"] = "Morrison, CO"
     }

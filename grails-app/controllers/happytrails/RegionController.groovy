@@ -26,7 +26,7 @@ class RegionController {
             return
         }
 
-		flash.message = message(code: 'default.created.message', args: [message(code: 'region.label', default: 'Region'), regionInstance.id])
+        flash.message = message(code: 'default.created.message', args: [message(code: 'region.label', default: 'Region'), regionInstance.id])
         redirect(action: "show", id: regionInstance.id)
     }
 
@@ -34,18 +34,18 @@ class RegionController {
         println("finding by name: " + params.region)
         def regionInstance = Region.findBySeoName(params.region)
         if (!regionInstance) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'region.label', default: 'Region'), params.id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'region.label', default: 'Region'), params.id])
             redirect(action: "list")
             return
         }
 
-        render(view: "show", model:  [regionInstance: regionInstance])
+        render(view: "show", model: [regionInstance: regionInstance])
     }
 
     def show() {
         def regionInstance = Region.get(params.id)
         if (!regionInstance) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'region.label', default: 'Region'), params.id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'region.label', default: 'Region'), params.id])
             redirect(action: "list")
             return
         }
@@ -53,11 +53,24 @@ class RegionController {
         [regionInstance: regionInstance]
     }
 
-    def feed() {
-        println("finding by name: " + params.region)
-        def region = Region.findByName(params.region)
-        println(region)
-        // todo: create atom feed of routes
+    def feed = {
+        println('params.region: ' + params.region)
+        def region = Region.findBySeoName(params.region)
+        if (!region) {
+            response.status = 404
+            return
+        }
+        render(feedType: "atom") {
+            title = "Happy Trails Feed for " + region.name
+            link = "http://your.test.server/yourController/feed" // todo: server url
+            description = "New Routes and Reviews for " + region.name
+            region.routes.each() { route ->
+                entry(route.name) {
+                    link = "http://your.test.server/route/${route.id}"
+                    route.description
+                }
+            }
+        }
     }
 
     def edit() {
@@ -83,8 +96,8 @@ class RegionController {
             def version = params.version.toLong()
             if (regionInstance.version > version) {
                 regionInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'region.label', default: 'Region')] as Object[],
-                          "Another user has updated this Region while you were editing")
+                        [message(code: 'region.label', default: 'Region')] as Object[],
+                        "Another user has updated this Region while you were editing")
                 render(view: "edit", model: [regionInstance: regionInstance])
                 return
             }
@@ -97,25 +110,25 @@ class RegionController {
             return
         }
 
-		flash.message = message(code: 'default.updated.message', args: [message(code: 'region.label', default: 'Region'), regionInstance.id])
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'region.label', default: 'Region'), regionInstance.id])
         redirect(action: "show", id: regionInstance.id)
     }
 
     def delete() {
         def regionInstance = Region.get(params.id)
         if (!regionInstance) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'region.label', default: 'Region'), params.id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'region.label', default: 'Region'), params.id])
             redirect(action: "list")
             return
         }
 
         try {
             regionInstance.delete(flush: true)
-			flash.message = message(code: 'default.deleted.message', args: [message(code: 'region.label', default: 'Region'), params.id])
+            flash.message = message(code: 'default.deleted.message', args: [message(code: 'region.label', default: 'Region'), params.id])
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'region.label', default: 'Region'), params.id])
+            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'region.label', default: 'Region'), params.id])
             redirect(action: "show", id: params.id)
         }
     }

@@ -6,6 +6,7 @@ class Route {
 
     static constraints = {
         name blank: false, unique: true
+        description nullable: true
         distance blank: false
         location blank: false
         region blank: false
@@ -16,6 +17,7 @@ class Route {
     }
 
     String name
+    String description
     String seoName
     Double distance
     Region region

@@ -1,5 +1,6 @@
 import happytrails.User
 import happytrails.Region
+import happytrails.Route
 
 class BootStrap {
 
@@ -9,7 +10,12 @@ class BootStrap {
                      name: "Matt Raible", enabled: true).save(failOnError: true)
         }
         if (!Region.count()) {
-            new Region(name: "Colorado Front Range").save(failOnError: true)
+            def frontRange = new Region(name: "Colorado Front Range").save(failOnError: true)
+            // Add routes
+            frontRange.routes.add(new Route(name: "White Ranch", description: "Long uphill climb"))
+            frontRange.routes.add(new Route(name: "The Hogback", description: "Very Technical, but fun!"))
+            frontRange.save(failOnError: true)
+
             new Region(name: "Colorado Western Slope").save(failOnError: true)
             new Region(name: "Moab").save(failOnError: true)
             new Region(name: "Fruita").save(failOnError: true)

@@ -9,6 +9,7 @@ class Region {
 
     String name
     String seoName
+    List<Route> routes = []
 
     def beforeValidate() {
         if (!seoName) seoName = name?.asFriendlyUrl()

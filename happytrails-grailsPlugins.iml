@@ -19,6 +19,7 @@
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/mail-1.0/grails-app/views" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/jquery-1.7.1/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/famfamfam-1.0.1/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/web-app" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -31,6 +32,11 @@
     </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/famfamfam-1.0.1">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/famfamfam-1.0.1/grails-app/taglib" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/grails-app/i18n" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/grails-app/taglib" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/hibernate-2.0.3">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/hibernate-2.0.3/grails-app/i18n" isTestSource="false" />
@@ -96,9 +102,11 @@
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-core/jars/spring-security-core-3.0.7.RELEASE.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.activation/activation/jars/activation-1.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.mail/mail/jars/mail-1.4.3.jar!/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/lib" recursive="false" />
       </library>
     </orderEntry>
   </component>

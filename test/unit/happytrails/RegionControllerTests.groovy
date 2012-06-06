@@ -10,6 +10,7 @@ class RegionControllerTests {
     def populateValidParams(params) {
         assert params != null
         params["name"] = 'Colorado'
+        params["seoName"] = 'colorado'
     }
 
     void testIndex() {
@@ -52,7 +53,6 @@ class RegionControllerTests {
 
         assert flash.message != null
         assert response.redirectedUrl == '/region/list'
-
 
         populateValidParams(params)
         def region = new Region(params)

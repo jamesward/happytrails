@@ -12,6 +12,7 @@ import org.junit.*
 class RouteTests {
 
     void testConstraints() {
+
         def region = new Region(name: "Colorado")
         def whiteRanch = new Route(name: "White Ranch", distance: 12.0, location: "Golden, CO", region: region)
         mockForConstraintsTests(Route, [whiteRanch])
@@ -22,12 +23,12 @@ class RouteTests {
         assert "nullable" == route.errors["name"]
 
         // verify unique constraint
-        route = new Route(name: "White Ranch", distance: 3, location: "Golden, CO", region: region)
+        route = new Route(name: "White Ranch", seoName: "white-ranch", distance: 3, location: "Golden, CO", region: region)
         assert !route.validate()
         assert "unique" == route.errors["name"]
 
         // validation should pass
-        route = new Route(name: "Matthew Winters", distance: 3, location: "Morrison, CO", region: region)
+        route = new Route(name: "Mount Falcon", seoName: "mount-falcon", distance: 6, location: "Morrison, CO", region: region)
         assert route.validate()
     }
 }
