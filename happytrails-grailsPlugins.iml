@@ -3,7 +3,10 @@
   <component name="FacetManager">
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="Gorm" />
+          <unit-entry name="sessionFactory" />
+        </datasource-map>
       </configuration>
     </facet>
     <facet type="web" name="GrailsWeb">
@@ -53,6 +56,9 @@
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/resources-1.1.6/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/resources-1.1.6/grails-app/i18n" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/resources-1.1.6/grails-app/taglib" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/seofriendly-urls-1.0.2">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/seofriendly-urls-1.0.2/grails-app/services" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/spring-security-core-1.2.7.3">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/spring-security-core-1.2.7.3/src/java" isTestSource="false" />

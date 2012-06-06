@@ -12,9 +12,11 @@ class Route {
         photo nullable: true
         mapUrl nullable: true
         creationDate nullable: true
+        seoName unique: true
     }
 
     String name
+    String seoName
     Double distance
     Region region
     String location
@@ -27,5 +29,9 @@ class Route {
 
     def beforeInsert() {
         creationDate = new Date()
+    }
+
+    def beforeValidate() {
+        if (!seoName) seoName = name?.asFriendlyUrl()
     }
 }

@@ -1,97 +1,10 @@
-Notes for Matt & James
-======================
+Notes on Play 2
+===============
 
-Technical Goals
----------------
+Experience Notes
+----------------
 
-* RESTful Service
-* Server-side Templates
-* Play2 w/ Java
-* Grails
-* Form Validation
-* Data Pagination
-* Auth
-* Scheduled Jobs
-* Atom / RSS
-* Email Notifications
-* Indexing
-* Load Testing (Blitz)
-* Performance Testing (YSlow, etc)
-* S3 Integration
-* Unit / Integration Testing
+* SEO URLs Plugin - http://www.grails.org/plugin/seofriendly-urls
 
-
-Presentation Agenda
--------------------
-
-1. Framework Overviews
-2. Emperical Data (Load Test, LOC, etc)
-3. Developer Experience
-
-
-Schedule
---------
-
-* Week 1 - Data Model Definition
-* Week 2 - Data Layer & URL Design
-* Week 3 - Controllers & Auth
-* Week 4 - Views
-* Week 5 - Misc Polish
-
-
-Data Model
-----------
-
-* Route
-
-        Long id
-        String name
-        String distance
-        Region region
-        String location
-        List<Direction> directions
-        URL mapUrl
-        List<Rating> ratings
-        List<Comment> comments
-        Photo photo
-        Date creationDate
-
-* Direction
-
-        Long id
-        Integer stepNumber
-        String instruction
-
-* Region
-
-        Long id
-        String name
-
-* Rating
-
-        Long id
-        User user
-        Integer value
-        Date creationDate
-
-* Comment
-
-        Long id
-        User user
-        String value
-        Photo photo
-        Date creationDate
-
-* User
-
-        Long id
-        String emailAddress
-        String password
-        String name
-        Date creationDate
-
-* Photo
-
-        Long id
-        URL thumbnailUrl
-        URL fullUrl
+Mapping Grails URLs to Play
+http://grails.1312388.n4.nabble.com/Mapping-Friendly-URLs-to-the-root-td4629664.html

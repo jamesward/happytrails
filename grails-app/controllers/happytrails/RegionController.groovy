@@ -30,6 +30,18 @@ class RegionController {
         redirect(action: "show", id: regionInstance.id)
     }
 
+    def find() {
+        println("finding by name: " + params.region)
+        def regionInstance = Region.findBySeoName(params.region)
+        if (!regionInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'region.label', default: 'Region'), params.id])
+            redirect(action: "list")
+            return
+        }
+
+        render(view: "show", model:  [regionInstance: regionInstance])
+    }
+
     def show() {
         def regionInstance = Region.get(params.id)
         if (!regionInstance) {
@@ -39,6 +51,13 @@ class RegionController {
         }
 
         [regionInstance: regionInstance]
+    }
+
+    def feed() {
+        println("finding by name: " + params.region)
+        def region = Region.findByName(params.region)
+        println(region)
+        // todo: create atom feed of routes
     }
 
     def edit() {
