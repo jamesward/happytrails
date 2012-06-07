@@ -22,10 +22,7 @@ class Route {
     Double distance
     Region region
     String location
-    List<Direction> directions
     URL mapUrl
-    List<Rating> ratings
-    List<Comment> comments
     Photo photo
     Date creationDate
 

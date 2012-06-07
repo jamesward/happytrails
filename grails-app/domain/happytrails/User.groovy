@@ -20,6 +20,8 @@ class User {
         creationDate nullable: true
     }
 
+    static hasMany = [regionSubscriptions:RegionSubscription]
+
     static mapping = {
         table 'users'
         password column: '`password`'
