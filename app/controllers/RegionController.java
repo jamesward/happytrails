@@ -5,10 +5,14 @@ import models.RegionSubscription;
 import models.Route;
 import models.User;
 import play.data.Form;
+import play.data.validation.ValidationError;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 import play.mvc.With;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @With(CurrentUser.class)
 public class RegionController extends Controller {
@@ -44,6 +48,14 @@ public class RegionController extends Controller {
     public static Result saveRoute(String urlFriendlyRegionName) {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
         Form<Route> routeForm = form(Route.class).bindFromRequest();
+        
+        // check if the name is a duplicate
+        if (Route.findByUrlFriendlyName(region, routeForm.get().getUrlFriendlyName()) != null) {
+            List<ValidationError> errors = new ArrayList<ValidationError>();
+            errors.add(new ValidationError("", "Duplicate Route Name", new ArrayList()));
+            routeForm.errors().put("error", errors);
+        }
+        
         if (routeForm.hasErrors()) {
             return badRequest(views.html.routeForm.render(region, routeForm));
         }

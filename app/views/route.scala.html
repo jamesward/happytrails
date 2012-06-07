@@ -11,10 +11,10 @@
     }
     </ul>
 
-    <h2>Rating: @route.getAverageRating</h2>
+    <h2>Average Rating: @route.getAverageRating</h2>
 
     @if(User.findByToken(session.get("token")) != null) {
-        <form action="@routes.RouteController.saveComment(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" method="post">
+        <form action="@routes.RouteController.saveRating(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" method="post">
             <select name="value">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -32,5 +32,13 @@
         <li>@comment.value - @comment.value</li>
     }
     </ul>
+
+    @if(CurrentUser.get() != null) {
+        <h2>Add a Comment:</h2>
+        <form action="@routes.RouteController.saveComment(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" method="post">
+            <textarea name="value" rows="6" cols="80"></textarea><br/>
+            <input type="submit" value="Post Comment"/>
+        </form>
+    }
 
 }

@@ -41,19 +41,19 @@ public class Route extends Model {
     @Constraints.Required
     public String description;
 
+    @Column(nullable = false)
+    @Constraints.Required
     public Double distanceInMiles;
-
-    @ManyToOne
-    public Region region;
 
     @Column(nullable = false)
     @Constraints.Required
     public String location;
 
+    @ManyToOne
+    public Region region;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
     public List<Direction> directions = new ArrayList<Direction>();
-
-    public URL mapUrl;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
     public List<Rating> ratings  = new ArrayList<Rating>();
@@ -63,6 +63,8 @@ public class Route extends Model {
 
     @OneToOne
     public Photo photo;
+
+    public URL mapUrl;
 
     public Date creationDate;
     
@@ -98,10 +100,9 @@ public class Route extends Model {
 
     public static Finder<Long, Route> find = new Finder<Long, Route>(Long.class, Route.class);
 
-    // todo: Current setup means that route names must be globally unique.  They should only have to be unique to the region.
-    public static Route findByUrlFriendlyName(String urlFriendlyName) {
+    public static Route findByUrlFriendlyName(Region region, String urlFriendlyName) {
         try  {
-            return find.where().eq("urlFriendlyName", urlFriendlyName).findUnique();
+            return find.where().eq("urlFriendlyName", urlFriendlyName).eq("region.id", region.id).findUnique();
         }
         catch (Exception e) {
             return null;

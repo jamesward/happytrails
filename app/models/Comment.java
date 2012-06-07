@@ -12,22 +12,20 @@ public class Comment extends Model {
     @Id
     public Long id;
 
-    @ManyToOne
-    @Column(nullable = false)
-    @Constraints.Required
-    public User user;
-
     @Column(length = 1024, nullable = false)
     @Constraints.MaxLength(1024)
     @Constraints.Required
     public String value;
 
+    @Column(nullable = false)
+    public Date creationDate;
+
     @OneToOne
     public Photo photo;
-
+    
+    @ManyToOne
     @Column(nullable = false)
-    @Constraints.Required
-    public Date creationDate;
+    public User user;
     
     @ManyToOne
     public Route route;

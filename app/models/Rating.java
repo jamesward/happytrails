@@ -16,11 +16,6 @@ public class Rating extends Model {
     @Id
     public Long id;
 
-    @ManyToOne
-    @Column(nullable = false)
-    @Constraints.Required
-    public User user;
-
     @Constraints.Min(1)
     @Constraints.Max(5)
     @Column(nullable = false)
@@ -28,10 +23,14 @@ public class Rating extends Model {
     public Integer value;
 
     @Column(nullable = false)
-    @Constraints.Required
     public Date creationDate;
+
+    @ManyToOne
+    @Column(nullable = false)
+    public User user;
     
     @ManyToOne
+    @Column(nullable = false)
     public Route route;
 
     public Rating() {
@@ -42,6 +41,17 @@ public class Rating extends Model {
         this.user = user;
         this.value = value;
         this.creationDate = new Date();
+    }
+
+    public static Finder<Long, Rating> find = new Finder<Long, Rating>(Long.class, Rating.class);
+
+    public static Rating findByUserAndRoute(User user, Route route) {
+        try  {
+            return find.where().eq("user.id", user.id).eq("route.id", route.id).findUnique();
+        }
+        catch (Exception e) {
+            return null;
+        }
     }
 
 }

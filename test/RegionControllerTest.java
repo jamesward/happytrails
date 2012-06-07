@@ -99,7 +99,34 @@ public class RegionControllerTest {
 
                 Result result = callAction(routes.ref.RegionController.saveRoute(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(routeData));
                 assertThat(status(result)).isEqualTo(SEE_OTHER);
-                assertThat(redirectLocation(result)).isEqualTo(routes.RouteController.getRouteHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "foo").url());                
+                assertThat(redirectLocation(result)).isEqualTo(routes.RouteController.getRouteHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "foo").url());
+            }
+        });
+    }
+
+    @Test
+    public void saveRouteWithDuplicateName() {
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                Map<String,String> data = new HashMap<String, String>();
+                data.put("emailAddress", "james@demo.com");
+                data.put("password", "password");
+
+                FakeRequest fakeRequest = fakeRequest().withFormUrlEncodedBody(data);
+
+                Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
+                String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
+
+                Map<String,String> routeData = new HashMap<String, String>();
+                routeData.put("name", "Dakota Ridge, Red Rocks and Mathews Winters");
+                routeData.put("description", "this is foo");
+                routeData.put("distanceInMiles", "1");
+                routeData.put("location", "nowhere");
+
+                Result result = callAction(routes.ref.RegionController.saveRoute(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(routeData));
+                assertThat(status(result)).isEqualTo(BAD_REQUEST);
             }
         });
     }

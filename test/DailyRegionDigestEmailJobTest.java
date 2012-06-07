@@ -25,7 +25,7 @@ public class DailyRegionDigestEmailJobTest {
                 RegionSubscription regionSubscription = new RegionSubscription(subscribingUser, region);
                 regionSubscription.save();
                 
-                Route route = Route.findByUrlFriendlyName(UrlUtils.getUrlFriendlyName("Dakota Ridge, Red Rocks and Mathews Winters"));
+                Route route = Route.findByUrlFriendlyName(region, UrlUtils.getUrlFriendlyName("Dakota Ridge, Red Rocks and Mathews Winters"));
                 
                 User commentingUser = User.findByEmailAddressAndPassword("matt@demo.com", "password");
                 

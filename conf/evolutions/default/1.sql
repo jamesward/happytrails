@@ -5,10 +5,10 @@
 
 create table comment (
   id                        bigint not null,
-  user_id                   bigint,
   value                     varchar(1024) not null,
-  photo_id                  bigint,
   creation_date             timestamp not null,
+  photo_id                  bigint,
+  user_id                   bigint,
   route_id                  bigint,
   constraint pk_comment primary key (id))
 ;
@@ -30,9 +30,9 @@ create table photo (
 
 create table rating (
   id                        bigint not null,
-  user_id                   bigint,
   value                     integer not null,
   creation_date             timestamp not null,
+  user_id                   bigint,
   route_id                  bigint,
   constraint pk_rating primary key (id))
 ;
@@ -58,11 +58,11 @@ create table route (
   name                      varchar(128) not null,
   url_friendly_name         varchar(128) not null,
   description               varchar(255) not null,
-  distance_in_miles         double,
-  region_id                 bigint,
+  distance_in_miles         double not null,
   location                  varchar(255) not null,
-  map_url                   varchar(255),
+  region_id                 bigint,
   photo_id                  bigint,
+  map_url                   varchar(255),
   creation_date             timestamp,
   constraint pk_route primary key (id))
 ;
@@ -94,10 +94,10 @@ create sequence route_seq;
 
 create sequence account_seq;
 
-alter table comment add constraint fk_comment_user_1 foreign key (user_id) references account (id) on delete restrict on update restrict;
-create index ix_comment_user_1 on comment (user_id);
-alter table comment add constraint fk_comment_photo_2 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
-create index ix_comment_photo_2 on comment (photo_id);
+alter table comment add constraint fk_comment_photo_1 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
+create index ix_comment_photo_1 on comment (photo_id);
+alter table comment add constraint fk_comment_user_2 foreign key (user_id) references account (id) on delete restrict on update restrict;
+create index ix_comment_user_2 on comment (user_id);
 alter table comment add constraint fk_comment_route_3 foreign key (route_id) references route (id) on delete restrict on update restrict;
 create index ix_comment_route_3 on comment (route_id);
 alter table direction add constraint fk_direction_route_4 foreign key (route_id) references route (id) on delete restrict on update restrict;

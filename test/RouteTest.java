@@ -2,6 +2,8 @@ import models.Rating;
 import models.Route;
 import models.Region;
 import org.junit.Test;
+import utils.DemoData;
+import utils.UrlUtils;
 
 import javax.persistence.PersistenceException;
 
@@ -12,7 +14,7 @@ import static play.test.Helpers.running;
 public class RouteTest {
 
     @Test
-    public void testCreate() {
+    public void save() {
         running(fakeApplication(), new Runnable() {
             public void run() {
                 Region region = new Region("foo region");
@@ -29,7 +31,7 @@ public class RouteTest {
     }
 
     @Test(expected = PersistenceException.class)
-    public void testCreateEmptyValue() {
+    public void saveEmptyValue() {
         running(fakeApplication(), new Runnable() {
             public void run() {
                 Route route = new Route();
@@ -39,14 +41,14 @@ public class RouteTest {
     }
 
     @Test
-    public void testUrlFriendlyName() {
+    public void urlFriendlyName() {
         Route route = new Route();
         route.setName("Foo  foo `~1!2@3#4$5%6^7&8*9(0)-_=+[{]}\\|;:'\",<.>/?");
         assertThat(route.getUrlFriendlyName()).isEqualTo("foo-foo-1234567890-");
     }
     
     @Test
-    public void testAverageRating() {
+    public void averageRating() {
         Route route = new Route();
         
         Rating rating1 = new Rating();
@@ -58,6 +60,21 @@ public class RouteTest {
         route.ratings.add(rating5);
         
         assertThat(route.getAverageRating()).isEqualTo(3);
+    }
+
+    @Test
+    public void findByUrlFriendlyName() {
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+                
+                Region region = Region.findByUrlFriendlyName(UrlUtils.getUrlFriendlyName("Denver Front Range"));
+                
+                Route route = Route.findByUrlFriendlyName(region, UrlUtils.getUrlFriendlyName("Dakota Ridge, Red Rocks and Mathews Winters"));
+                assertThat(route).isNotNull();
+                assertThat(route.getName()).isEqualTo("Dakota Ridge, Red Rocks and Mathews Winters");
+            }
+        });
     }
 
 }
