@@ -5,6 +5,7 @@ import models.User;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 import play.mvc.With;
 
 
@@ -28,7 +29,7 @@ public class ApplicationController extends Controller {
             User user = signupForm.get();
             user.save();
             
-            return redirect(controllers.routes.ApplicationController.index());
+            return redirect(routes.ApplicationController.index());
         }
     }
 
@@ -45,6 +46,12 @@ public class ApplicationController extends Controller {
             session("token", user.createToken());
             return redirect(controllers.routes.ApplicationController.index());
         }
+    }
+
+    @Security.Authenticated(Secured.class)
+    public static Result logout() {
+        session().remove("token");
+        return redirect(routes.ApplicationController.index());
     }
     
     public static class Login {

@@ -1,9 +1,6 @@
 package jobs;
 
-import models.Comment;
-import models.RegionSubscription;
-import models.Route;
-import models.User;
+import models.*;
 import play.Logger;
 import play.api.Play;
 import play.api.Mode;
@@ -35,9 +32,15 @@ public class DailyRegionDigestEmailJob {
             RegionUserDigest regionUserDigest = new RegionUserDigest(user);
             
             for (RegionSubscription regionSubscription : user.regionSubscriptions) {
-                for (Route route : regionSubscription.region.routes) {
+                Region region = regionSubscription.region;
+                //System.out.println("Region = " + region);
+                //System.out.println("Region.routes = " + region.routes);
+                
+                for (Route route : region.routes) {
+                    //System.out.println("Route = " + route);
                     // todo: can this be optimized with a db query
                     for (Comment comment : route.comments) {
+                        //System.out.println("Comment = " + comment);
                         if (comment.creationDate.after(regionSubscription.lastSend)) {
                             regionUserDigest.comments.add(comment);
                         }

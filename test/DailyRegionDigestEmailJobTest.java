@@ -13,7 +13,7 @@ import static play.test.Helpers.running;
 public class DailyRegionDigestEmailJobTest {
     
     @Test
-    public void testSubscribe() {
+    public void getRegionUserDigests() {
         running(fakeApplication(), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();

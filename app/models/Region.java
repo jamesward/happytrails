@@ -35,11 +35,11 @@ public class Region extends Model {
         return urlFriendlyName;
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "region")
     public List<Route> routes = new ArrayList<Route>();
     
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "region")
     public List<RegionSubscription> regionSubscriptions = new ArrayList<RegionSubscription>();
 
     
@@ -61,5 +61,5 @@ public class Region extends Model {
             return null;
         }
     }
-    
+
 }

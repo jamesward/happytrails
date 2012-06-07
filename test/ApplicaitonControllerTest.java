@@ -16,7 +16,7 @@ import static play.test.Helpers.*;
 public class ApplicaitonControllerTest {
 
     @Test
-    public void testIndex() {
+    public void index() {
         running(fakeApplication(), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
@@ -30,7 +30,7 @@ public class ApplicaitonControllerTest {
     }
 
     @Test
-    public void testSignupForm() {
+    public void signupForm() {
         running(fakeApplication(), new Runnable() {
             public void run() {
                 Result result = callAction(routes.ref.ApplicationController.signupForm());
@@ -41,7 +41,7 @@ public class ApplicaitonControllerTest {
     }
 
     @Test
-    public void testSignup() {
+    public void signup() {
         running(fakeApplication(), new Runnable() {
             public void run() {
                 Map<String,String> data = new HashMap<java.lang.String, java.lang.String>();
@@ -61,7 +61,7 @@ public class ApplicaitonControllerTest {
     }
 
     @Test
-    public void testLogin() {
+    public void login() {
         running(fakeApplication(), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
@@ -85,7 +85,7 @@ public class ApplicaitonControllerTest {
     }
 
     @Test
-    public void testLoginWithBadPassword() {
+    public void loginWithBadPassword() {
         running(fakeApplication(), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
@@ -96,6 +96,37 @@ public class ApplicaitonControllerTest {
 
                 Result result = callAction(routes.ref.ApplicationController.login(), fakeRequest().withFormUrlEncodedBody(data));
                 assertThat(status(result)).isEqualTo(BAD_REQUEST);
+            }
+        });
+    }
+
+    @Test
+    public void logout() {
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                Map<String,String> data = new HashMap<java.lang.String, java.lang.String>();
+                data.put("emailAddress", "james@demo.com");
+                data.put("password", "password");
+
+                FakeRequest fakeRequest = fakeRequest().withFormUrlEncodedBody(data);
+
+                Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
+                assertThat(status(loginResult)).isEqualTo(SEE_OTHER);
+                assertThat(redirectLocation(loginResult)).isEqualTo(routes.ApplicationController.index().url());
+
+                Result loggedInIndexResult = callAction(routes.ref.ApplicationController.index(), fakeRequest().withHeader(Http.HeaderNames.COOKIE, header(Http.HeaderNames.SET_COOKIE, loginResult)));
+                assertThat(status(loggedInIndexResult)).isEqualTo(OK);
+                assertThat(contentAsString(loggedInIndexResult)).contains("Hello, James Ward");
+
+                Result logoutResult = callAction(routes.ref.ApplicationController.logout(), fakeRequest().withHeader(Http.HeaderNames.COOKIE, header(Http.HeaderNames.SET_COOKIE, loginResult)));
+                assertThat(status(logoutResult)).isEqualTo(SEE_OTHER);
+                assertThat(redirectLocation(loginResult)).isEqualTo(routes.ApplicationController.index().url());
+
+                Result loggedOutIndexResult = callAction(routes.ref.ApplicationController.index(), fakeRequest().withHeader(Http.HeaderNames.COOKIE, header(Http.HeaderNames.SET_COOKIE, logoutResult)));
+                assertThat(status(loggedOutIndexResult)).isEqualTo(OK);
+                assertThat(contentAsString(loggedOutIndexResult)).doesNotContain("Hello, James Ward");
             }
         });
     }

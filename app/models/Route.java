@@ -50,15 +50,15 @@ public class Route extends Model {
     @Constraints.Required
     public String location;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
     public List<Direction> directions = new ArrayList<Direction>();
 
     public URL mapUrl;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
     public List<Rating> ratings  = new ArrayList<Rating>();
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
     public List<Comment> comments = new ArrayList<Comment>();
 
     @OneToOne
@@ -107,4 +107,5 @@ public class Route extends Model {
             return null;
         }
     }
+
 }

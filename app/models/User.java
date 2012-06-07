@@ -65,7 +65,7 @@ public class User extends Model {
     @Column(nullable = false)
     public Date creationDate;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     public List<RegionSubscription> regionSubscriptions = new ArrayList<RegionSubscription>();
     
 
@@ -119,12 +119,5 @@ public class User extends Model {
             return null;
         }
     }
-    
-    /*
-    @Override
-    public String toString() {
-        return toJson(this).toString();
-    }
-    */
 
 }

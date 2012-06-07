@@ -33,4 +33,5 @@ public class RegionSubscription extends Model {
         this.region = region;
         this.lastSend = new Date();
     }
+
 }

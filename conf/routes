@@ -10,6 +10,8 @@ POST    /signup                     controllers.ApplicationController.signup()
 
 POST    /login                      controllers.ApplicationController.login()
 
+GET     /logout                     controllers.ApplicationController.logout()
+
 GET     /feed/:region               controllers.RegionController.getRegionFeed(region)
 
 POST    /:region/subscribe          controllers.RegionController.subscribe(region)
