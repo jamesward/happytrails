@@ -10,17 +10,17 @@ class BootStrap {
                      name: "Matt Raible", enabled: true).save(failOnError: true)
         }
         if (!Region.count()) {
-            def frontRange = new Region(name: "Colorado Front Range").save(failOnError: true)
+            Region frontRange = new Region(name: "Colorado Front Range").save(failOnError: true)
             // Add routes
-            frontRange.routes.add(new Route(name: "White Ranch", description: "Long uphill climb"))
-            frontRange.routes.add(new Route(name: "The Hogback", description: "Very Technical, but fun!"))
+            frontRange.addToRoutes(new Route(name: "White Ranch", distance: 10, location: "Golden, CO",
+                    description: "Long uphill climb"))
+            frontRange.addToRoutes(new Route(name: "The Hogback", distance:  3, location: "Morrison, CO",
+                    description: "Very Technical, but fun!"))
             frontRange.save(failOnError: true)
 
             new Region(name: "Colorado Western Slope").save(failOnError: true)
             new Region(name: "Moab").save(failOnError: true)
-            new Region(name: "Fruita").save(failOnError: true)
-            new Region(name: "California").save(failOnError: true)
-            new Region(name: "Montana").save(failOnError: true)
+            new Region(name: "Grand Valley").save(failOnError: true)
         }
     }
     def destroy = {

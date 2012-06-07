@@ -1,6 +1,5 @@
 package happytrails
 
-import org.junit.*
 import grails.test.mixin.*
 
 @TestFor(RouteController)

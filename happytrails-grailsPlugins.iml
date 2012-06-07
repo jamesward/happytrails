@@ -57,6 +57,11 @@
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/mail-1.0/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/mail-1.0/grails-app/taglib" isTestSource="false" />
     </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/quartz-1.0-RC2">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/quartz-1.0-RC2/src/java" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/quartz-1.0-RC2/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/quartz-1.0-RC2/grails-app/services" isTestSource="false" />
+    </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/resources-1.1.6">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/resources-1.1.6/src/java" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/resources-1.1.6/src/groovy" isTestSource="false" />
@@ -90,6 +95,7 @@
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (happytrails-grailsPlugins)">
         <CLASSES>
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/lib" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/postgresql/postgresql/jars/postgresql-9.1-901-1.jdbc4.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/stax/stax-api/jars/stax-api-1.0.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.codehaus.jettison/jettison/jars/jettison-1.0.1.jar!/" />
@@ -102,7 +108,7 @@
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-core/jars/spring-security-core-3.0.7.RELEASE.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.activation/activation/jars/activation-1.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.mail/mail/jars/mail-1.4.3.jar!/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/lib" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.quartz-scheduler/quartz/jars/quartz-1.8.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

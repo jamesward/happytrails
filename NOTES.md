@@ -12,6 +12,8 @@ http://grails.1312388.n4.nabble.com/Mapping-Friendly-URLs-to-the-root-td4629664.
 Feeds Plugin
 http://grails.org/plugin/feeds
 
+Quartz
+
 Issues
 -----------------
 * No signature of method: java.lang.String.asFriendlyUrl()

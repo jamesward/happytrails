@@ -11,6 +11,8 @@ class UrlMappings {
         "/"(controller: "home", action: "index")
         "/login"(controller: "login", action: "auth")
         "/feed/$region"(controller: "region", action: "feed")
+        "/signup"(controller: "register")
+        "/register/register"(controller: "register", action: "register")
         /*"/$region/subscribe"(controller: "region", action: "subscribe")
         "/$region/addroute"(controller: "region") {
             action = [PUT: "addRoute", POST: "saveRoute"]

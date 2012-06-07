@@ -1,6 +1,4 @@
-import happytrails.Region
-import happytrails.Route
-import happytrails.RegionController
+package happytrails
 
 class RegionControllerIntegrationTests extends GroovyTestCase {
 
