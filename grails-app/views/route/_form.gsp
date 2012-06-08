@@ -23,7 +23,7 @@
         <g:message code="route.distance.label" default="Distance"/>
         <span class="required-indicator">*</span>
     </label>
-    <g:field type="number" name="distance" required="" value="${fieldValue(bean: routeInstance, field: 'distance')}"/>
+    <g:field type="number" step="any" name="distance" required="" value="${fieldValue(bean: routeInstance, field: 'distance')}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'location', 'error')} required">
