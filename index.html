@@ -2,9 +2,45 @@
 <html>
 <head>
     <title>&#220;ber Tracks</title>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" type="text/css"/>
+    <style type="text/css">
+      body {
+        background: black;
+        padding-top: 20px;
+      }
+
+      a { color: white; text-decoration: none;}
+
+      a:hover { color: silver }
+
+      .bike, .hike {
+        height: 450px;
+        width: 400px;
+        border: 1px solid silver;
+        text-align: center;
+        padding-top: 10px;
+      }
+
+      .hike {
+        float: right;
+      }
+      .bike {
+        float: left;
+      }
+      .container {
+        width: 820px;
+        margin: 0px auto;
+      }
+    </style>
 </head>
 <body>
+  <div class="container">
+    <div class="bike">
     <h1><a href="http://bike.ubertracks.com">Bike &#220;ber Tracks</a></h1>
+    </div>
+    <div class="hike">
     <h1><a href="http://hike.ubertracks.com">Hike &#220;ber Tracks</a></h1>
+    </div>
+  </div>
 </body>
 </html>
