@@ -6,7 +6,8 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'region.label', default: 'Region')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
-        <feed:meta kind="atom" version="1.0" controller="region" action="feed"/>
+        <link rel="alternate" type="application/atom+xml" title="${regionInstance.name} Updates"
+              href="${createLink(controller: 'region', action: 'feed', params: [region: regionInstance.seoName])}"/>
 	</head>
 	<body>
         <g:set var="breadcrumb" scope="request">
