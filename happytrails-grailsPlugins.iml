@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
+    <facet type="web" name="GrailsWeb">
+      <configuration>
+        <webroots>
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/jquery-1.7.1/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/jquery-ui-1.8.15/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/spring-security-ui-0.2/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/spring-security-ui-0.2/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/famfamfam-1.0.1/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/mail-1.0/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/mail-1.0/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/searchable-0.6.3/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/zipped-resources-1.0/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/zipped-resources-1.0/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cached-resources-1.0/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cached-resources-1.0/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cache-headers-1.1.5/web-app" relative="/" />
+        </webroots>
+        <sourceRoots />
+      </configuration>
+    </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
           <unit-entry name="Gorm" />
           <unit-entry name="sessionFactory" />
         </datasource-map>
-      </configuration>
-    </facet>
-    <facet type="web" name="GrailsWeb">
-      <configuration>
-        <webroots>
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/spring-security-ui-0.2/web-app" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/spring-security-ui-0.2/grails-app/views" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/jquery-ui-1.8.15/web-app" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/mail-1.0/web-app" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/mail-1.0/grails-app/views" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/jquery-1.7.1/web-app" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/famfamfam-1.0.1/web-app" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/web-app" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cache-headers-1.1.5/web-app" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/zipped-resources-1.0/web-app" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/zipped-resources-1.0/grails-app/views" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cached-resources-1.0/web-app" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cached-resources-1.0/grails-app/views" relative="/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/searchable-0.6.3/grails-app/views" relative="/" />
-        </webroots>
-        <sourceRoots />
       </configuration>
     </facet>
   </component>
@@ -121,8 +121,14 @@
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (happytrails-grailsPlugins)">
         <CLASSES>
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/searchable-0.6.3/lib" />
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/lib" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-minify-resources-0.1.4/lib" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/postgresql/postgresql/jars/postgresql-9.1-901-1.jdbc4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-web/jars/spring-security-web-3.0.7.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-core/jars/spring-security-core-3.0.7.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.activation/activation/jars/activation-1.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.mail/mail/jars/mail-1.4.3.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/stax/stax-api/jars/stax-api-1.0.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.codehaus.jettison/jettison/jars/jettison-1.0.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/com.thoughtworks.xstream/xstream/jars/xstream-1.4.1.jar!/" />
@@ -130,13 +136,7 @@
           <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-httpclient/commons-httpclient/jars/commons-httpclient-3.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/com.cloudbees/cloudbees-api-client/jars/cloudbees-api-client-1.1.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/xmlpull/xmlpull/jars/xmlpull-1.1.3.1.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-web/jars/spring-security-web-3.0.7.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-core/jars/spring-security-core-3.0.7.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.activation/activation/jars/activation-1.1.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.mail/mail/jars/mail-1.4.3.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.quartz-scheduler/quartz/jars/quartz-1.8.4.jar!/" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-minify-resources-0.1.4/lib" />
-          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/searchable-0.6.3/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
