@@ -78,6 +78,8 @@ log4j = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
+    warn 'grails.app.services.grails.plugins.springsecurity.ui.SpringSecurityUiService'
+
     error 'org.codehaus.groovy.grails.web.servlet',  //  controllers
             'org.codehaus.groovy.grails.web.pages', //  GSP
             'org.codehaus.groovy.grails.web.sitemesh', //  layouts
@@ -92,6 +94,16 @@ log4j = {
 }
 
 grails.mail.default.from = "Bike Über Tracks <bike@ubertracks.com>"
+
+grails.plugins.springsecurity.ui.register.emailFrom = grails.mail.default.from
+grails.plugins.springsecurity.ui.register.emailSubject = 'Welcome to Über Tracks!'
+
+grails.plugins.springsecurity.controllerAnnotations.staticRules = [
+   '/user/**': ['ROLE_ADMIN'],
+   '/role/**': ['ROLE_ADMIN'],
+   '/registrationCode/**': ['ROLE_ADMIN'],
+   '/securityInfo/**': ['ROLE_ADMIN']
+]
 
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'happytrails.User'
