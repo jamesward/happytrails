@@ -58,7 +58,7 @@ create table route (
   name                      varchar(128) not null,
   url_friendly_name         varchar(128) not null,
   description               varchar(255) not null,
-  distance_in_miles         double not null,
+  distance_in_miles         integer not null,
   location                  varchar(255) not null,
   region_id                 bigint,
   photo_id                  bigint,

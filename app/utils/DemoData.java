@@ -20,7 +20,7 @@ public class DemoData {
         User randomUser = new User("random@demo.com", "password", "Some Dude");
         randomUser.save();
 
-        Route dakotaRedWintersRoute = new Route("Dakota Ridge, Red Rocks and Mathews Winters", "A very technical and very strenuous loop with awesome Denver and Red Rocks views.", 9.1, denverFrontRangeRegion, "Golden / Morrison");
+        Route dakotaRedWintersRoute = new Route("Dakota Ridge, Red Rocks and Mathews Winters", "A very technical and very strenuous loop with awesome Denver and Red Rocks views.", 9, denverFrontRangeRegion, "Golden / Morrison");
 
         dakotaRedWintersRoute.directions.add(new Direction(1, "Start at the Matthews Winters parking lot."));
         dakotaRedWintersRoute.directions.add(new Direction(2, "Cross County Road 93 and ride up a consistently tough trail to almost the top of the hog back."));
