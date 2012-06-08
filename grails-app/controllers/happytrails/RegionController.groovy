@@ -32,6 +32,10 @@ class RegionController {
 
     def find() {
         println("finding by name: " + params.region)
+        if (params.route) {
+            forward controller: "route", action: "find", params: [route: params.route]
+            return
+        }
         def regionInstance = Region.findBySeoName(params.region)
         if (!regionInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'region.label', default: 'Region'), params.id])

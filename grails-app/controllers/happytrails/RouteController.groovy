@@ -30,6 +30,13 @@ class RouteController {
         redirect(action: "show", id: routeInstance.id)
     }
 
+    def find() {
+        println("Finding route: " + params.route)
+        def route = Route.findBySeoName(params.route)
+
+        render(view: "show", model: [routeInstance: route])
+    }
+
     def show() {
         def routeInstance = Route.get(params.id)
         if (!routeInstance) {

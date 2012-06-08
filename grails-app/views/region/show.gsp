@@ -17,29 +17,27 @@
         </ul>
         </g:set>
 		<div id="show-region" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+			<div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list region">
-			
-				<g:if test="${regionInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="region.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${regionInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
+
+			<h1>${regionInstance.name}</h1>
 			<g:form>
-				<fieldset class="buttons">
+				<fieldset style="position: absolute">
 					<g:hiddenField name="id" value="${regionInstance?.id}" />
-					<g:link class="edit" action="edit" id="${regionInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					<g:link class="edit" action="edit" id="${regionInstance?.id}" class="btn btn-mini"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:actionSubmit class="delete" action="delete" class="btn btn-mini" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
+
+            <g:if test="${regionInstance.routes.size() > 0}">
+            <h3 style="margin-top: 40px">Routes Available</h3>
+            <ul>
+                <g:each in="${regionInstance.routes}" status="i" var="route">
+                    <li><link:region region="${regionInstance.seoName}" route="${route.seoName}">${route.name}</link:region></li>
+                </g:each>
+            </ul>
+            </g:if>
 		</div>
 	</body>
 </html>

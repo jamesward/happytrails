@@ -55,6 +55,10 @@ body {
     /*box-shadow: 5px 5px 3px #888;*/
 }
 
+.content h1 {
+    margin-bottom: 10px;
+}
+
 .content .title {
     font-weight: bold;
     display: block;
@@ -90,4 +94,12 @@ body {
 .moab {
     background: url('../images/moab.jpg') no-repeat 5px 30px;
     /*background: url('http://farm5.staticflickr.com/4031/4662051819_aa2c75e107_m.jpg') no-repeat 5px 30px;*/
+}
+
+select {
+    width: auto;
+}
+
+.property-label:after {
+    content: ":"
 }

@@ -11,7 +11,7 @@ class Route {
         location blank: false
         region blank: false
         photo nullable: true
-        mapUrl nullable: true
+        mapUrl url: true, nullable: true
         creationDate nullable: true
         seoName unique: true
     }
@@ -22,7 +22,7 @@ class Route {
     Double distance
     Region region
     String location
-    URL mapUrl
+    String mapUrl
     Photo photo
     Date creationDate
 
