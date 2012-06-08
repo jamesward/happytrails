@@ -1,23 +1,24 @@
-@(title: String)(content: Html)
+@(title: String, headContent: Html = Html(""))(bodyContent: Html)
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>@title</title>
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-    </head>
-    <body>
-        
-        @if(CurrentUser.get() != null) {
-            Hello, @CurrentUser.get().fullName
-        } else {
-            <form action="@routes.ApplicationController.login()" method="post">
-                Email: <input name="emailAddress"/>
-                Password: <input name="password" type="password"/>
-                <input type="submit" value="Login"/>
-            </form>
-        }
-        
-        @content
-    </body>
+<head>
+    <title>@title</title>
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    @headContent
+</head>
+<body>
+    
+    @if(CurrentUser.get() != null) {
+        Hello, @CurrentUser.get().fullName
+    } else {
+        <form action="@routes.ApplicationController.login()" method="post">
+            Email: <input name="emailAddress"/>
+            Password: <input name="password" type="password"/>
+            <input type="submit" value="Login"/>
+        </form>
+    }
+    
+    @bodyContent
+</body>
 </html>

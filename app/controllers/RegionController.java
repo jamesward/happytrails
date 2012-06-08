@@ -1,9 +1,9 @@
 package controllers;
 
-import models.Region;
-import models.RegionSubscription;
-import models.Route;
-import models.User;
+import com.sun.syndication.feed.synd.*;
+import com.sun.syndication.io.FeedException;
+import com.sun.syndication.io.SyndFeedOutput;
+import models.*;
 import play.data.Form;
 import play.data.validation.ValidationError;
 import play.mvc.Controller;
@@ -11,6 +11,8 @@ import play.mvc.Result;
 import play.mvc.Security;
 import play.mvc.With;
 
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +20,54 @@ import java.util.List;
 public class RegionController extends Controller {
 
     // todo
-    public static Result getRegionFeed(String urlFriendlyRegionName) {
+    public static Result getRegionFeed(String urlFriendlyRegionName) throws FeedException, IOException {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
-        return ok(region.getName());
+
+        SyndFeed feed = new SyndFeedImpl();
+        feed.setFeedType("rss_2.0");
+
+        feed.setTitle("Uber Tracks - " + region.getName());
+        feed.setLink("http://hike.ubertracks.com");
+        feed.setDescription("Updates for Hike Uber Tracks - " + region.getName());
+
+        List entries = new ArrayList();
+        
+        for (Route route : region.routes) {
+        
+            SyndEntry entry = new SyndEntryImpl();
+            entry.setTitle("Route - " + route.getName());
+            entry.setLink("http://hike.ubertracks.com" + routes.RouteController.getRouteHtml(region.getUrlFriendlyName(), route.getUrlFriendlyName()).url());
+            entry.setPublishedDate(route.creationDate);
+            
+            SyndContent description = new SyndContentImpl();
+            description.setType("text/plain");
+
+            // todo: templatize
+            String text = "Route - " + route.getName()  + "\n\n" +
+                    route.description + "\n\n" +
+                    "Location: " + route.location + "\n\n" +
+                    "Created: " + route.creationDate + "\n\n" +
+                    "Distance (Miles): " + route.distanceInMiles + "\n\n" +
+                    "Average Rating: " + route.getAverageRating() + "\n\n";
+            
+            for (Direction direction : route.directions) {
+                text += direction.stepNumber + " - " + direction.instruction + "\n";
+            }
+            
+            description.setValue(text);
+            
+            entry.setDescription(description);
+            
+            entries.add(entry);
+        }
+        feed.setEntries(entries);
+
+        StringWriter writer = new StringWriter();
+        SyndFeedOutput output = new SyndFeedOutput();
+        output.output(feed, writer);
+        writer.close();
+        
+        return ok(writer.toString()).as("application/rss+xml");
     }
 
     @Security.Authenticated(Secured.class)

@@ -1,6 +1,10 @@
 @(region: Region)
 
-@main("Happy Trails - Regions - " + region.getName) {
+@headContent = {
+    <link rel="alternate" type="application/rss+xml" title="@region.getName RSS Feed" href="@routes.RegionController.getRegionFeed(region.getUrlFriendlyName)" />
+}
+
+@main("Happy Trails - Regions - " + region.getName, headContent) {
 
     <ul>
         @for(route <- region.routes) {
