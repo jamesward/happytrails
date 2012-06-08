@@ -48,6 +48,8 @@
                 <g:link controller="home" class="btn">Cancel</g:link>
             </fieldset>
         </form>
+
+        <g:link uri="/forgotPassword" class="forgotPassword">Forgot Password?</g:link>
     </div>
 
 </div>
