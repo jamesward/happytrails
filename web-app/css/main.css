@@ -15,6 +15,20 @@ body {
     color: white;
 }
 
+.navbar .links {
+    margin-top: 10px;
+    color: white
+}
+
+.navbar .links a {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar .links .signup {
+    color: #c8f0b5;
+}
+
 .account {
     color: white;
     padding-top: 10px;
@@ -38,7 +52,7 @@ body {
     padding: 5px;
     height: 180px;
     margin-bottom: 30px;
-    box-shadow: 5px 5px 3px #888;
+    /*box-shadow: 5px 5px 3px #888;*/
 }
 
 .content .title {
