@@ -3,7 +3,7 @@ package happytrails
 class RegionSubscriptionTests extends GroovyTestCase {
 
     void testSave() {
-        assert RegionSubscription.findAll().size() == 0
+        assert RegionSubscription.findAll().size() == 1
 
         User user = new User(username: "foo@gmail.com", password: "bar",
                 name: "Foo Bar", enabled: true).save(failOnError: true)
@@ -12,6 +12,6 @@ class RegionSubscriptionTests extends GroovyTestCase {
         RegionSubscription subscription = new RegionSubscription(user, region)
         subscription.save(failOnError: true)
 
-        assert RegionSubscription.findAll().size() == 1
+        assert RegionSubscription.findAll().size() == 2
     }
 }

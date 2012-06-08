@@ -3,6 +3,7 @@ package happytrails
 import org.springframework.dao.DataIntegrityViolationException
 
 class CommentController {
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -21,6 +22,10 @@ class CommentController {
 
     def save() {
         def commentInstance = new Comment(params)
+        User user = (User) springSecurityService?.getCurrentUser()
+        if (user) {
+            commentInstance.setUser(user)
+        }
         if (!commentInstance.save(flush: true)) {
             render(view: "create", model: [commentInstance: commentInstance])
             return

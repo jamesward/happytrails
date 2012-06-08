@@ -7,6 +7,9 @@ class Comment {
         value blank: false
         creationDate nullable: true
         photo nullable: true
+        // todo: figure out how mock these in controller tests, so they can be required
+        route nullable: true
+        user nullable: true
     }
 
     User user
@@ -19,6 +22,6 @@ class Comment {
     }
 
     String toString() {
-        return value + " --" + user.getName()
+        return value + ((user) ? " --" + user.getName() : "")
     }
 }

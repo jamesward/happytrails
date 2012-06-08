@@ -57,7 +57,7 @@ class RegionController {
         }
 
         def subscriptionId = 0
-        User user = (User) springSecurityService.currentUser
+        User user = (User) springSecurityService?.currentUser
         if (user != null) {
             for (subs in user.getRegionSubscriptions()) {
                 if (subs.getRegion().equals(regionInstance)) {

@@ -6,7 +6,6 @@ import grails.test.mixin.*
 @Mock(Comment)
 class CommentControllerTests {
 
-
     def populateValidParams(params) {
         assert params != null
         params["value"] = 'A snarky comment'
@@ -53,7 +52,6 @@ class CommentControllerTests {
         assert flash.message != null
         assert response.redirectedUrl == '/comment/list'
 
-
         populateValidParams(params)
         def comment = new Comment(params)
 
@@ -93,7 +91,6 @@ class CommentControllerTests {
 
         response.reset()
 
-
         populateValidParams(params)
         def comment = new Comment(params)
 
@@ -101,7 +98,7 @@ class CommentControllerTests {
 
         // test invalid parameters in update
         params.id = comment.id
-        params.values = ''
+        params.value = ''
 
         controller.update()
 

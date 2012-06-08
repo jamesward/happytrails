@@ -3,7 +3,7 @@ package happytrails
 import grails.test.mixin.*
 
 @TestFor(HomeController)
-@Mock(Region)
+@Mock([Region, Comment])
 class HomeControllerTests {
 
     void testIndex() {
