@@ -12,7 +12,7 @@ class UrlMappings {
         "/login"(controller: "login", action: "auth")
         "/feed/$region"(controller: "region", action: "feed")
         "/signup"(controller: "register")
-        "/register/register"(controller: "register", action: "register")
+        "/forgotPassword"(controller: "register", action: "forgotPassword")
         /*"/$region/subscribe"(controller: "region", action: "subscribe")
         "/$region/addroute"(controller: "region") {
             action = [PUT: "addRoute", POST: "saveRoute"]
@@ -22,7 +22,7 @@ class UrlMappings {
         "/$region/$route"(controller: "route", action = [GET: "show"])
         "/$region"(controller: "region", action: "show") */
         "/region/create"(controller: "region", action: "create")
-        "/region/list"(controller: "region", action: "list")
+        "/regions"(controller: "region", action: "list")
         "/region/save"(controller: "region", action: "save")
         name region: "/$region/$route?" {
             controller = "region"
