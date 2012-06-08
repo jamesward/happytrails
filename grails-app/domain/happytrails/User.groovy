@@ -18,6 +18,7 @@ class User {
         password blank: false
         name blank: false
         creationDate nullable: true
+        regionSubscriptions cascade:"all,delete-orphan"
     }
 
     static hasMany = [regionSubscriptions:RegionSubscription]

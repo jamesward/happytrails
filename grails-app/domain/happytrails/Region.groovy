@@ -19,4 +19,8 @@ class Region {
             if (!r.seoName) r.seoName = r.name?.asFriendlyUrl()
         }
     }
+
+    String toString() {
+        name
+    }
 }

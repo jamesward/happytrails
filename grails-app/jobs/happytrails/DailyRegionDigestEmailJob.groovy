@@ -6,7 +6,7 @@ class DailyRegionDigestEmailJob {
     def mailService
 
     static triggers = {
-        // simple repeatInterval: 5000l // execute job once in 5 seconds
+        //simple repeatInterval: 5000l // execute job once in 5 seconds
         cron name:'cronTrigger', startDelay:10000, cronExpression: '0 0 7 ? * MON-FRI' // 7AM Mon-Fri
     }
 
@@ -14,51 +14,84 @@ class DailyRegionDigestEmailJob {
         List<RegionUserDigest> digests = getRegionUserDigests()
         for (digest in digests) {
 
-            StringBuilder sb = new StringBuilder()
-            sb.append("Hello " + digest.getUser().getName() + ",\n")
-            sb.append("This email contains new updates for the regions you've subscribed to on bike.ubertracks.com.")
+            String message = createMessage(digest)
 
-            for (region in digest.getRegions()) {
-                sb.append("\n\nRegion Name: " + region.name)
+            println "Sending digest email to " + digest.user.username
+            mailService.sendMail {
+                to digest.getUser().username
+                subject "Updates from Über Tracks " + digest.regions
+                body message
+            }
 
-                for (Route route : region.getRoutes()) {
-                    sb.append("\nRoute: " + route.getName())
-                    for (comment in route.getComments()) {
-                        sb.append("\n\t").append(comment.getValue())
-                        sb.append(" -- ").append(comment.getUser().getName())
+            RegionSubscription subscription = digest.regionSubscription
+            subscription.lastSent = new Date()
+            subscription.save()
+        }
+    }
+
+    def String createMessage(RegionUserDigest digest) {
+        StringBuilder sb = new StringBuilder()
+        sb.append("Hello " + digest.getUser().getName() + ",\n\n")
+        sb.append("Below you'll find updates for the regions you've subscribed to on bike.ubertracks.com.")
+
+        for (region in digest.getRegions()) {
+            sb.append("\n\n" + region.name)
+
+            region.getRoutes().each {Route route ->
+
+                List<Comment> newComments = []
+                for (comment in route.comments) {
+                    if (digest.lastSent == null || comment.getCreationDate().after(digest.getLastSent())) {
+                        newComments.add(comment)
+                    }
+                }
+
+                def numComments = newComments.size()
+                if (numComments > 0) {
+                    sb.append("\n  " + route.getName())
+                    sb.append(" (" + numComments + " new " + ((numComments == 1) ? "comment" : "comments") + ")")
+                    for (comment in newComments) {
+                        sb.append "\n    \"" + comment.value + "\" --" + comment.user.name
                     }
                 }
             }
-
-            sb.append("Thank you for subscribing to Über Tracks!")
-
-            mailService.sendMail {
-                to digest.getUser().getUsername()
-                subject "Updates from Über Tracks " + digest.getRegions()
-                body sb.toString()
-            }
         }
+
+        sb.append("\n\nThank you for subscribing to Über Tracks!\n\nhttp://bike.ubertracks.com")
+        sb.toString()
     }
 
     def List<RegionUserDigest> getRegionUserDigests() {
         List<RegionUserDigest> digests = []
 
         for (user in User.findAll()) {
+            println "Looking for subscriptions for " + user.getName()
             RegionUserDigest digest = new RegionUserDigest(user)
 
             for (regionSubscription in user.getRegionSubscriptions()) {
                 Region region = regionSubscription.getRegion()
-                List newComments = []
+
+                println "Found subscription for " + region
+
+                List newComments = new ArrayList()
                 for (Route route : region.getRoutes()) {
+                    if (route.getComments())
+                        println "Found route " + route.getName() + ", comments: " + route.getComments().size()
                     for (comment in route.getComments()) {
-                        newComments.add(comment)
+                        if (regionSubscription.getLastSent() == null ||
+                                comment.getCreationDate().after(regionSubscription.getLastSent())) {
+                            println("Adding new comment: " + comment)
+                            newComments.add(comment)
+                        }
                     }
                 }
-            }
 
-            if (newComments.size() > 0) {
-                digest.addRegion(region)
-                digests.add(digest)
+                if (newComments.size() > 0) {
+                    digest.addRegion(region)
+                    digest.setLastSent(regionSubscription.getLastSent())
+                    digest.regionSubscription = regionSubscription
+                    digests.add(digest)
+                }
             }
         }
 
@@ -68,6 +101,8 @@ class DailyRegionDigestEmailJob {
     class RegionUserDigest {
         User user
         List<Region> regions = []
+        Date lastSent
+        RegionSubscription regionSubscription
 
         public RegionUserDigest(User user) {
             this.user = user

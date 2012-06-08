@@ -6,6 +6,7 @@ class Comment {
     static constraints = {
         value blank: false
         creationDate nullable: true
+        photo nullable: true
     }
 
     User user
@@ -15,5 +16,9 @@ class Comment {
 
     def beforeInsert() {
         creationDate = new Date()
+    }
+
+    String toString() {
+        return value + " --" + user.getName()
     }
 }
