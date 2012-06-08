@@ -6,6 +6,7 @@ class User {
 
     String username
     String password
+    String email
     String name
     boolean enabled
     boolean accountExpired
@@ -14,7 +15,8 @@ class User {
     Date creationDate
 
     static constraints = {
-        username email: true, blank: false, unique: true
+        username blank: false, unique: true
+        email email: true, blank: false, unique: true
         password blank: false
         name blank: false
         creationDate nullable: true
@@ -30,6 +32,15 @@ class User {
 
     Set<Role> getAuthorities() {
         UserRole.findAllByUser(this).collect { it.role } as Set
+    }
+
+    def beforeValidate() {
+        if (email == null) {
+            email = username
+        }
+        if (name == null) {
+            name = username
+        }
     }
 
     def beforeInsert() {
