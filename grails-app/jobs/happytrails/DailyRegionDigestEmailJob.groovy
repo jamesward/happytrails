@@ -1,7 +1,5 @@
 package happytrails
 
-import org.hibernate.connection.UserSuppliedConnectionProvider
-
 class DailyRegionDigestEmailJob {
     def mailService
 
