@@ -9,6 +9,7 @@ object ApplicationBuild extends Build {
 
     val appDependencies = Seq(
       "com.github.twitter" % "bootstrap" % "2.0.3",
+      "postgres" % "postgres" % "9.1-901-1.jdbc4",
       "rome" % "rome" % "1.0"
     )
 
