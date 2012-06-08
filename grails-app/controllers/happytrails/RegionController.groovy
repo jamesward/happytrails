@@ -88,19 +88,19 @@ class RegionController {
     }
 
     def feed = {
-        println('params.region: ' + params.region)
         def region = Region.findBySeoName(params.region)
         if (!region) {
             response.status = 404
             return
         }
+
         render(feedType: "atom") {
             title = "Happy Trails Feed for " + region.name
-            link = "http://your.test.server/yourController/feed" // todo: server url
+            link = createLink(absolute:  true, controller: 'region', action: 'feed', params: ['region', region.seoName])
             description = "New Routes and Reviews for " + region.name
             region.routes.each() { route ->
                 entry(route.name) {
-                    link = "http://your.test.server/route/${route.id}"
+                    link = createLink(absolute: true, controller: 'route', action: 'show', id: route.id)
                     route.description
                 }
             }
