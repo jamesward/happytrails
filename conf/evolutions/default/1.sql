@@ -71,7 +71,7 @@ create table account (
   id                        bigint not null,
   token                     varchar(255),
   email_address             varchar(256) not null,
-  sha_password              varbinary(64) not null,
+  sha_password              blob(64) not null,
   full_name                 varchar(256) not null,
   creation_date             timestamp not null,
   constraint uq_account_email_address unique (email_address),
