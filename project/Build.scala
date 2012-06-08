@@ -9,7 +9,8 @@ object ApplicationBuild extends Build {
 
     val appDependencies = Seq(
       "com.github.twitter" % "bootstrap" % "2.0.3",
-      "rome" % "rome" % "1.0"
+      "rome" % "rome" % "1.0",
+      "play" %% "console" % "2.0.1"
     )
 
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = JAVA).settings(
