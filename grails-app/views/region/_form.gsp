@@ -1,7 +1,5 @@
 <%@ page import="happytrails.Region" %>
 
-
-
 <div class="fieldcontain ${hasErrors(bean: regionInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="region.name.label" default="Name" />

@@ -7,18 +7,18 @@
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#edit-route" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+        <g:set var="breadcrumb" scope="request">
+        <ul class="breadcrumb">
+            <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a> <span class="divider">/</span></fieldset>
+            <li><g:link controller="region" action="list">Regions</g:link> <span class="divider">/</span></fieldset>
+            <li><g:link uri="/${routeInstance.region.seoName}">${routeInstance.region.name}</g:link> <span class="divider">/</span></fieldset>
+            <li>${routeInstance.name}</fieldset>
+        </ul>
+        </g:set>
 		<div id="edit-route" class="content scaffold-edit" role="main">
 			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+			<div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>
 			<g:hasErrors bean="${routeInstance}">
 			<ul class="errors" role="alert">
