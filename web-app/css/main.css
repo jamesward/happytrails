@@ -1,5 +1,7 @@
 body {
     padding-top: 50px;
+    background-image: -webkit-linear-gradient(top, #999, white);
+    background-repeat: no-repeat;
 }
 
 .navbar-inner {
@@ -33,12 +35,45 @@ body {
 }
 
 .content .span3 {
-    border: 1px solid silver;
     padding: 5px;
-    height: 200px;
+    height: 180px;
     margin-bottom: 30px;
+    box-shadow: 5px 5px 3px #888;
+}
+
+.content .title {
+    font-weight: bold;
+    display: block;
+    background: black;
+    padding: 5px;
+    max-width: 230px;
+    margin-right: -5px;
+}
+
+.content .title a {
+    color: white;
 }
 
 .sidebar h2 {
    font-size: 16px;
+}
+
+.grand-valley {
+    /*background: url('http://farm3.staticflickr.com/2505/3947853369_e7bf939355_m.jpg') no-repeat 5px 30px;*/
+    background: url('../images/grand-valley.jpg') no-repeat 5px 30px;
+}
+
+.colorado-western-slope {
+    /*background: url('http://farm3.staticflickr.com/2440/3947853583_dccc0b37a0_m.jpg') no-repeat 5px 30px;*/
+    background: url('../images/western-slope.jpg') no-repeat 5px 30px;
+}
+
+.colorado-front-range {
+    /*background: url('http://farm4.staticflickr.com/3422/3948635568_4c69bfb92f_m.jpg') no-repeat 5px 30px;*/
+    background: url('../images/front-range.jpg') no-repeat 5px 30px;
+}
+
+.moab {
+    background: url('../images/moab.jpg') no-repeat 5px 30px;
+    /*background: url('http://farm5.staticflickr.com/4031/4662051819_aa2c75e107_m.jpg') no-repeat 5px 30px;*/
 }

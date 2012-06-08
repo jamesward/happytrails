@@ -19,7 +19,7 @@
                             <div class="span2"></div>
                         </g:if>
                         <div class="span3 ${r.seoName}">
-                            <link:region region="${r.seoName}" route="">${r.name}</link:region>
+                            <span class="title"><link:region region="${r.seoName}" route="">${r.name}</link:region></span>
                         </div>
                         <g:if test="${(i % 2) == 1}">
                             <div class="span2"></div>
