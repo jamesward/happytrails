@@ -2,6 +2,8 @@ package happytrails
 
 class Region {
 
+    static searchable = true
+
     static constraints = {
         name blank: false, unique: true
         seoName unique: true

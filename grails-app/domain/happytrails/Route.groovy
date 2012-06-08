@@ -1,6 +1,7 @@
 package happytrails
 
 class Route {
+    static searchable = true
     static belongsTo = [region:Region]
     static hasMany = [comments:Comment,directions:Direction,ratings:Rating]
 
