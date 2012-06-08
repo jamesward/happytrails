@@ -1,0 +1,36 @@
+Feature Complete Testing
+------------------------
+[role = anonymous]
+1. View homepage
+2. Browse Regions
+3. See routes in a region
+4. Sort by highest rated
+5. View highest rated route and print
+
+[role = user]
+1. View homepage
+2. Browse Regions
+3. Signup and Login
+4. Subscribe to a Region via Email
+5. Subscribe to a Region via RSS/Atom
+6. Click on a route in a region
+7. View rating and comments for a route
+8. Add rating and comment for route
+9. Go back to home and see new comment
+10. Add New Route to Region
+
+[role = admin]
+1. View homepage
+2. Login
+3. Create new region w/ blank name -> validation error
+4. Create new region with valid name -> succeeds
+5. Add Route to Region
+6. Provide Route details, including invalid data
+7. Add directions to Route
+8. Add rating and comment to Route
+9. Delete newly added route
+10. Logout
+
+Load Testing
+------------------
+TBD

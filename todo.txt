@@ -1,21 +1,22 @@
 Grails
-* URLs for Regions and Routes
-* Match URL patterns that Play uses
-* Subscribe to Region (Region Subscription, new routes and comments)
-* Job for Subscription
+* Feature Complete Testing
 
 Play
-* Job as Heroku enabled
-* Running on Heroku
+* Pretty UI
+* Job on Heroku
+* Optimize UI for YSlow/Page Speed
 
 Both
-* Pretty UI
-* Feed
-* Send Subscription Email
-* Optimize UI for YSlow/Page Speed
-* Search (stretch goal)
-* Photo Upload / S3 (stretch goal)
-
 * Load Testing
 * Performance Testing
 * Project Metrics
+
+Matt
+* Decide on Preso Software
+* Create Skeleton
+* Talk to Jay about dueling projectors
+* Talk to Lightbody about Browsermob hammering
+
+James
+* Provide instructions to Matt on SMTP on Heroku
+* Document preso outline on GitHub
