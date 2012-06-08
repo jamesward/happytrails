@@ -65,7 +65,8 @@
                     <input name="j_password" type="password" class="span2" placeholder="Password">
                     <button class="btn btn-primary" style="display: none" type="submit">Login</button>
                 </form>--}%
-                    <div class="pull-right links"><a href="login" class="login">Login</a> or <a href="signup" class="signup">Sign Up</a></div>
+                    <div class="pull-right links"><g:link uri="/login" class="login">Login</g:link> or
+                        <g:link uri="/signup" class="signup">Sign Up</g:link></div>
                 </g:if>
                 </sec:ifNotLoggedIn>
             </div>

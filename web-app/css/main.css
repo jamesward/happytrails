@@ -103,3 +103,13 @@ select {
 .property-label:after {
     content: ":"
 }
+
+.subscribe {
+    position: absolute;
+    right: 20px;
+    top: 100px;
+}
+
+.alert {
+    margin-right: 300px;
+}

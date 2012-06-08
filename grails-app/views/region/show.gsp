@@ -39,5 +39,20 @@
             </ul>
             </g:if>
 		</div>
+
+        <div id="subscribe" class="subscribe">
+            <g:if test="${subscriptionId != 0}">
+                You are subscribed for updates in this region.<br/>
+                <g:link controller="region" action="deleteSubscription" params="[id: subscriptionId]">Delete</g:link>
+            </g:if>
+            <g:else>
+                <g:form controller="region" action="subscribe">
+                    <label for="email">Subscribe to Region for updates:</label>
+                    <input type="email" id="email" size="30" placeholder="Your Email Address"><br/>
+                    <input type="hidden" name="id" value="${regionInstance.id}"/>
+                    <button type="submit" class="btn btn-success">Subscribe</button>
+                </g:form>
+            </g:else>
+        </div>
 	</body>
 </html>

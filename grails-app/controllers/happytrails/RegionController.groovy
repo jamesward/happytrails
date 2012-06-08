@@ -6,6 +6,8 @@ class RegionController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def springSecurityService
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -54,7 +56,35 @@ class RegionController {
             return
         }
 
-        [regionInstance: regionInstance]
+        def subscriptionId = 0
+        User user = (User) springSecurityService.currentUser
+        if (user != null) {
+            for (subs in user.getRegionSubscriptions()) {
+                if (subs.getRegion().equals(regionInstance)) {
+                    subscriptionId = subs.id
+                }
+            }
+        }
+
+        [regionInstance: regionInstance, subscriptionId: subscriptionId]
+    }
+
+    def subscribe() {
+        def region = Region.get(params.id)
+        User user = (User) springSecurityService.currentUser
+        def subscription = new RegionSubscription(user, region)
+        subscription.save()
+        flash.message = "You have subscribed for updates to " + region.name + " successfully."
+
+        redirect(action: "show", params: [id: region.id])
+    }
+
+    def deleteSubscription() {
+        def sub = RegionSubscription.findById(params.id)
+        sub.delete()
+        flash.message = "You have unsubscribed from " + sub.region.name + "."
+
+        redirect(action: "show", params: [id: sub.region.id])
     }
 
     def feed = {

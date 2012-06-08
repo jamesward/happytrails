@@ -25,6 +25,7 @@ class UrlMappings {
         "/region/create"(controller: "region", action: "create")
         "/regions"(controller: "region", action: "list")
         "/region/save"(controller: "region", action: "save")
+        "/region/subscribe"(controller: "region", action: "subscribe")
         name region: "/$region/$route?" {
             controller = "region"
             action = "find"
