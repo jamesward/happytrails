@@ -9,14 +9,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><g:layoutTitle default="Grails"/></title>
+    <title><g:layoutTitle default=""/> | Happy Trails</title>
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
     <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-    %{--<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" type="text/css">
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-responsive.min.css')}" type="text/css">
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">--}%
     <g:layoutHead/>
     <r:require module="core"/>
     <r:layoutResources/>
@@ -60,12 +56,6 @@
                 </sec:ifLoggedIn>
                 <sec:ifNotLoggedIn>
                 <g:if test="${!request.forwardURI.contains('login')}">
-                %{--<form class="navbar-form pull-right" method="post" autocomplete="off"
-                      action="${request.contextPath}${SpringSecurityUtils.securityConfig.apf.filterProcessesUrl}">
-                    <input name="j_username" id="username" type="text" class="span2" placeholder="Username">
-                    <input name="j_password" type="password" class="span2" placeholder="Password">
-                    <button class="btn btn-primary" style="display: none" type="submit">Login</button>
-                </form>--}%
                     <div class="pull-right links"><g:link uri="/login" class="login">Login</g:link> or
                         <g:link uri="/signup" class="signup">Sign Up</g:link></div>
                 </g:if>
@@ -83,12 +73,8 @@ ${request.breadcrumb}
     <g:layoutBody/>
 </div>
 
-<g:javascript library="application"/>
 <r:layoutResources disposition="footer"/>
 
-%{--
-<script src="${resource(dir: 'js', file: 'jquery-1.7.2.min.js')}"></script>
-<script src="${resource(dir: 'js', file: 'bootstrap.min.js')}"></script>--}%
 <script>
 $(document).ready(function() {
    $('.navbar #username').on('blur', function() {
