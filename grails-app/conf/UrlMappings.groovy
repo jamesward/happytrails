@@ -30,6 +30,7 @@ class UrlMappings {
             controller = "region"
             action = "find"
         }
+        "/route/create"(controller: "route", action: "create")
         "500"(view: '/error')
 
     }

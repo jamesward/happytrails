@@ -9,9 +9,9 @@
 	<body>
         <g:set var="breadcrumb" scope="request">
         <ul class="breadcrumb">
-            <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a> <span class="divider">/</span></fieldset>
-            <li><g:link controller="region" action="list">Regions</g:link> <span class="divider">/</span></fieldset>
-            <li><g:link uri="/${routeInstance.region.seoName}">${routeInstance.region.name}</g:link> <span class="divider">/</span></fieldset>
+            <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a> <span class="divider">/</span></li>
+            <li><g:link controller="region" action="list">Regions</g:link> <span class="divider">/</span></li>
+            <li><g:link uri="/${routeInstance.region.seoName}">${routeInstance.region.name}</g:link> <span class="divider">/</span></li>
             <li>${routeInstance.name}</fieldset>
         </ul>
         </g:set>

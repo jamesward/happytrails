@@ -12,8 +12,8 @@
         <g:set var="breadcrumb" scope="request">
         <ul class="breadcrumb">
             <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a> <span class="divider">/</span></li>
-            <li><g:link controller="region" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-            <sec:ifLoggedIn><li><span class="divider">/</span> <g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li></sec:ifLoggedIn>
+            <li><g:link controller="region" action="list">Regions</g:link> <span class="divider">/</span></li>
+            <li>${regionInstance.name}</li>
         </ul>
         </g:set>
 		<div id="show-region" class="content scaffold-show" role="main">
