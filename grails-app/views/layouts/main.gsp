@@ -29,9 +29,9 @@
 
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><g:link uri="/">Home</g:link></li>
-                    <li><g:link controller="region" action="list"><g:message code="default.list.label" args="['Region']" /></g:link></li>
-                    <li class="dropdown">
+                    <li <g:if test="${request.forwardURI == request.contextPath + '/'}">class="active"</g:if>><g:link uri="/">Home</g:link></li>
+                    <li <g:if test="${request.forwardURI.contains('/regions')}">class="active"</g:if>><g:link uri='/regions'><g:message code="default.list.label" args="['Region']" /></g:link></li>
+                    %{--<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
@@ -42,7 +42,7 @@
                             <li><a href="#">Separated link</a></li>
                             <li><a href="#">One more separated link</a></li>
                         </ul>
-                    </li>
+                    </li>--}%
                 </ul>
                 <sec:ifLoggedIn>
                 <div class="btn-group pull-right">
@@ -59,12 +59,13 @@
                 </sec:ifLoggedIn>
                 <sec:ifNotLoggedIn>
                 <g:if test="${!request.forwardURI.contains('login')}">
-                <form class="navbar-form pull-right" method="post" autocomplete="off"
+                %{--<form class="navbar-form pull-right" method="post" autocomplete="off"
                       action="${request.contextPath}${SpringSecurityUtils.securityConfig.apf.filterProcessesUrl}">
                     <input name="j_username" id="username" type="text" class="span2" placeholder="Username">
                     <input name="j_password" type="password" class="span2" placeholder="Password">
                     <button class="btn btn-primary" style="display: none" type="submit">Login</button>
-                </form>
+                </form>--}%
+                    <div class="pull-right links"><a href="login" class="login">Login</a> or <a href="signup" class="signup">Sign Up</a></div>
                 </g:if>
                 </sec:ifNotLoggedIn>
             </div>
