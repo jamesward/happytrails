@@ -27,7 +27,7 @@ public class RegionController extends Controller {
         feed.setFeedType("rss_2.0");
 
         feed.setTitle("Uber Tracks - " + region.getName());
-        feed.setLink("http://hike.ubertracks.com");
+        feed.setLink("http://hike.ubertracks.com"); // todo: externalize URL
         feed.setDescription("Updates for Hike Uber Tracks - " + region.getName());
 
         List entries = new ArrayList();
@@ -36,7 +36,7 @@ public class RegionController extends Controller {
         
             SyndEntry entry = new SyndEntryImpl();
             entry.setTitle("Route - " + route.getName());
-            entry.setLink("http://hike.ubertracks.com" + routes.RouteController.getRouteHtml(region.getUrlFriendlyName(), route.getUrlFriendlyName()).url());
+            entry.setLink("http://hike.ubertracks.com" + routes.RouteController.getRouteHtml(region.getUrlFriendlyName(), route.getUrlFriendlyName()).url()); // todo: externalize URL
             entry.setPublishedDate(route.creationDate);
             
             SyndContent description = new SyndContentImpl();
