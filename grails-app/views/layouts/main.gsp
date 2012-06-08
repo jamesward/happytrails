@@ -13,9 +13,8 @@
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
     <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-    <!-- todo: move these locally -->
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" type="text/css">
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-responsive.min.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
     <g:layoutHead/>
@@ -84,9 +83,8 @@ ${request.breadcrumb}
 <g:javascript library="application"/>
 <r:layoutResources/>
 
-<!-- todo: move these locally or use WebJars -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.min.js"></script>
+<script src="${resource(dir: 'js', file: 'jquery-1.7.2.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'bootstrap.min.js')}"></script>
 <script>
 $(document).ready(function() {
    $('.navbar #username').on('blur', function() {

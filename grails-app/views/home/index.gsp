@@ -18,8 +18,8 @@
                         <g:if test="${(i % 2) == 0}">
                             <div class="span2"></div>
                         </g:if>
-                        <div class="span3">
-                            <link:region region="${r.seoName}" route="">${fieldValue(bean: r, field: "name")}</link:region>
+                        <div class="span3 ${r.seoName}">
+                            <link:region region="${r.seoName}" route="">${r.name}</link:region>
                         </div>
                         <g:if test="${(i % 2) == 1}">
                             <div class="span2"></div>
@@ -31,8 +31,10 @@
             </div>
 
             <div class="span2 sidebar">
-                <!--Sidebar content-->
-                sidebar
+                <g:if test="${comments.size() > 0}"><h2>Recent Comments</h2></g:if>
+                <g:each in="${comments}" status="i" var="c">
+                    "${c.value}" <em>--${c.user.name}</em>
+                </g:each>
             </div>
         </div>
     </div>

@@ -36,4 +36,9 @@ body {
     border: 1px solid silver;
     padding: 5px;
     height: 200px;
+    margin-bottom: 30px;
+}
+
+.sidebar h2 {
+   font-size: 16px;
 }
