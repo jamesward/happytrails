@@ -58,7 +58,7 @@ create table route (
   name                      varchar(128) not null,
   url_friendly_name         varchar(128) not null,
   description               varchar(255) not null,
-  distance_in_miles         integer not null,
+  distance_in_miles         float not null,
   location                  varchar(255) not null,
   region_id                 bigint,
   photo_id                  bigint,
@@ -71,7 +71,7 @@ create table account (
   id                        bigint not null,
   token                     varchar(255),
   email_address             varchar(256) not null,
-  sha_password              blob(64) not null,
+  sha_password              bytea not null,
   full_name                 varchar(256) not null,
   creation_date             timestamp not null,
   constraint uq_account_email_address unique (email_address),
@@ -94,50 +94,46 @@ create sequence route_seq;
 
 create sequence account_seq;
 
-alter table comment add constraint fk_comment_photo_1 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
+alter table comment add constraint fk_comment_photo_1 foreign key (photo_id) references photo (id);
 create index ix_comment_photo_1 on comment (photo_id);
-alter table comment add constraint fk_comment_user_2 foreign key (user_id) references account (id) on delete restrict on update restrict;
+alter table comment add constraint fk_comment_user_2 foreign key (user_id) references account (id);
 create index ix_comment_user_2 on comment (user_id);
-alter table comment add constraint fk_comment_route_3 foreign key (route_id) references route (id) on delete restrict on update restrict;
+alter table comment add constraint fk_comment_route_3 foreign key (route_id) references route (id);
 create index ix_comment_route_3 on comment (route_id);
-alter table direction add constraint fk_direction_route_4 foreign key (route_id) references route (id) on delete restrict on update restrict;
+alter table direction add constraint fk_direction_route_4 foreign key (route_id) references route (id);
 create index ix_direction_route_4 on direction (route_id);
-alter table rating add constraint fk_rating_user_5 foreign key (user_id) references account (id) on delete restrict on update restrict;
+alter table rating add constraint fk_rating_user_5 foreign key (user_id) references account (id);
 create index ix_rating_user_5 on rating (user_id);
-alter table rating add constraint fk_rating_route_6 foreign key (route_id) references route (id) on delete restrict on update restrict;
+alter table rating add constraint fk_rating_route_6 foreign key (route_id) references route (id);
 create index ix_rating_route_6 on rating (route_id);
-alter table region_subscription add constraint fk_region_subscription_user_7 foreign key (user_id) references account (id) on delete restrict on update restrict;
+alter table region_subscription add constraint fk_region_subscription_user_7 foreign key (user_id) references account (id);
 create index ix_region_subscription_user_7 on region_subscription (user_id);
-alter table region_subscription add constraint fk_region_subscription_region_8 foreign key (region_id) references region (id) on delete restrict on update restrict;
+alter table region_subscription add constraint fk_region_subscription_region_8 foreign key (region_id) references region (id);
 create index ix_region_subscription_region_8 on region_subscription (region_id);
-alter table route add constraint fk_route_region_9 foreign key (region_id) references region (id) on delete restrict on update restrict;
+alter table route add constraint fk_route_region_9 foreign key (region_id) references region (id);
 create index ix_route_region_9 on route (region_id);
-alter table route add constraint fk_route_photo_10 foreign key (photo_id) references photo (id) on delete restrict on update restrict;
+alter table route add constraint fk_route_photo_10 foreign key (photo_id) references photo (id);
 create index ix_route_photo_10 on route (photo_id);
 
 
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+drop table if exists comment cascade;
 
-drop table if exists comment;
+drop table if exists direction cascade;
 
-drop table if exists direction;
+drop table if exists photo cascade;
 
-drop table if exists photo;
+drop table if exists rating cascade;
 
-drop table if exists rating;
+drop table if exists region cascade;
 
-drop table if exists region;
+drop table if exists region_subscription cascade;
 
-drop table if exists region_subscription;
+drop table if exists route cascade;
 
-drop table if exists route;
-
-drop table if exists account;
-
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table if exists account cascade;
 
 drop sequence if exists comment_seq;
 

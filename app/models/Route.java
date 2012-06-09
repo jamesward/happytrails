@@ -43,7 +43,7 @@ public class Route extends Model {
 
     @Column(nullable = false)
     @Constraints.Required
-    public Integer distanceInMiles;
+    public Double distanceInMiles;
 
     @Column(nullable = false)
     @Constraints.Required
@@ -73,7 +73,7 @@ public class Route extends Model {
         this.creationDate = new Date();
     }
 
-    public Route(String name, String description, Integer distanceInMiles, Region region, String location) {
+    public Route(String name, String description, Double distanceInMiles, Region region, String location) {
         setName(name);
         this.description = description;
         this.distanceInMiles = distanceInMiles;
