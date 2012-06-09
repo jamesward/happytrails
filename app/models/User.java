@@ -39,7 +39,6 @@ public class User extends Model {
     }
 
     @Column(length = 64, nullable = false)
-    @Lob
     private byte[] shaPassword;
 
     @Transient
