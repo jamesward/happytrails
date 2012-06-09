@@ -19,7 +19,6 @@ import java.util.List;
 @With(CurrentUser.class)
 public class RegionController extends Controller {
 
-    // todo
     public static Result getRegionFeed(String urlFriendlyRegionName) throws FeedException, IOException {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
 
