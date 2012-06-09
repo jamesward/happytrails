@@ -29,3 +29,17 @@ Experience Notes
 
 * Dualing compilers (~run, ~test, IntelliJ)
 * No auto CRUD UI
+
+* Old Postgres version possibly incompatible with EBean
+
+* HTTP Port config different than the other config
+
+
+* Scala Console on Heroku
+
+        heroku run bash
+        java -Dconfig.file=conf/prod.conf -jar ~/.sbt_home/bin/sbt-launch-0.11.3-2.jar
+        set fullClasspath in Compile += Attributed.blank(file("target/staged/*"))
+        console
+        import play.core.StaticApplication
+        new StaticApplication(new java.io.File("."))
