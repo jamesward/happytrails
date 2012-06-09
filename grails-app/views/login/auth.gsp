@@ -44,7 +44,7 @@
                     <g:message code="springSecurity.login.remember.me.label"/></label>
             </fielset>
             <fieldset class="form-actions">
-                <button class="btn btn-primary" type="submit">Sign in</button>
+                <button class="btn btn-primary" type="submit">Sign In</button>
                 <g:link controller="home" class="btn">Cancel</g:link>
             </fieldset>
         </form>
