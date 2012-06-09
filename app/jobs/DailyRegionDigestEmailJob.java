@@ -1,5 +1,7 @@
 package jobs;
 
+import com.typesafe.plugin.MailerAPI;
+import com.typesafe.plugin.MailerPlugin;
 import models.*;
 import play.Logger;
 import play.api.Play;
@@ -20,7 +22,20 @@ public class DailyRegionDigestEmailJob {
         
         List<RegionUserDigest> regionUserDigests = getRegionUserDigests();
         
-        // todo: send emails
+        for (RegionUserDigest regionUserDigest : regionUserDigests) {
+            String emailContent = "";
+            emailContent = "Uber Tracks Region Updates" + "\n\n";
+            
+            for (Comment comment : regionUserDigest.comments) {
+                emailContent += "New Comment:" + "\n\n" + comment.value + "\n\n";
+            }
+            
+            MailerAPI mail = play.Play.application().plugin(MailerPlugin.class).email();
+            mail.setSubject("Uber Tracks Region Updates");
+            mail.addRecipient(regionUserDigest.user.getEmailAddress());
+            mail.addFrom("noreply@ubertracks.com");
+            mail.send(emailContent);
+        }
     }
     
     public static List<RegionUserDigest> getRegionUserDigests() {
