@@ -3,7 +3,6 @@ Grails
 
 Play
 * Pretty UI
-* Job on Heroku
 * Optimize UI for YSlow/Page Speed
 
 Both
@@ -19,4 +18,3 @@ Matt
 
 James
 * Provide instructions to Matt on SMTP on Heroku
-* Document preso outline on GitHub
