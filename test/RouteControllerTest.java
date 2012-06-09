@@ -18,7 +18,7 @@ public class RouteControllerTest {
 
     @Test
     public void getRouteHtml() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
                 
@@ -35,7 +35,7 @@ public class RouteControllerTest {
 
     @Test
     public void saveRating() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
                 
@@ -73,7 +73,7 @@ public class RouteControllerTest {
 
     @Test
     public void saveComment() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
 

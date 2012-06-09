@@ -13,7 +13,7 @@ public class UserTest {
 
     @Test
     public void testCreate() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 User user = new User("foo@foo.com", "password", "John Doe");
                 user.save();
@@ -41,7 +41,7 @@ public class UserTest {
 
     @Test(expected = PersistenceException.class)
     public void testCreateWithDuplicateEmail() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 User user1 = new User("foo@foo.com", "password", "John Doe");
                 user1.save();
@@ -53,7 +53,7 @@ public class UserTest {
 
     @Test(expected = PersistenceException.class)
     public void testCreateWithDuplicateEmailDifferentCase() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 User user1 = new User("foo@foo.com", "password", "John Doe");
                 user1.save();
@@ -65,7 +65,7 @@ public class UserTest {
 
     @Test
     public void findAll() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 User user1 = new User("foo@foo.com", "password", "John Doe");
                 user1.save();
@@ -82,7 +82,7 @@ public class UserTest {
 
     @Test
     public void findByEmailAddressAndPassword() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 User newUser = new User("foo@foo.com", "password", "John Doe");
                 newUser.save();
@@ -97,7 +97,7 @@ public class UserTest {
 
     @Test
     public void findByEmailAddressDifferentCaseAndPassword() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 User newUser = new User("foo@foo.com", "password", "John Doe");
                 newUser.save();
@@ -112,7 +112,7 @@ public class UserTest {
 
     @Test
     public void findByInvalidEmailAddressAndPassword() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 User newUser = new User("foo@foo.com", "password", "John Doe");
                 newUser.save();
@@ -126,7 +126,7 @@ public class UserTest {
 
     @Test
     public void createToken() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 User newUser = new User("foo@foo.com", "password", "John Doe");
                 newUser.save();

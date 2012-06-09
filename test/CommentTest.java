@@ -8,13 +8,14 @@ import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.fakeApplication;
+import static play.test.Helpers.inMemoryDatabase;
 import static play.test.Helpers.running;
 
 public class CommentTest {
 
     @Test
     public void testCreate() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 Comment comment = new Comment(new User(), "test comment");
                 comment.save();
@@ -27,7 +28,7 @@ public class CommentTest {
 
     @Test(expected = PersistenceException.class)
     public void testCreateEmptyValue() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 Comment comment = new Comment();
                 comment.save();

@@ -20,7 +20,7 @@ public class RegionControllerTest {
 
     @Test
     public void getRegionHtml() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
                 
@@ -33,7 +33,7 @@ public class RegionControllerTest {
 
     @Test
     public void getRegionHtmlLoggedIn() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
 
@@ -56,7 +56,7 @@ public class RegionControllerTest {
     
     @Test
     public void addRoute() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
 
@@ -78,7 +78,7 @@ public class RegionControllerTest {
 
     @Test
     public void saveRoute() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
 
@@ -106,7 +106,7 @@ public class RegionControllerTest {
 
     @Test
     public void saveRouteWithDuplicateName() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
 
@@ -133,7 +133,7 @@ public class RegionControllerTest {
 
     @Test
     public void subscribe() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
 

@@ -9,13 +9,14 @@ import javax.persistence.PersistenceException;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.fakeApplication;
+import static play.test.Helpers.inMemoryDatabase;
 import static play.test.Helpers.running;
 
 public class RouteTest {
 
     @Test
     public void save() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 Region region = new Region("foo region");
                 region.save();
@@ -32,7 +33,7 @@ public class RouteTest {
 
     @Test(expected = PersistenceException.class)
     public void saveEmptyValue() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 Route route = new Route();
                 route.save();
@@ -64,7 +65,7 @@ public class RouteTest {
 
     @Test
     public void findByUrlFriendlyName() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
                 

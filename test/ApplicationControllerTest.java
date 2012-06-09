@@ -17,7 +17,7 @@ public class ApplicationControllerTest {
 
     @Test
     public void index() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
                 
@@ -31,7 +31,7 @@ public class ApplicationControllerTest {
 
     @Test
     public void signupForm() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 Result result = callAction(routes.ref.ApplicationController.signupForm());
                 assertThat(status(result)).isEqualTo(OK);
@@ -42,7 +42,7 @@ public class ApplicationControllerTest {
 
     @Test
     public void signup() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 Map<String,String> data = new HashMap<java.lang.String, java.lang.String>();
                 data.put("emailAddress", "foo@foo.com");
@@ -62,7 +62,7 @@ public class ApplicationControllerTest {
 
     @Test
     public void login() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
                 
@@ -86,7 +86,7 @@ public class ApplicationControllerTest {
 
     @Test
     public void loginWithBadPassword() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
 
@@ -102,7 +102,7 @@ public class ApplicationControllerTest {
 
     @Test
     public void logout() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 DemoData.loadDemoData();
 

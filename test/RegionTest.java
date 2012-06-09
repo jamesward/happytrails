@@ -5,13 +5,14 @@ import javax.persistence.PersistenceException;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.fakeApplication;
+import static play.test.Helpers.inMemoryDatabase;
 import static play.test.Helpers.running;
 
 public class RegionTest {
 
     @Test
     public void testCreate() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 Region region = new Region("region");
                 region.save();
@@ -24,7 +25,7 @@ public class RegionTest {
 
     @Test(expected = PersistenceException.class)
     public void testCreateEmptyValue() {
-        running(fakeApplication(), new Runnable() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 Region region = new Region();
                 region.save();
