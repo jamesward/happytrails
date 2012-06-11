@@ -23,7 +23,7 @@ grails.project.dependency.resolution = {
         mavenCentral()
     }
 
-    def gebVersion = "0.7.0"
+    def gebVersion = "0.6.3"
     def seleniumVersion = "2.21.0"
 
     dependencies {
