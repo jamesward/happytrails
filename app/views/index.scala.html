@@ -27,7 +27,7 @@
                 <ul class="nav nav-list">
                     <li class="nav-header">Recent Comments</li>
                     @for(comment <- Comment.fiveMostRecent) {
-                        <li><a href="">@comment.route.region</a></li>
+                        <li><a href="@routes.RouteController.getRouteHtml(comment.route.region.getUrlFriendlyName, comment.route.getUrlFriendlyName)">@comment.value</a></li>
                     }
                 </ul>
             </div>

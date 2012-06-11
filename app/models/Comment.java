@@ -1,5 +1,6 @@
 package models;
 
+import com.avaje.ebean.FetchConfig;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
@@ -47,7 +48,7 @@ public class Comment extends Model {
     public static Finder<Long, Comment> find = new Finder<Long, Comment>(Long.class, Comment.class);
 
     public static List<Comment> fiveMostRecent() {
-        return find.orderBy("creationDate").setMaxRows(5).findList();
+        return find.orderBy("creationDate").fetch("route.region", new FetchConfig().query()).setMaxRows(5).findList();
     }
     
 }

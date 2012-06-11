@@ -34,6 +34,7 @@ Experience Notes
 
 * HTTP Port config different than the other config
 
+* EBean Pain: Traversing through two levels of ManyToOne relationships
 
 * Scala Console on Heroku
 

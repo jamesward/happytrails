@@ -43,7 +43,7 @@
     <h2>Comments:</h2>
     <ul>
     @for(comment <- route.comments) {
-        <li>@comment.value - @comment.value</li>
+        <li><b>@comment.user.fullName (@comment.creationDate)</b><br/>@comment.value</li>
     }
     </ul>
 

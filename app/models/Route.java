@@ -1,5 +1,6 @@
 package models;
 
+import com.avaje.ebean.FetchConfig;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 import utils.UrlUtils;
@@ -102,7 +103,7 @@ public class Route extends Model {
 
     public static Route findByUrlFriendlyName(Region region, String urlFriendlyName) {
         try  {
-            return find.where().eq("urlFriendlyName", urlFriendlyName).eq("region.id", region.id).findUnique();
+            return find.fetch("comments", new FetchConfig().query()).fetch("comments.user", new FetchConfig().query()).where().eq("urlFriendlyName", urlFriendlyName).eq("region", region).findUnique();
         }
         catch (Exception e) {
             return null;
