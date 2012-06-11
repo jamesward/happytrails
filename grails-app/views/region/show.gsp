@@ -33,7 +33,7 @@
 
             <g:if test="${regionInstance.routes.size() > 0}">
             <h3 style="margin-top: 40px">Routes Available</h3>
-            <ul>
+            <ul class="routes">
                 <g:each in="${regionInstance.routes}" status="i" var="route">
                     <li><link:region region="${regionInstance.seoName}" route="${route.seoName}">${route.name}</link:region></li>
                 </g:each>

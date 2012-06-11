@@ -24,9 +24,7 @@
 			<table class="table table-condensed">
 				<thead>
 					<tr>
-					
 						<g:sortableColumn property="name" title="${message(code: 'region.name.label', default: 'Name')}" />
-					
 					</tr>
 				</thead>
 				<tbody>

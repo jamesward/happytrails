@@ -40,7 +40,9 @@
       <sourceFolder url="file://$MODULE_DIR$/grails-app/taglib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/integration" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/grails-app/jobs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/functional" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -63,12 +65,44 @@
           <root url="jar://$USER_HOME$/.grails/ivy-cache/com.cloudbees/cloudbees-api-client/jars/cloudbees-api-client-1.1.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/xmlpull/xmlpull/jars/xmlpull-1.1.3.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.quartz-scheduler/quartz/jars/quartz-1.8.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.hamcrest/hamcrest-core/jars/hamcrest-core-1.2.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/junit/junit-dep/jars/junit-dep-4.9.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.spockframework/spock-core/jars/spock-core-0.6-groovy-1.8.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.spockframework/spock-grails-support/jars/spock-grails-support-0.6-groovy-1.8.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.codehaus.geb/geb-implicit-assertions/jars/geb-implicit-assertions-0.7.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.codehaus.geb/geb-core/jars/geb-core-0.7.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.codehaus.geb/geb-spock/jars/geb-spock-0.7.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.seleniumhq.selenium/selenium-firefox-driver/jars/selenium-firefox-driver-2.21.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/net.java.dev.jna/platform/jars/platform-3.4.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/net.java.dev.jna/jna/jars/jna-3.4.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.commons/commons-exec/jars/commons-exec-1.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.json/json/jars/json-20080701.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/cglib/cglib-nodep/jars/cglib-nodep-2.1_3.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.seleniumhq.selenium/selenium-remote-driver/jars/selenium-remote-driver-2.21.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.seleniumhq.selenium/selenium-chrome-driver/jars/selenium-chrome-driver-2.21.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.1.2.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.w3c.css/sac/jars/sac-1.3.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/net.sourceforge.cssparser/cssparser/jars/cssparser-0.9.5.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/net.sourceforge.nekohtml/nekohtml/jars/nekohtml-1.9.15.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/xerces/xercesImpl/jars/xercesImpl-2.9.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/net.sourceforge.htmlunit/htmlunit-core-js/jars/htmlunit-core-js-2.9.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-codec/commons-codec/jars/commons-codec-1.6.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.1.3.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.httpcomponents/httpmime/jars/httpmime-4.1.2.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/xalan/xalan/jars/xalan-2.7.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/net.sourceforge.htmlunit/htmlunit/jars/htmlunit-2.9.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/com.google.code.findbugs/jsr305/jars/jsr305-1.3.9.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/com.google.guava/guava/jars/guava-11.0.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.seleniumhq.selenium/selenium-api/jars/selenium-api-2.21.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.seleniumhq.selenium/selenium-htmlunit-driver/jars/selenium-htmlunit-driver-2.21.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="grails-2.0.4" level="application" />
   </component>
 </module>
 

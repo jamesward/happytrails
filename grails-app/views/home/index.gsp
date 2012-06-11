@@ -18,7 +18,7 @@
                         <g:if test="${(i % 2) == 0}">
                             <div class="span2"></div>
                         </g:if>
-                        <div class="span3 ${r.seoName}">
+                        <div class="span3 ${r.seoName} region">
                             <span class="title"><link:region region="${r.seoName}" route="">${r.name}</link:region></span>
                         </div>
                         <g:if test="${(i % 2) == 1}">
@@ -33,7 +33,7 @@
             <div class="span2 sidebar">
                 <g:if test="${comments.size() > 0}"><h2>Recent Comments</h2></g:if>
                 <g:each in="${comments}" status="i" var="c">
-                    "${c.value}" <em>--${c.user.name}</em><br/>
+                    <span class="comment">${c.value}" <em>--${c.user.name}</em></span><br/>
                 </g:each>
             </div>
         </div>
