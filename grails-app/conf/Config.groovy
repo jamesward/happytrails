@@ -63,6 +63,13 @@ environments {
     development {
         grails.logging.jul.usebridge = true
     }
+    test {
+        grails {
+            mail {
+                port = 1025
+            }
+        }
+    }
     production {
         grails.logging.jul.usebridge = false
         grails.serverURL = "http://bike.ubertracks.com"

@@ -13,6 +13,8 @@ class UrlMappings {
         "/logout"(controller: "logout")
         "/feed/$region"(controller: "region", action: "feed")
         "/signup"(controller: "register")
+        "/register/register"(controller: "register", action: "register")
+        "/register/verifyRegistration"(controller: "register", action: "verifyRegistration")
         "/forgotPassword"(controller: "register", action: "forgotPassword")
         "/comment/create"(controller: "comment", action: "create")
         "/comment/save"(controller: "comment", action: "save")

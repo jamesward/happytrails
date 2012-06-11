@@ -36,6 +36,9 @@ grails.project.dependency.resolution = {
         test("org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion")
 
         test "org.codehaus.geb:geb-spock:$gebVersion"
+        test('dumbster:dumbster:1.6') {
+            excludes 'mail', 'activation'
+        }
     }
 
     plugins {

@@ -96,6 +96,7 @@
           <root url="jar://$USER_HOME$/.grails/ivy-cache/com.google.guava/guava/jars/guava-11.0.1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.seleniumhq.selenium/selenium-api/jars/selenium-api-2.21.0.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.seleniumhq.selenium/selenium-htmlunit-driver/jars/selenium-htmlunit-driver-2.21.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/dumbster/dumbster/jars/dumbster-1.6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
