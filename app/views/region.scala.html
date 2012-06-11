@@ -4,7 +4,16 @@
     <link rel="alternate" type="application/rss+xml" title="@region.getName RSS Feed" href="@routes.RegionController.getRegionFeed(region.getUrlFriendlyName)" />
 }
 
-@main("Happy Trails - Regions - " + region.getName, headContent) {
+@breadcrumbs = {
+    <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="@routes.ApplicationController.index()">Hike</a></li>
+            <li class="active"><a href="@routes.RegionController.getRegionHtml(region.getUrlFriendlyName)">@region.getName</a></li>
+        </ul>
+    </div>
+}
+
+@main("Uber Tracks - Hike - " + region.getName, headContent, breadcrumbs) {
 
     <ul>
         @for(route <- region.routes) {

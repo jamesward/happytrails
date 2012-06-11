@@ -1,6 +1,20 @@
 @(route: Route)
 
-@main("Happy Trails - Regions - " + route.region.getName + " - " + route.getName) {
+@headContent = {
+
+}
+
+@breadcrumbs = {
+    <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="@routes.ApplicationController.index()">Hike</a></li>
+            <li><a href="@routes.RegionController.getRegionHtml(route.region.getUrlFriendlyName)">@route.region.getName</a></li>
+            <li class="active"><a href="@routes.RouteController.getRouteHtml(route.region.getUrlFriendlyName, route.getUrlFriendlyName)">@route.getName</a></li>
+        </ul>
+    </div>
+}
+
+@main("Uber Tracks - Hike - " + route.region.getName + " - " + route.getName, headContent, breadcrumbs) {
 
     <h1>@route.getName</h1>
 

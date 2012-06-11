@@ -1,11 +1,33 @@
 @(regions: List[Region])
 
-@main("Happy Trails - Regions") {
+@headContent = {
 
-  <ul>
-  @for(region <- regions) {
-    <li><a href="@routes.RegionController.getRegionHtml(region.getUrlFriendlyName)">@region.getName</a></li>
-  }
-  </ul>
+}
+
+@breadcrumbs = {
+    <div class="nav-collapse">
+        <ul class="nav">
+            <li class="active"><a href="@routes.ApplicationController.index()">Hike</a></li>
+        </ul>
+    </div>
+}
+
+@main("Hike - Uber Tracks - Regions", headContent, breadcrumbs) {
+
+    <div class="row-fluid">
+        <div class="span9">
+            <ul>
+            @for(region <- regions) {
+                <li><a href="@routes.RegionController.getRegionHtml(region.getUrlFriendlyName)">@region.getName</a></li>
+            }
+            </ul>
+        </div>
+        <div class="span3">
+            <div class="well sidebar-nav">
+                Recent Comments
+                <!-- todo -->
+            </div>
+        </div>
+    </div>
 
 }

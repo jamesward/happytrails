@@ -1,0 +1,11 @@
+@(loginForm: Form[ApplicationController.Login])
+
+@main("Uber Tracks - Hike - Login") {
+
+    @helper.form(action = routes.ApplicationController.login()) {
+        @helper.inputText(loginForm("emailAddress"))
+        @helper.inputPassword(loginForm("password"))
+        <input type="submit" value="Login"/>
+    }
+
+}

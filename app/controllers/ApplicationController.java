@@ -33,8 +33,14 @@ public class ApplicationController extends Controller {
         }
     }
 
+    public static Result loginForm() {
+        return ok(views.html.loginForm.render(form(Login.class)));
+    }
+
     public static Result login() {
         Login login = form(Login.class).bindFromRequest().get();
+        
+        System.out.println(login.emailAddress + " " + login.password);
         
         User user = User.findByEmailAddressAndPassword(login.emailAddress, login.password);
 

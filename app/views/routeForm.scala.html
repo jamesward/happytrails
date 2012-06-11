@@ -1,6 +1,6 @@
 @(region: Region, routeForm: Form[Route])
 
-@main("Happy Trails - " + region.getName + " - Add New Route") {
+@main("Uber Tracks - Hike - " + region.getName + " - Add New Route") {
 
     @helper.form(action = routes.RegionController.saveRoute(region.getUrlFriendlyName)) {
         @helper.inputText(routeForm("name"))
