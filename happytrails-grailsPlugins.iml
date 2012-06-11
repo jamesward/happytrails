@@ -18,6 +18,8 @@
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/searchable-0.6.3/grails-app/views" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cached-resources-1.0/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cached-resources-1.0/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/rateable-0.7.1/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-2.8.2/web-app" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -77,6 +79,12 @@
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/quartz-1.0-RC2/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/quartz-1.0-RC2/grails-app/services" isTestSource="false" />
     </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/rateable-0.7.1">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/rateable-0.7.1/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/rateable-0.7.1/grails-app/controllers" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/rateable-0.7.1/grails-app/domain" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/rateable-0.7.1/grails-app/taglib" isTestSource="false" />
+    </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/resources-1.1.6">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/resources-1.1.6/src/java" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/resources-1.1.6/src/groovy" isTestSource="false" />
@@ -107,9 +115,16 @@
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/spring-security-ui-0.2/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/spring-security-ui-0.2/grails-app/taglib" isTestSource="false" />
     </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/svn-1.0.0.M1">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/svn-1.0.0.M1/src/groovy" isTestSource="false" />
+    </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/tomcat-2.0.3" />
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/webxml-1.4.1">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/webxml-1.4.1/src/groovy" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-2.8.2">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-2.8.2/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-2.8.2/grails-app/taglib" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-minify-resources-0.1.4">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-minify-resources-0.1.4/src/groovy" isTestSource="false" />
@@ -171,11 +186,13 @@
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-minify-resources-0.1.4/lib" />
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/lib" />
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/searchable-0.6.3/lib" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/svn-1.0.0.M1/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/feeds-1.5/lib" recursive="false" />
         <jarDirectory url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/searchable-0.6.3/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/svn-1.0.0.M1/lib" recursive="false" />
         <jarDirectory url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-minify-resources-0.1.4/lib" recursive="false" />
       </library>
     </orderEntry>

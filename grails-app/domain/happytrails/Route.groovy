@@ -1,9 +1,12 @@
 package happytrails
 
-class Route {
+import org.grails.rateable.*
+
+class Route implements Rateable {
     static searchable = true
     static belongsTo = [region:Region]
-    static hasMany = [comments:Comment,directions:Direction,ratings:Rating]
+    static hasMany = [comments:Comment,directions:Direction]
+    static transients = [ "averageRating" ]
 
     static constraints = {
         name blank: false, unique: true

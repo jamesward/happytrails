@@ -113,3 +113,11 @@ select {
 .alert {
     margin-right: 300px;
 }
+
+.sorted.asc:after {
+    content: " \2191"
+}
+
+.sorted.desc:after {
+    content: " \2193"
+}

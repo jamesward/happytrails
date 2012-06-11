@@ -33,11 +33,28 @@
 
             <g:if test="${regionInstance.routes.size() > 0}">
             <h3 style="margin-top: 40px">Routes Available</h3>
-            <ul class="routes">
+            <table class="routes table table-condensed" style="width: 600px">
+                <thead>
+                    <tr>
+                        <g:sortableColumn property="name" title="${message(code: 'route.name.label', default: 'Name')}" />
+                        <g:sortableColumn property="description" title="${message(code: 'route.description.label', default: 'Description')}" />
+                        <g:sortableColumn property="distance" title="${message(code: 'route.distance.label', default: 'Distance')}" />
+                        <g:sortableColumn property="location" title="${message(code: 'route.location.label', default: 'Location')}" />
+                        <g:sortableColumn property="averageRating" title="${message(code: 'route.location.label', default: 'Avg. Rating')}" />
+                    </tr>
+                </thead>
+                <tbody>
                 <g:each in="${regionInstance.routes}" status="i" var="route">
-                    <li><link:region region="${regionInstance.seoName}" route="${route.seoName}">${route.name}</link:region></li>
+                    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                        <td><link:region region="${regionInstance.seoName}" route="${route.seoName}">${route.name}</link:region></td>
+                        <td>${fieldValue(bean: route, field: "description")}</td>
+                        <td>${fieldValue(bean: route, field: "distance")}</td>
+                        <td>${fieldValue(bean: route, field: "location")}</td>
+                        <td>${fieldValue(bean: route, field: "averageRating")}</td>
+                    </tr>
                 </g:each>
-            </ul>
+                </tbody>
+            </table>
             </g:if>
 		</div>
 
