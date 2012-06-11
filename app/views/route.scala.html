@@ -20,7 +20,7 @@
 
     <h2>Directions:</h2>
     <ul>
-    @for(direction <- route.directions) {
+    @for(direction <- route.directions.sortBy(_.stepNumber)) {
         <li>@direction.stepNumber - @direction.instruction</li>
     }
     </ul>
