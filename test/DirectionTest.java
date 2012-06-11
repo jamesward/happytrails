@@ -1,5 +1,6 @@
 import models.Direction;
 
+import models.Route;
 import org.junit.Test;
 
 import javax.persistence.PersistenceException;
@@ -15,7 +16,7 @@ public class DirectionTest {
     public void testCreate() {
         running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
-                Direction direction = new Direction(1, "instruction");
+                Direction direction = new Direction(new Route(), 1, "instruction");
                 direction.save();
                 assertThat(direction.id).isNotNull();
                 assertThat(direction.stepNumber).isEqualTo(1);
@@ -28,7 +29,7 @@ public class DirectionTest {
     public void testCreateEmptyInstruction() {
         running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
-                Direction direction = new Direction(1, null);
+                Direction direction = new Direction(new Route(), 1, null);
                 direction.save();
             }
         });

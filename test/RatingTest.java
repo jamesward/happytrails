@@ -1,4 +1,6 @@
 import models.Rating;
+import models.Region;
+import models.Route;
 import models.User;
 import org.junit.Test;
 import play.Logger;
@@ -17,11 +19,22 @@ import static play.test.Helpers.running;
 public class RatingTest {
 
     @Test
-    public void testCreate() {
+    public void create() {
         running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
-                Rating rating = new Rating(new User(), 1);
+                User user = new User("foo@foo.com", "foo", "foo");
+                user.save();
+
+                Region region = new Region("Some place");
+                region.save();
+
+                Route route = new Route("Nowhere", "A good one", 1.1, region, "Under the rainbow");
+                route.save();
+                assertThat(route.region.id).isEqualTo(region.id);
+                
+                Rating rating = new Rating(user, route, 1);
                 rating.save();
+                
                 assertThat(rating.id).isNotNull();
                 assertThat(rating.value).isEqualTo(1);
                 assertThat(rating.creationDate).isNotNull();
@@ -30,7 +43,7 @@ public class RatingTest {
     }
 
     @Test(expected = PersistenceException.class)
-    public void testCreateEmptyValue() {
+    public void createEmptyValue() {
         running(fakeApplication(inMemoryDatabase()), new Runnable() {
             public void run() {
                 Rating rating = new Rating();

@@ -5,6 +5,7 @@ import play.db.ebean.Model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Comment extends Model {
@@ -28,19 +29,25 @@ public class Comment extends Model {
     public User user;
     
     @ManyToOne
+    @Column(nullable = false)
     public Route route;
     
     public Comment() {
         this.creationDate = new Date();
     }
 
-    public Comment(User user, String value) {
+    public Comment(User user, Route route, String value) {
         this.user = user;
+        this.route = route;
         this.value = value;
         this.creationDate = new Date();
     }
 
 
     public static Finder<Long, Comment> find = new Finder<Long, Comment>(Long.class, Comment.class);
+
+    public static List<Comment> fiveMostRecent() {
+        return find.orderBy("creationDate").setMaxRows(5).findList();
+    }
     
 }

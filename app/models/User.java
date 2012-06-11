@@ -67,7 +67,9 @@ public class User extends Model {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     public List<RegionSubscription> regionSubscriptions = new ArrayList<RegionSubscription>();
-    
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    public List<Comment> comments = new ArrayList<Comment>();
 
     public User() {
         this.creationDate = new Date();

@@ -79,7 +79,7 @@ public class ApplicationControllerTest {
 
                 Result result = callAction(routes.ref.ApplicationController.index(), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
                 assertThat(status(result)).isEqualTo(OK);
-                assertThat(contentAsString(result)).contains("Hello, James Ward");
+                assertThat(contentAsString(result)).contains("James Ward");
             }
         });
     }
@@ -118,7 +118,7 @@ public class ApplicationControllerTest {
 
                 Result loggedInIndexResult = callAction(routes.ref.ApplicationController.index(), fakeRequest().withHeader(Http.HeaderNames.COOKIE, header(Http.HeaderNames.SET_COOKIE, loginResult)));
                 assertThat(status(loggedInIndexResult)).isEqualTo(OK);
-                assertThat(contentAsString(loggedInIndexResult)).contains("Hello, James Ward");
+                assertThat(contentAsString(loggedInIndexResult)).contains("James Ward");
 
                 Result logoutResult = callAction(routes.ref.ApplicationController.logout(), fakeRequest().withHeader(Http.HeaderNames.COOKIE, header(Http.HeaderNames.SET_COOKIE, loginResult)));
                 assertThat(status(logoutResult)).isEqualTo(SEE_OTHER);
@@ -126,7 +126,7 @@ public class ApplicationControllerTest {
 
                 Result loggedOutIndexResult = callAction(routes.ref.ApplicationController.index(), fakeRequest().withHeader(Http.HeaderNames.COOKIE, header(Http.HeaderNames.SET_COOKIE, logoutResult)));
                 assertThat(status(loggedOutIndexResult)).isEqualTo(OK);
-                assertThat(contentAsString(loggedOutIndexResult)).doesNotContain("Hello, James Ward");
+                assertThat(contentAsString(loggedOutIndexResult)).doesNotContain("James Ward");
             }
         });
     }

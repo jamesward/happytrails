@@ -30,7 +30,8 @@ public class Direction extends Model {
     public Direction() {
     }
 
-    public Direction(Integer stepNumber, String instruction) {
+    public Direction(Route route, Integer stepNumber, String instruction) {
+        this.route = route;
         this.stepNumber = stepNumber;
         this.instruction = instruction;
     }

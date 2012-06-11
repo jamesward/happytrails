@@ -37,8 +37,9 @@ public class Rating extends Model {
         this.creationDate = new Date();
     }
 
-    public Rating(User user, Integer value) {
+    public Rating(User user, Route route, Integer value) {
         this.user = user;
+        this.route = route;
         this.value = value;
         this.creationDate = new Date();
     }

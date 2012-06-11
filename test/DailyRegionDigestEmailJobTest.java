@@ -30,8 +30,7 @@ public class DailyRegionDigestEmailJobTest {
                 
                 User commentingUser = User.findByEmailAddressAndPassword("matt@demo.com", "password");
                 
-                Comment comment = new Comment(commentingUser, "new comment");
-                comment.route = route;
+                Comment comment = new Comment(commentingUser, route, "new comment");
                 comment.save();
                 
                 List<DailyRegionDigestEmailJob.RegionUserDigest> regionUserDigests = DailyRegionDigestEmailJob.getRegionUserDigests();

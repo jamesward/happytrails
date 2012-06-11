@@ -24,8 +24,12 @@
         </div>
         <div class="span3">
             <div class="well sidebar-nav">
-                Recent Comments
-                <!-- todo -->
+                <ul class="nav nav-list">
+                    <li class="nav-header">Recent Comments</li>
+                    @for(comment <- Comment.fiveMostRecent) {
+                        <li><a href="">@comment.route.region</a></li>
+                    }
+                </ul>
             </div>
         </div>
     </div>
