@@ -99,10 +99,10 @@ grails.plugins.springsecurity.ui.register.emailFrom = grails.mail.default.from
 grails.plugins.springsecurity.ui.register.emailSubject = 'Welcome to Über Tracks!'
 
 grails.plugins.springsecurity.controllerAnnotations.staticRules = [
-   '/user/**': ['ROLE_ADMIN'],
-   '/role/**': ['ROLE_ADMIN'],
-   '/registrationCode/**': ['ROLE_ADMIN'],
-   '/securityInfo/**': ['ROLE_ADMIN']
+        '/user/**': ['ROLE_ADMIN'],
+        '/role/**': ['ROLE_ADMIN'],
+        '/registrationCode/**': ['ROLE_ADMIN'],
+        '/securityInfo/**': ['ROLE_ADMIN']
 ]
 
 // Added by the Spring Security Core plugin:

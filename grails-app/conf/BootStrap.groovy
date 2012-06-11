@@ -10,20 +10,20 @@ class BootStrap {
 
         if (!User.count()) {
             User user = new User(username: "mraible@gmail.com", password: "happyhour",
-                     name: "Matt Raible", enabled: true).save(failOnError: true)
+                    name: "Matt Raible", enabled: true).save(failOnError: true)
             User commentor = new User(username: "mraible+comments@gmail.com", password: "happyhour",
-                     name: "Fitz Raible", enabled: true).save(failOnError: true)
+                    name: "Fitz Raible", enabled: true).save(failOnError: true)
 
             Region frontRange = new Region(name: "Colorado Front Range").save(failOnError: true)
             // Add routes
             def whiteRanch = new Route(name: "White Ranch", distance: 10, location: "Golden, CO",
-                                description: "Long uphill climb")
+                    description: "Long uphill climb")
 
             // Add comments
             whiteRanch.addToComments(new Comment(value: "Coming down is the best!", user: commentor))
 
             frontRange.addToRoutes(whiteRanch)
-            frontRange.addToRoutes(new Route(name: "The Hogback", distance:  3, location: "Morrison, CO",
+            frontRange.addToRoutes(new Route(name: "The Hogback", distance: 3, location: "Morrison, CO",
                     description: "Very Technical, but fun!"))
 
             frontRange.save(failOnError: true)
