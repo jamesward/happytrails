@@ -1,11 +1,19 @@
 @(loginForm: Form[ApplicationController.Login])
 
+@implicitFieldConstructor = @{ helper.FieldConstructor(utils.html.twitterBootstrapInput.render) }
+
 @main("Uber Tracks - Hike - Login") {
 
-    @helper.form(action = routes.ApplicationController.login()) {
-        @helper.inputText(loginForm("emailAddress"))
-        @helper.inputPassword(loginForm("password"))
-        <input type="submit" value="Login"/>
+    @if(loginForm.hasGlobalErrors) {
+        <p class="error alert alert-error">@loginForm.globalError.message</p>
+    }
+
+    @helper.form(action = routes.ApplicationController.login(), 'class -> "form-horizontal") {
+        @helper.inputText(loginForm("emailAddress"), '_label -> "Email Address")
+        @helper.inputPassword(loginForm("password"), '_label -> "Password")
+        <div class="controls">
+            <input type="submit" class="btn btn-primary" value="Login"/>
+        </div>
     }
 
 }

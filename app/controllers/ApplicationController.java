@@ -3,6 +3,7 @@ package controllers;
 import models.Region;
 import models.User;
 import play.data.Form;
+import play.data.validation.Constraints;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
@@ -38,15 +39,23 @@ public class ApplicationController extends Controller {
     }
 
     public static Result login() {
-        Login login = form(Login.class).bindFromRequest().get();
+        
+        Form<Login> loginForm = form(Login.class).bindFromRequest();
+        
+        if (loginForm.hasErrors()) {
+            return badRequest(views.html.loginForm.render(loginForm));
+        }
+        
+        Login login = loginForm.get();
         
         User user = User.findByEmailAddressAndPassword(login.emailAddress, login.password);
 
-        // todo: redirect back to the page the user is already on for both cases
         if (user == null) {
-            return badRequest("Invalid Login");
+            loginForm.reject("Invalid Login");
+            return badRequest(views.html.loginForm.render(loginForm));
         }
         else {
+            // todo: redirect back to the page the user was already on
             session("token", user.createToken());
             return redirect(controllers.routes.ApplicationController.index());
         }
@@ -60,8 +69,11 @@ public class ApplicationController extends Controller {
     
     public static class Login {
         
+        @Constraints.Required
+        @Constraints.Email
         public String emailAddress;
 
+        @Constraints.Required
         public String password;
         
     }

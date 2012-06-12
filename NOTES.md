@@ -34,7 +34,7 @@ Experience Notes
 
 * HTTP Port config different than the other config
 
-* EBean Pain: Traversing through two levels of ManyToOne relationships
+* EBean Pain: Lazy Loading doesn't work from Scala Templates
 
 * Scala Console on Heroku
 
