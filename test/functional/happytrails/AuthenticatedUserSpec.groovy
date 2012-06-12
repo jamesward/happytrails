@@ -130,7 +130,7 @@ class AuthenticatedUserSpec extends GebReportingSpec {
         star3Rating.click()
 
         then:
-        $('#rating_notifytext').text() ==~ /Rating saved.+/
+        waitFor { $('#rating_notifytext').text() ==~ /Rating saved.+/ }
     }
 
     def "add comment for a route"() {

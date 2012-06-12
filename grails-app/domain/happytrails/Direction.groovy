@@ -2,6 +2,7 @@ package happytrails
 
 class Direction {
 
+    static belongsTo = [route:Route]
     static constraints = {
         stepNumber blank: false
         instruction blank: false
@@ -9,4 +10,5 @@ class Direction {
 
     Integer stepNumber
     String instruction
+    Route route
 }

@@ -19,7 +19,7 @@
         </label>
         <ul class="one-to-many">
             <g:each in="${regionInstance?.routes ?}" var="r">
-                <li><g:link controller="route" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+                <li><g:link controller="route" action="show" id="${r.id}">${r.name?.encodeAsHTML()}</g:link></li>
             </g:each>
             <li class="add">
                 <g:link controller="route" action="create"

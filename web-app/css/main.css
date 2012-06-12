@@ -132,3 +132,11 @@ select {
     margin-bottom: 10px;
     width: 75%
 }
+
+label, .property-label {
+    font-weight: bold;
+}
+
+.span6 > div {
+    margin-bottom: 10px;
+}

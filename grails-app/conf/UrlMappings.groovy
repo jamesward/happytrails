@@ -13,25 +13,27 @@ class UrlMappings {
         "/login/authfail"(controller: "login", action: "authfail")
         "/login/denied"(controller: "login", action: "denied")
         "/logout"(controller: "logout")
-        "/feed/$region"(controller: "region", action: "feed")
         "/signup"(controller: "register")
+        "/feed/$region"(controller: "region", action: "feed")
         "/register/register"(controller: "register", action: "register")
         "/register/verifyRegistration"(controller: "register", action: "verifyRegistration")
         "/forgotPassword"(controller: "register", action: "forgotPassword")
-        "/rateable/rate"(controller: "rateable", action: [POST: "rate"])
-        "/commentable/add"(controller: "commentable", action: [POST: "add"])
         "/region/create"(controller: "region", action: "create")
         "/regions"(controller: "region", action: "list")
         "/region/save"(controller: "region", action: "save")
         "/region/subscribe"(controller: "region", action: "subscribe")
         "/region/deleteSubscription"(controller: "region", action: "deleteSubscription")
+        "/route/create"(controller: "route", action: "create")
+        "/route/index"(controller: "route", action: "index")
+        "/route/save"(controller: "route", action: "save")
+        "/direction/create"(controller: "direction", action: "create")
+        "/direction/save"(controller: "direction", action: "save")
+        "/rateable/rate"(controller: "rateable", action: [POST: "rate"])
+        "/commentable/add"(controller: "commentable", action: [POST: "add"])
         name region: "/$region/$route?" {
             controller = "region"
             action = "find"
         }
-        "/route/create"(controller: "route", action: "create")
-        "/route/index"(controller: "route", action: "index")
-        "/route/save"(controller: "route", action: "save")
         "500"(view: '/error')
 
     }

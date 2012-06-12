@@ -12,7 +12,7 @@
         <ul class="breadcrumb">
             <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a> <span class="divider">/</span></li>
             <li><g:link controller="region" action="list">Regions</g:link> <span class="divider">/</span></li>
-            <li><g:link uri="/${routeInstance.region.seoName}">${routeInstance.region.name}</g:link> <span class="divider">/</span></li>
+            <li><g:link uri="/${routeInstance.region?.seoName}">${routeInstance.region?.name}</g:link> <span class="divider">/</span></li>
             <li>${routeInstance.name}</li>
         </ul>
         </g:set>
@@ -61,15 +61,6 @@
 				</fieldset>
 				</g:if>
 
-				<g:if test="${routeInstance?.mapUrl}">
-				<fieldset class="control-group">
-					<span id="mapUrl-label" class="property-label"><g:message code="route.mapUrl.label" default="Map" /></span>
-
-						<span class="property-value" aria-labelledby="mapUrl-label"><a href="${routeInstance.mapUrl}"><g:fieldValue bean="${routeInstance}" field="mapUrl"/></a></span>
-
-				</fieldset>
-				</g:if>
-
 				<g:if test="${routeInstance?.creationDate}">
 				<fieldset class="control-group">
 					<span id="creationDate-label" class="property-label"><g:message code="route.creationDate.label" default="Created" /></span>
@@ -82,9 +73,13 @@
 				<g:if test="${routeInstance?.directions}">
 				<fieldset class="control-group">
 					<span id="directions-label" class="property-label"><g:message code="route.directions.label" default="Directions" /></span>
-
+                        <br/>
+                        <ol>
 						<g:each in="${routeInstance.directions}" var="d">
-						<span class="property-value" aria-labelledby="directions-label"><g:link controller="direction" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></span>
+						<li class="property-value" aria-labelledby="directions-label">
+                            ${d.instruction?.encodeAsHTML()}
+                        </li>
+                        </ol>
 						</g:each>
 
 				</fieldset>
@@ -119,6 +114,14 @@
             </div>
 
             <div class="span6">
+                <g:if test="${routeInstance?.mapUrl}">
+                <div id="map">
+                    <h3>Map</h3>
+                    <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                            src="${routeInstance.mapUrl}&amp;output=embed"></iframe><br /><small>
+                    <a href="${routeInstance.mapUrl}">View Larger Map</a>
+                </div>
+                </g:if>
                 <div id="comment-route">
                     <g:if test="${routeInstance.comments}">
                     <h3>Comments</h3>
