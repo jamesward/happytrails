@@ -34,6 +34,7 @@ class RegionController {
 
     def find() {
         println("finding by name: " + params.region)
+
         if (params.route) {
             forward controller: "route", action: "find", params: [route: params.route]
             return

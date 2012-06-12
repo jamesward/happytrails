@@ -23,7 +23,7 @@ class RegionRow extends Module {
 		cellText { cell(it).text() }
         cellHrefText{ cell(it).find('a').text() }
 		enabled { Boolean.valueOf(cellHrefText(0)) }
-		name { cellText(1) }
+		name { cellText(0) }
 		showLink(to: ShowRegionPage) { cell(0).find("a") }
 	}
 }

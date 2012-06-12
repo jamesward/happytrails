@@ -5,6 +5,7 @@ import geb.spock.GebReportingSpec
 import spock.lang.*
 
 import happytrails.pages.*
+import org.openqa.selenium.chrome.ChromeDriver
 
 @Stepwise
 class AnonymousUserSpec extends GebReportingSpec {
@@ -35,6 +36,18 @@ class AnonymousUserSpec extends GebReportingSpec {
     }
 
     def "sort by highest rated route"() {
-        // todo: implement
+        when:
+        to RegionsPage
+        regionTable.find('a', text: 'Colorado Front Range').click()
+
+        then:
+        at ShowRegionPage
+
+        when:
+        routeTable.find('a', text: 'Avg. Rating').click() // desc is default
+
+        then:
+        'desc' in routeTable.find('a', text: 'Avg. Rating').parent().classes()
+        routeRow(0).avgRating == '5'
     }
 }

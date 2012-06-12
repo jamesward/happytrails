@@ -15,19 +15,20 @@ class ShowRegionPage extends ScaffoldPage {
 		value { row(it).find("span.property-value").text() }
 		enabled { Boolean.valueOf(value("Enabled")) }
 		name { $("h1").text() }
-        routeList { $("div.content .routes", 0) }
+        routeTable { $("div.content .routes", 0) }
         routeRow { module RouteRow, routeRows[it] }
-        routeRows(required: false) { routeList.find("li") }
+        routeRows(required: false) { routeTable.find("tbody").find("tr") }
 	}
 }
 
 class RouteRow extends Module {
 	static content = {
-		cell { $("li", it) }
+		cell { $("td", it) }
 		cellText { cell(it).text() }
         cellHrefText{ cell(it).find('a').text() }
 		enabled { Boolean.valueOf(cellHrefText(0)) }
 		name { cellText(0) }
 		showLink(to: ShowRoutePage) { cell(0).find("a") }
+        avgRating { cellText(4) }
 	}
 }

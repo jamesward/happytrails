@@ -36,11 +36,17 @@
             <table class="routes table table-condensed" style="width: 600px">
                 <thead>
                     <tr>
-                        <g:sortableColumn property="name" title="${message(code: 'route.name.label', default: 'Name')}" />
-                        <g:sortableColumn property="description" title="${message(code: 'route.description.label', default: 'Description')}" />
-                        <g:sortableColumn property="distance" title="${message(code: 'route.distance.label', default: 'Distance')}" />
-                        <g:sortableColumn property="location" title="${message(code: 'route.location.label', default: 'Location')}" />
-                        <g:sortableColumn property="averageRating" title="${message(code: 'route.location.label', default: 'Avg. Rating')}" />
+                        <g:sortableColumn property="name" params="[id: regionInstance.id]" action="show"
+                                          title="${message(code: 'route.name.label', default: 'Name')}" />
+                        <g:sortableColumn property="description" params="[id: regionInstance.id]" action="show"
+                                          title="${message(code: 'route.description.label', default: 'Description')}" />
+                        <g:sortableColumn property="distance" params="[id: regionInstance.id]" action="show"
+                                          title="${message(code: 'route.distance.label', default: 'Distance')}" />
+                        <g:sortableColumn property="location" params="[id: regionInstance.id]" action="show"
+                                          title="${message(code: 'route.location.label', default: 'Location')}" />
+                        <g:sortableColumn property="averageRating" params="[id: regionInstance.id]" action="show"
+                                          title="${message(code: 'route.location.label', default: 'Avg. Rating')}"
+                                          defaultOrder="desc"/>
                     </tr>
                 </thead>
                 <tbody>
