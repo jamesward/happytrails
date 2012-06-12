@@ -154,5 +154,16 @@ public class RegionControllerTest {
             }
         });
     }
+    
+    @Test
+    public void subscribeTwice() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+                
+                // todo
+            }
+        });
+    }
 
 }

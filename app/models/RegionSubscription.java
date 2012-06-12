@@ -22,16 +22,20 @@ public class RegionSubscription extends Model {
     public Date lastSend;
     
     
-    public static Finder<Long, RegionSubscription> find = new Finder<Long, RegionSubscription>(Long.class, RegionSubscription.class);
-
     public RegionSubscription() {
         this.lastSend = new Date();
     }
-    
+
     public RegionSubscription(User user, Region region) {
         this.user = user;
         this.region = region;
         this.lastSend = new Date();
+    }
+
+    public static Finder<Long, RegionSubscription> find = new Finder<Long, RegionSubscription>(Long.class, RegionSubscription.class);
+    
+    public static RegionSubscription findByUserAndRegion(User user, Region region) {
+        return find.where().eq("user", user).eq("region", region).findUnique();
     }
 
 }

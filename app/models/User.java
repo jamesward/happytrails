@@ -64,6 +64,9 @@ public class User extends Model {
 
     @Column(nullable = false)
     public Date creationDate;
+
+    @Column(nullable = false)
+    public boolean isAdmin;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     public List<RegionSubscription> regionSubscriptions = new ArrayList<RegionSubscription>();
@@ -72,10 +75,12 @@ public class User extends Model {
     public List<Comment> comments = new ArrayList<Comment>();
 
     public User() {
+        this.isAdmin = false;
         this.creationDate = new Date();
     }
 
     public User(String emailAddress, String password, String fullName) {
+        this.isAdmin = false;
         setEmailAddress(emailAddress);
         setPassword(password);
         this.fullName = fullName;

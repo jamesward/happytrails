@@ -34,6 +34,11 @@
 
     @if(CurrentUser.get() != null) {
         <a href="@routes.RegionController.addRoute(region.getUrlFriendlyName)" class="btn btn-small btn-info"><i class="icon-plus icon-white"></i> Add a New Route</a>
+        @if(RegionSubscription.findByUserAndRegion(CurrentUser.get(), region) == null) {
+            <a href="@routes.RegionController.subscribe(region.getUrlFriendlyName)" class="btn"><i class="icon-envelope"></i> Subscribe to Updates</a>
+        } else {
+            <a href="@routes.RegionController.unsubscribe(region.getUrlFriendlyName)" class="btn"><i class="icon-envelope"></i> Unsubscribe from Updates</a>
+        }
     }
 
 }

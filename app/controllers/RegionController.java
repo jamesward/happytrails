@@ -71,12 +71,31 @@ public class RegionController extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result subscribe(String urlFriendlyRegionName) {
-        Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
         User user = CurrentUser.get();
+        Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
         
-        if ((region != null) && (user != null)) {
-            RegionSubscription regionSubscription = new RegionSubscription(user, region);
-            regionSubscription.save();
+        if ((user != null) && (region != null)) {
+            if (RegionSubscription.findByUserAndRegion(user, region) == null) {
+                RegionSubscription regionSubscription = new RegionSubscription(user, region);
+                regionSubscription.save();
+            }
+            return redirect(routes.RegionController.getRegionHtml(urlFriendlyRegionName, "name"));
+        }
+        else {
+            return badRequest("Could not find region or user");
+        }
+    }
+
+    @Security.Authenticated(Secured.class)
+    public static Result unsubscribe(String urlFriendlyRegionName) {
+        User user = CurrentUser.get();
+        Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
+
+        if ((user != null) && (region != null)) {
+            RegionSubscription regionSubscription = RegionSubscription.findByUserAndRegion(user, region);
+            if (regionSubscription != null) {
+                regionSubscription.delete();
+            }
             return redirect(routes.RegionController.getRegionHtml(urlFriendlyRegionName, "name"));
         }
         else {

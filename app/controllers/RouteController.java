@@ -10,7 +10,7 @@ import play.mvc.With;
 public class RouteController extends Controller {
 
     @Security.Authenticated(Secured.class)
-    public static Result saveRating(String urlFriendlyRegionName, String urlFriendlyRouteName) {
+    public static Result saveRating(String urlFriendlyRegionName, String urlFriendlyRouteName, Integer rating) {
         User user = CurrentUser.get();
         Route route = getRoute(urlFriendlyRegionName, urlFriendlyRouteName);
         
@@ -18,17 +18,15 @@ public class RouteController extends Controller {
             return badRequest("User or Route not found");
         }
 
-        Rating rating = form(Rating.class).bindFromRequest().get();
         if (rating != null) {
             Rating existingRating = Rating.findByUserAndRoute(user, route);
             if (existingRating != null) {
-                existingRating.value = rating.value;
+                existingRating.value = rating;
                 existingRating.save();
             }
             else {
-                rating.user = user;
-                rating.route = route;
-                rating.save();
+                Rating newRating = new Rating(user, route, rating);
+                newRating.save();
             }
         }
         

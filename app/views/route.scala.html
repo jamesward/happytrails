@@ -17,7 +17,8 @@
 @main("Uber Tracks - Hike - " + route.region.getName + " - " + route.getName, headContent, breadcrumbs) {
 
     <h1>@route.getName</h1>
-
+    @utils.html.routeStars(route)
+    <br/><br/>
     <h2>Directions:</h2>
     <ul class="unstyled">
     @for(direction <- route.directions.sortBy(_.stepNumber)) {
@@ -25,32 +26,19 @@
     }
     </ul>
 
-    <h2>Average Rating: @route.getAverageRating</h2>
-
-    @if(User.findByToken(session.get("token")) != null) {
-        <form action="@routes.RouteController.saveRating(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" method="post" class="form-inline">
-            <select name="value" class="span1">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <input type="submit" value="Rate!" class="btn"/>
-        </form>
+    @if(route.comments.size > 0) {
+        <h2>Comments:</h2>
+        <ul>
+        @for(comment <- route.comments) {
+            <li><b>@comment.user.fullName (@comment.creationDate)</b><br/>@comment.value</li>
+        }
+        </ul>
     }
-
-    <h2>Comments:</h2>
-    <ul>
-    @for(comment <- route.comments) {
-        <li><b>@comment.user.fullName (@comment.creationDate)</b><br/>@comment.value</li>
-    }
-    </ul>
 
     @if(CurrentUser.get() != null) {
         <h2>Add a Comment:</h2>
         <form action="@routes.RouteController.saveComment(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" method="post">
-            <textarea name="value" rows="6" cols="80"></textarea><br/>
+            <textarea name="value" rows="6" cols="80" class="span6"></textarea><br/>
             <input type="submit" value="Post Comment"/>
         </form>
     }

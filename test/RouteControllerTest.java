@@ -28,7 +28,8 @@ public class RouteControllerTest {
                 assertThat(contentAsString(result)).contains("Dakota Ridge, Red Rocks and Mathews Winters");
                 assertThat(contentAsString(result)).contains("Start at the Matthews Winters parking lot."); // direction
                 assertThat(contentAsString(result)).contains("This route is one of the best in the Denver area!"); // comment
-                assertThat(contentAsString(result)).contains("Rating: 4"); // rating
+                assertThat(contentAsString(result)).contains("icon-star-empty"); // rating
+                assertThat(contentAsString(result)).contains("icon-star"); // rating
             }
         });
     }
@@ -55,11 +56,8 @@ public class RouteControllerTest {
 
                 Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
                 String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
-
-                Map<String, String> ratingData = new HashMap<String, String>();
-                ratingData.put("value", "1");
                 
-                Result saveRatingResult = callAction(routes.ref.RouteController.saveRating(UrlUtils.getUrlFriendlyName("Denver Front Range"), UrlUtils.getUrlFriendlyName("Dakota Ridge, Red Rocks and Mathews Winters")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(ratingData));
+                Result saveRatingResult = callAction(routes.ref.RouteController.saveRating(UrlUtils.getUrlFriendlyName("Denver Front Range"), UrlUtils.getUrlFriendlyName("Dakota Ridge, Red Rocks and Mathews Winters"), 1), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
                 assertThat(status(saveRatingResult)).isEqualTo(SEE_OTHER);
                 assertThat(redirectLocation(saveRatingResult)).isEqualTo(routes.RouteController.getRouteHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), UrlUtils.getUrlFriendlyName("Dakota Ridge, Red Rocks and Mathews Winters")).url());
                 
