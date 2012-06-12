@@ -106,12 +106,3 @@
               value="${routeInstance?.directions*.id}" class="many-to-many"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'ratings', 'error')} ">
-    <label for="ratings">
-        <g:message code="route.ratings.label" default="Ratings"/>
-
-    </label>
-    <g:select name="ratings" from="${happytrails.Rating.list()}" multiple="multiple" optionKey="id" size="5"
-              value="${routeInstance?.ratings*.id}" class="many-to-many"/>
-</div>
-

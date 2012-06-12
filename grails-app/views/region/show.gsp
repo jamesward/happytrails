@@ -23,6 +23,7 @@
 			</g:if>
 
 			<h1>${regionInstance.name}</h1>
+            <sec:ifLoggedIn>
 			<g:form>
 				<fieldset style="position: absolute">
 					<g:hiddenField name="id" value="${regionInstance?.id}" />
@@ -30,7 +31,7 @@
 					<g:actionSubmit class="delete" action="delete" class="btn btn-mini" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
-
+            </sec:ifLoggedIn>
             <g:if test="${regionInstance.routes.size() > 0}">
             <h3 style="margin-top: 40px">Routes Available</h3>
             <table class="routes table table-condensed" style="width: 600px">

@@ -10,6 +10,8 @@ class UrlMappings {
 
         "/"(controller: "home", action: "index")
         "/login"(controller: "login", action: "auth")
+        "/login/authfail"(controller: "login", action: "authfail")
+        "/login/denied"(controller: "login", action: "denied")
         "/logout"(controller: "logout")
         "/feed/$region"(controller: "region", action: "feed")
         "/signup"(controller: "register")
@@ -26,6 +28,7 @@ class UrlMappings {
         "/$region/$route/comment"(controller: "route", action = [POST: "saveComment"])
         "/$region/$route"(controller: "route", action = [GET: "show"])
         "/$region"(controller: "region", action: "show") */
+        "/rateable/rate"(controller: "rateable", action: [POST: "rate"])
         "/region/create"(controller: "region", action: "create")
         "/regions"(controller: "region", action: "list")
         "/region/save"(controller: "region", action: "save")
@@ -35,6 +38,8 @@ class UrlMappings {
             action = "find"
         }
         "/route/create"(controller: "route", action: "create")
+        "/route/index"(controller: "route", action: "index")
+        "/route/save"(controller: "route", action: "save")
         "500"(view: '/error')
 
     }

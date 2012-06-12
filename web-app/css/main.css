@@ -114,6 +114,10 @@ select {
     margin-right: 300px;
 }
 
+.login-form .alert {
+    margin-right: 0
+}
+
 .sorted.asc:after {
     content: " \2191"
 }

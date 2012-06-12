@@ -117,6 +117,19 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'happytrails.User
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'happytrails.UserRole'
 grails.plugins.springsecurity.authority.className = 'happytrails.Role'
 
+/* Use Spring Security to get Rater:
+   - http://stackoverflow.com/questions/3541142/grails-user-evaluator-for-commentable-with-spring-security-plugin
+*/
+grails.rateable.rater.evaluator = {
+    def principal = org.springframework.security.core.context.SecurityContextHolder.context.authentication.principal
+    if (principal.hasProperty('id')) {
+        def currentUserId = principal.id
+        if (currentUserId) {
+            happytrails.User.get(currentUserId)
+        }
+    }
+}
+
 // Cloudbees Plugin:
 cloudbees.account = 'happytrails'
 cloudbees.api.key = '3160AB4C28E2FC90'

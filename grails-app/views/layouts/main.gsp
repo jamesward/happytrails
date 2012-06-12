@@ -75,14 +75,5 @@ ${request.breadcrumb}
 
 <r:layoutResources disposition="footer"/>
 
-<script>
-$(document).ready(function() {
-   $('.navbar #username').on('blur', function() {
-       if ($(this).val().length > 0) {
-           $('.navbar .btn').fadeIn("slow");
-       }
-   });
-});
-</script>
 </body>
 </html>

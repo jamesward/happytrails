@@ -1,6 +1,7 @@
 package happytrails
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.plugins.springsecurity.Secured
 
 class RegionController {
 
@@ -108,6 +109,7 @@ class RegionController {
         }
     }
 
+    @Secured(['ROLE_ADMIN'])
     def edit() {
         def regionInstance = Region.get(params.id)
         if (!regionInstance) {
