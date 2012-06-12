@@ -77,25 +77,7 @@
     <g:textField name="seoName" value="${routeInstance?.seoName}"/>
 </div>
 
-<g:if test="${routeInstance.id}">
-<div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'comments', 'error')} ">
-    <label for="comments">
-        <g:message code="route.comments.label" default="Comments"/>
 
-    </label>
-
-    <ul class="one-to-many">
-        <g:each in="${routeInstance?.comments ?}" var="c">
-            <li><g:link controller="comment" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
-        </g:each>
-        <li class="add">
-            <g:link controller="comment" action="create"
-                    params="['route.id': routeInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'comment.label', default: 'Comment')])}</g:link>
-        </li>
-    </ul>
-
-</div>
-</g:if>
 
 <div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'directions', 'error')} ">
     <label for="directions">

@@ -20,6 +20,8 @@
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cached-resources-1.0/grails-app/views" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/rateable-0.7.1/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/yui-2.8.2/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/commentable-0.8.1/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/commentable-0.8.1/grails-app/views" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -45,6 +47,13 @@
     </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cloud-bees-0.5.4">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/cloud-bees-0.5.4/src/groovy" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/commentable-0.8.1">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/commentable-0.8.1/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/commentable-0.8.1/grails-app/i18n" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/commentable-0.8.1/grails-app/controllers" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/commentable-0.8.1/grails-app/domain" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/commentable-0.8.1/grails-app/taglib" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/famfamfam-1.0.1">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/happytrails/plugins/famfamfam-1.0.1/grails-app/taglib" isTestSource="false" />

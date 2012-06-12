@@ -18,17 +18,8 @@ class UrlMappings {
         "/register/register"(controller: "register", action: "register")
         "/register/verifyRegistration"(controller: "register", action: "verifyRegistration")
         "/forgotPassword"(controller: "register", action: "forgotPassword")
-        "/comment/create"(controller: "comment", action: "create")
-        "/comment/save"(controller: "comment", action: "save")
-        /*"/$region/subscribe"(controller: "region", action: "subscribe")
-        "/$region/addroute"(controller: "region") {
-            action = [PUT: "addRoute", POST: "saveRoute"]
-        }
-        "/$region/$route/rating"(controller: "route", action = [POST: "saveRating"])
-        "/$region/$route/comment"(controller: "route", action = [POST: "saveComment"])
-        "/$region/$route"(controller: "route", action = [GET: "show"])
-        "/$region"(controller: "region", action: "show") */
         "/rateable/rate"(controller: "rateable", action: [POST: "rate"])
+        "/commentable/add"(controller: "commentable", action: [POST: "add"])
         "/region/create"(controller: "region", action: "create")
         "/regions"(controller: "region", action: "list")
         "/region/save"(controller: "region", action: "save")

@@ -70,7 +70,7 @@
 
 				<g:if test="${routeInstance?.creationDate}">
 				<fieldset class="control-group">
-					<span id="creationDate-label" class="property-label"><g:message code="route.creationDate.label" default="Creation Date" /></span>
+					<span id="creationDate-label" class="property-label"><g:message code="route.creationDate.label" default="Created" /></span>
 
 						<span class="property-value" aria-labelledby="creationDate-label"><g:formatDate date="${routeInstance?.creationDate}" type="datetime" style="LONG" timeStyle="SHORT"/></span>
 
@@ -82,11 +82,9 @@
                     <span id="comments-label" class="property-label">
                         <g:message code="route.comments.label" default="Comments"/></span>
                     <ul class="comments">
-                        <g:each in="${routeInstance.comments}" var="c">
-                            <li class="property-value" aria-labelledby="comments-label">
-                                <g:link controller="comment" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link>
-                            </li>
-                        </g:each>
+                        <comments:each bean="${routeInstance}">
+                             ${comment.body} - Posted by ${comment.poster}
+                        </comments:each>
                     </ul>
                 </fieldset>
             </g:if>
@@ -127,6 +125,9 @@
 				</fieldset>
 			</g:form>
             </sec:ifLoggedIn>
+            <sec:ifNotLoggedIn>
+                <g:link uri="/login">Login</g:link> if you'd like to rate or comment on this route.
+            </sec:ifNotLoggedIn>
 		</div>
 	</body>
 </html>

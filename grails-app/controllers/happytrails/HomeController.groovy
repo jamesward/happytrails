@@ -1,5 +1,7 @@
 package happytrails
 
+import org.grails.comments.Comment
+
 class HomeController {
 
     def index() {

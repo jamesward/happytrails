@@ -44,5 +44,16 @@
         <div id="rate-route">
             <rateable:ratings bean='${routeInstance}'/>
         </div>
+
+        <div id="comment-route">
+            <g:if test="${routeInstance.id}">
+            <div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'comments', 'error')} ">
+                <label for="comments">
+                    <g:message code="route.comments.label" default="Comments"/>
+                </label>
+                <comments:render bean="${routeInstance}" />
+            </div>
+            </g:if>
+        </div>
 	</body>
 </html>

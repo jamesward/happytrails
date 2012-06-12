@@ -33,7 +33,7 @@
             <div class="span2 sidebar">
                 <g:if test="${comments.size() > 0}"><h2>Recent Comments</h2></g:if>
                 <g:each in="${comments}" status="i" var="c">
-                    <span class="comment">${c.value}" <em>--${c.user.name}</em></span><br/>
+                    <span class="comment">${c.body}" <em>--${c.poster}</em></span><br/>
                 </g:each>
             </div>
         </div>
