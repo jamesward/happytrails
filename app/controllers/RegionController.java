@@ -77,7 +77,7 @@ public class RegionController extends Controller {
         if ((region != null) && (user != null)) {
             RegionSubscription regionSubscription = new RegionSubscription(user, region);
             regionSubscription.save();
-            return redirect(routes.RegionController.getRegionHtml(urlFriendlyRegionName));
+            return redirect(routes.RegionController.getRegionHtml(urlFriendlyRegionName, "name"));
         }
         else {
             return badRequest("Could not find region or user");
@@ -113,13 +113,13 @@ public class RegionController extends Controller {
         }
     }
 
-    public static Result getRegionHtml(String urlFriendlyRegionName) {
+    public static Result getRegionHtml(String urlFriendlyRegionName, String sort) {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
         if (region == null) {
             return badRequest("Could not find that region");
         }
         else {
-            return ok(views.html.region.render(region));
+            return ok(views.html.region.render(region, sort));
         }
     }
     

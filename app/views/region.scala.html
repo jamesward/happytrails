@@ -1,4 +1,4 @@
-@(region: Region)
+@(region: Region, sort: String)
 
 @headContent = {
     <link rel="alternate" type="application/rss+xml" title="@region.getName RSS Feed" href="@routes.RegionController.getRegionFeed(region.getUrlFriendlyName)" />
@@ -15,14 +15,25 @@
 
 @main("Uber Tracks - Hike - " + region.getName, headContent, breadcrumbs) {
 
-    <ul>
-        @for(route <- region.routes) {
-        <li><a href="@routes.RouteController.getRouteHtml(region.getUrlFriendlyName, route.getUrlFriendlyName)">@route.getName</a></li>
-        }
+    <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            Sort
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <a href="?sort=name">By Name</a>
+            <a href="?sort=averageRating">By Rating</a>
+        </ul>
+    </div>
+    <ul class="unstyled">
+
+    @for(route <- utils.RouteSort.getSortedRoutes(region.routes, sort)) {
+        <li><a href="@routes.RouteController.getRouteHtml(region.getUrlFriendlyName, route.getUrlFriendlyName)" class="lead">@route.getName</a> (@route.distanceInMiles miles) @utils.html.routeStars(route)</li>
+    }
     </ul>
 
     @if(CurrentUser.get() != null) {
-        <a href="@routes.RegionController.addRoute(region.getUrlFriendlyName)">Add a New Route</a>
+        <a href="@routes.RegionController.addRoute(region.getUrlFriendlyName)" class="btn btn-small btn-info"><i class="icon-plus icon-white"></i> Add a New Route</a>
     }
 
 }

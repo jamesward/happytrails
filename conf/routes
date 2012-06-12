@@ -26,7 +26,7 @@ POST    /:region/:route/comment     controllers.RouteController.saveComment(regi
 
 GET     /:region/:route             controllers.RouteController.getRouteHtml(region, route)
 
-GET     /:region                    controllers.RegionController.getRegionHtml(region)
+GET     /:region                    controllers.RegionController.getRegionHtml(region, sort ?= "name")
 
 
 

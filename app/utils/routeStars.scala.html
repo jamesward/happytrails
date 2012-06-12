@@ -1,0 +1,9 @@
+@(route: Route)
+
+@for(i <- 1.to(5)) {
+    @if(route.getAverageRating >= i) {
+        <i class="icon-star"></i>
+    } else {
+        <i class="icon-star-empty"></i>
+    }
+}

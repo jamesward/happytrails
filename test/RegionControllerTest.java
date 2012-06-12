@@ -24,7 +24,7 @@ public class RegionControllerTest {
             public void run() {
                 DemoData.loadDemoData();
                 
-                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName("Denver Front Range")));
+                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "name"));
                 assertThat(status(result)).isEqualTo(OK);
                 assertThat(contentAsString(result)).contains("Denver Front Range");
             }
@@ -46,7 +46,7 @@ public class RegionControllerTest {
                 Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
                 String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
 
-                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
+                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "name"), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
                 assertThat(status(result)).isEqualTo(OK);
                 assertThat(contentAsString(result)).contains("Denver Front Range");
                 assertThat(contentAsString(result)).contains("Add a New Route");
