@@ -12,5 +12,7 @@ class ShowRoutePage extends ScaffoldPage {
 		row { $("li.fieldcontain span.property-label", text: it).parent() }
 		value { row(it).find("span.property-value").text() }
 		name { value("Name") }
+        comments { $('.comments .property-value', text: it) }
+        avgRating { $('#avgRating', text: it) }
 	}
 }

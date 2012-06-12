@@ -5,8 +5,8 @@ import geb.spock.GebReportingSpec
 import happytrails.pages.HomePage
 import happytrails.pages.SignupPage
 import spock.lang.Stepwise
-import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.chrome.ChromeDriver
+import happytrails.pages.*
 
 @Stepwise
 class AuthenticatedUserSpec extends GebReportingSpec {
@@ -52,57 +52,113 @@ class AuthenticatedUserSpec extends GebReportingSpec {
         userIcon.parent().text().contains("ubertracks+foo@gmail.com")
     }
 
-    /*def "enable account via gmail"() {
-        given:
-        driver = new ChromeDriver()
-
-        when:
-        to SignupPage
-        form.username = "ubertracks+bar@gmail.com"
-        form.email = "ubertracks+bar@gmail.com"
-        form.password = "IloveGROOVY@3"
-        form.password2 = "IloveGROOVY@3"
-        createAccountButton.click()
-
-        then:
-        $('form').text().contains("Your account registration email was sent")
-
-        when:
-        go "http://mail.google.com/mail/h/"
-        $("#Email").value("ubertracks")
-        $("#Passwd").value("hpzRT7ZqhU9jkE")
-        $("#signIn").click()
-        $('b', text: 'Welcome to Über Tracks!').click()
-        $('a', text: 'here').click()
-
-        then:
-        waitFor { title ==~ /Welcome to Happy Trails!.+/ }
-        userIcon.parent().text().contains("ubertracks+bar@gmail.com")
-        driver.quit()
-    }*/
-
     def "subscribe to region using atom"() {
-        // todo: implement
-    }
+        when:
+        to RegionsPage
+        atomFeed.click()
 
-    def "click on a route in a region"() {
-        // todo: implement
-    }
-
-    def "view ratings and comments for a route"() {
-        // todo: implement
-    }
-
-    def "add rating for a route"() {
-        // todo: implement
-    }
-
-    def "add comment for a route"() {
-        // todo: implement
+        then:
+        at AtomFeedPage
+        entries.size() == 2
     }
 
     def "add new route to region"() {
-        // todo: implement
+        when:
+        to RegionsPage
+        regionsRow(1).click()
+
+        then:
+        at ShowRegionPage
+        name != null
+
+        when:
+        editButton.click()
+
+        then:
+        at EditRegionPage
+        name != null
+
+        when:
+        addRoute().click()
+
+        then:
+        at AddRoutePage
+
+        when:
+        name = "Fun Ride"
+        distance = "10.2"
+        location = "Green River, UT"
+        saveButton.click()
+
+        then:
+        at ShowRegionPage
+        successMessage == dis
     }
 
+    def "click on a route in a region"() {
+        when:
+        to RegionsPage
+        regionRow(0).showLink.click()
+
+        then:
+        at ShowRegionPage
+        name != null
+    }
+
+    def "view ratings and comments for a route"() {
+        when:
+        to RegionsPage
+        regionRow(0).showLink.click()
+
+        then:
+        at ShowRegionPage
+        name != null
+        routeRows.size() > 0
+
+        when:
+        routeRows(0).showLink.click()
+
+        then:
+        at ShowRoutePage
+        name != null
+        comments != null
+        avgRating != null
+    }
+
+    def "add rating for a route"() {
+        when:
+        to TheHogbackPage
+        editButton.click()
+
+        then:
+        at EditRoutePage
+        name != null
+
+
+    }
+
+    def "add comment for a route"() {
+        when:
+        to TheHogbackPage
+        editButton.click()
+
+        then:
+        at EditRoutePage
+        name != null
+        def numberOfComments = comments.size()
+
+        when:
+        addComment.click()
+
+        then:
+        at AddCommentPage
+        value = "New Comment at 4 AM"
+
+        when:
+        submitButton.click()
+
+        then:
+        at EditRoutePage
+        comments.size() - numberOfComments == 1
+    }
 }

@@ -73,7 +73,7 @@ body {
 }
 
 .sidebar h2 {
-   font-size: 16px;
+    font-size: 16px;
 }
 
 .grand-valley {
@@ -120,4 +120,15 @@ select {
 
 .sorted.desc:after {
     content: " \2193"
+}
+
+.icon-feed {
+    margin-bottom: 4px;
+}
+
+.spacer {
+    border-bottom: 1px dotted #666;
+    height: 10px;
+    margin-bottom: 10px;
+    width: 75%
 }

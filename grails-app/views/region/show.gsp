@@ -65,6 +65,9 @@
 		</div>
 
         <div id="subscribe" class="subscribe">
+            <a class="atom" href="${createLink(controller: 'region', action: 'feed', params: [region: regionInstance.seoName])}">
+                <g:img dir="images" file="feed-icon-14x14.png" width="14" height="14" class="icon-feed"/> Subscribe via Atom</a>
+            <div class="spacer"></div>
             <g:if test="${subscriptionId != 0}">
                 You are subscribed for updates in this region.<br/>
                 <g:link controller="region" action="deleteSubscription" params="[id: subscriptionId]">Delete</g:link>
