@@ -27,8 +27,17 @@ public class ApplicationController extends Controller {
             return badRequest(views.html.signupForm.render(signupForm));
         }
         else {
+            
             User user = signupForm.get();
+            
+            if (User.findByEmailAddress(user.getEmailAddress()) != null) {
+                signupForm.reject("Duplicate Email Address");
+                return badRequest(views.html.signupForm.render(signupForm));
+            }
+            
             user.save();
+
+            session("token", user.createToken()); // log the user in
             
             return redirect(routes.ApplicationController.index());
         }

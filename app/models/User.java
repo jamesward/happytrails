@@ -109,6 +109,8 @@ public class User extends Model {
 
     public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);
 
+    
+    
     public static User findByEmailAddressAndPassword(String emailAddress, String password) {
         // todo: verify this query is correct.  Does it need an "and" statement?
         return find.where().eq("emailAddress", emailAddress.toLowerCase()).eq("shaPassword", getSha512(password)).findUnique();
@@ -127,4 +129,7 @@ public class User extends Model {
         }
     }
 
+    public static User findByEmailAddress(String emailAddress) {
+        return find.where().eq("emailAddress", emailAddress.toLowerCase()).findUnique();
+    }
 }

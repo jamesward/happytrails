@@ -1,12 +1,20 @@
 @(signupForm: Form[models.User])
 
+@implicitFieldConstructor = @{ helper.FieldConstructor(utils.html.twitterBootstrapInput.render) }
+
 @main("Uber Tracks - Hike - Signup") {
 
-    @helper.form(action = routes.ApplicationController.signup()) {
-        @helper.inputText(signupForm("fullName"))
-        @helper.inputText(signupForm("emailAddress"))
-        @helper.inputPassword(signupForm("password"))
-        <input type="submit" value="Create Account"/>
+    @if(signupForm.hasGlobalErrors) {
+        <p class="error alert alert-error">@signupForm.globalError.message</p>
+    }
+
+    @helper.form(action = routes.ApplicationController.signup(), 'class -> "form-horizontal") {
+        @helper.inputText(signupForm("fullName"), '_label -> "Full Name")
+        @helper.inputText(signupForm("emailAddress"), '_label -> "Email Address")
+        @helper.inputPassword(signupForm("password"), '_label -> "Password")
+        <div class="controls">
+            <input type="submit" class="btn btn-primary" value="Create Account"/>
+        </div>
     }
 
 }
