@@ -43,4 +43,8 @@
         </form>
     }
 
+    @if((CurrentUser.get() != null) && (CurrentUser.get().isAdmin)) {
+        <a href="@routes.RouteController.deleteRoute(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete</a>
+    }
+
 }

@@ -28,6 +28,8 @@ GET     /:region/:route/rate        controllers.RouteController.saveRating(regio
 
 POST    /:region/:route/comment     controllers.RouteController.saveComment(region, route)
 
+GET     /:region/:route/delete      controllers.RouteController.deleteRoute(region, route)
+
 GET     /:region/:route             controllers.RouteController.getRouteHtml(region, route)
 
 GET     /:region                    controllers.RegionController.getRegionHtml(region, sort ?= "name")

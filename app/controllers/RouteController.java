@@ -52,6 +52,24 @@ public class RouteController extends Controller {
         return redirect(routes.RouteController.getRouteHtml(urlFriendlyRegionName, urlFriendlyRouteName));
     }
 
+    @Security.Authenticated(Secured.class)
+    public static Result deleteRoute(String urlFriendlyRegionName, String urlFriendlyRouteName) {
+        User user = CurrentUser.get();
+        Route route = getRoute(urlFriendlyRegionName, urlFriendlyRouteName);
+
+        if ((route == null) || (user == null)) {
+            return badRequest("User or Route not found");
+        }
+        
+        if (!user.isAdmin) {
+            return unauthorized("You aren't allowed to do this.");
+        }
+        
+        route.delete();
+
+        return redirect(routes.RegionController.getRegionHtml(urlFriendlyRegionName, "name"));
+    }
+
     public static Result getRouteHtml(String urlFriendlyRegionName, String urlFriendlyRouteName) {
         Route route = getRoute(urlFriendlyRegionName, urlFriendlyRouteName);
         return ok(views.html.route.render(route));
