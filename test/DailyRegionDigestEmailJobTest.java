@@ -21,12 +21,12 @@ public class DailyRegionDigestEmailJobTest {
                 
                 User subscribingUser = User.findByEmailAddressAndPassword("james@demo.com", "password");
                 
-                Region region = Region.findByUrlFriendlyName(UrlUtils.getUrlFriendlyName("Denver Front Range"));
+                Region region = Region.findByUrlFriendlyName(UrlUtils.getUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION));
 
                 RegionSubscription regionSubscription = new RegionSubscription(subscribingUser, region);
                 regionSubscription.save();
                 
-                Route route = Route.findByUrlFriendlyName(region, UrlUtils.getUrlFriendlyName("Dakota Ridge, Red Rocks and Mathews Winters"));
+                Route route = Route.findByUrlFriendlyName(region, UrlUtils.getUrlFriendlyName(DemoData.WEST_MAROON_PASS_ROUTE));
                 
                 User commentingUser = User.findByEmailAddressAndPassword("matt@demo.com", "password");
                 

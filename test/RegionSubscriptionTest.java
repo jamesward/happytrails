@@ -20,7 +20,7 @@ public class RegionSubscriptionTest {
                 assertThat(RegionSubscription.find.all().size()).isEqualTo(0);
                 
                 User user = User.findByEmailAddressAndPassword("james@demo.com", "password");
-                Region region = Region.findByUrlFriendlyName("Denver Front Range");
+                Region region = Region.findByUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION);
                 
                 RegionSubscription regionSubscription = new RegionSubscription(user, region);
                 regionSubscription.save();

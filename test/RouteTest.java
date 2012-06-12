@@ -69,11 +69,11 @@ public class RouteTest {
             public void run() {
                 DemoData.loadDemoData();
                 
-                Region region = Region.findByUrlFriendlyName(UrlUtils.getUrlFriendlyName("Denver Front Range"));
+                Region region = Region.findByUrlFriendlyName(UrlUtils.getUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION));
                 
-                Route route = Route.findByUrlFriendlyName(region, UrlUtils.getUrlFriendlyName("Dakota Ridge, Red Rocks and Mathews Winters"));
+                Route route = Route.findByUrlFriendlyName(region, UrlUtils.getUrlFriendlyName(DemoData.WEST_MAROON_PASS_ROUTE));
                 assertThat(route).isNotNull();
-                assertThat(route.getName()).isEqualTo("Dakota Ridge, Red Rocks and Mathews Winters");
+                assertThat(route.getName()).isEqualTo(DemoData.WEST_MAROON_PASS_ROUTE);
             }
         });
     }

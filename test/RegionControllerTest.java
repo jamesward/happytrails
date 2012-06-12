@@ -24,9 +24,9 @@ public class RegionControllerTest {
             public void run() {
                 DemoData.loadDemoData();
                 
-                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "name"));
+                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION), "name"));
                 assertThat(status(result)).isEqualTo(OK);
-                assertThat(contentAsString(result)).contains("Denver Front Range");
+                assertThat(contentAsString(result)).contains(DemoData.CRESTED_BUTTE_COLORADO_REGION);
             }
         });
     }
@@ -46,9 +46,9 @@ public class RegionControllerTest {
                 Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
                 String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
 
-                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "name"), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
+                Result result = callAction(routes.ref.RegionController.getRegionHtml(UrlUtils.getUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION), "name"), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
                 assertThat(status(result)).isEqualTo(OK);
-                assertThat(contentAsString(result)).contains("Denver Front Range");
+                assertThat(contentAsString(result)).contains(DemoData.CRESTED_BUTTE_COLORADO_REGION);
                 assertThat(contentAsString(result)).contains("Add a New Route");
             }
         });
@@ -114,9 +114,9 @@ public class RegionControllerTest {
                 Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
                 String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
 
-                Result result = callAction(routes.ref.RegionController.addRoute(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
+                Result result = callAction(routes.ref.RegionController.addRoute(UrlUtils.getUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION)), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
                 assertThat(status(result)).isEqualTo(OK);
-                assertThat(contentAsString(result)).contains("Denver Front Range - Add New Route");
+                assertThat(contentAsString(result)).contains(DemoData.CRESTED_BUTTE_COLORADO_REGION + " - Add New Route");
             }
         });
     }
@@ -144,9 +144,9 @@ public class RegionControllerTest {
 
                 // todo: add directions
 
-                Result result = callAction(routes.ref.RegionController.saveRoute(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(routeData));
+                Result result = callAction(routes.ref.RegionController.saveRoute(UrlUtils.getUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION)), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(routeData));
                 assertThat(status(result)).isEqualTo(SEE_OTHER);
-                assertThat(redirectLocation(result)).isEqualTo(routes.RouteController.getRouteHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "foo").url());
+                assertThat(redirectLocation(result)).isEqualTo(routes.RouteController.getRouteHtml(UrlUtils.getUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION), "foo").url());
             }
         });
     }
@@ -167,12 +167,12 @@ public class RegionControllerTest {
                 String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
 
                 Map<String,String> routeData = new HashMap<String, String>();
-                routeData.put("name", "Dakota Ridge, Red Rocks and Mathews Winters");
+                routeData.put("name", DemoData.WEST_MAROON_PASS_ROUTE);
                 routeData.put("description", "this is foo");
                 routeData.put("distanceInMiles", "1");
                 routeData.put("location", "nowhere");
 
-                Result result = callAction(routes.ref.RegionController.saveRoute(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(routeData));
+                Result result = callAction(routes.ref.RegionController.saveRoute(UrlUtils.getUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION)), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(routeData));
                 assertThat(status(result)).isEqualTo(BAD_REQUEST);
             }
         });
@@ -195,7 +195,7 @@ public class RegionControllerTest {
                 Result loginResult = callAction(routes.ref.ApplicationController.login(), fakeRequest);
                 String cookies = header(Http.HeaderNames.SET_COOKIE, loginResult);
                 
-                Result subscribeResult = callAction(routes.ref.RegionController.subscribe(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
+                Result subscribeResult = callAction(routes.ref.RegionController.subscribe(UrlUtils.getUrlFriendlyName(DemoData.CRESTED_BUTTE_COLORADO_REGION)), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies));
                 assertThat(status(subscribeResult)).isEqualTo(SEE_OTHER);
                 assertThat(RegionSubscription.find.all().size()).isEqualTo(1);
             }

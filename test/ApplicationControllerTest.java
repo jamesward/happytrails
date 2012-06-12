@@ -23,7 +23,7 @@ public class ApplicationControllerTest {
                 
                 Result result = callAction(routes.ref.ApplicationController.index());
                 assertThat(status(result)).isEqualTo(OK);
-                assertThat(contentAsString(result)).contains("Denver Front Range");
+                assertThat(contentAsString(result)).contains(DemoData.CRESTED_BUTTE_COLORADO_REGION);
                 assertThat(contentAsString(result)).contains("<li>");
             }
         });
