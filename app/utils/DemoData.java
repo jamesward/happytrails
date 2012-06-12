@@ -53,6 +53,14 @@ public class DemoData {
         
         new Comment(jamesUser, dakotaRedWintersRoute, "This route is one of the best in the Denver area!").save();
 
+
+        Route mtnFalcon = new Route("Mount Falcon", "Big climbs.  Fast descents.", 6.1, denverFrontRangeRegion, "Golden / Morrison");
+        mtnFalcon.save();
+
+        new Direction(mtnFalcon, 1, "Start at the Mount Falcon East Parking Lot").save();
+        new Direction(mtnFalcon, 2, "Ride west from the parking lot on the Castle Trail").save();
+        new Direction(mtnFalcon, 3, "Stay on the Castle Trail to the picnic benches at the top").save();
+        new Direction(mtnFalcon, 4, "Return the way you came").save();
     }
 
 }
