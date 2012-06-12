@@ -7,12 +7,10 @@ class RouteController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-        println 'index'
         redirect(action: "list", params: params)
     }
 
     def list() {
-        println 'list'
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [routeInstanceList: Route.list(params), routeInstanceTotal: Route.count()]
     }
@@ -22,7 +20,6 @@ class RouteController {
     }
 
     def save() {
-        println ('saving')
         def routeInstance = new Route(params)
         if (!routeInstance.save(flush: true)) {
             render(view: "create", model: [routeInstance: routeInstance])

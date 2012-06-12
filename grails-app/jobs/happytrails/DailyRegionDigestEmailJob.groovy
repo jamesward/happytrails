@@ -51,7 +51,7 @@ class DailyRegionDigestEmailJob {
                     sb.append("\n  " + route.getName())
                     sb.append(" (" + numComments + " new " + ((numComments == 1) ? "comment" : "comments") + ")")
                     for (comment in newComments) {
-                        sb.append "\n    \"" + comment.value + "\" --" + comment.user.name
+                        sb.append "\n    \"" + comment.body + "\" --" + comment.poster
                     }
                 }
             }
@@ -77,7 +77,7 @@ class DailyRegionDigestEmailJob {
                 for (Route route : region.getRoutes()) {
                     if (route.getComments())
                         println "Found route " + route.getName() + ", comments: " + route.getComments().size()
-                    for (comment in route.getComments()) {
+                    for (comment in route.comments) {
                         if (regionSubscription.getLastSent() == null ||
                                 comment.getCreationDate().after(regionSubscription.getLastSent())) {
                             println("Adding new comment: " + comment)

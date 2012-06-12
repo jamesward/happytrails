@@ -110,10 +110,6 @@ select {
     top: 100px;
 }
 
-.alert {
-    margin-right: 300px;
-}
-
 .login-form .alert {
     margin-right: 0
 }

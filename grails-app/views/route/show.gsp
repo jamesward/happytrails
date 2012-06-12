@@ -16,11 +16,13 @@
             <li>${routeInstance.name}</li>
         </ul>
         </g:set>
-		<div id="show-route" class="content scaffold-show" role="main">
+        <div class="row-fluid">
+		<div id="show-route" class="content span4" role="main">
+            <g:if test="${flash.message}">
+                <div class="alert alert-success" role="status">${flash.message}</div>
+            </g:if>
+
 			<h1>${routeInstance.name}</h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
 
 				<g:if test="${routeInstance?.description}">
 				<fieldset class="control-group">
@@ -77,18 +79,6 @@
 				</fieldset>
 				</g:if>
 
-            <g:if test="${routeInstance?.comments}">
-                <fieldset class="control-group">
-                    <span id="comments-label" class="property-label">
-                        <g:message code="route.comments.label" default="Comments"/></span>
-                    <ul class="comments">
-                        <comments:each bean="${routeInstance}">
-                             ${comment.body} - Posted by ${comment.poster}
-                        </comments:each>
-                    </ul>
-                </fieldset>
-            </g:if>
-
 				<g:if test="${routeInstance?.directions}">
 				<fieldset class="control-group">
 					<span id="directions-label" class="property-label"><g:message code="route.directions.label" default="Directions" /></span>
@@ -99,12 +89,10 @@
 
 				</fieldset>
 				</g:if>
-                <g:if test="${routeInstance.averageRating}">
-                    <fieldset class="control-group">
-                        <span id="averageRating-label" class="property-label"><g:message code="route.averageRating.label" default="Avg. Rating" /></span>
-                        <span class="property-value" aria-labelledby="averageRating-label"><g:fieldValue bean="${routeInstance}" field="averageRating"/></span>
-                    </fieldset>
-                </g:if>
+                <fieldset class="control-group">
+                    <span id="averageRating-label" class="property-label"><g:message code="route.averageRating.label" default="Average Rating" /></span>
+                    <span class="property-value" aria-labelledby="averageRating-label"><g:fieldValue bean="${routeInstance}" field="averageRating"/></span>
+                </fieldset>
 				<g:if test="${routeInstance?.ratings}">
 				<fieldset class="control-group">
 					<span id="ratings-label" class="property-label"><g:message code="route.ratings.label" default="Ratings" /></span>
@@ -126,8 +114,22 @@
 			</g:form>
             </sec:ifLoggedIn>
             <sec:ifNotLoggedIn>
-                <g:link uri="/login">Login</g:link> if you'd like to rate or comment on this route.
+                <g:link uri="/login" class="btn btn-success">Login</g:link> if you'd like to rate or comment on this route.
             </sec:ifNotLoggedIn>
-		</div>
+            </div>
+
+            <div class="span6">
+                <div id="comment-route">
+                    <g:if test="${routeInstance.comments}">
+                    <h3>Comments</h3>
+                        <ul class="comments">
+                        <comments:each bean="${routeInstance}">
+                             <li>${comment.body} <em>-- ${comment.poster}</em></li>
+                        </comments:each>
+                        </ul>
+                    </g:if>
+                </div>
+            </div>
+        </div>
 	</body>
 </html>

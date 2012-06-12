@@ -16,8 +16,9 @@
             <li>${routeInstance.name}</fieldset>
         </ul>
         </g:set>
-		<div id="edit-route" class="content scaffold-edit" role="main">
-			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+    <div class="row-fluid">
+		<div id="edit-route" class="content span4" role="main">
+			<h1>Edit ${routeInstance.name}</h1>
 			<g:if test="${flash.message}">
 			<div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>
@@ -41,19 +42,19 @@
 			</g:form>
 		</div>
 
-        <div id="rate-route">
-            <rateable:ratings bean='${routeInstance}'/>
-        </div>
-
-        <div id="comment-route">
-            <g:if test="${routeInstance.id}">
-            <div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'comments', 'error')} ">
-                <label for="comments">
-                    <g:message code="route.comments.label" default="Comments"/>
-                </label>
-                <comments:render bean="${routeInstance}" />
+        <div class="span6">
+            <div id="rate-route">
+                <h3>Rating</h3>
+                <rateable:ratings bean='${routeInstance}'/>
             </div>
-            </g:if>
+
+            <div id="comment-route">
+                <g:if test="${routeInstance.id}">
+                <h3>Comments</h3>
+                <comments:render bean="${routeInstance}" />
+                </g:if>
+            </div>
         </div>
+    </div>
 	</body>
 </html>

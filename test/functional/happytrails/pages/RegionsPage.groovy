@@ -11,7 +11,6 @@ class RegionsPage extends ScaffoldPage {
 	
 	static content = {
 		newRegionButton(to: AddRegionPage) { $("a", text: "New Region") }
-        atomFeed( $("a", class: 'atom') )
 		regionTable { $(".content table", 0) }
 		regionRow { module RegionRow, regionRows[it] }
 		regionRows(required: false) { regionTable.find("tbody").find("tr") }

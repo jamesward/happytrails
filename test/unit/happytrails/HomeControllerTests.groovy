@@ -1,6 +1,7 @@
 package happytrails
 
 import grails.test.mixin.*
+import org.grails.comments.Comment
 
 @TestFor(HomeController)
 @Mock([Region, Comment])

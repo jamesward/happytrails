@@ -9,6 +9,7 @@ class EditRegionPage extends ScaffoldPage {
 	static content = {
 		updateButton(to: ShowRegionPage) { $("input", value: "Update") }
 		deleteButton(to: RegionsPage) { $("input", value: "Delete") }
+		addRouteLink(to: AddRoutePage) { $("a", text: "Add Route") }
 	}
 
 }

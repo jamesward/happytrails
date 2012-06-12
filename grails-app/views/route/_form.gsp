@@ -15,7 +15,7 @@
         <g:message code="route.description.label" default="Description"/>
 
     </label>
-    <g:textField name="description" value="${routeInstance?.description}"/>
+    <g:textArea rows="5" name="description" value="${routeInstance?.description}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'distance', 'error')} required">
@@ -23,7 +23,7 @@
         <g:message code="route.distance.label" default="Distance"/>
         <span class="required-indicator">*</span>
     </label>
-    <g:field type="number" step="any" name="distance" required="" value="${fieldValue(bean: routeInstance, field: 'distance')}"/>
+    <g:field size="6" style="width: 60px" type="number" step="any" name="distance" required="" value="${fieldValue(bean: routeInstance, field: 'distance')}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'location', 'error')} required">
@@ -34,7 +34,7 @@
     <g:textField name="location" required="" value="${routeInstance?.location}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'region', 'error')} required">
+%{--<div class="fieldcontain ${hasErrors(bean: routeInstance, field: 'region', 'error')} required">
     <label for="region">
         <g:message code="route.region.label" default="Region"/>
         <span class="required-indicator">*</span>
@@ -86,5 +86,5 @@
     </label>
     <g:select name="directions" from="${happytrails.Direction.list()}" multiple="multiple" optionKey="id" size="5"
               value="${routeInstance?.directions*.id}" class="many-to-many"/>
-</div>
+</div>--}%
 

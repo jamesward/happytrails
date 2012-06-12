@@ -109,7 +109,7 @@ class RegionController {
         }
     }
 
-    @Secured(['ROLE_ADMIN'])
+    //@Secured(['ROLE_ADMIN'])
     def edit() {
         def regionInstance = Region.get(params.id)
         if (!regionInstance) {
