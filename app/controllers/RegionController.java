@@ -4,12 +4,9 @@ import com.sun.syndication.feed.synd.*;
 import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedOutput;
 import models.*;
+import play.Logger;
 import play.data.Form;
-import play.data.validation.ValidationError;
-import play.mvc.Controller;
-import play.mvc.Result;
-import play.mvc.Security;
-import play.mvc.With;
+import play.mvc.*;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -125,13 +122,28 @@ public class RegionController extends Controller {
             regionForm.reject("name", "Duplicate Region Name");
         }
 
+        Http.MultipartFormData.FilePart photoFilePart = request().body().asMultipartFormData().getFile("photo");
+        
+        if (photoFilePart == null) {
+            regionForm.reject("Photo required");
+        }
+
         if (regionForm.hasErrors()) {
             return badRequest(views.html.regionForm.render(regionForm));
         }
         else {
-            Region region = regionForm.get();
-            region.save();
-            return redirect(routes.RegionController.getRegionHtml(region.getUrlFriendlyName(), "name"));
+            
+            try {
+                Region region = regionForm.get();
+                S3Photo photo = new S3Photo(photoFilePart.getFile(), 300);
+                region.photo = photo;
+                region.save();
+                return redirect(routes.RegionController.getRegionHtml(region.getUrlFriendlyName(), "name"));
+            } catch (IOException e) {
+                Logger.error(e.getMessage());
+                return internalServerError("Error uploading photo");
+            }
+            
         }
     }
 

@@ -8,8 +8,19 @@ public class DemoData {
     public static void loadDemoData() {
         Logger.info("Loading Demo Data");
 
-        Region denverFrontRangeRegion = new Region("Denver Front Range");
+        Region denverFrontRangeRegion = new Region("Crested Butte, Colorado");
+        S3Photo denverPhoto = new S3Photo();
+        denverPhoto.bucket = "com.ubertracks.hike.dev";
+        denverPhoto.key = "32228dba-23ab-4449-bd05-90290d287df4.jpg";
+        denverFrontRangeRegion.photo = denverPhoto;
         denverFrontRangeRegion.save();
+
+        Region zermattRegion = new Region("Zermatt, Switzerland");
+        S3Photo zermattPhoto = new S3Photo();
+        zermattPhoto.bucket = "com.ubertracks.hike.dev";
+        zermattPhoto.key = "5e3ee5c3-3db4-42a4-920e-a4343d8e2e41.jpg";
+        zermattRegion.photo = zermattPhoto;
+        zermattRegion.save();
 
         User jamesUser = new User("james@demo.com", "password", "James Ward");
         jamesUser.isAdmin = true;

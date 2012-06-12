@@ -65,7 +65,7 @@ public class Route extends Model {
     public List<Comment> comments = new ArrayList<Comment>();
 
     @OneToOne
-    public Photo photo;
+    public S3Photo photo;
 
     public URL mapUrl;
 

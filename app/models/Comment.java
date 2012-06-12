@@ -23,7 +23,7 @@ public class Comment extends Model {
     public Date creationDate;
 
     @OneToOne
-    public Photo photo;
+    public S3Photo photo;
     
     @ManyToOne
     @Column(nullable = false)

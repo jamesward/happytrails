@@ -42,5 +42,4 @@ Experience Notes
         java -Dconfig.file=conf/prod.conf -jar ~/.sbt_home/bin/sbt-launch-0.11.3-2.jar
         set fullClasspath in Compile += Attributed.blank(file("target/staged/*"))
         console
-        import play.core.StaticApplication
-        new StaticApplication(new java.io.File("."))
+        new play.core.StaticApplication(new java.io.File("."))

@@ -42,6 +42,8 @@ public class Region extends Model {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "region")
     public List<RegionSubscription> regionSubscriptions = new ArrayList<RegionSubscription>();
 
+    @OneToOne(cascade = CascadeType.ALL)
+    public S3Photo photo;
     
     public Region() {
     }

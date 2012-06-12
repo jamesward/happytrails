@@ -6,9 +6,21 @@
 
     <h1>Add New Region</h1>
     <br/>
-    <br/>
-    @helper.form(action = routes.RegionController.saveRegion(), 'class -> "form-horizontal") {
+
+    @if(regionForm.hasGlobalErrors) {
+        <p class="error alert alert-error">@regionForm.globalError.message</p>
+    }
+
+    @helper.form(action = routes.RegionController.saveRegion(), 'class -> "form-horizontal", 'enctype -> "multipart/form-data") {
         @helper.inputText(regionForm("name"), '_label -> "Name")
+
+        <div class="control-group">
+            <label for="photo" class="control-label">Photo</label>
+            <div class="controls">
+                <input type="file" id="photo" name="photo">
+            </div>
+        </div>
+
         <div class="controls">
             <input type="submit" class="btn btn-primary" value="Create Region"/>
         </div>
