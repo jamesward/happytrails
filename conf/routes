@@ -13,6 +13,9 @@ POST    /login                      controllers.ApplicationController.login()
 
 GET     /logout                     controllers.ApplicationController.logout()
 
+GET     /addregion                  controllers.RegionController.addRegion()
+POST    /addregion                  controllers.RegionController.saveRegion()
+
 GET     /:region/feed               controllers.RegionController.getRegionFeed(region)
 
 GET     /:region/subscribe          controllers.RegionController.subscribe(region)

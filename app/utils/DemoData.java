@@ -12,6 +12,7 @@ public class DemoData {
         denverFrontRangeRegion.save();
 
         User jamesUser = new User("james@demo.com", "password", "James Ward");
+        jamesUser.isAdmin = true;
         jamesUser.save();
 
         User mattUser = new User("matt@demo.com", "password", "Matt Raible");

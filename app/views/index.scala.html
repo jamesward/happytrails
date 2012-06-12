@@ -21,6 +21,10 @@
                 <li><a href="@routes.RegionController.getRegionHtml(region.getUrlFriendlyName)">@region.getName</a></li>
             }
             </ul>
+
+            @if((CurrentUser.get() != null) && (CurrentUser.get().isAdmin)) {
+                <a href="@routes.RegionController.addRegion()" class="btn btn-small btn-info"><i class="icon-plus icon-white"></i> Add New Region</a>
+            }
         </div>
         <div class="span3">
             <div class="well sidebar-nav">

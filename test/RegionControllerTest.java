@@ -53,6 +53,51 @@ public class RegionControllerTest {
             }
         });
     }
+
+    @Test
+    public void addRegion() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+                
+                // todo
+            }
+        });
+    }
+
+    @Test
+    public void saveRegion() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                // todo
+            }
+        });
+    }
+
+    @Test
+    public void saveRegionNonAdmin() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                // todo
+            }
+        });
+    }
+
+    @Test
+    public void saveRegionDuplicateName() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                // todo
+            }
+        });
+    }
+    
     
     @Test
     public void addRoute() {

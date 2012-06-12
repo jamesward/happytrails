@@ -106,6 +106,36 @@ public class RegionController extends Controller {
     }
 
     @Security.Authenticated(Secured.class)
+    public static Result addRegion() {
+        return ok(views.html.regionForm.render(form(Region.class)));
+    }
+
+    @Security.Authenticated(Secured.class)
+    public static Result saveRegion() {
+        User user = CurrentUser.get();
+        
+        if (!user.isAdmin) {
+            return unauthorized("You don't have access to do this.");
+        }
+        
+        Form<Region> regionForm = form(Region.class).bindFromRequest();
+
+        // check if the name is a duplicate
+        if ((regionForm.hasErrors() == false) && (Region.findByUrlFriendlyName(regionForm.get().getUrlFriendlyName()) != null)) {
+            regionForm.reject("name", "Duplicate Region Name");
+        }
+
+        if (regionForm.hasErrors()) {
+            return badRequest(views.html.regionForm.render(regionForm));
+        }
+        else {
+            Region region = regionForm.get();
+            region.save();
+            return redirect(routes.RegionController.getRegionHtml(region.getUrlFriendlyName(), "name"));
+        }
+    }
+
+    @Security.Authenticated(Secured.class)
     public static Result addRoute(String urlFriendlyRegionName) {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
         return ok(views.html.routeForm.render(region, form(Route.class)));

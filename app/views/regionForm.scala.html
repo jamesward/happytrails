@@ -1,0 +1,17 @@
+@(regionForm: Form[Region])
+
+@implicitFieldConstructor = @{ helper.FieldConstructor(utils.html.twitterBootstrapInput.render) }
+
+@main("Uber Tracks - Hike - Add New Region") {
+
+    <h1>Add New Region</h1>
+    <br/>
+    <br/>
+    @helper.form(action = routes.RegionController.saveRegion(), 'class -> "form-horizontal") {
+        @helper.inputText(regionForm("name"), '_label -> "Name")
+        <div class="controls">
+            <input type="submit" class="btn btn-primary" value="Create Region"/>
+        </div>
+    }
+
+}
