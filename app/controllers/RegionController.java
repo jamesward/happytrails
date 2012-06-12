@@ -14,6 +14,7 @@ import play.mvc.With;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @With(CurrentUser.class)
@@ -116,9 +117,7 @@ public class RegionController extends Controller {
         
         // check if the name is a duplicate
         if (Route.findByUrlFriendlyName(region, routeForm.get().getUrlFriendlyName()) != null) {
-            List<ValidationError> errors = new ArrayList<ValidationError>();
-            errors.add(new ValidationError("", "Duplicate Route Name", new ArrayList()));
-            routeForm.errors().put("error", errors);
+            routeForm.reject("name", "Duplicate Route Name");
         }
         
         if (routeForm.hasErrors()) {
