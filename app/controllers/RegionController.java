@@ -16,6 +16,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @With(CurrentUser.class)
 public class RegionController extends Controller {
@@ -112,11 +113,35 @@ public class RegionController extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result saveRoute(String urlFriendlyRegionName) {
+        
+        Map<String, String[]> urlFormEncoded = request().body().asFormUrlEncoded();
+        Map<String, String> newData = new HashMap<String, String>();
+        
+        for (String key : urlFormEncoded.keySet()) {
+            if (!key.startsWith("directions[")) {
+                newData.put(key, urlFormEncoded.get(key)[0]);
+            }
+        }
+        
+        // cleanup the unfilled in values
+        for (int i = 0; i <= 24; i++) {
+            String instructionsKey = "directions[" + i + "].instruction";
+            String stepNumberKey = "directions[" + i + "].stepNumber";
+            
+            if (urlFormEncoded.containsKey(instructionsKey)) {
+                if ((urlFormEncoded.get(instructionsKey) != null) && (urlFormEncoded.get(instructionsKey)[0].length() > 0)) {
+                    newData.put(instructionsKey, urlFormEncoded.get(instructionsKey)[0]);
+                    newData.put(stepNumberKey, urlFormEncoded.get(stepNumberKey)[0]);
+                }
+            }
+        }
+        
+        Form<Route> routeForm = form(Route.class).bind(newData);
+                
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
-        Form<Route> routeForm = form(Route.class).bindFromRequest();
         
         // check if the name is a duplicate
-        if (Route.findByUrlFriendlyName(region, routeForm.get().getUrlFriendlyName()) != null) {
+        if ((routeForm.hasErrors() == false) && (Route.findByUrlFriendlyName(region, routeForm.get().getUrlFriendlyName()) != null)) {
             routeForm.reject("name", "Duplicate Route Name");
         }
         

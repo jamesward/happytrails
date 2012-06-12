@@ -21,7 +21,7 @@ GET     /:region/unsubscribe        controllers.RegionController.unsubscribe(reg
 GET     /:region/addroute           controllers.RegionController.addRoute(region)
 POST    /:region/addroute           controllers.RegionController.saveRoute(region)
 
-GET     /:region/:route/rate        controllers.RouteController.saveRating(region, route, rating: Integer)
+GET     /:region/:route/rate        controllers.RouteController.saveRating(region, route, rating: java.lang.Integer)
 
 POST    /:region/:route/comment     controllers.RouteController.saveComment(region, route)
 

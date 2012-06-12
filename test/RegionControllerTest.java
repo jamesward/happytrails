@@ -97,6 +97,8 @@ public class RegionControllerTest {
                 routeData.put("distanceInMiles", "1");
                 routeData.put("location", "nowhere");
 
+                // todo: add directions
+
                 Result result = callAction(routes.ref.RegionController.saveRoute(UrlUtils.getUrlFriendlyName("Denver Front Range")), fakeRequest().withHeader(Http.HeaderNames.COOKIE, cookies).withFormUrlEncodedBody(routeData));
                 assertThat(status(result)).isEqualTo(SEE_OTHER);
                 assertThat(redirectLocation(result)).isEqualTo(routes.RouteController.getRouteHtml(UrlUtils.getUrlFriendlyName("Denver Front Range"), "foo").url());

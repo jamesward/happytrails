@@ -6,6 +6,7 @@ import play.db.ebean.Model;
 import utils.UrlUtils;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
@@ -53,6 +54,7 @@ public class Route extends Model {
     @ManyToOne
     public Region region;
 
+    @Valid
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
     public List<Direction> directions = new ArrayList<Direction>();
 
