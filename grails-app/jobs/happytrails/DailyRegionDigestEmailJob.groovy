@@ -6,8 +6,8 @@ class DailyRegionDigestEmailJob {
     def mailService
 
     static triggers = {
-        simple repeatInterval: 5000l // execute job once in 5 seconds
-        //cron name:'cronTrigger', startDelay:10000, cronExpression: '0 0 7 ? * MON-FRI' // 7AM Mon-Fri
+        //simple repeatInterval: 5000l // execute job once in 5 seconds
+        cron name:'cronTrigger', startDelay:10000, cronExpression: '0 0 7 ? * MON-FRI' // 7AM Mon-Fri
     }
 
     def execute() {
@@ -75,13 +75,14 @@ class DailyRegionDigestEmailJob {
 
                 List newComments = new ArrayList()
                 for (Route route : region.routes) {
-                    if (route.comments)
+                    if (route.comments) {
                         println "Found route " + route.name + ", comments: " + route.comments.size()
-                    for (comment in route.comments) {
-                        if (regionSubscription.lastSent == null ||
-                                comment.dateCreated.after(regionSubscription.lastSent)) {
-                            println("Adding new comment: " + comment.body)
-                            newComments.add(comment)
+                        for (comment in route.comments) {
+                            if (regionSubscription.lastSent == null ||
+                                    comment.dateCreated.after(regionSubscription.lastSent)) {
+                                println("Adding new comment: " + comment.body)
+                                newComments.add(comment)
+                            }
                         }
                     }
                 }
