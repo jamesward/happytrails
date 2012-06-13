@@ -11,7 +11,7 @@
         @helper.inputText(routeForm("distanceInMiles"), '_label -> "Distance in Miles")
         @helper.inputText(routeForm("location"), '_label -> "Location")
         @helper.textarea(routeForm("description"), '_label -> "Description", 'class -> "span9")
-        @for(i <- 0.to(25)) {
+        @for(i <- 0.to(24)) {
             <input type="hidden" name="directions[@i].stepNumber" value="@(i + 1)">
             @helper.inputText(routeForm("directions")("[" + i + "]")("instruction"), '_label -> ("Instruction " + (i + 1)) , 'class -> "span9")
         }
