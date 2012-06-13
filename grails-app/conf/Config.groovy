@@ -73,6 +73,18 @@ environments {
     production {
         grails.logging.jul.usebridge = false
         grails.serverURL = "http://bike.ubertracks.com"
+        grails {
+            mail {
+                host = smtp.sendgrid.net
+                port = 587
+                props = ["mail.smtp.auth":"true", 					   
+                         "mail.smtp.socketFactory.port":"465",
+                         "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                         "mail.smtp.socketFactory.fallback":"false"]
+                username=${System.env.SENDGRID_USERNAME}
+                password=${System.env.SENDGRID_PASSWORD}
+            }
+        }
     }
 }
 

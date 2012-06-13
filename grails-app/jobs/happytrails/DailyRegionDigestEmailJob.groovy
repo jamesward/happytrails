@@ -6,8 +6,8 @@ class DailyRegionDigestEmailJob {
     def mailService
 
     static triggers = {
-        //simple repeatInterval: 5000l // execute job once in 5 seconds
-        cron name:'cronTrigger', startDelay:10000, cronExpression: '0 0 7 ? * MON-FRI' // 7AM Mon-Fri
+        simple repeatInterval: 5000l // execute job once in 5 seconds
+        //cron name:'cronTrigger', startDelay:10000, cronExpression: '0 0 7 ? * MON-FRI' // 7AM Mon-Fri
     }
 
     def execute() {
