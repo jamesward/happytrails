@@ -2,7 +2,6 @@ Grails
 * Done! (I think)
 
 Play
-* Pretty UI
 * Optimize UI for YSlow/Page Speed
 
 Both
