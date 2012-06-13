@@ -16,38 +16,73 @@
 
 @main("Uber Tracks - Hike - " + route.region.getName + " - " + route.getName, headContent, breadcrumbs) {
 
-    <h1>@route.getName</h1>
-    @utils.html.routeStars(route)
-    <br/><br/>
-    <h2>Directions:</h2>
-    <ul class="unstyled">
-    @for(direction <- route.directions.sortBy(_.stepNumber)) {
-        <li>@direction.stepNumber. @direction.instruction</li>
-    }
-    </ul>
+    <div class="row-fluid">
+        <div class="span10">
+            <header class="jumbotron subhead" id="overview">
+                <h1>@route.getName</h1>
+                <p class="lead">@route.description</p>
+            </header>
 
-    @if(route.comments.size > 0) {
-        <h2>Comments:</h2>
-        <ul>
-        @for(comment <- route.comments) {
-            <li><b>@comment.user.fullName (@comment.creationDate)</b><br/>@comment.value</li>
-        }
-        </ul>
-    }
+            <h3 class="page-header" style="padding-bottom: 7px;">Directions</h3>
+            <ul class="unstyled">
+                @for(direction <- route.directions.sortBy(_.stepNumber)) {
+                    <li>@direction.stepNumber. @direction.instruction</li>
+                }
+            </ul>
 
-    @if(CurrentUser.get() != null) {
-        <h2>Add a Comment:</h2>
-        <form action="@routes.RouteController.saveComment(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" method="post">
-            <textarea name="value" rows="6" cols="80" class="span6"></textarea><br/>
-            <input class="btn" type="submit" value="Post Comment"/>
-        </form>
-        @if(flash.contains("error")) {
-            <p class="alert alert-error">@flash.get("error")</p>
-        }
-    }
+            <br/>
+            @if(route.comments.size > 0) {
+                <h3 class="page-header" style="padding-bottom: 7px;">Comments</h3>
+                <ul>
+                    @for(comment <- route.comments) {
+                        <li><b>@comment.user.fullName (@comment.creationDate)</b><br/>@comment.value</li>
+                    }
+                </ul>
+            }
 
-    @if((CurrentUser.get() != null) && (CurrentUser.get().isAdmin)) {
-        <a href="@routes.RouteController.deleteRoute(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete</a>
-    }
+            @if(CurrentUser.get() != null) {
+                <h3>Add a Comment:</h3>
+                <form action="@routes.RouteController.saveComment(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" method="post">
+                    <textarea name="value" rows="6" cols="80" class="span6"></textarea>
+                    <input class="btn" type="submit" value="Post Comment"/>
+                </form>
+                @if(flash.contains("error")) {
+                    <p class="alert alert-error">@flash.get("error")</p>
+                }
+            }
+
+            @if((CurrentUser.get() != null) && (CurrentUser.get().isAdmin)) {
+                <a href="@routes.RouteController.deleteRoute(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete</a>
+            }
+        </div>
+        <div class="well span2">
+            Average Rating<br/>
+            @utils.html.routeStars(route)
+
+            @if(CurrentUser.get() != null) {
+            <div class="btn-group" style="margin-bottom: 15px;">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Rate It
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    @for(i <- 1.to(5)) {
+                    <li><a href="@routes.RouteController.saveRating(route.region.getUrlFriendlyName, route.getUrlFriendlyName, i)">
+                        @for(j <- 1.to(i)) {
+                        <i class="icon-star"></i>
+                        }
+                    </a></li>
+                    }
+                </ul>
+            </div>
+            }
+
+            Distance<br/>
+            <h5 style="color: #333; margin-bottom: 15px;">@route.distanceInMiles Miles</h5>
+
+            Location<br/>
+            <h5 style="color: #333;">@route.location</h5>
+        </div>
+    </div>
 
 }

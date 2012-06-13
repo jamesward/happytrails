@@ -1,19 +1,9 @@
 @(route: Route)
 
 @for(i <- 1.to(5)) {
-    
-    @if(CurrentUser.get() != null) {
-        <a href="@routes.RouteController.saveRating(route.region.getUrlFriendlyName, route.getUrlFriendlyName, i)">
-    }
-
     @if(route.getAverageRating >= i) {
         <i class="icon-star"></i>
     } else {
         <i class="icon-star-empty"></i>
     }
-
-    @if(CurrentUser.get() != null) {
-        </a>
-    }
-
 }
