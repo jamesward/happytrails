@@ -3,7 +3,7 @@ package happytrails.pages
 class AddRoutePage extends ScaffoldPage {
 
 	static at = {
-		title ==~ /Create.+/
+		title ==~ /Add.+/
 	}
 	
 	static content = {

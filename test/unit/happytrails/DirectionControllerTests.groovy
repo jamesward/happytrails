@@ -3,7 +3,7 @@ package happytrails
 import grails.test.mixin.*
 
 @TestFor(DirectionController)
-@Mock(Direction)
+@Mock([Direction, Route])
 class DirectionControllerTests {
 
     def populateValidParams(params) {
@@ -11,6 +11,7 @@ class DirectionControllerTests {
         params["stepNumber"] = '1'
         params["instruction"] = 'Go right at the river'
         params["route.name"] = "Chainsaw Loop"
+        params["route.id"] = "12"
     }
 
     void testIndex() {
@@ -43,7 +44,7 @@ class DirectionControllerTests {
         populateValidParams(params)
         controller.save()
 
-        assert response.redirectedUrl == '/direction/show/1'
+        assert response.redirectedUrl == '/route/edit/12'
         assert controller.flash.message != null
         assert Direction.count() == 1
     }
@@ -114,7 +115,7 @@ class DirectionControllerTests {
         populateValidParams(params)
         controller.update()
 
-        assert response.redirectedUrl == "/direction/show/$direction.id"
+        assert response.redirectedUrl == "/route/edit/12"
         assert flash.message != null
 
         //test outdated version number

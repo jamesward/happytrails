@@ -150,6 +150,6 @@ class RouteControllerTests {
 
         assert Route.count() == 0
         assert Route.get(route.id) == null
-        assert response.redirectedUrl == '/route/list'
+        assert response.redirectedUrl == '/region/show'
     }
 }
