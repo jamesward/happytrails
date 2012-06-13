@@ -1,6 +1,8 @@
 package controllers;
 
+import ch.qos.logback.core.pattern.parser.FormattingNode;
 import models.*;
+import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
@@ -40,6 +42,13 @@ public class RouteController extends Controller {
 
         if ((route == null) || (user == null)) {
             return badRequest("User or Route not found");
+        }
+
+        Form<Comment> commentForm = form(Comment.class).bindFromRequest();
+        
+        if (commentForm.hasErrors()) {
+            flash("error", "Comment must not be empty.");
+            return redirect(routes.RouteController.getRouteHtml(urlFriendlyRegionName, urlFriendlyRouteName));
         }
         
         Comment comment = form(Comment.class).bindFromRequest().get();

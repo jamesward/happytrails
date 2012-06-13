@@ -39,8 +39,11 @@
         <h2>Add a Comment:</h2>
         <form action="@routes.RouteController.saveComment(route.region.getUrlFriendlyName, route.getUrlFriendlyName)" method="post">
             <textarea name="value" rows="6" cols="80" class="span6"></textarea><br/>
-            <input type="submit" value="Post Comment"/>
+            <input class="btn" type="submit" value="Post Comment"/>
         </form>
+        @if(flash.contains("error")) {
+            <p class="alert alert-error">@flash.get("error")</p>
+        }
     }
 
     @if((CurrentUser.get() != null) && (CurrentUser.get().isAdmin)) {
