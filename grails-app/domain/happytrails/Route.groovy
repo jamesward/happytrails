@@ -1,16 +1,17 @@
 package happytrails
 
-import org.grails.rateable.Rateable
 import org.grails.comments.Commentable
+import org.grails.rateable.Rateable
 
 class Route implements Rateable, Commentable {
+    static charactersNumbersAndSpaces = /[a-zA-Z0-9 ]+/
     static searchable = true
-    static belongsTo = [region:Region]
-    static hasMany = [directions:Direction]
-    static transients = [ "averageRating" ]
+    static belongsTo = [region: Region]
+    static hasMany = [directions: Direction]
+    static transients = ["averageRating"]
 
     static constraints = {
-        name blank: false, unique: true
+        name blank: false, unique: true, matches: charactersNumbersAndSpaces
         description nullable: true
         distance blank: false
         location blank: false
@@ -18,7 +19,7 @@ class Route implements Rateable, Commentable {
         photo nullable: true
         mapUrl url: true, nullable: true
         creationDate nullable: true
-        seoName unique: true
+        seoName nullable: true
     }
 
     String name
@@ -36,6 +37,9 @@ class Route implements Rateable, Commentable {
     }
 
     def beforeValidate() {
-        if (!seoName) seoName = name?.asFriendlyUrl()
+        def matcher = (name =~ charactersNumbersAndSpaces)
+        if (matcher.matches()) {
+            if (!seoName) seoName = name?.asFriendlyUrl()
+        }
     }
 }

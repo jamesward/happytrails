@@ -23,11 +23,11 @@
 
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:hasErrors bean="${routeInstance}">
-			<ul class="alert alert-error" role="alert">
-				<g:eachError bean="${routeInstance}" var="error">
-				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-				</g:eachError>
-			</ul>
+            <div class="alert alert-error" role="alert">
+                <g:eachError bean="${routeInstance}" var="error">
+                <div <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></div>
+                </g:eachError>
+            </div>
 			</g:hasErrors>
 			<g:form action="save" >
                 <g:hiddenField name="region.id" value="${routeInstance?.region?.id}"/>

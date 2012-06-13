@@ -24,12 +24,13 @@
 
 			<h1>${regionInstance.name}</h1>
             <sec:ifLoggedIn>
-			<g:form>
-				<fieldset style="position: absolute">
+			<g:form style="position: absolute">
+				<fieldset>
 					<g:hiddenField name="id" value="${regionInstance?.id}" />
-					<g:link class="edit" action="edit" id="${regionInstance?.id}" class="btn btn-mini"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" class="btn btn-mini" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
+					<g:link action="edit" id="${regionInstance?.id}" class="btn btn-mini"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:actionSubmit action="delete" class="btn btn-mini" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                    <g:link class="btn btn-mini" controller="route" action="create" params="['region.id': regionInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'route.label', default: 'Route')])}</g:link>
+                </fieldset>
 			</g:form>
             </sec:ifLoggedIn>
             <g:if test="${regionInstance.routes.size() > 0}">

@@ -58,6 +58,18 @@ class RegionController {
             return
         }
 
+        if (params.sort && params.order) {
+            // sort by routes
+            def routes = Route.listOrderByRegion(region: regionInstance, params)
+            regionInstance.routes = routes
+        }
+
+        def subscriptionId = getSubscriptionId(regionInstance)
+
+        [regionInstance: regionInstance, subscriptionId: subscriptionId]
+    }
+
+    private long getSubscriptionId(Region regionInstance) {
         def subscriptionId = 0
         User user = (User) springSecurityService?.currentUser
         if (user != null) {
@@ -67,8 +79,7 @@ class RegionController {
                 }
             }
         }
-
-        [regionInstance: regionInstance, subscriptionId: subscriptionId]
+        subscriptionId
     }
 
     def subscribe() {

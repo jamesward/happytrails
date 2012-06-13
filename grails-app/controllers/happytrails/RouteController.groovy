@@ -26,7 +26,7 @@ class RouteController {
             return
         }
 
-		flash.message = message(code: 'default.created.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.id])
+		flash.message = message(code: 'default.created.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.name])
         redirect(action: "show", id: routeInstance.id)
     }
 
