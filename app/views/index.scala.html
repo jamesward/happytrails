@@ -16,11 +16,15 @@
 
     <div class="row-fluid">
         <div class="span9">
-            <ul>
-            @for(region <- regions) {
-                <li><a href="@routes.RegionController.getRegionHtml(region.getUrlFriendlyName)">@region.getName</a></li>
+
+            <div class="row-fluid">
+            @for(i <- 0.to(regions.size - 1)) {
+                <div class="span4 well">
+                    <h3><a href="@routes.RegionController.getRegionHtml(regions.get(i).getUrlFriendlyName)">@regions.get(i).getName</a></h3>
+                    <a href="@routes.RegionController.getRegionHtml(regions.get(i).getUrlFriendlyName)"><img src="@regions.get(i).photo.getUrl"></a>
+                </div>
             }
-            </ul>
+            </div>
 
             @if((CurrentUser.get() != null) && (CurrentUser.get().isAdmin)) {
                 <a href="@routes.RegionController.addRegion()" class="btn btn-small btn-info"><i class="icon-plus icon-white"></i> Add New Region</a>
