@@ -29,7 +29,7 @@ class RegionController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'region.label', default: 'Region'), regionInstance.id])
+        flash.message = message(code: 'default.created.message', args: [message(code: 'region.label', default: 'Region'), regionInstance.name])
         redirect(action: "show", id: regionInstance.id)
     }
 

@@ -1,12 +1,12 @@
 package happytrails
 
 class Region {
-
+    static charactersNumbersAndSpaces = /[a-zA-Z0-9 ]+/
     static searchable = true
 
     static constraints = {
-        name blank: false, unique: true
-        seoName unique: true
+        name blank: false, unique: true, matches: charactersNumbersAndSpaces
+        seoName nullable: true
         routes cascade:"all,delete-orphan"
     }
 
@@ -16,9 +16,12 @@ class Region {
     String seoName
 
     def beforeValidate() {
-        if (!seoName) seoName = name?.asFriendlyUrl()
-        for (r in routes) {
-            if (!r.seoName) r.seoName = r.name?.asFriendlyUrl()
+        def matcher = (name =~ charactersNumbersAndSpaces)
+        if (matcher.matches()) {
+            if (!seoName) seoName = name?.asFriendlyUrl()
+            for (r in routes) {
+                if (!r.seoName) r.seoName = r.name?.asFriendlyUrl()
+            }
         }
     }
 

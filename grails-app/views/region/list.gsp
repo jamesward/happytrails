@@ -1,4 +1,3 @@
-
 <%@ page import="happytrails.Region" %>
 <!doctype html>
 <html>
@@ -19,7 +18,7 @@
 		<div id="list-region" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-			<div class="alert alert-success" role="status">${flash.message}</div>
+			<div class="alert alert-success" role="status" style="margin-right: 300px;">${flash.message}</div>
 			</g:if>
 			<table class="table table-condensed">
 				<thead>
