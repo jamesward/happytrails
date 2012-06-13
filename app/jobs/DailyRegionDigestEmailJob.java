@@ -23,6 +23,8 @@ public class DailyRegionDigestEmailJob {
         List<RegionUserDigest> regionUserDigests = getRegionUserDigests();
         
         for (RegionUserDigest regionUserDigest : regionUserDigests) {
+            Logger.info("Sending region digest email to: " + regionUserDigest.user.getEmailAddress());
+            
             String emailContent = "";
             emailContent = "Uber Tracks Region Updates" + "\n\n";
             
