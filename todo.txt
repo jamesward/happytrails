@@ -1,20 +1,22 @@
 Grails
-* Feature Complete Testing
+* Done! (I think)
 
 Play
 * Pretty UI
 * Optimize UI for YSlow/Page Speed
 
 Both
+* Feature Complete Testing
+* Bug Fixes
 * Load Testing
 * Performance Testing
 * Project Metrics
 
 Matt
-* Decide on Preso Software
-* Create Skeleton
-* Talk to Jay about dueling projectors
-* Talk to Lightbody about Browsermob hammering
+* Decide on Preso Software [reveal.js]
+* Create Skeleton [in-progress]
+* Talk to Jay about dueling projectors [vga switcher]
+* Talk to Lightbody about Browsermob hammering [e-mail sent]
 
 James
 * Provide instructions to Matt on SMTP on Heroku
