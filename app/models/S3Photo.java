@@ -3,8 +3,8 @@ package models;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.services.s3.model.PutObjectResult;
 import org.imgscalr.Scalr;
+import play.Logger;
 import play.db.ebean.Model;
 import utils.S3Blob;
 
@@ -57,7 +57,12 @@ public class S3Photo extends Model {
         PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, key, inputStream, objectMetadata);
         putObjectRequest.withCannedAcl(CannedAccessControlList.PublicRead);
         
-        S3Blob.amazonS3.putObject(putObjectRequest);
+        if (S3Blob.amazonS3 == null) {
+            Logger.error("Cloud not save Photo because amazonS3 was null");
+        }
+        else {
+            S3Blob.amazonS3.putObject(putObjectRequest);
+        }
     }
 
 }
