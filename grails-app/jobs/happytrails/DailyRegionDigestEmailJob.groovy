@@ -31,25 +31,25 @@ class DailyRegionDigestEmailJob {
 
     def String createMessage(RegionUserDigest digest) {
         StringBuilder sb = new StringBuilder()
-        sb.append("Hello " + digest.getUser().getName() + ",\n\n")
-        sb.append("Below you'll find updates for the regions you've subscribed to on bike.ubertracks.com.")
+        sb.append "Hello " + digest.user.name + ",\n\n"
+        sb.append "Below you'll find updates for the regions you've subscribed to on bike.ubertracks.com."
 
-        for (region in digest.getRegions()) {
+        for (region in digest.regions) {
             sb.append("\n\n" + region.name)
 
-            region.getRoutes().each {Route route ->
+            region.routes.each {Route route ->
 
                 List<Comment> newComments = []
                 for (comment in route.comments) {
-                    if (digest.lastSent == null || comment.getCreationDate().after(digest.getLastSent())) {
+                    if (digest.lastSent == null || comment.dateCreated.after(digest.lastSent)) {
                         newComments.add(comment)
                     }
                 }
 
                 def numComments = newComments.size()
                 if (numComments > 0) {
-                    sb.append("\n  " + route.getName())
-                    sb.append(" (" + numComments + " new " + ((numComments == 1) ? "comment" : "comments") + ")")
+                    sb.append "\n  " + route.name
+                    sb.append " (" + numComments + " new " + ((numComments == 1) ? "comment" : "comments") + ")"
                     for (comment in newComments) {
                         sb.append "\n    \"" + comment.body + "\" --" + comment.poster
                     }
@@ -65,22 +65,22 @@ class DailyRegionDigestEmailJob {
         List<RegionUserDigest> digests = []
 
         for (user in User.findAll()) {
-            println "Looking for subscriptions for " + user.getName()
+            println "Looking for subscriptions for " + user.name
             RegionUserDigest digest = new RegionUserDigest(user)
 
-            for (regionSubscription in user.getRegionSubscriptions()) {
-                Region region = regionSubscription.getRegion()
+            for (regionSubscription in user.regionSubscriptions) {
+                Region region = regionSubscription.region
 
                 println "Found subscription for " + region
 
                 List newComments = new ArrayList()
-                for (Route route : region.getRoutes()) {
-                    if (route.getComments())
-                        println "Found route " + route.getName() + ", comments: " + route.getComments().size()
+                for (Route route : region.routes) {
+                    if (route.comments)
+                        println "Found route " + route.name + ", comments: " + route.comments.size()
                     for (comment in route.comments) {
-                        if (regionSubscription.getLastSent() == null ||
-                                comment.getCreationDate().after(regionSubscription.getLastSent())) {
-                            println("Adding new comment: " + comment)
+                        if (regionSubscription.lastSent == null ||
+                                comment.dateCreated.after(regionSubscription.lastSent)) {
+                            println("Adding new comment: " + comment.body)
                             newComments.add(comment)
                         }
                     }
@@ -88,7 +88,7 @@ class DailyRegionDigestEmailJob {
 
                 if (newComments.size() > 0) {
                     digest.addRegion(region)
-                    digest.setLastSent(regionSubscription.getLastSent())
+                    digest.lastSent = regionSubscription.getLastSent()
                     digest.regionSubscription = regionSubscription
                     digests.add(digest)
                 }
