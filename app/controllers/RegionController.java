@@ -148,6 +148,24 @@ public class RegionController extends Controller {
     }
 
     @Security.Authenticated(Secured.class)
+    public static Result deleteRegion(String urlFriendlyRegionName) {
+        User user = CurrentUser.get();
+        Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
+
+        if ((region == null) || (user == null)) {
+            return badRequest("User or Region not found");
+        }
+
+        if (!user.isAdmin) {
+            return unauthorized("You aren't allowed to do this.");
+        }
+
+        region.delete();
+
+        return redirect(routes.ApplicationController.index());
+    }
+
+    @Security.Authenticated(Secured.class)
     public static Result addRoute(String urlFriendlyRegionName) {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
         return ok(views.html.routeForm.render(region, form(Route.class)));

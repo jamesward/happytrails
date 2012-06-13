@@ -39,6 +39,10 @@
         } else {
             <a href="@routes.RegionController.unsubscribe(region.getUrlFriendlyName)" class="btn"><i class="icon-envelope"></i> Unsubscribe from Updates</a>
         }
+
+        @if(CurrentUser.get().isAdmin) {
+            <a href="@routes.RegionController.deleteRegion(region.getUrlFriendlyName)" class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete</a>
+        }
     }
 
 }

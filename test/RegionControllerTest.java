@@ -213,4 +213,15 @@ public class RegionControllerTest {
         });
     }
 
+    @Test
+    public void deleteRegion() {
+        running(fakeApplication(inMemoryDatabase()), new Runnable() {
+            public void run() {
+                DemoData.loadDemoData();
+
+                // todo
+            }
+        });
+    }
+
 }
