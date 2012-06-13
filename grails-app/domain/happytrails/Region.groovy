@@ -7,7 +7,7 @@ class Region {
     static constraints = {
         name blank: false, unique: true, matches: charactersNumbersAndSpaces
         seoName nullable: true
-        routes cascade:"all,delete-orphan"
+        routes cascade:"all-delete-orphan"
     }
 
     static hasMany = [ routes:Route ]

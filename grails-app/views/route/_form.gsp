@@ -43,15 +43,15 @@
 
 <g:if test="${routeInstance.id}">
 <label><g:message code="route.directions.label" default="Directions"/></label>
-<ul class="one-to-many">
+<g:link class="btn btn-mini btn-add btn-success" controller="direction" action="create" style="margin-left: 70px"
+        params="['route.id': routeInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'direction.label', default: 'Direction')])}</g:link>
+<ol class="one-to-many">
     <g:each in="${routeInstance?.directions?}" var="d">
-        <li><g:link controller="direction" action="show" id="${d.id}">
-            ${d.stepNumber?.encodeAsHTML()} - ${d.instruction?.encodeAsHTML()}</g:link>
+        <li><g:link controller="direction" action="edit" id="${d.id}">
+            ${d.instruction?.encodeAsHTML()}</g:link>
         </li>
     </g:each>
-    <li class="add">
-        <g:link controller="direction" action="create"
-                params="['route.id': routeInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'direction.label', default: 'Direction')])}</g:link>
-    </li>
-</ul>
+</ol>
 </g:if>
+
+<div style="margin-bottom: 10px"></div>

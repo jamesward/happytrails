@@ -140,3 +140,17 @@ label, .property-label {
 .span6 > div {
     margin-bottom: 10px;
 }
+
+.separator {
+    margin-bottom: 10px;
+}
+
+.btn-add {
+    position: absolute;
+    margin-left: 54px;
+    margin-top: -22px;
+}
+
+.addCommentTitle {
+    font-size: 18px;
+}

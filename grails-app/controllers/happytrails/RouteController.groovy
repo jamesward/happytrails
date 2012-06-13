@@ -34,6 +34,12 @@ class RouteController {
         println("Finding route: " + params.route)
         def route = Route.findBySeoName(params.route)
 
+        if (!route) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), params.id])
+            redirect(uri: "/" + params.region)
+            return
+        }
+
         render(view: "show", model: [routeInstance: route])
     }
 
@@ -100,7 +106,7 @@ class RouteController {
         try {
             routeInstance.delete(flush: true)
 			flash.message = message(code: 'default.deleted.message', args: [message(code: 'route.label', default: 'Route'), params.id])
-            redirect(action: "list")
+            redirect(controller: "region", action: "show", id: routeInstance.regionId)
         }
         catch (DataIntegrityViolationException e) {
 			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'route.label', default: 'Route'), params.id])

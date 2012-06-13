@@ -93,7 +93,7 @@
 					<span id="ratings-label" class="property-label"><g:message code="route.ratings.label" default="Ratings" /></span>
                         <ul class="ratings">
 						<g:each in="${routeInstance.ratings}" var="r">
-						<li class="property-value" aria-labelledby="ratings-label"><g:link controller="rating" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+						<li class="property-value" aria-labelledby="ratings-label">${r?.encodeAsHTML()}</li>
 						</g:each>
                         </ul>
 				</fieldset>

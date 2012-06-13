@@ -11,4 +11,8 @@ class Direction {
     Integer stepNumber
     String instruction
     Route route
+
+    String toString() {
+        name
+    }
 }

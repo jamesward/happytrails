@@ -13,13 +13,14 @@ class Route implements Rateable, Commentable {
     static constraints = {
         name blank: false, unique: true, matches: charactersNumbersAndSpaces
         description nullable: true
-        distance blank: false
+        distance blank: false, min: 0.1D
         location blank: false
         region blank: false
         photo nullable: true
         mapUrl url: true, nullable: true
         creationDate nullable: true
         seoName nullable: true
+        directions sort:'stepNumber'
     }
 
     String name

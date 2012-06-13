@@ -40,16 +40,7 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${directionInstance?.route}">
-				<li class="fieldcontain">
-					<span id="route-label" class="property-label"><g:message code="direction.route.label" default="Route" /></span>
-					
-						<span class="property-value" aria-labelledby="route-label"><g:link controller="route" action="show" id="${directionInstance?.route?.id}">${directionInstance?.route?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
+
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

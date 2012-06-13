@@ -28,6 +28,7 @@ class UrlMappings {
         "/route/save"(controller: "route", action: "save")
         "/direction/create"(controller: "direction", action: "create")
         "/direction/save"(controller: "direction", action: "save")
+        "/direction/index"(controller: "direction", action: "index")
         "/rateable/rate"(controller: "rateable", action: [POST: "rate"])
         "/commentable/add"(controller: "commentable", action: [POST: "add"])
         name region: "/$region/$route?" {

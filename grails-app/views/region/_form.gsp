@@ -15,18 +15,19 @@
     <div class="fieldcontain ${hasErrors(bean: regionInstance, field: 'routes', 'error')} ">
         <label for="routes">
             <g:message code="region.routes.label" default="Routes"/>
-
         </label>
+        <g:link controller="route" action="create" class="btn btn-mini btn-add btn-success"
+                params="['region.id': regionInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'route.label', default: 'Route')])}</g:link>
+
         <ul class="one-to-many">
             <g:each in="${regionInstance?.routes ?}" var="r">
                 <li><g:link controller="route" action="show" id="${r.id}">${r.name?.encodeAsHTML()}</g:link></li>
             </g:each>
-            <li class="add">
-                <g:link controller="route" action="create"
-                        params="['region.id': regionInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'route.label', default: 'Route')])}</g:link>
-            </li>
         </ul>
+
 
     </div>
 
 </g:if>
+
+<div class="separator"></div>

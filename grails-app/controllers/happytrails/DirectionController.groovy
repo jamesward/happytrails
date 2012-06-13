@@ -26,8 +26,8 @@ class DirectionController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'direction.label', default: 'Direction'), directionInstance.id])
-        redirect(action: "show", id: directionInstance.id)
+        flash.message = message(code: 'default.created.message', args: [message(code: 'direction.label', default: 'Direction'), directionInstance.instruction])
+        redirect(controller: "route", action: "edit", id: directionInstance.routeId)
     }
 
     def show() {
@@ -78,8 +78,8 @@ class DirectionController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'direction.label', default: 'Direction'), directionInstance.id])
-        redirect(action: "show", id: directionInstance.id)
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'direction.label', default: 'Direction'), directionInstance.stepNumber])
+        redirect(controller: "route", action: "edit", id: directionInstance.routeId)
     }
 
     def delete() {
