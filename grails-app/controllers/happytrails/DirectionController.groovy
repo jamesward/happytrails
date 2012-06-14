@@ -1,6 +1,7 @@
 package happytrails
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.converters.JSON
 
 class DirectionController {
 
@@ -92,11 +93,21 @@ class DirectionController {
 
         try {
             directionInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'direction.label', default: 'Direction'), params.id])
+            def message = message(code: 'default.deleted.message', args: [message(code: 'direction.label', default: 'Direction'), directionInstance.instruction])
+            if (request.xhr) {
+                render([id: directionInstance.id, success: true, message: message] as JSON)
+                return
+            } else {
+                flash.message = message;
+            }
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'direction.label', default: 'Direction'), params.id])
+            if (request.xhr) {
+                render([error: true] as JSON)
+                return
+            }
             redirect(action: "show", id: params.id)
         }
     }
