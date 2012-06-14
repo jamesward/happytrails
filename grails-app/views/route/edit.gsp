@@ -45,13 +45,21 @@
         <div class="span6">
             <div id="rate-route">
                 <h3>Rating</h3>
+                %{--todo: don't allow anonymous users to rate--}%
                 <rateable:ratings bean='${routeInstance}'/>
             </div>
 
             <div id="comment-route">
                 <g:if test="${routeInstance.id}">
                 <h3>Comments</h3>
-                <comments:render bean="${routeInstance}" />
+                <sec:ifLoggedIn>
+                    <comments:render bean="${routeInstance}" />
+                </sec:ifLoggedIn>
+                <sec:ifNotLoggedIn>
+                    <comments:each bean="${routeInstance}">
+                         "${comment.body}" <em>-- ${comment.poster}</em><br/>
+                    </comments:each>
+                </sec:ifNotLoggedIn>
                 </g:if>
             </div>
         </div>
