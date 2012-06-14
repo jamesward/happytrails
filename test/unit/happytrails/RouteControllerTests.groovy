@@ -1,18 +1,19 @@
 package happytrails
 
-import grails.test.mixin.*
+import grails.test.mixin.Mock
+import grails.test.mixin.TestFor
 
 @TestFor(RouteController)
 @Mock(Route)
 class RouteControllerTests {
 
     def populateValidParams(params) {
-      assert params != null
-      params["region.name"] = "Colorado"
-      params["name"] = "Matthew Winters"
-      params["seoName"] = "matthew-winters"
-      params["distance"] = 12.0
-      params["location"] = "Morrison, CO"
+        assert params != null
+        params["region.name"] = "Colorado"
+        params["name"] = "Matthew Winters"
+        params["seoName"] = "matthew-winters"
+        params["distance"] = 12.0
+        params["location"] = "Morrison, CO"
     }
 
     void testIndex() {
@@ -29,9 +30,9 @@ class RouteControllerTests {
     }
 
     void testCreate() {
-       def model = controller.create()
+        def model = controller.create()
 
-       assert model.routeInstance != null
+        assert model.routeInstance != null
     }
 
     void testSave() {
@@ -151,5 +152,23 @@ class RouteControllerTests {
         assert Route.count() == 0
         assert Route.get(route.id) == null
         assert response.redirectedUrl == '/region/show'
+    }
+
+    void testSendingBlankDirectionsAreOK() {
+        populateValidParams(params)
+
+        params['directions[0].sortNumber'] = ''
+        params['directions[0].instruction'] = ''
+
+        def route = new Route(params)
+        assert route.save() != null
+        params.id = route.id
+
+        controller.update()
+
+        println route.errors
+
+        assert response.redirectedUrl == "/route/show/$route.id"
+        assert flash.message != null
     }
 }

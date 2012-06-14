@@ -13,6 +13,6 @@ class Direction {
     Route route
 
     String toString() {
-        name
+        instruction
     }
 }
