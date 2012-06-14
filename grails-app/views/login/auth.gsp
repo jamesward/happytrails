@@ -49,7 +49,8 @@
             </fieldset>
         </form>
 
-        <g:link uri="/forgotPassword" class="forgotPassword">Forgot Password?</g:link>
+        %{--todo: fix so changing password still allows you login after you change it
+        <g:link uri="/forgotPassword" class="forgotPassword">Forgot Password?</g:link>--}%
     </div>
 
 </div>
