@@ -23,11 +23,11 @@
 			<div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>
 			<g:hasErrors bean="${routeInstance}">
-			<ul class="errors" role="alert">
+			<div class="alert alert-error" role="alert">
 				<g:eachError bean="${routeInstance}" var="error">
-				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+				<div <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></div>
 				</g:eachError>
-			</ul>
+			</div>
 			</g:hasErrors>
 			<g:form method="post" >
 				<g:hiddenField name="id" value="${routeInstance?.id}" />
@@ -36,7 +36,7 @@
 					<g:render template="form"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:actionSubmit class="btn btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+					<g:actionSubmit id="updateBtn" class="btn btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 					<g:actionSubmit class="btn" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
