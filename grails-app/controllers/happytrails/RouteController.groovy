@@ -86,6 +86,16 @@ class RouteController {
 
         routeInstance.properties = params
 
+        def sanitizedDirections = []
+        // Strip out empty directions
+        routeInstance.directions.each { dir ->
+            if (dir.stepNumber != null && dir.instruction?.trim() != "") {
+                sanitizedDirections.add(dir)
+            }
+        }
+
+        routeInstance.directions = sanitizedDirections
+
         if (!routeInstance.save(flush: true)) {
             render(view: "edit", model: [routeInstance: routeInstance])
             return
