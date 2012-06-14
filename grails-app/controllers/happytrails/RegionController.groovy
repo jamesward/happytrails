@@ -58,11 +58,7 @@ class RegionController {
             return
         }
 
-        if (params.sort && params.order) {
-            // sort by routes
-            def routes = Route.listOrderByRegion(region: regionInstance, params)
-            regionInstance.routes = routes
-        }
+        // todo: sort routes based on sort/order parameters
 
         def subscriptionId = getSubscriptionId(regionInstance)
 
@@ -158,7 +154,7 @@ class RegionController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'region.label', default: 'Region'), regionInstance.id])
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'region.label', default: 'Region'), regionInstance.name])
         redirect(action: "show", id: regionInstance.id)
     }
 
