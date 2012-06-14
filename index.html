@@ -5,75 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=.7, maximum-scale=1">
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" type="text/css"/>
     <style type="text/css">
-      body {
-        background: black;
-        padding-top: 40px;
-      }
+        body {
+            background: black;
+            padding-top: 40px;
+        }
 
-      a { color: white; text-decoration: none;}
+        a {
+            color: white;
+            text-decoration: none;
+        }
 
-      a:hover { color: silver }
+        a:hover {
+            color: silver
+        }
 
-      .bike, .hike {
-        height: 322px;
-        width: 500px;
-        border: 1px solid white;
-        text-align: center;
-        padding-top: 10px;
-      }
-      .hike {
-        float: right;
-        background: url('images/hiking.jpg') no-repeat;
-      }
-      .bike {
-        float: left;
-        background: url('images/biking.jpg') no-repeat;
-      }
-      h1 {
-          margin-top: 340px;
-      }
-      .container {
-        width: 1050px;
-        margin: 0px auto;
-      }
-      footer {
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-          text-align: center;
-          border-top: 1px solid #666;
-          background: #333;
-          padding: 20px;
-          color: white;
-          font-size: 24px;
-      }
-      footer a {
-          margin: 0 20px;
-      }
-      
-      /* iPhone [portrait + landscape] */
-      @media only screen and (max-device-width: 480px) {
-          .bike, .hike {
-              height: 146px;
-              width: 220px;
-              background-position: -150px -100px;
-          }
-          h1 {
-              margin-top: 150px;
-              font-size: 24px;
-          }
-          .container {
-              width: 100%;
-          }
-          footer {
-              font-size: 12px;
-              padding: 10px 0;
-          }
-      }
+        .bike, .hike {
+            height: 322px;
+            width: 500px;
+            border: 1px solid white;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .hike {
+            float: right;
+            background: url('images/hiking.jpg') no-repeat;
+        }
+
+        .bike {
+            float: left;
+            background: url('images/biking.jpg') no-repeat;
+        }
+
+        h1 {
+            margin-top: 340px;
+        }
+
+        .container {
+            width: 1050px;
+            margin: 0px auto;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #666;
+            background: #333;
+            padding: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        footer a {
+            margin: 0 20px;
+        }
+
+            /* iPhone [portrait + landscape] */
+        @media only screen and (max-device-width: 480px) {
+            .bike, .hike {
+                height: 146px;
+                width: 220px;
+                background-position: -150px -100px;
+            }
+
+            h1 {
+                margin-top: 150px;
+                font-size: 24px;
+            }
+
+            .container {
+                width: 100%;
+            }
+
+            footer {
+                font-size: 12px;
+                padding: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <a href="http://bike.ubertracks.com">
         <div class="bike">
             <h1>Bike &#220;ber Tracks</h1>
@@ -84,11 +98,11 @@
             <h1>Hike &#220;ber Tracks</h1>
         </div>
     </a>
-  </div>
-  <footer>
-      <a href="http://jamesward.com">James Ward</a> | 
-      <a href="preso/index.html">Play vs. Grails Smackdown</a> |
-      <a href="http://raibledesigns.com">Matt Raible</a>
-  </footer>
+</div>
+<footer>
+    <a href="http://jamesward.com">James Ward</a> |
+    <a href="preso/index.html">Play vs. Grails Smackdown</a> |
+    <a href="http://raibledesigns.com">Matt Raible</a>
+</footer>
 </body>
 </html>
