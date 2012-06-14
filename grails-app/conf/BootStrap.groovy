@@ -2,10 +2,14 @@ import happytrails.User
 import happytrails.Region
 import happytrails.Route
 import happytrails.RegionSubscription
+import javax.servlet.http.HttpServletRequest
 
 class BootStrap {
 
     def init = { servletContext ->
+        HttpServletRequest.metaClass.isXhr = {->
+             'XMLHttpRequest' == delegate.getHeader('X-Requested-With')
+        }
 
         if (!User.count()) {
             User user = new User(username: "mraible@gmail.com", password: "happyhour",
