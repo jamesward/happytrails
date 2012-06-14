@@ -202,6 +202,7 @@ linkify( 'a' );
                             <li>Books</li>
                             <li>2012 Releases</li>
                             <li>Stack Overflow</li>
+                            <li>Hacker News</li>
                         </ul>
                     </section>
                     <section>
@@ -219,7 +220,7 @@ linkify( 'a' );
                                   ]);
 
                                   var chart = new google.visualization.BarChart(document.getElementById('jobs_chart_div'));
-                                  chart.draw(data);
+                                  chart.draw(data, {width: 900, height: 500});
                                }
                         </script>
                         <div id="jobs_chart_div" style="width: 900px; height: 500px;"></div>
@@ -239,7 +240,7 @@ linkify( 'a' );
                                 ]);
 
                                 var chart = new google.visualization.BarChart(document.getElementById('linkedin_chart_div'));
-                                chart.draw(data);
+                                chart.draw(data, {width: 900, height: 500});
                             }
                         </script>
                         <div id="linkedin_chart_div" style="width: 900px; height: 500px;"></div>
@@ -263,7 +264,7 @@ linkify( 'a' );
                                         ['March',       1503,     3365],
                                         ['April',       1377,     2884],
                                         ['May',         1299,     2760]
-                                    ])
+                                    ]), {width: 900, height: 500}
                                 );
                             }
                         </script>
@@ -275,10 +276,11 @@ linkify( 'a' );
                             google.setOnLoadCallback(drawBooksChart);
 
                             function drawBooksChart() {
-                                new google.visualization.BarChart(document.getElementById('books_chart_div')).draw(google.visualization.arrayToDataTable([
-                                    ['Books',    'Grails',  'Play Framework'],
-                                    ['Amazon',   12,        2]
-                                ]));
+                                new google.visualization.PieChart(document.getElementById('books_chart_div')).draw(google.visualization.arrayToDataTable([
+                                    ['Books',        'Amazon'],
+                                    ['Grails',       12],
+                                    ['Play Framework', 2]
+                                ]), {width: 900, height: 500, pieSliceText: 'value'});
                             }
                         </script>
                         <div id="books_chart_div" style="width: 900px; height: 500px;"></div>
@@ -289,10 +291,11 @@ linkify( 'a' );
                             google.setOnLoadCallback(drawReleasesChart);
 
                             function drawReleasesChart() {
-                                new google.visualization.BarChart(document.getElementById('releases_chart_div')).draw(google.visualization.arrayToDataTable([
-                                    ['Releases',    'Grails',  'Play Framework'],
-                                    ['2012',        3,         2]
-                                ]));
+                                new google.visualization.PieChart(document.getElementById('releases_chart_div')).draw(google.visualization.arrayToDataTable([
+                                    ['2012 Releases',      '2012'],
+                                    ['Grails',        3],
+                                    ['Play Framework', 2]
+                                ]), {width: 900, height: 500, pieSliceText: 'value'});
                             }
                         </script>
                         <div id="releases_chart_div" style="width: 900px; height: 500px;"></div>
@@ -303,11 +306,11 @@ linkify( 'a' );
                             google.setOnLoadCallback(drawStackOverflowChart);
 
                             function drawStackOverflowChart() {
-                                new google.visualization.BarChart(document.getElementById('stackoverflow_chart_div')).draw(google.visualization.arrayToDataTable([
-                                    ['Questions',    'Tagged'],
-                                    ['grails',        7430],
-                                    ['playframework', 2467]
-                                ]));
+                                new google.visualization.PieChart(document.getElementById('stackoverflow_chart_div')).draw(google.visualization.arrayToDataTable([
+                                    ['Tagged Questions', '#'],
+                                    ['grails',           7430],
+                                    ['playframework',    2467]
+                                ]), {width: 900, height: 500, pieSliceText: 'value'});
                             }
                         </script>
                         <div id="stackoverflow_chart_div" style="width: 900px; height: 500px;"></div>
@@ -318,11 +321,11 @@ linkify( 'a' );
                             google.setOnLoadCallback(drawHackerNewsChart);
 
                             function drawHackerNewsChart() {
-                                new google.visualization.BarChart(document.getElementById('hackernews_chart_div')).draw(google.visualization.arrayToDataTable([
+                                new google.visualization.PieChart(document.getElementById('hackernews_chart_div')).draw(google.visualization.arrayToDataTable([
                                     ['Stories',                           '# Votes'],
                                     ['Grails 2.0 released',               6],
                                     ['Play Framework 2.0 Final released', 195]
-                                ]));
+                                ]), {width: 900, height: 500, pieSliceText: 'value'});
                             }
                         </script>
                         <div id="hackernews_chart_div" style="width: 900px; height: 500px;"></div>
