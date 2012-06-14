@@ -19,6 +19,10 @@
         <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
 
         <link rel="stylesheet" href="lib/zenburn.css">
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+          google.load('visualization', '1.0', {'packages':['corechart']});
+        </script>
     </head>
     
     <body>
@@ -187,10 +191,144 @@ linkify( 'a' );
                 </section>
                 
                 <section>
-                    <h2>Comparison and Pretty Graphs</h2>
-                    <p>Lots of stats here...</p>
+                    <section>
+                        <h2>Comparison and Pretty Graphs</h2>
+                        <ul>
+                            <li>Jobs</li>
+                            <li>LinkedIn Skills</li>
+                            <li>Google Trends</li>
+                            <li>Indeed</li>
+                            <li>Mailing List Traffic</li>
+                            <li>Books</li>
+                            <li>2012 Releases</li>
+                            <li>Stack Overflow</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Jobs</h2>
+                        <script>
+                              google.setOnLoadCallback(drawJobsChart);
+    
+                              function drawJobsChart() {
+
+                                  var data = google.visualization.arrayToDataTable([
+                                      ['Jobs',    'Grails', 'Play Framework', 'Spring MVC'],
+                                      ['Dice',    202,      5,                494],
+                                      ['Monster', 79,       4,                193],
+                                      ['Indeed',  1113,     31,               1844]
+                                  ]);
+
+                                  var chart = new google.visualization.BarChart(document.getElementById('jobs_chart_div'));
+                                  chart.draw(data);
+                               }
+                        </script>
+                        <div id="jobs_chart_div" style="width: 900px; height: 500px;"></div>
+                    </section>
+                    <section>
+                        <h2>LinkedIn Skills</h2>
+                        <script>
+                            google.setOnLoadCallback(drawLinkedinChart);
+
+                            function drawLinkedinChart() {
+
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Skill',    '# People'],
+                                    ['Grails',         3240],
+                                    ['Play Framework', 234],
+                                    ['Spring MVC', 2890]
+                                ]);
+
+                                var chart = new google.visualization.BarChart(document.getElementById('linkedin_chart_div'));
+                                chart.draw(data);
+                            }
+                        </script>
+                        <div id="linkedin_chart_div" style="width: 900px; height: 500px;"></div>
+                    </section>
+                    <section>
+                        <h2>Google Trends</h2>
+                        <img src="assets/images/google-trends.png">
+                    </section>
+                    <section>
+                        <h2>Indeed Job Trends</h2>
+                        <img src="assets/images/indeed-1.png">
+                    </section>
+                    <section>
+                        <h2>Mailing Traffic</h2>
+                        <script>
+                            google.setOnLoadCallback(drawMailingListChart);
+
+                            function drawMailingListChart() {
+                                new google.visualization.BarChart(document.getElementById('mailinglist_messages_chart_div')).draw(google.visualization.arrayToDataTable([
+                                        ['Messages',    'Grails', 'Play Framework'],
+                                        ['March',       1503,     3365],
+                                        ['April',       1377,     2884],
+                                        ['May',         1299,     2760]
+                                    ])
+                                );
+                            }
+                        </script>
+                        <div id="mailinglist_messages_chart_div" style="width: 900px; height: 500px;"></div>
+                    </section>
+                    <section>
+                        <h2>Books</h2>
+                        <script>
+                            google.setOnLoadCallback(drawBooksChart);
+
+                            function drawBooksChart() {
+                                new google.visualization.BarChart(document.getElementById('books_chart_div')).draw(google.visualization.arrayToDataTable([
+                                    ['Books',    'Grails',  'Play Framework'],
+                                    ['Amazon',   12,        2]
+                                ]));
+                            }
+                        </script>
+                        <div id="books_chart_div" style="width: 900px; height: 500px;"></div>
+                    </section>
+                    <section>
+                        <h2>Releases</h2>
+                        <script>
+                            google.setOnLoadCallback(drawReleasesChart);
+
+                            function drawReleasesChart() {
+                                new google.visualization.BarChart(document.getElementById('releases_chart_div')).draw(google.visualization.arrayToDataTable([
+                                    ['Releases',    'Grails',  'Play Framework'],
+                                    ['2012',        3,         2]
+                                ]));
+                            }
+                        </script>
+                        <div id="releases_chart_div" style="width: 900px; height: 500px;"></div>
+                    </section>
+                    <section>
+                        <h2>StackOverflow Questions</h2>
+                        <script>
+                            google.setOnLoadCallback(drawStackOverflowChart);
+
+                            function drawStackOverflowChart() {
+                                new google.visualization.BarChart(document.getElementById('stackoverflow_chart_div')).draw(google.visualization.arrayToDataTable([
+                                    ['Questions',    'Tagged'],
+                                    ['grails',        7430],
+                                    ['playframework', 2467]
+                                ]));
+                            }
+                        </script>
+                        <div id="stackoverflow_chart_div" style="width: 900px; height: 500px;"></div>
+                    </section>
+                    <section>
+                        <h2>Hacker News</h2>
+                        <script>
+                            google.setOnLoadCallback(drawHackerNewsChart);
+
+                            function drawHackerNewsChart() {
+                                new google.visualization.BarChart(document.getElementById('hackernews_chart_div')).draw(google.visualization.arrayToDataTable([
+                                    ['Stories',                           '# Votes'],
+                                    ['Grails 2.0 released',               6],
+                                    ['Play Framework 2.0 Final released', 195]
+                                ]));
+                            }
+                        </script>
+                        <div id="hackernews_chart_div" style="width: 900px; height: 500px;"></div>
+                    </section>
                 </section>
-                
+
                 <section>
                     <h2>Myths</h2>
                     <p>MYTH BUSTERS!</p>
