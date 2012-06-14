@@ -64,7 +64,7 @@
                 <td>
                     <g:field type="number" style="width: 40px" name="directions[${i}].stepNumber" required="" value="${fieldValue(bean: d, field: 'stepNumber')}"/>
                 </td>
-                <td>
+                <td class="nowrap">
                     <g:textField style="width: 400px" name="directions[${i}].instruction" required="" value="${d?.instruction}"/>
                     <g:if test="${d.id}">
                     <g:remoteLink controller="direction" action="delete" id="${d?.id}"
