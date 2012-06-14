@@ -20,7 +20,10 @@ class Route implements Rateable, Commentable {
         mapUrl url: true, nullable: true
         creationDate nullable: true
         seoName nullable: true
-        directions sort:'stepNumber'
+    }
+
+    static mapping = {
+        directions sort: 'stepNumber'
     }
 
     String name

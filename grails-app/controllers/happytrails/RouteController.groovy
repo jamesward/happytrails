@@ -73,6 +73,10 @@ class RouteController {
             return
         }
 
+        // Remove the template for new directions
+        params.remove('directions[100].stepNumber')
+        params.remove('directions[100].instruction')
+
         if (params.version) {
             def version = params.version.toLong()
             if (routeInstance.version > version) {
@@ -91,7 +95,7 @@ class RouteController {
             return
         }
 
-		flash.message = message(code: 'default.updated.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.id])
+		flash.message = message(code: 'default.updated.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.name])
         redirect(action: "show", id: routeInstance.id)
     }
 
