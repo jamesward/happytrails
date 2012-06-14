@@ -16,6 +16,7 @@ class UrlMappings {
         "/signup"(controller: "register")
         "/feed/$region"(controller: "region", action: "feed")
         "/register/register"(controller: "register", action: "register")
+        "/register/resetPassword"(controller: "register", action: "resetPassword")
         "/register/verifyRegistration"(controller: "register", action: "verifyRegistration")
         "/forgotPassword"(controller: "register", action: "forgotPassword")
         "/region/create"(controller: "region", action: "create")
