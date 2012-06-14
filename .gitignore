@@ -2,4 +2,4 @@
 /out
 /project
 /target
-stacktrace.log
+*.log
