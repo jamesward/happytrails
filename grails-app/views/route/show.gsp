@@ -73,15 +73,11 @@
 				<g:if test="${routeInstance?.directions}">
 				<fieldset class="control-group">
 					<span id="directions-label" class="property-label"><g:message code="route.directions.label" default="Directions" /></span>
-                        <br/>
-                        <ol>
-						<g:each in="${routeInstance.directions}" var="d">
-						<li class="property-value" aria-labelledby="directions-label">
-                            ${d.instruction?.encodeAsHTML()}
-                        </li>
-                        </ol>
-						</g:each>
-
+                    <g:each in="${routeInstance.directions}" var="d">
+                    <div style="margin-left: 20px">
+                        ${d.stepNumber?.encodeAsHTML()}. ${d.instruction?.encodeAsHTML()}
+                    </div>
+                    </g:each>
 				</fieldset>
 				</g:if>
                 <fieldset class="control-group">
