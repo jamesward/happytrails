@@ -73,10 +73,6 @@ class RouteController {
             return
         }
 
-        // Remove the template for new directions
-        params.remove('directions[100].stepNumber')
-        params.remove('directions[100].instruction')
-
         if (params.version) {
             def version = params.version.toLong()
             if (routeInstance.version > version) {
