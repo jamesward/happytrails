@@ -116,6 +116,8 @@ grails.mail.default.from = "Bike Über Tracks <bike@ubertracks.com>"
 
 grails.plugins.springsecurity.ui.register.emailFrom = grails.mail.default.from
 grails.plugins.springsecurity.ui.register.emailSubject = 'Welcome to Über Tracks!'
+grails.plugins.springsecurity.ui.forgotPassword.emailFrom = grails.mail.default.from
+grails.plugins.springsecurity.ui.forgotPassword.emailSubject = 'Password Reset'
 
 grails.plugins.springsecurity.controllerAnnotations.staticRules = [
         '/user/**': ['ROLE_ADMIN'],
