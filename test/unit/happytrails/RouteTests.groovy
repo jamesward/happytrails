@@ -6,7 +6,6 @@ import grails.test.mixin.*
 class RouteTests {
 
     void testConstraints() {
-
         def region = new Region(name: "Colorado")
         def whiteRanch = new Route(name: "White Ranch", distance: 12.0, location: "Golden, CO", region: region)
         mockForConstraintsTests(Route, [whiteRanch])

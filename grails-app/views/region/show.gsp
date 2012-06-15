@@ -1,4 +1,3 @@
-
 <%@ page import="happytrails.Region" %>
 <!doctype html>
 <html>
