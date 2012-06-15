@@ -155,8 +155,8 @@
                                 <li><a href="#urlmapping">URL Mapping</a></li>
                                 <li><a href="#models">Models</a></li>
                                 <li><a href="#controllers">Controllers</a></li>
-                                <li><a href="#validation">Validation</a></li>
                                 <li><a href="#views">Views</a></li>
+                                <li><a href="#validation">Validation</a></li>
                                 <li><a href="#ide">IDE Support</a></li>
                             </ul>
                             <ul>
@@ -231,79 +231,333 @@
                     </section>
                     <section>
                         <h3>Models - Play</h3>
+                        
+                        <ul>
+                            <li>EBean + JPA Annotations</li>
+                            <li>Declarative Validations (JSR 303)</li>
+                            <li>Query DSL</li>
+                            <li>Lazy Loading (except in Scala Templates)</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>app/models/Direction.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "2605e7194b8dcb3e86937d104f01189f66650c26", function(content) {
+                                    $("#playebean").html(hljs.highlight("java", content).value)
+                                }, 11, 27)
+                            })
+                        </script>
+                        <pre><code id="playebean"></code></pre>
                     </section>
                     <section>
                         <h3>Controllers - Grails</h3>
                     </section>
                     <section>
                         <h3>Controllers - Play</h3>
+
+                        <ul>
+                            <li>Stateless - Composable - Interceptable</li>
+                            <li>Clean connection between URLs and response code</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>app/controllers/RouteController.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "c17b49e3cc79505069114f854834daedb2d80032", function(content) {
+                                    $("#playcontroler").html(hljs.highlight("java", content).value)
+                                }, 11, 36)
+                            })
+                        </script>
+                        <pre><code id="playcontroler" style="width: 820px; font-size: 12px; line-height: 13px;"></code></pre>
                     </section>
-                    <section>
-                        <h3>Validation - Grails</h3>
-                    </section>
-                    <section>
-                        <h3>Validation - Play</h3>
-                    </section>
+
                     <section>
                         <h3>Views - Grails</h3>
                     </section>
                     <section>
                         <h3>Views - Play</h3>
+                        
+                        <ul>
+                            <li>Scala Templates</li>
+                            <li>Composable</li>
+                            <li>Compiled</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>app/views/region.scala.html</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "514cdcfcb2bfd603f090de26aee617b3d315957b", function(content) {
+                                    $("#playview").html(hljs.highlight("java", content).value)
+                                }, 1, 18)
+                            })
+                        </script>
+                        <pre><code id="playview"></code></pre>
                     </section>
+                    
+                    <section>
+                        <h3>Validation - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Validation - Play</h3>
+
+                        <p>app/controllers/RouteController.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "600b9cd3b927759207093233a376f235d305ddbf", function(content) {
+                                    $("#playhaserrors").html(hljs.highlight("java", content).value)
+                                }, 24, 28)
+                            })
+                        </script>
+                        <pre><code id="playhaserrors"></code></pre>
+                        <br/>
+                        <br/>
+                        <p>app/views/signupForm.scala.html</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "22d0518aaa3aae6942ad9893b56f07b263e51caa", function(content) {
+                                    $("#playform").html(hljs.highlight("java", content).value)
+                                }, 7, 18)
+                            })
+                        </script>
+                        <pre><code id="playform"></code></pre>
+                        
+                    </section>
+                    
                     <section>
                         <h3>IDE Support - Grails</h3>
                     </section>
                     <section>
                         <h3>IDE Support - Play</h3>
+
+                        <br/>
+                        <ul>
+                            <li>$ play idea</li>
+                            <li>$ play eclipsify<br/><br/></li>
+                            <li>Java!!!</li>
+                            <li>Debugging Support via Remote Debugger</li>
+                            <li>Limited Testing within IDE</li>
+                        </ul>
                     </section>
+                    
                     <section>
                         <h3>Job - Grails</h3>
                     </section>
                     <section>
                         <h3>Job - Play</h3>
+                        
+                        <br/>
+                        <ul>
+                            <li>Plain old `static void main`</li>
+                            <li>Independent of web app</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>app/jobs/DailyRegionDigestEmailJob.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "daf09a1d1dd3ca85fca2d6d9c3ff5e3951cc56dc", function(content) {
+                                    $("#playjob").html(hljs.highlight("java", content).value)
+                                }, 15, 23)
+                            })
+                        </script>
+                        <pre><code id="playjob"></code></pre>
                     </section>
+                    
                     <section>
                         <h3>Feed - Grails</h3>
                     </section>
                     <section>
                         <h3>Feed - Play</h3>
+
+                        <br/>
+                        <ul>
+                            <li>No direct RSS/Atom support</li>
+                            <li>Dependency: "rome" % "rome" % "1.0"</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>app/jobs/DailyRegionDigestEmailJob.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "88bdca4db08657d104917c4343bb1deb8f2bf739", function(content) {
+                                    $("#playfeed").html(hljs.highlight("java", content).value)
+                                }, 22, 36)
+                            })
+                        </script>
+                        <pre><code id="playfeed"></code></pre>
                     </section>
+                    
                     <section>
                         <h3>Email - Grails</h3>
                     </section>
                     <section>
                         <h3>Email - Play</h3>
+
+                        <ul>
+                            <li>SendGrid Heroku Add-on</li>
+                            <li>Dependency:<br/>"com.typesafe" %% "play-plugins-mailer" % "2.0.2"</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>app/jobs/DailyRegionDigestEmailJob.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "daf09a1d1dd3ca85fca2d6d9c3ff5e3951cc56dc", function(content) {
+                                    $("#playemailsend").html(hljs.highlight("java", content).value)
+                                }, 35, 39)
+                            })
+                        </script>
+                        <pre><code id="playemailsend"></code></pre>
+                        <br/>
+                        <p>conf/prod.conf</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "8dc070ef87d14717ba93a77155abae5c5f50daf7", function(content) {
+                                    $("#playemailconfig").html(hljs.highlight("java", content).value)
+                                }, 9, 13)
+                            })
+                        </script>
+                        <pre><code id="playemailconfig"></code></pre>
                     </section>
+                    
                     <section>
                         <h3>Photo Upload - Grails</h3>
                     </section>
                     <section>
                         <h3>Photo Upload - Play</h3>
+                        
+                        <ul>
+                            <li>Amazon S3 for Persistent File Storage</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>app/models/S3Photo.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "90cc9f870fdff7a012730c525430342590e76601", function(content) {
+                                    $("#plays3photo").html(hljs.highlight("java", content.replace(/        /g, "")).value)
+                                }, 57, 65)
+                            })
+                        </script>
+                        <pre><code id="plays3photo"></code></pre>
+                        <br/>
+                        <p>app/controllers/RegionController.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "88bdca4db08657d104917c4343bb1deb8f2bf739", function(content) {
+                                    $("#playphotoupload").html(hljs.highlight("java", content.replace(/        /g, "").replace(/\.asMultipart/g, "\n    .asMultipart")).value)
+                                }, 125, 125)
+                            })
+                        </script>
+                        <pre><code id="playphotoupload"></code></pre>
                     </section>
+                    
                     <section>
                         <h3>Testing - Grails</h3>
                     </section>
                     <section>
                         <h3>Testing - Play</h3>
+                        
+                        <ul>
+                            <li>Standard JUnit</li>
+                            <li>Unit Tests &amp; Functional Tests</li>
+                            <li>Simulated App: FakeApplication, FakeRequest, inMemoryDatabase</li>
+                            <li>Test: Controllers, Views, Routing, Real Server, Browser</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>test/ApplicationControllerTest.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "c119ae53d0085811ec367ef095676bfa86a2a11a", function(content) {
+                                    $("#playtest").html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value)
+                                }, 18, 30)
+                            })
+                        </script>
+                        <pre><code id="playtest"></code></pre>
                     </section>
+                    
                     <section>
                         <h3>Demo Data - Grails</h3>
                     </section>
                     <section>
                         <h3>Demo Data - Play</h3>
+
+                        <br/>
+                        <p>app/Global.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "b9c352fe070d084b1e52cd7c6f04bfcf99faa5e4", function(content) {
+                                    $("#playdemodata").html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value)
+                                }, 11, 23)
+                            })
+                        </script>
+                        <pre><code id="playdemodata"></code></pre>
                     </section>
+                    
                     <section>
                         <h3>Configuration - Grails</h3>
                     </section>
                     <section>
                         <h3>Configuration - Play</h3>
+                        
+                        <br/>
+                        <ul>
+                            <li>Based on the TypeSafe Config Library</li>
+                            <li>Override config with Java Properties:<br/>-Dfoo=bar</li>
+                            <li>Environment Variable substitution</li>
+                            <li>Run with different config files:<br/>-Dconfig.file=conf/prod.conf</li>
+                        </ul>
+
+                        <br/>
+                        <br/>
+                        <p>conf/prod.conf</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "8dc070ef87d14717ba93a77155abae5c5f50daf7", function(content) {
+                                    $("#playconfig").html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value)
+                                }, 1, 7)
+                            })
+                        </script>
+                        <pre><code id="playconfig"></code></pre>
                     </section>
+                    
                     <section>
                         <h3>Authentication - Grails</h3>
                     </section>
                     <section>
                         <h3>Authentication - Play</h3>
+
+                        <br/>
+                        <ul>
+                            <li>Uses cookies to remain stateless</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>app/controllers/Secured.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "442f0a61bff2b0f09a98ccd1e19418b0b9cf244b", function(content) {
+                                    $("#playauthsecured").html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value)
+                                }, 9, 15)
+                            })
+                        </script>
+                        <pre><code id="playauthsecured"></code></pre>
+                        <br/>
+                        <p>app/controllers/RegionController.java</p>
+                        <script>
+                            $(function() {
+                                getGithubFile("jamesward", "happytrails", "88bdca4db08657d104917c4343bb1deb8f2bf739", function(content) {
+                                    $("#playsecurity").html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value)
+                                }, 105, 108)
+                            })
+                        </script>
+                        <pre><code id="playsecurity"></code></pre>
                     </section>
+                
                 </section>
                 
                 <section>
