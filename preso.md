@@ -5,7 +5,7 @@ Preso Outline
 * About the project (5 min)
   * Project Requirements (5 min)
 * Infrastructure / CI / Deployment (5 min)
-* Development Experience (30 min)
+* Code Walk Through (30 min)
   * Database Schema / Evolutions
   * Models
   * URL Mapping + Friendly URLs
