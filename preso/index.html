@@ -152,17 +152,17 @@
                             <li>Hibernate is the default persistence provider</li>
                             <li>Create models, Hibernate creates the schema for you</li>
                         </ul>
-                        <pre><code contenteditable>// environment specific settings
-environments {
-    development {
-        dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://localhost:5432/happytrails"
-        }
-    }
-    ...
-}</code></pre>
-        <code>grails-app/conf/DataSource.groovy</code>
+                        <p id="grails-ds-filename" class="filename">grails-app/conf/DataSource.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = "#grails-ds";
+                                getSource("7992cea3891aaab896a2c3dbd693e865791dc60e", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2');
+                                }, 13, 19)
+                            })
+                        </script>
+                        <pre><code id="grails-ds"></code></pre>
                     </section>
                     <section>
                         <h3>Database - Play</h3>
