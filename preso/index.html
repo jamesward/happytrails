@@ -1,426 +1,927 @@
-<!doctype html>  
+<!doctype html>
 <html lang="en">
-    
-    <head>
-        <meta charset="utf-8">
-        
-        <title>Play vs. Grails Smackdown</title>
 
-        <meta name="description" content="Play 2 and Grails 2 are often hyped as the most productive JVM Web Frameworks. This presentation (and companion talk) compare and contrast these two modern web frameworks.">
-        <meta name="author" content="James Ward and Matt Raible">
+<head>
+    <meta charset="utf-8">
 
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+    <title>Play vs. Grails Smackdown</title>
 
-        <link rel="stylesheet" href="lib/zenburn.css">
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script type="text/javascript">
-          google.load('visualization', '1.0', {'packages':['corechart']});
-        </script>
-    </head>
-    
-    <body>
-        
-        <div id="reveal">
+    <meta name="description"
+          content="Play 2 and Grails 2 are often hyped as the most productive JVM Web Frameworks. This presentation (and companion talk) compare and contrast these two modern web frameworks.">
+    <meta name="author" content="James Ward and Matt Raible">
 
-            <!-- Used to fade in a background when a specific slide state is reached -->
-            <div class="state-background"></div>
-            
-            <!-- Any section element inside of this container is displayed as a slide -->
-            <div class="slides">
-                <section>
-                    <h1>Play vs. Grails Smackdown</h1>
-                    <h3 class="inverted">James Ward and Matt Raible</h3>
-                    <p><a href="http://twitter.com/_jamesward">@_JamesWard</a> and <a href="http://twitter.com">@mraible</a></p>
-                    <script>
-                        // Delicously hacky. Look away.
-                        if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
-                    </script>
-                </section>
-                
-                <section>
-                    <h2>Why?</h2>
-                    <p>
-                        Play 2 and Grails 2 are often hyped as the most productive JVM Web Frameworks.
-                    </p>
-                    <p>
-                        <i><small>- Because everyone else has a stake in their success.</small></i>
-                    </p>
-                </section>
-                
-                <section>
-                    <h2>About the Project</h2>
-                    <ul>
-                      <li>Bullet points or &lt;p>?</li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h2>Happy Trails Requirements</h2>
-                    <ul>
-                      <li>Bullet points or &lt;p>?</li>
-                    </ul>
-                </section>
-                
-                <!-- Example of nested vertical slides -->
-                <section>
-                    <section>
-                        <h2>Intro to Grails 2</h2>
-                        <p>
-                            Slides can be nested inside of other slides,<br/>
-                            try pressing <a href="#/2/1">down</a>.
-                        </p>
-                        <a href="#/2/1" class="image">
-                            <img src="http://grails.org/static/O6SAxgKgHBQJSqb97KOo7hWA6EFplBX75Iw4A99Olpm.jpg">
-                        </a>
-                    </section>
-                    <section>
-                        <h2>Basement Level 1</h2>
-                        <p>Press down or up to navigate.</p>
-                    </section>
-                    <section>
-                        <h2>Basement Level 2</h2>
-                        <p>Cornify</p>
-                        <a class="test" href="http://cornify.com">
-                            <img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif">
-                        </a>
-                    </section>
-                    <section>
-                        <h2>Basement Level 3</h2>
-                        <p>That's it, time to go back up.</p>
-                        <a href="#/2" class="image">
-                            <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" style="-webkit-transform: rotate(180deg);">
-                        </a>
-                    </section>
-                </section>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-        <section>
-                  <section>
-                      <h2>Intro to Play 2</h2>
-                      <p>
-                          Press <strong>ESC</strong> to enter the slide overview!
-                      </p>
-                      <p><small>(Use down to navigate into the intro)</small></p>
-                  </section>
-                  <section>
-                      <h2>Works in Mobile Safari</h2>
-                      <p>
-                          Try it out! You can swipe through the slides pinch your way to the overview.
-                      </p>
-                  </section>
-                  <section>
-                      <h2>Transition Styles</h2>
-                      <p>
-                          You can select from different transitions, like:
-                      </p>
-                      <ul>
-                          <li><a href="?transition=cube">Cube</a></li>
-                          <li><a href="?transition=page">Page</a></li>
-                          <li><a href="?transition=concave">Concave</a></li>
-                          <li><a href="?transition=linear">Linear</a></li>
-                      </ul>
-                  </section>
-                  <section>
-                      <h2>Play 2 Logo</h2>
-                      <p>
-                        <img src="http://www.playframework.org/assets/images/logos/normal.png">
-                      </p>
-                  </section>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
 
-                  <section>
-                      <h2>Fantastic Ordered List</h2>
-                      <ol>
-                          <li>One is smaller than...</li>
-                          <li>Two is smaller than...</li>
-                          <li>Three!</li>
-                      </ol>
-                  </section>
-                </section>
-                
-                <section>
-                    <h2>Code Walk Through</h2>
-                    <p>
-                        We developed the same app, in similar ways, so let's look at the different layers.
-                    </p>
-                    <ul>
-                        <li><a href="#db">Database Schema</a></li>
-                        <li><a href="#urls">URLS</a></li>
-                        <li><a href="#models">Models</a></li>
-                        <li><a href="#controllers">Controllers</a></li>
-                        <li><a href="#views">Views</a></li>
-                    </ul>
-                </section>
-                <section>
-                  <h3>Database</h3>
-                  <p>Here's what code looks like.</p>
-                    <pre><code contenteditable>
-var supports3DTransforms =  document.body.style['webkitPerspective'] !== undefined || 
-                document.body.style['MozPerspective'] !== undefined ||
-                document.body.style['perspective'] !== undefined;
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/smackdown.css">
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
 
-function linkify( selector ) {
-    if( supports3DTransforms ) {
-        
-        var nodes = document.querySelectorAll( selector );
+    <link rel="stylesheet" href="lib/zenburn.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('visualization', '1.0', {'packages':['corechart']});
+    </script>
+</head>
 
-        for( var i = 0, len = nodes.length; i < len; i++ ) {
-            var node = nodes[i];
+<body>
 
-            if( !node.className || !node.className.match( /roll/g ) ) {
-                node.className += ' roll';
-                node.innerHTML = '<span data-title="'+ node.text +'">' + node.innerHTML + '</span>';
-            }
-        };
+<div id="reveal">
+
+<!-- Used to fade in a background when a specific slide state is reached -->
+<div class="state-background"></div>
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section id="intro">
+    <h1>Play vs. Grails Smackdown</h1>
+
+    <h3 class="inverted">James Ward and Matt Raible</h3>
+
+    <p><a href="http://twitter.com/_jamesward">@_JamesWard</a> and <a href="http://twitter.com">@mraible</a></p>
+    <script>
+        // Delicously hacky. Look away.
+        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) document.write('<p style="color: rgba(0,0,0,0.3); text-shadow: none;">(' + 'Tap to navigate' + ')</p>');
+    </script>
+</section>
+
+<section id="why">
+    <h2>Why a Smackdown?</h2>
+
+    <p>
+        Play 2 and Grails 2 are often hyped as the <b>most productive</b> JVM Web Frameworks.
+    </p>
+
+    <p style="margin-top: 100px">
+        <i>
+            <small>- We wanted to know how they enhanced the Developer Experience (DX).</small>
+        </i>
+    </p>
+</section>
+
+<section id="requirements">
+    <h2>Happy Trails Requirements</h2>
+    <ul>
+        <li>Server-side Templates</li>
+        <li>Play 2 with Java</li>
+        <li>Form Validation</li>
+        <li>Data Pagination</li>
+        <li>Authentication</li>
+        <li>Scheduled Jobs</li>
+    </ul>
+</section>
+
+<section id="requirements-cont">
+    <h2>Happy Trails Requirements (cont.)</h2>
+    <ul>
+        <li>Atom / RSS</li>
+        <li>Email Notifications</li>
+        <li>Unit / Integration Testing</li>
+        <li>Load Testing</li>
+        <li>Performance Testing</li>
+        <li>Stretch Goals: Search, Photo Upload to S3</li>
+    </ul>
+</section>
+
+<section id="schedule">
+    <h2>Our Schedule</h2>
+    <ul>
+        <li>Week 1 - Data Model Definition</li>
+        <li>Week 2 - Data Layer & URL Design</li>
+        <li>Week 3 - Controllers & Auth</li>
+        <li>Week 4 - Views</li>
+        <li>Week 5 - Misc Polish</li>
+    </ul>
+</section>
+
+<!-- Example of nested vertical slides -->
+<section>
+    <section id="dx">
+        <h2>Development Experience</h2>
+
+        <p>
+            Started developing at the beginning of May.
+        </p>
+
+        <p class="down-arrow">&darr;</p>
+    </section>
+    <section id="db-play" class="db">
+        <h2>Play Database Schema</h2>
+        <p style="margin-bottom: 20px">With Play, you create <em>evolutions</em></p>
+        <pre><code contenteditable>create table comment (
+  id                        bigint not null,
+  value                     varchar(1024) not null,
+  creation_date             timestamp not null,
+  photo_id                  bigint,
+  user_id                   bigint,
+  route_id                  bigint,
+  constraint pk_comment primary key (id))
+;
+
+create table direction (
+  id                        bigint not null,
+  step_number               integer not null,
+  instruction               varchar(1024) not null,
+  route_id                  bigint,
+  constraint pk_direction primary key (id))
+;</code></pre>
+        <code>conf/evolutions/default/1.sql</code>
+    </section>
+    <section class="db" id="db-grails">
+        <h2>Grails Database Schema</h2>
+        <p style="margin-bottom: 20px">
+            With Grails, you create models as normal,<br/>
+            Hibernate / GORM creates the schema for you
+        </p>
+        <pre><code contenteditable>// environment specific settings
+environments {
+    development {
+        dataSource {
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:postgresql://localhost:5432/happytrails"
+        }
     }
-}
+    ...
+}</code></pre>
+        <code>grails-app/conf/DataSource.groovy</code>
+    </section>
+    <section id="models-play" class="models">
+        <h2>Play Models</h2>
+        <pre><code contenteditable>package models;
 
-linkify( 'a' );
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
+import utils.UrlUtils;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+public class Region extends Model {
+
+    @Id
+    public Long id;
+
+    @Column(length = 128, nullable = false)
+    @Constraints.Required
+    @Constraints.MaxLength(128)
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+        this.urlFriendlyName = UrlUtils.getUrlFriendlyName(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Column(length = 128, nullable = false, unique = true)
+    private String urlFriendlyName;
+
+    public String getUrlFriendlyName() {
+        return urlFriendlyName;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "region")
+    public List&lt;Route> routes = new ArrayList&lt;Route>();
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "region")
+    public List&lt;RegionSubscription> regionSubscriptions = new ArrayList&lt;RegionSubscription>();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    public S3Photo photo;
+
+    public Region() {
+    }
+
+    public Region(String name) {
+        setName(name);
+    }
+
+    public static Finder&lt;Long, Region> find = new Finder&lt;Long, Region>(Long.class, Region.class);
+
+    public static Region findByUrlFriendlyName(String urlFriendlyName) {
+        try  {
+            return find.where().eq("urlFriendlyName", urlFriendlyName).findUnique();
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
+
+}</code></pre>
+        <code>app/models/Region.java</code>
+    </section>
+    <section id="models-grails" class="models">
+        <h2>Grails Models</h2>
+        <pre><code contenteditable>package happytrails
+
+class Region {
+    static charactersNumbersAndSpaces = /[a-zA-Z0-9 ]+/
+    static searchable = true
+
+    static constraints = {
+        name blank: false, unique: true, matches: charactersNumbersAndSpaces
+        seoName nullable: true
+        routes cascade:"all-delete-orphan"
+    }
+
+    static hasMany = [ routes:Route ]
+
+    String name
+    String seoName
+
+    def beforeValidate() {
+        def matcher = (name =~ charactersNumbersAndSpaces)
+        if (matcher.matches()) {
+            if (!seoName) seoName = name?.asFriendlyUrl()
+            for (r in routes) {
+                if (!r.seoName) r.seoName = r.name?.asFriendlyUrl()
+            }
+        }
+    }
+
+    String toString() {
+        name
+    }
+}</code></pre>
+        <code class="nowrap">grails-app/domain/happytrails/Region.groovy</code>
+    </section>
+    <section id="play-urls" class="urls">
+        <h2>Play URL Mappings</h2>
+        <pre><code># Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.ApplicationController.index()
+GET     /signup                     controllers.ApplicationController.signupForm()
+POST    /signup                     controllers.ApplicationController.signup()
+GET     /login                      controllers.ApplicationController.loginForm()
+POST    /login                      controllers.ApplicationController.login()
+GET     /logout                     controllers.ApplicationController.logout()
+GET     /addregion                  controllers.RegionController.addRegion()
+POST    /addregion                  controllers.RegionController.saveRegion()
+GET     /:region/feed               controllers.RegionController.getRegionFeed(region)
+GET     /:region/subscribe          controllers.RegionController.subscribe(region)
+GET     /:region/unsubscribe        controllers.RegionController.unsubscribe(region)
+GET     /:region/addroute           controllers.RegionController.addRoute(region)
+POST    /:region/addroute           controllers.RegionController.saveRoute(region)
+GET     /:region/delete             controllers.RegionController.deleteRegion(region)
+GET     /:region/:route/rate        controllers.RouteController.saveRating(region, route, rating: java.lang.Integer)
+POST    /:region/:route/comment     controllers.RouteController.saveComment(region, route)
+GET     /:region/:route/delete      controllers.RouteController.deleteRoute(region, route)
+GET     /:region/:route             controllers.RouteController.getRouteHtml(region, route)
+GET     /:region                    controllers.RegionController.getRegionHtml(region, sort ?= "name")
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)</code></pre>
+        <code>conf/routes</code>
+    </section>
+    <section id="grails-urls" class="urls">
+        <h2>Grails URL Mappings</h2>
+        <pre><code>class UrlMappings {
+    static mappings = {
+        "/$controller/$action?/$id?" {
+            constraints {
+                // apply constraints here
+            }
+        }
+        "/"(controller: "home", action: "index")
+        "/login"(controller: "login", action: "auth")
+        "/login/authfail"(controller: "login", action: "authfail")
+        "/login/denied"(controller: "login", action: "denied")
+        "/logout"(controller: "logout")
+        "/signup"(controller: "register")
+        "/feed/$region"(controller: "region", action: "feed")
+        "/register/register"(controller: "register", action: "register")
+        "/register/resetPassword"(controller: "register", action: "resetPassword")
+        "/register/verifyRegistration"(controller: "register", action: "verifyRegistration")
+        "/forgotPassword"(controller: "register", action: "forgotPassword")
+        "/region/create"(controller: "region", action: "create")
+        "/regions"(controller: "region", action: "list")
+        "/region/save"(controller: "region", action: "save")
+        "/region/subscribe"(controller: "region", action: "subscribe")
+        "/region/deleteSubscription"(controller: "region", action: "deleteSubscription")
+        "/route/create"(controller: "route", action: "create")
+        "/route/index"(controller: "route", action: "index")
+        "/route/save"(controller: "route", action: "save")
+        "/direction/create"(controller: "direction", action: "create")
+        "/direction/save"(controller: "direction", action: "save")
+        "/direction/index"(controller: "direction", action: "index")
+        "/rateable/rate"(controller: "rateable", action: [POST: "rate"])
+        "/commentable/add"(controller: "commentable", action: [POST: "add"])
+        name region: "/$region/$route?" {
+            controller = "region"
+            action = "find"
+        }
+        "500"(view: '/error')
+    }
+}</code></pre>
+        <code>grails-app/conf/UrlMappings.groovy</code>
+    </section>
+    <section id="play-testing" class="testing">
+        <h2>Play Unit Testing</h2>
+
+        <p>demo data</p>
+    </section>
+    <section id="grails-testing" class="testing">
+        <h2>Grails Unit Testing</h2>
+
+        <pre><code>package happytrails
+
+import grails.test.mixin.TestFor
+
+@TestFor(Region)
+class RegionTests {
+
+    void testConstraints() {
+        def montana = new Region(name: "Western Montana")
+        mockForConstraintsTests(Region, [montana])
+
+        // validation should fail if required properties are null
+        def region = new Region()
+        assert !region.validate()
+        assert "nullable" == region.errors["name"]
+
+        // verify special characters not allowed
+        region = new Region(name: ")(*)(\$")
+        assert !region.validate()
+        assert "matches" == region.errors["name"]
+
+        // verify numbers are allowed
+        region = new Region(name: "Up on the back 40", seoName: "up-on-the-back-40")
+        assert region.validate()
+    }
+}</code></pre>
+        <code>test/unit/happytrails/RouteTests.groovy</code>
+        <p>grails plugin scopes</p>
+    </section>
+    <section id="play-controllers" class="controllers">
+        <h2>Play Controllers</h2>
+    </section>
+    <section id="grails-controllers" class="controllers">
+        <h2>Grails Controllers</h2>
+        <pre><code>package happytrails
+
+import org.grails.comments.Comment
+
+class HomeController {
+
+    def index() {
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [regions: Region.list(params), total: Region.count(),
+         comments: Comment.list(max: 10, sort: 'dateCreated', order: 'desc')]
+    }
+}</code></pre>
+        <code>grails-app/controllers/HomeController.groovy</code>
+    </section>
+    <section id="play-views" class="views">
+        <h2>Play Views</h2>
+    </section>
+    <section id="grails-views" class="views">
+        <h2>Grails Views</h2>
+        <pre><code>&lt;%@ page import="happytrails.Region" %&gt;
+&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta name="layout" content="main"&gt;
+        &lt;g:set var="entityName" value="${message(code: 'region.label', default: 'Region')}" /&gt;
+        &lt;title&gt;&lt;g:message code="default.show.label" args="[entityName]" /&gt;&lt;/title&gt;
+        &lt;link rel="alternate" type="application/atom+xml" title="${regionInstance.name} Updates"
+              href="${createLink(controller: 'region', action: 'feed', params: [region: regionInstance.seoName])}"/&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;g:set var="breadcrumb" scope="request"&gt;
+        &lt;ul class="breadcrumb"&gt;
+            &lt;li&gt;&lt;a class="home" href="${createLink(uri: '/')}"&gt;&lt;g:message code="default.home.label"/&gt;&lt;/a&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;g:link controller="region" action="list"&gt;Regions&lt;/g:link&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;${regionInstance.name}&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;/g:set&gt;
+        &lt;div id="show-region" class="content scaffold-show" role="main"&gt;
+            &lt;g:if test="${flash.message}"&gt;
+            &lt;div class="alert alert-success" role="status"&gt;${flash.message}&lt;/div&gt;
+            &lt;/g:if&gt;
+
+            &lt;h1&gt;${regionInstance.name}&lt;/h1&gt;
+            &lt;sec:ifLoggedIn&gt;
+        ...
+&lt;/html&gt;</code></pre>
+        <code>grails-app/views/region/show.gsp</code>
+    </section>
+    <section id="ide" class="top">
+        <h2>IDE Support</h2>
+
+        <p><img src="assets/images/grails-intellij.png" width="80%"/></p>
+        <p><em>IntelliJ Rocks!</em></p>
+
+    </section>
+    <section id="play-jobs" class="jobs">
+        <h2>Jobs</h2>
+    </section>
+    <section id="grails-jobs" class="jobs">
+        <h2>Jobs</h2>
+        <pre><code>package happytrails
+
+import org.grails.comments.Comment
+
+class DailyRegionDigestEmailJob {
+    def mailService
+
+    static triggers = {
+        //simple repeatInterval: 5000l // execute job once in 5 seconds
+        cron name:'cronTrigger', startDelay:10000, cronExpression: '0 0 7 ? * MON-FRI' // 7AM Mon-Fri
+    }
+
+    def execute() {
+        List&gt;RegionUserDigest> digests = getRegionUserDigests()
+        for (digest in digests) {
+
+            String message = createMessage(digest)
+
+            println "Sending digest email to " + digest.user.username
+            mailService.sendMail {
+                to digest.getUser().username
+                subject "Updates from Über Tracks " + digest.regions
+                body message
+            }
+
+            RegionSubscription subscription = digest.regionSubscription
+            subscription.lastSent = new Date()
+            subscription.save()
+        }
+    }
+    ...
+}</code></pre>
+        <code>grails-app/jobs/DailyRegionDigestEmailJob.groovy</code>
+    </section>
+    <section id="play-feed" class="feed">
+        <h2>Creating Feeds with Play</h2>
+    </section>
+    <section id="grails-feed" class="feed">
+        <h2>Creating Feeds with Grails</h2>
+        <p><strong>Step 1:</strong> grails install-plugin feeds</p>
+        <p><strong>Step 2:</strong> Add feeds method to controller</p>
+<pre><code>def feed = {
+    def region = Region.findBySeoName(params.region)
+    if (!region) {
+        response.status = 404
+        return
+    }
+
+    render(feedType: "atom") {
+        title = "Happy Trails Feed for " + region.name
+        link = createLink(absolute:  true, controller: 'region', action: 'feed', params: ['region', region.seoName])
+        description = "New Routes and Reviews for " + region.name
+        region.routes.each() { route ->
+            entry(route.name) {
+                link = createLink(absolute: true, controller: 'route', action: 'show', id: route.id)
+                route.description
+            }
+        }
+    }
+}</code></pre>
+    </section>
+    <section class="email">
+        <h2>Play Email</h2>
+    </section>
+    <section class="email">
+        <h2>Grails Email</h2>
+        <pre><code>class DailyRegionDigestEmailJob {
+    def mailService
+
+    ...
+
+    def execute() {
+        ...
+            println "Sending digest email to " + digest.user.username
+            mailService.sendMail {
+                to digest.user.username
+                subject "Updates from Über Tracks " + digest.regions
+                body message
+            }
+        ...
+        }
+    }</code></pre>
+        <p style="margin-top: 30px">
+            <small style="line-height: 1.5">* powered by the <a href="http://grails.org/plugin/mail">mail plugin</a> (built-in)</small>
+        </p>
+    </section>
+    <section id="play-config" class="config">
+        <h2>Play Configuration</h2>
+    </section>
+    <section id="grails-config" class="config">
+        <h2>Grails Configuration</h2>
+        <pre><code>// set per-environment serverURL stem for creating absolute links
+environments {
+    development {
+        grails.logging.jul.usebridge = true
+    }
+    test {
+        grails {
+            mail {
+                port = 1025
+            }
+        }
+    }
+    production {
+        grails.logging.jul.usebridge = false
+        grails.serverURL = "http://bike.ubertracks.com"
+        grails {
+            mail {
+                host = "smtp.sendgrid.net"
+                port = 587
+                props = ["mail.smtp.auth":"true",
+                         "mail.smtp.socketFactory.port":"465",
+                         "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                         "mail.smtp.socketFactory.fallback":"false"]
+                username=System.env.SENDGRID_USERNAME
+                password=System.env.SENDGRID_PASSWORD
+            }
+        }
+    }
+}</code></pre>
+        <code>grails-app/conf/Config.groovy</code>
+    </section>
+    <section id="play-auth" class="auth">
+        <h2>Authentication</h2>
+    </section>
+    <section id="grails-auth" class="auth">
+        <h2>Grails Authentication</h2>
+        <p style="padding: 20px 0">Spring Security UI Plugin, <q>I love you!</q></p>
+        <pre><code>grails.mail.default.from = "Bike Über Tracks &lt;bike@ubertracks.com>"
+
+grails.plugins.springsecurity.ui.register.emailFrom = grails.mail.default.from
+grails.plugins.springsecurity.ui.register.emailSubject = 'Welcome to Über Tracks!'
+grails.plugins.springsecurity.ui.forgotPassword.emailFrom = grails.mail.default.from
+grails.plugins.springsecurity.ui.forgotPassword.emailSubject = 'Password Reset'
+
+grails.plugins.springsecurity.controllerAnnotations.staticRules = [
+        '/user/**': ['ROLE_ADMIN'],
+        '/role/**': ['ROLE_ADMIN'],
+        '/registrationCode/**': ['ROLE_ADMIN'],
+        '/securityInfo/**': ['ROLE_ADMIN']
+]
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'happytrails.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'happytrails.UserRole'
+grails.plugins.springsecurity.authority.className = 'happytrails.Role'</code></pre>
+    </section>
+    <section id="extras">
+        <h2>Extras</h2>
+        <ul>
+            <li>Photo Upload</li>
+            <li>Search</li>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h2>Intro to Play 2</h2>
+
+        <p>
+            Press <strong>ESC</strong> to enter the slide overview!
+        </p>
+
+        <p>
+            <small>(Use down to navigate into the intro)</small>
+        </p>
+    </section>
+    <section>
+        <h2>Works in Mobile Safari</h2>
+
+        <p>
+            Try it out! You can swipe through the slides pinch your way to the overview.
+        </p>
+    </section>
+    <section>
+        <h2>Transition Styles</h2>
+
+        <p>
+            You can select from different transitions, like:
+        </p>
+        <ul>
+            <li><a href="?transition=cube">Cube</a></li>
+            <li><a href="?transition=page">Page</a></li>
+            <li><a href="?transition=concave">Concave</a></li>
+            <li><a href="?transition=linear">Linear</a></li>
+        </ul>
+    </section>
+    <section>
+        <h2>Play 2 Logo</h2>
+
+        <p>
+            <img src="http://www.playframework.org/assets/images/logos/normal.png">
+        </p>
+    </section>
+
+    <section>
+        <h2>Fantastic Ordered List</h2>
+        <ol>
+            <li>One is smaller than...</li>
+            <li>Two is smaller than...</li>
+            <li>Three!</li>
+        </ol>
+    </section>
+</section>
+
+<section>
+    <h2>Code Walk Through</h2>
+
+    <p>
+        We developed the same app, in similar ways, so let's look at the different layers.
+    </p>
+    <ul>
+        <li><a href="#db">Database Schema</a></li>
+        <li><a href="#urls">URLS</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#controllers">Controllers</a></li>
+        <li><a href="#views">Views</a></li>
+    </ul>
+</section>
+<section>
+    <h3>Database</h3>
+
+    <p>Here's what code looks like.</p>
+                    <pre><code contenteditable>
+                        var supports3DTransforms = document.body.style['webkitPerspective'] !== undefined ||
+                        document.body.style['MozPerspective'] !== undefined ||
+                        document.body.style['perspective'] !== undefined;
+
+                        function linkify( selector ) {
+                        if( supports3DTransforms ) {
+
+                        var nodes = document.querySelectorAll( selector );
+
+                        for( var i = 0, len = nodes.length; i < len; i++ ) {
+                        var node = nodes[i];
+
+                        if( !node.className || !node.className.match( /roll/g ) ) {
+                        node.className += ' roll';
+                        node.innerHTML = '<span data-title="'+ node.text +'">' + node.innerHTML + '</span>';
+                        }
+                        };
+                        }
+                        }
+
+                        linkify( 'a' );
                     </code></pre>
-                    <p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-                </section>
-                
-                <section>
-                    <h2>Deployment</h2>
-                    <p>We've learned some cool stuff...</p>
-                </section>
-                
-                <section>
-                    <section>
-                        <h2>Comparison and Pretty Graphs</h2>
-                        <ul>
-                            <li>Jobs</li>
-                            <li>LinkedIn Skills</li>
-                            <li>Google Trends</li>
-                            <li>Indeed</li>
-                            <li>Mailing List Traffic</li>
-                            <li>Books</li>
-                            <li>2012 Releases</li>
-                            <li>Stack Overflow</li>
-                            <li>Hacker News</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Jobs</h2>
-                        <script>
-                              google.setOnLoadCallback(drawJobsChart);
-    
-                              function drawJobsChart() {
+    <p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+</section>
 
-                                  var data = google.visualization.arrayToDataTable([
-                                      ['Jobs',    'Grails', 'Play Framework', 'Spring MVC'],
-                                      ['Dice',    202,      5,                494],
-                                      ['Monster', 79,       4,                193],
-                                      ['Indeed',  1113,     31,               1844]
-                                  ]);
+<section>
+    <h2>Deployment</h2>
 
-                                  var chart = new google.visualization.BarChart(document.getElementById('jobs_chart_div'));
-                                  chart.draw(data, {width: 900, height: 500});
-                               }
-                        </script>
-                        <div id="jobs_chart_div" style="width: 900px; height: 500px;"></div>
-                    </section>
-                    <section>
-                        <h2>LinkedIn Skills</h2>
-                        <script>
-                            google.setOnLoadCallback(drawLinkedinChart);
+    <p>We've learned some cool stuff...</p>
+</section>
 
-                            function drawLinkedinChart() {
-
-                                var data = google.visualization.arrayToDataTable([
-                                    ['Skill',    '# People'],
-                                    ['Grails',         3240],
-                                    ['Play Framework', 234],
-                                    ['Spring MVC', 2890]
-                                ]);
-
-                                var chart = new google.visualization.BarChart(document.getElementById('linkedin_chart_div'));
-                                chart.draw(data, {width: 900, height: 500});
-                            }
-                        </script>
-                        <div id="linkedin_chart_div" style="width: 900px; height: 500px;"></div>
-                    </section>
-                    <section>
-                        <h2>Google Trends</h2>
-                        <img src="assets/images/google-trends.png">
-                    </section>
-                    <section>
-                        <h2>Indeed Job Trends</h2>
-                        <img src="assets/images/indeed-1.png">
-                    </section>
-                    <section>
-                        <h2>Mailing Traffic</h2>
-                        <script>
-                            google.setOnLoadCallback(drawMailingListChart);
-
-                            function drawMailingListChart() {
-                                new google.visualization.BarChart(document.getElementById('mailinglist_messages_chart_div')).draw(google.visualization.arrayToDataTable([
-                                        ['Messages',    'Grails', 'Play Framework'],
-                                        ['March',       1503,     3365],
-                                        ['April',       1377,     2884],
-                                        ['May',         1299,     2760]
-                                    ]), {width: 900, height: 500}
-                                );
-                            }
-                        </script>
-                        <div id="mailinglist_messages_chart_div" style="width: 900px; height: 500px;"></div>
-                    </section>
-                    <section>
-                        <h2>Books</h2>
-                        <script>
-                            google.setOnLoadCallback(drawBooksChart);
-
-                            function drawBooksChart() {
-                                new google.visualization.PieChart(document.getElementById('books_chart_div')).draw(google.visualization.arrayToDataTable([
-                                    ['Books',        'Amazon'],
-                                    ['Grails',       12],
-                                    ['Play Framework', 2]
-                                ]), {width: 900, height: 500, pieSliceText: 'value'});
-                            }
-                        </script>
-                        <div id="books_chart_div" style="width: 900px; height: 500px;"></div>
-                    </section>
-                    <section>
-                        <h2>Releases</h2>
-                        <script>
-                            google.setOnLoadCallback(drawReleasesChart);
-
-                            function drawReleasesChart() {
-                                new google.visualization.PieChart(document.getElementById('releases_chart_div')).draw(google.visualization.arrayToDataTable([
-                                    ['2012 Releases',      '2012'],
-                                    ['Grails',        3],
-                                    ['Play Framework', 2]
-                                ]), {width: 900, height: 500, pieSliceText: 'value'});
-                            }
-                        </script>
-                        <div id="releases_chart_div" style="width: 900px; height: 500px;"></div>
-                    </section>
-                    <section>
-                        <h2>StackOverflow Questions</h2>
-                        <script>
-                            google.setOnLoadCallback(drawStackOverflowChart);
-
-                            function drawStackOverflowChart() {
-                                new google.visualization.PieChart(document.getElementById('stackoverflow_chart_div')).draw(google.visualization.arrayToDataTable([
-                                    ['Tagged Questions', '#'],
-                                    ['grails',           7430],
-                                    ['playframework',    2467]
-                                ]), {width: 900, height: 500, pieSliceText: 'value'});
-                            }
-                        </script>
-                        <div id="stackoverflow_chart_div" style="width: 900px; height: 500px;"></div>
-                    </section>
-                    <section>
-                        <h2>Hacker News</h2>
-                        <script>
-                            google.setOnLoadCallback(drawHackerNewsChart);
-
-                            function drawHackerNewsChart() {
-                                new google.visualization.PieChart(document.getElementById('hackernews_chart_div')).draw(google.visualization.arrayToDataTable([
-                                    ['Stories',                           '# Votes'],
-                                    ['Grails 2.0 released',               6],
-                                    ['Play Framework 2.0 Final released', 195]
-                                ]), {width: 900, height: 500, pieSliceText: 'value'});
-                            }
-                        </script>
-                        <div id="hackernews_chart_div" style="width: 900px; height: 500px;"></div>
-                    </section>
-                </section>
-
-                <section>
-                    <h2>Myths</h2>
-                    <p>MYTH BUSTERS!</p>
-                </section>
-                
-                <section>
-                    <h1>Conclusions</h1>
-                    <p>
-                        Some bullet points here
-                    </p>
-                    <p>
-                        <strong>Source:</strong> <a href="https://github.com/jamesward/happytrails">https://github.com/jamesward/happytrails</a><br/>
-                    </p>
-                    <p>Find us online:<br/></p>
-                    <p style="text-align: center">
-                        <a href="http://www.jamesward.com/">www.jamesward.com</a><br/>
-                        <a href="http://www.raibledesigns.com/">www.raibledesigns.com</a>
-                    </p>
-                </section>
-                
-                <section>
-                    <h1>Action!</h1>
-                    <p><em>Learn something new!</em></p>
-                </section>
-            </div>
-
-            <!-- The navigational controls UI -->
-            <aside class="controls">
-                <a class="left" href="#">&#x25C4;</a>
-                <a class="right" href="#">&#x25BA;</a>
-                <a class="up" href="#">&#x25B2;</a>
-                <a class="down" href="#">&#x25BC;</a>
-            </aside>
-
-            <!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
-            <div class="progress"><span></span></div>
-            
-        </div>
-
-        <!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
-        <script src="lib/highlight.js"></script>
-        <script src="lib/classList.js"></script>
-        
-        <script src="js/reveal.js"></script>
-        
+<section>
+    <section>
+        <h2>Comparison and Pretty Graphs</h2>
+        <ul>
+            <li>Jobs</li>
+            <li>LinkedIn Skills</li>
+            <li>Google Trends</li>
+            <li>Indeed</li>
+            <li>Mailing List Traffic</li>
+            <li>Books</li>
+            <li>2012 Releases</li>
+            <li>Stack Overflow</li>
+            <li>Hacker News</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Jobs</h2>
         <script>
-            // Parse the query string into a key/value object
-            var query = {};
-            location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
-                query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
-            } );
+            google.setOnLoadCallback(drawJobsChart);
 
-            // Fires when a slide with data-state=customevent is activated
-            Reveal.addEventListener( 'customevent', function() {
-                alert( '"customevent" has fired' );
-            } );
+            function drawJobsChart() {
 
-            // Fires each time a new slide is activated
-            Reveal.addEventListener( 'slidechanged', function( event ) {
-                // event.indexh & event.indexv
-            } );
+                var data = google.visualization.arrayToDataTable([
+                    ['Jobs', 'Grails', 'Play Framework', 'Spring MVC'],
+                    ['Dice', 202, 5, 494],
+                    ['Monster', 79, 4, 193],
+                    ['Indeed', 1113, 31, 1844]
+                ]);
 
-            Reveal.initialize({
-                // Display controls in the bottom right corner
-                controls: true,
-
-                // Display a presentation progress bar
-                progress: true,
-
-                // If true; each slide will be pushed to the browser history
-                history: true,
-
-                // Loops the presentation, defaults to false
-                loop: false,
-
-                // Flags if mouse wheel navigation should be enabled
-                mouseWheel: true,
-
-                // Apply a 3D roll to links on hover
-                rollingLinks: true,
-
-                // UI style
-                theme: query.theme || 'default', // default/neon
-
-                // Transition style
-                transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
-            });
-
-            hljs.initHighlightingOnLoad();
+                var chart = new google.visualization.BarChart(document.getElementById('jobs_chart_div'));
+                chart.draw(data, {width:900, height:500});
+            }
         </script>
-    </body>
+        <div id="jobs_chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section>
+        <h2>LinkedIn Skills</h2>
+        <script>
+            google.setOnLoadCallback(drawLinkedinChart);
+
+            function drawLinkedinChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Skill', '# People'],
+                    ['Grails', 3240],
+                    ['Play Framework', 234],
+                    ['Spring MVC', 2890]
+                ]);
+
+                var chart = new google.visualization.BarChart(document.getElementById('linkedin_chart_div'));
+                chart.draw(data, {width:900, height:500});
+            }
+        </script>
+        <div id="linkedin_chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section>
+        <h2>Google Trends</h2>
+        <img src="assets/images/google-trends.png">
+    </section>
+    <section>
+        <h2>Indeed Job Trends</h2>
+        <img src="assets/images/indeed-1.png">
+    </section>
+    <section>
+        <h2>User Mailing List Traffic</h2>
+        <script>
+            google.setOnLoadCallback(drawMailingListChart);
+
+            function drawMailingListChart() {
+                new google.visualization.BarChart(document.getElementById('mailinglist_messages_chart_div')).draw(google.visualization.arrayToDataTable([
+                    ['Messages', 'Grails', 'Play Framework'],
+                    ['March', 1503, 3365],
+                    ['April', 1377, 2884],
+                    ['May', 1299, 2760]
+                ]), {width:900, height:500}
+                );
+            }
+        </script>
+        <div id="mailinglist_messages_chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section>
+        <h2>Books</h2>
+        <script>
+            google.setOnLoadCallback(drawBooksChart);
+
+            function drawBooksChart() {
+                new google.visualization.PieChart(document.getElementById('books_chart_div')).draw(google.visualization.arrayToDataTable([
+                    ['Books', 'Amazon'],
+                    ['Grails', 12],
+                    ['Play Framework', 2]
+                ]), {width:900, height:500, pieSliceText:'value'});
+            }
+        </script>
+        <div id="books_chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section>
+        <h2>Releases</h2>
+        <script>
+            google.setOnLoadCallback(drawReleasesChart);
+
+            function drawReleasesChart() {
+                new google.visualization.PieChart(document.getElementById('releases_chart_div')).draw(google.visualization.arrayToDataTable([
+                    ['2012 Releases', '2012'],
+                    ['Grails', 3],
+                    ['Play Framework', 2]
+                ]), {width:900, height:500, pieSliceText:'value'});
+            }
+        </script>
+        <div id="releases_chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section>
+        <h2>StackOverflow Questions</h2>
+        <script>
+            google.setOnLoadCallback(drawStackOverflowChart);
+
+            function drawStackOverflowChart() {
+                new google.visualization.PieChart(document.getElementById('stackoverflow_chart_div')).draw(google.visualization.arrayToDataTable([
+                    ['Tagged Questions', '#'],
+                    ['grails', 7430],
+                    ['playframework', 2467]
+                ]), {width:900, height:500, pieSliceText:'value'});
+            }
+        </script>
+        <div id="stackoverflow_chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section>
+        <h2>Hacker News</h2>
+        <script>
+            google.setOnLoadCallback(drawHackerNewsChart);
+
+            function drawHackerNewsChart() {
+                new google.visualization.PieChart(document.getElementById('hackernews_chart_div')).draw(google.visualization.arrayToDataTable([
+                    ['Stories', '# Votes'],
+                    ['Grails 2.0 released', 6],
+                    ['Play Framework 2.0 Final released', 195]
+                ]), {width:900, height:500, pieSliceText:'value'});
+            }
+        </script>
+        <div id="hackernews_chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
+</section>
+
+<section>
+    <h2>Myths</h2>
+
+    <p>MYTH BUSTERS!</p>
+</section>
+
+<section>
+    <h1>Conclusions</h1>
+
+    <p>
+        Some bullet points here
+    </p>
+
+    <p>
+        <strong>Source:</strong> <a href="https://github.com/jamesward/happytrails">https://github.com/jamesward/happytrails</a><br/>
+    </p>
+
+    <p>Find us online:<br/></p>
+
+    <p style="text-align: center">
+        <a href="http://www.jamesward.com/">www.jamesward.com</a><br/>
+        <a href="http://www.raibledesigns.com/">www.raibledesigns.com</a>
+    </p>
+</section>
+
+<section>
+    <h1>Action!</h1>
+
+    <p><em>Learn something new!</em></p>
+</section>
+</div>
+
+<!-- The navigational controls UI -->
+<aside class="controls">
+    <a class="left" href="#">&#x25C4;</a>
+    <a class="right" href="#">&#x25BA;</a>
+    <a class="up" href="#">&#x25B2;</a>
+    <a class="down" href="#">&#x25BC;</a>
+</aside>
+
+<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+<div class="progress"><span></span></div>
+
+</div>
+
+<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+<script src="lib/highlight.js"></script>
+<script src="lib/classList.js"></script>
+
+<script src="js/reveal.js"></script>
+
+<script>
+    // Parse the query string into a key/value object
+    var query = {};
+    location.search.replace(/[A-Z0-9]+?=(\w*)/gi, function (a) {
+        query[ a.split('=').shift() ] = a.split('=').pop();
+    });
+
+    // Fires when a slide with data-state=customevent is activated
+    Reveal.addEventListener('customevent', function () {
+        alert('"customevent" has fired');
+    });
+
+    // Fires each time a new slide is activated
+    Reveal.addEventListener('slidechanged', function (event) {
+        // event.indexh & event.indexv
+    });
+
+    Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls:true,
+
+        // Display a presentation progress bar
+        progress:true,
+
+        // If true; each slide will be pushed to the browser history
+        history:true,
+
+        // Loops the presentation, defaults to false
+        loop:false,
+
+        // Flags if mouse wheel navigation should be enabled
+        mouseWheel:true,
+
+        // Apply a 3D roll to links on hover
+        rollingLinks:true,
+
+        // UI style
+        theme:query.theme || 'neon', // default/neon
+
+        // Transition style
+        transition:query.transition || 'default' // default/cube/page/concave/linear(2d)
+    });
+
+    hljs.initHighlightingOnLoad();
+</script>
+</body>
 </html>
