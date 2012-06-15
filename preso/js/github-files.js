@@ -38,10 +38,13 @@ function getSource(sha, callback, startLineNum, endLinNum) {
     return getGithubFile("jamesward", "happytrails", sha, callback, startLineNum, endLinNum);
 }
 
-function linkToFile(selector, branch) {
+function linkToFile(selector, branch, lineNo) {
     var base = "https://github.com/jamesward/happytrails/blob/" + branch;
     var filepath = $(selector + "-filename").text();
     var link = base + "/" + filepath;
+    if (lineNo) {
+        link += "#L" + lineNo;
+    }
 
     $(selector + "-filename").html($("<a/>").attr("href", link).addClass("roll").append(filepath));
 }

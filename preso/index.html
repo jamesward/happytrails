@@ -154,11 +154,12 @@
                         </ul>
                         <p id="grails-ds-filename" class="filename">grails-app/conf/DataSource.groovy</p>
                         <script>
+                            // todo: refactor to use data-attributes to define metadata for code
                             $(function() {
                                 var selectorId = "#grails-ds";
                                 getSource("7992cea3891aaab896a2c3dbd693e865791dc60e", function(content, url) {
                                     $(selectorId).html(hljs.highlight("javascript", content).value);
-                                    linkToFile(selectorId, 'grails2');
+                                    linkToFile(selectorId, 'grails2', 13);
                                 }, 13, 19)
                             })
                         </script>
@@ -199,45 +200,17 @@
 
                     <section>
                         <h3>URL Mapping - Grails</h3>
-                        <pre><code>class UrlMappings {
-static mappings = {
-    "/$controller/$action?/$id?" {
-        constraints {
-            // apply constraints here
-        }
-    }
-    "/"(controller: "home", action: "index")
-    "/login"(controller: "login", action: "auth")
-    "/login/authfail"(controller: "login", action: "authfail")
-    "/login/denied"(controller: "login", action: "denied")
-    "/logout"(controller: "logout")
-    "/signup"(controller: "register")
-    "/feed/$region"(controller: "region", action: "feed")
-    "/register/register"(controller: "register", action: "register")
-    "/register/resetPassword"(controller: "register", action: "resetPassword")
-    "/register/verifyRegistration"(controller: "register", action: "verifyRegistration")
-    "/forgotPassword"(controller: "register", action: "forgotPassword")
-    "/region/create"(controller: "region", action: "create")
-    "/regions"(controller: "region", action: "list")
-    "/region/save"(controller: "region", action: "save")
-    "/region/subscribe"(controller: "region", action: "subscribe")
-    "/region/deleteSubscription"(controller: "region", action: "deleteSubscription")
-    "/route/create"(controller: "route", action: "create")
-    "/route/index"(controller: "route", action: "index")
-    "/route/save"(controller: "route", action: "save")
-    "/direction/create"(controller: "direction", action: "create")
-    "/direction/save"(controller: "direction", action: "save")
-    "/direction/index"(controller: "direction", action: "index")
-    "/rateable/rate"(controller: "rateable", action: [POST: "rate"])
-    "/commentable/add"(controller: "commentable", action: [POST: "add"])
-    name region: "/$region/$route?" {
-        controller = "region"
-        action = "find"
-    }
-    "500"(view: '/error')
-}
-}</code></pre>
-                        <code>grails-app/conf/UrlMappings.groovy</code>
+                        <p id="grails-urls-filename" class="filename">grails-app/conf/UrlMappings.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-urls';
+                                getSource("f276d476660440224fadb30cdbfe95ffd68fc086", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2');
+                                })
+                            })
+                        </script>
+                        <pre><code id="grails-urls"></code></pre>
                     </section>
                     <section>
                         <h3>URL Mapping - Play</h3>
@@ -253,7 +226,7 @@ static mappings = {
                         <pre><code id="playconfroutes" style="width: 820px; font-size: 12px; line-height: 13px;"></code></pre>
                     </section>
 
-                    <section>
+                    <section class="top">
                         <h3>Models - Grails</h3>
                         <ul>
                             <li>All properties are persisted by default</li>
@@ -261,38 +234,17 @@ static mappings = {
                             <li>Mappings with hasMany and belongsTo</li>
                             <li>Override methods for lifecycle events</li>
                         </ul>
-                        <pre><code contenteditable>package happytrails
-
-class Region {
-    static charactersNumbersAndSpaces = /[a-zA-Z0-9 ]+/
-    static searchable = true
-
-    static constraints = {
-        name blank: false, unique: true, matches: charactersNumbersAndSpaces
-        seoName nullable: true
-        routes cascade:"all-delete-orphan"
-    }
-
-    static hasMany = [ routes:Route ]
-
-    String name
-    String seoName
-
-    def beforeValidate() {
-        def matcher = (name =~ charactersNumbersAndSpaces)
-        if (matcher.matches()) {
-            if (!seoName) seoName = name?.asFriendlyUrl()
-            for (r in routes) {
-                if (!r.seoName) r.seoName = r.name?.asFriendlyUrl()
-            }
-        }
-    }
-
-    String toString() {
-        name
-    }
-}</code></pre>
-                        <code class="nowrap">grails-app/domain/happytrails/Region.groovy</code>
+                        <p id="grails-models-filename" class="filename">grails-app/domain/happytrails/Region.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-models';
+                                getSource("7ddc8f7586ec556c78b5d5da80b5d9817f3ffd4e", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2');
+                                })
+                            })
+                        </script>
+                        <pre><code id="grails-models"></code></pre>
                     </section>
                     <section>
                         <h3>Models - Play</h3>
@@ -316,19 +268,17 @@ class Region {
                     </section>
                     <section>
                         <h3>Controllers - Grails</h3>
-                        <pre><code>package happytrails
-
-import org.grails.comments.Comment
-
-class HomeController {
-
-    def index() {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [regions: Region.list(params), total: Region.count(),
-         comments: Comment.list(max: 10, sort: 'dateCreated', order: 'desc')]
-    }
-}</code></pre>
-        <code>grails-app/controllers/HomeController.groovy</code>
+                        <p id="grails-controller-filename" class="filename">grails-app/controllers/happytrails/HomeController.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-controller';
+                                getSource("0217fb588ae56bfa1f1baa647b92502a0bac601d", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2');
+                                })
+                            })
+                        </script>
+                        <pre><code id="grails-controller"></code></pre>
                     </section>
                     <section>
                         <h3>Controllers - Play</h3>
@@ -352,34 +302,17 @@ class HomeController {
 
                     <section>
                         <h3>Views - Grails</h3>
-                        <pre><code>&lt;%@ page import="happytrails.Region" %&gt;
-&lt;!doctype html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta name="layout" content="main"&gt;
-        &lt;g:set var="entityName" value="${message(code: 'region.label', default: 'Region')}" /&gt;
-        &lt;title&gt;&lt;g:message code="default.show.label" args="[entityName]" /&gt;&lt;/title&gt;
-        &lt;link rel="alternate" type="application/atom+xml" title="${regionInstance.name} Updates"
-              href="${createLink(controller: 'region', action: 'feed', params: [region: regionInstance.seoName])}"/&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;g:set var="breadcrumb" scope="request"&gt;
-        &lt;ul class="breadcrumb"&gt;
-            &lt;li&gt;&lt;a class="home" href="${createLink(uri: '/')}"&gt;&lt;g:message code="default.home.label"/&gt;&lt;/a&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;g:link controller="region" action="list"&gt;Regions&lt;/g:link&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
-            &lt;li&gt;${regionInstance.name}&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;/g:set&gt;
-        &lt;div id="show-region" class="content scaffold-show" role="main"&gt;
-            &lt;g:if test="${flash.message}"&gt;
-            &lt;div class="alert alert-success" role="status"&gt;${flash.message}&lt;/div&gt;
-            &lt;/g:if&gt;
-
-            &lt;h1&gt;${regionInstance.name}&lt;/h1&gt;
-            &lt;sec:ifLoggedIn&gt;
-        ...
-&lt;/html&gt;</code></pre>
-        <code>grails-app/views/region/show.gsp</code>
+                        <p id="grails-view-filename" class="filename">grails-app/views/region/show.gsp</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-view';
+                                getSource("3097236d2514779b10a85ab5abfdb4f7079d832c", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("java", content).value);
+                                    linkToFile(selectorId, 'grails2');
+                                })
+                            })
+                        </script>
+                        <pre><code id="grails-view"></code></pre>
                     </section>
                     <section>
                         <h3>Views - Play</h3>
@@ -412,7 +345,7 @@ class HomeController {
                         <script>
                             $(function() {
                                 getGithubFile("jamesward", "happytrails", "600b9cd3b927759207093233a376f235d305ddbf", function(content) {
-                                    $("#playhaserrors").html(hljs.highlight("java", content).value)
+                                    $("#playhaserrors").html(hljs.highlight("javascript", content).value)
                                 }, 24, 28)
                             })
                         </script>
@@ -451,39 +384,17 @@ class HomeController {
 
                     <section>
                         <h3>Job - Grails</h3>
-                        <pre><code>package happytrails
-
-import org.grails.comments.Comment
-
-class DailyRegionDigestEmailJob {
-    def mailService
-
-    static triggers = {
-        //simple repeatInterval: 5000l // execute job once in 5 seconds
-        cron name:'cronTrigger', startDelay:10000, cronExpression: '0 0 7 ? * MON-FRI' // 7AM Mon-Fri
-    }
-
-    def execute() {
-        List&gt;RegionUserDigest> digests = getRegionUserDigests()
-        for (digest in digests) {
-
-            String message = createMessage(digest)
-
-            println "Sending digest email to " + digest.user.username
-            mailService.sendMail {
-                to digest.getUser().username
-                subject "Updates from Über Tracks " + digest.regions
-                body message
-            }
-
-            RegionSubscription subscription = digest.regionSubscription
-            subscription.lastSent = new Date()
-            subscription.save()
-        }
-    }
-    ...
-}</code></pre>
-        <code>grails-app/jobs/DailyRegionDigestEmailJob.groovy</code>
+                        <p id="grails-job-filename" class="filename">grails-app/jobs/happytrails/DailyRegionDigestEmailJob.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-job';
+                                getSource("10ac49315d39b1c84506d660dc75524e691cf55e", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2');
+                                })
+                            })
+                        </script>
+                        <pre><code id="grails-job"></code></pre>
                     </section>
                     <section>
                         <h3>Job - Play</h3>
@@ -510,25 +421,17 @@ class DailyRegionDigestEmailJob {
                         <h3>Feed - Grails</h3>
                         <p><strong>Step 1:</strong> grails install-plugin feeds</p>
                         <p><strong>Step 2:</strong> Add feeds method to controller</p>
-                        <pre><code>def feed = {
-    def region = Region.findBySeoName(params.region)
-    if (!region) {
-        response.status = 404
-        return
-    }
-
-    render(feedType: "atom") {
-        title = "Happy Trails Feed for " + region.name
-        link = createLink(absolute:  true, controller: 'region', action: 'feed', params: ['region', region.seoName])
-        description = "New Routes and Reviews for " + region.name
-        region.routes.each() { route ->
-            entry(route.name) {
-                link = createLink(absolute: true, controller: 'route', action: 'show', id: route.id)
-                route.description
-            }
-        }
-    }
-}</code></pre>
+                        <p id="grails-feed-filename" class="filename">grails-app/controllers/happytrails/RegionController.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-feed';
+                                getSource("f5ac1ac2c7634e5686b3cb00792811b8f704b78a", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2', 99);
+                                }, 99, 117)
+                            })
+                        </script>
+                        <pre><code id="grails-feed"></code></pre>
                     </section>
                     <section>
                         <h3>Feed - Play</h3>
@@ -553,25 +456,20 @@ class DailyRegionDigestEmailJob {
 
                     <section>
                         <h3>Email - Grails</h3>
-                        <pre><code>class DailyRegionDigestEmailJob {
-def mailService
-
-...
-
-def execute() {
-    ...
-        println "Sending digest email to " + digest.user.username
-        mailService.sendMail {
-            to digest.user.username
-            subject "Updates from Über Tracks " + digest.regions
-            body message
-        }
-    ...
-    }
-}</code></pre>
-    <p style="margin-top: 30px">
-        <small style="line-height: 1.5">* powered by the <a href="http://grails.org/plugin/mail">mail plugin</a> (built-in)</small>
-    </p>
+                        <p id="grails-email-filename" class="filename">grails-app/jobs/happytrails/DailyRegionDigestEmailJob.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-email';
+                                getSource("10ac49315d39b1c84506d660dc75524e691cf55e", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2', 19);
+                                }, 19, 24)
+                            })
+                        </script>
+                        <pre><code id="grails-email"></code></pre>
+                        <p style="margin-top: 30px">
+                            <small style="line-height: 1.5">* powered by the <a href="http://grails.org/plugin/mail">mail plugin</a> (built-in)</small>
+                        </p>
                     </section>
                     <section>
                         <h3>Email - Play</h3>
@@ -637,33 +535,17 @@ def execute() {
 
                     <section>
                         <h3>Testing - Grails</h3>
-                        <pre><code>package happytrails
-
-import grails.test.mixin.TestFor
-
-@TestFor(Region)
-class RegionTests {
-
-    void testConstraints() {
-        def montana = new Region(name: "Western Montana")
-        mockForConstraintsTests(Region, [montana])
-
-        // validation should fail if required properties are null
-        def region = new Region()
-        assert !region.validate()
-        assert "nullable" == region.errors["name"]
-
-        // verify special characters not allowed
-        region = new Region(name: ")(*)(\$")
-        assert !region.validate()
-        assert "matches" == region.errors["name"]
-
-        // verify numbers are allowed
-        region = new Region(name: "Up on the back 40", seoName: "up-on-the-back-40")
-        assert region.validate()
-    }
-}</code></pre>
-                        <code>test/unit/happytrails/RouteTests.groovy</code>
+                        <p id="grails-tests-filename" class="filename">test/unit/happytrails/RouteTests.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-tests';
+                                getSource("62215b1ccc17bbdc41ee1800a52d08e06d195584", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2');
+                                })
+                            })
+                        </script>
+                        <pre><code id="grails-tests"></code></pre>
                         <p>grails plugin scopes</p>
                     </section>
                     <section>
@@ -690,6 +572,17 @@ class RegionTests {
 
                     <section>
                         <h3>Demo Data - Grails</h3>
+                        <p id="grails-data-filename" class="filename">grails-app/conf/BootStrap.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-data';
+                                getSource("89cb6acef9133f295a340fd15e031833e80ffa02", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2');
+                                })
+                            })
+                        </script>
+                        <pre><code id="grails-data"></code></pre>
                     </section>
                     <section>
                         <h3>Demo Data - Play</h3>
@@ -708,37 +601,17 @@ class RegionTests {
 
                     <section>
                         <h3>Configuration - Grails</h3>
-
-                        <pre><code>// set per-environment serverURL stem for creating absolute links
-environments {
-    development {
-        grails.logging.jul.usebridge = true
-    }
-    test {
-        grails {
-            mail {
-                port = 1025
-            }
-        }
-    }
-    production {
-        grails.logging.jul.usebridge = false
-        grails.serverURL = "http://bike.ubertracks.com"
-        grails {
-            mail {
-                host = "smtp.sendgrid.net"
-                port = 587
-                props = ["mail.smtp.auth":"true",
-                         "mail.smtp.socketFactory.port":"465",
-                         "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-                         "mail.smtp.socketFactory.fallback":"false"]
-                username=System.env.SENDGRID_USERNAME
-                password=System.env.SENDGRID_PASSWORD
-            }
-        }
-    }
-}</code></pre>
-                        <code>grails-app/conf/Config.groovy</code>
+                        <p id="grails-config-filename" class="filename">grails-app/conf/Config.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-config';
+                                getSource("c0f703e135ea35bc68c3e0b42d5da91b4e110f4e", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2');
+                                })
+                            })
+                        </script>
+                        <pre><code id="grails-config"></code></pre>
                     </section>
                     <section>
                         <h3>Configuration - Play</h3>
@@ -767,24 +640,17 @@ environments {
                     <section>
                         <h3>Authentication - Grails</h3>
                         <p style="padding: 20px 0">Spring Security UI Plugin, <q>I love you!</q></p>
-                        <pre><code>grails.mail.default.from = "Bike Über Tracks &lt;bike@ubertracks.com>"
-
-grails.plugins.springsecurity.ui.register.emailFrom = grails.mail.default.from
-grails.plugins.springsecurity.ui.register.emailSubject = 'Welcome to Über Tracks!'
-grails.plugins.springsecurity.ui.forgotPassword.emailFrom = grails.mail.default.from
-grails.plugins.springsecurity.ui.forgotPassword.emailSubject = 'Password Reset'
-
-grails.plugins.springsecurity.controllerAnnotations.staticRules = [
-        '/user/**': ['ROLE_ADMIN'],
-        '/role/**': ['ROLE_ADMIN'],
-        '/registrationCode/**': ['ROLE_ADMIN'],
-        '/securityInfo/**': ['ROLE_ADMIN']
-]
-
-// Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'happytrails.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'happytrails.UserRole'
-grails.plugins.springsecurity.authority.className = 'happytrails.Role'</code></pre>
+                        <p id="grails-security-filename" class="filename">grails-app/conf/Config.groovy</p>
+                        <script>
+                            $(function() {
+                                var selectorId = '#grails-security';
+                                getSource("c0f703e135ea35bc68c3e0b42d5da91b4e110f4e", function(content, url) {
+                                    $(selectorId).html(hljs.highlight("javascript", content).value);
+                                    linkToFile(selectorId, 'grails2', 115);
+                                }, 115, 132)
+                            })
+                        </script>
+                        <pre><code id="grails-security"></code></pre>
                     </section>
                     <section>
                         <h3>Authentication - Play</h3>
@@ -1052,6 +918,7 @@ grails.plugins.springsecurity.authority.className = 'happytrails.Role'</code></p
             });
 
             //hljs.initHighlightingOnLoad();
+
         </script>
     </body>
 </html>
