@@ -1,0 +1,21 @@
+.down-arrow {
+    margin-top: 100px;
+    font-weight: bold
+}
+
+section > code {
+    white-space: nowrap;
+}
+
+pre {
+    max-height: 400px;
+    overflow: scroll;
+}
+
+pre code {
+    padding: 2em !important;
+}
+
+.top {
+    top: -60px;
+}
