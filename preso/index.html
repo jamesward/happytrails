@@ -143,57 +143,166 @@
                 </section>
                 
                 <section>
-                    <h2>Code Walk Through</h2>
-                    <p>
-                        We developed the same app, in similar ways, so let's look at the different layers.
-                    </p>
-                    <ul>
-                        <li><a href="#db">Database Schema</a></li>
-                        <li><a href="#urls">URLS</a></li>
-                        <li><a href="#models">Models</a></li>
-                        <li><a href="#controllers">Controllers</a></li>
-                        <li><a href="#views">Views</a></li>
-                    </ul>
-                </section>
-                <section>
                     <section>
-                      <h3>Database</h3>
-                      <p>Here's what code looks like.</p>
+                        <h2>Code Walk Through</h2>
+                        <p>
+                            We developed the same app, in similar ways, so let's look at the different layers.
+                        </p>
+                        <br/>
+                        <div style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2; column-gap: 50px; -webkit-column-gap: 50px; -moz-column-gap: 50px;">
+                            <ul>
+                                <li><a href="#db">Database</a></li>
+                                <li><a href="#urlmapping">URL Mapping</a></li>
+                                <li><a href="#models">Models</a></li>
+                                <li><a href="#controllers">Controllers</a></li>
+                                <li><a href="#validation">Validation</a></li>
+                                <li><a href="#views">Views</a></li>
+                                <li><a href="#ide">IDE Support</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#job">Job</a></li>
+                                <li><a href="#feed">Feed</a></li>
+                                <li><a href="#email">Email</a></li>
+                                <li><a href="#photoupload">Photo Upload</a></li>
+                                <li><a href="#testing">Testing</a></li>
+                                <li><a href="#demodata">Demo Data</a></li>
+                                <li><a href="#configuration">Configuration</a></li>
+                                <li><a href="#authentication">Authentication</a></li>
+                            </ul>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3>Database - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Database - Play</h3>
+                        
+                        <ul>
+                            <li>EBean is the default persistence provider in Java projects</li>
+                            <li>Evolutions can be auto-applied</li>
+                            <li>Initial evolution sql is auto-created</li>
+                            <li>Subsequent changes must be versioned</li>
+                            <li>Auto-created schema file is database dependent (requires dev / prod parity)</li>
+                            <li>Play 2 suppports multiple datasources (Play 1 does not)</li>
+                        </ul>
+                        <br/><br/>
+                        <p>conf/evolutions/default/2.sql</p>
                         <script>
                             $(function() {
-                                getGithubFile("jamesward", "happytrails", "2605e7194b8dcb3e86937d104f01189f66650c26", function(content) {
-                                    $("#someCode1").html(hljs.highlight("java", content).value)
+                                getGithubFile("jamesward", "happytrails", "0492621e9816e6d3101f70cfddb38d00e651dad0", function(content) {
+                                    $("#playsql2").html(hljs.highlight("java", content).value)
                                 })
                             })
                         </script>
-                        
-                        <pre><code id="someCode1"></code></pre>
+                        <pre><code id="playsql2"></code></pre>
                     </section>
                     <section>
-                        <h3>Database</h3>
-                        <p>Here's what code looks like.</p>
-                        <script>
-                            $(function() {
-                                getGithubFile("jamesward", "happytrails", "2605e7194b8dcb3e86937d104f01189f66650c26", function(content) {
-                                    $("#someCode2").html(hljs.highlight("java", content).value)
-                                }, 17, 20)
-                            })
-                        </script>
+                        <h3>Database - Play</h3>
                         
-                        <pre><code id="someCode2"></code></pre>
+                        <p>Using Heroku Postgres in production rocks!</p>
+                        <ul>
+                            <li>Postgres 9.1</li>
+                            <li>Dataclips</li>
+                            <li>Fork & Follow</li>
+                            <li>Multi-Ingres</li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h3>URL Mapping - Grails</h3>
                     </section>
                     <section>
-                        <h3>Database</h3>
-                        <p>Here's what code looks like.</p>
+                        <h3>URL Mapping - Play</h3>
+                        
+                        <p>conf/routes</p>
                         <script>
                             $(function() {
-                                getGithubFile("jamesward", "happytrails", "2605e7194b8dcb3e86937d104f01189f66650c26", function(content) {
-                                    $("#someCode3").html(hljs.highlight("java", content).value)
-                                }, 1, 1)
+                                getGithubFile("jamesward", "happytrails", "7b3a20560efa0678b215dd8780d166118181b2b5", function(content) {
+                                    $("#playconfroutes").html(hljs.highlightAuto(content).value)
+                                }, 6)
                             })
                         </script>
-                        
-                        <pre><code id="someCode3"></code></pre>
+                        <pre><code id="playconfroutes" style="width: 820px; font-size: 12px; line-height: 13px;"></code></pre>
+                    </section>
+                    
+                    <section>
+                        <h3>Models - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Models - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Controllers - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Controllers - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Validation - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Validation - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Views - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Views - Play</h3>
+                    </section>
+                    <section>
+                        <h3>IDE Support - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>IDE Support - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Job - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Job - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Feed - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Feed - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Email - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Email - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Photo Upload - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Photo Upload - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Testing - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Testing - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Demo Data - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Demo Data - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Configuration - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Configuration - Play</h3>
+                    </section>
+                    <section>
+                        <h3>Authentication - Grails</h3>
+                    </section>
+                    <section>
+                        <h3>Authentication - Play</h3>
                     </section>
                 </section>
                 
