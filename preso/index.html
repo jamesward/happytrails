@@ -385,7 +385,7 @@
 <section>
     <h3>Validation - Play</h3>
 
-    <p id="playhaderrors-filename" class="filename">app/controllers/RouteController.java</p>
+    <p id="playhaserrors-filename" class="filename">app/controllers/RouteController.java</p>
     <script>
         $(function() {
             var selectorId = '#playhaserrors';
@@ -396,13 +396,11 @@
         })
     </script>
     <pre><code id="playhaserrors"></code></pre>
-    <br/>
-    <br/>
 
     <p id="playform-filename" class="filename">app/views/signupForm.scala.html</p>
     <script>
         $(function() {
-            var selectorId = '#playhaserrors';
+            var selectorId = '#playform';
             getSource("22d0518aaa3aae6942ad9893b56f07b263e51caa", function (content, url) {
                 $(selectorId).html(hljs.highlight("java", content).value);
                 linkToFile(selectorId, 'play2_java', 7);
@@ -549,7 +547,7 @@
         $(function () {
             var selectorId = '#playemailsend';
             getSource("daf09a1d1dd3ca85fca2d6d9c3ff5e3951cc56dc", function (content, url) {
-                $(selectorId).html(hljs.highlight("java", content).value);
+                $(selectorId).html(hljs.highlight("java", content.replace(/            /g, "")).value);
                 linkToFile(selectorId, 'play2_java', 35);
             }, 35, 39)
         })
