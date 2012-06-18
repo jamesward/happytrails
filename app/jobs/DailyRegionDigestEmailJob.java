@@ -10,6 +10,7 @@ import play.api.Application;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DailyRegionDigestEmailJob {
@@ -37,6 +38,11 @@ public class DailyRegionDigestEmailJob {
             mail.addRecipient(regionUserDigest.user.getEmailAddress());
             mail.addFrom("noreply@ubertracks.com");
             mail.send(emailContent);
+            
+            for (RegionSubscription regionSubscription : regionUserDigest.regionSubscriptions) {
+                regionSubscription.lastSend = new Date();
+                regionSubscription.update();
+            }
         }
     }
     
@@ -49,6 +55,8 @@ public class DailyRegionDigestEmailJob {
             RegionUserDigest regionUserDigest = new RegionUserDigest(user);
             
             for (RegionSubscription regionSubscription : user.regionSubscriptions) {
+                regionUserDigest.regionSubscriptions.add(regionSubscription);
+                
                 Region region = regionSubscription.region;
                 //System.out.println("Region = " + region);
                 //System.out.println("Region.routes = " + region.routes);
@@ -78,6 +86,8 @@ public class DailyRegionDigestEmailJob {
         public User user;
         
         public List<Comment> comments = new ArrayList<Comment>();
+
+        public List<RegionSubscription> regionSubscriptions = new ArrayList<RegionSubscription>();
 
         public RegionUserDigest(User user) {
             this.user = user;
