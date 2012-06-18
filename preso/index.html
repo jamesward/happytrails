@@ -387,17 +387,11 @@
 
     <p id="playhaderrors-filename" class="filename">app/controllers/RouteController.java</p>
     <script>
-<<<<<<< HEAD
-        $(function () {
-            getGithubFile("jamesward", "happytrails", "600b9cd3b927759207093233a376f235d305ddbf", function (content) {
-                $("#playhaserrors").html(hljs.highlight("java", content).value)
-=======
         $(function() {
             var selectorId = '#playhaserrors';
             getSource("600b9cd3b927759207093233a376f235d305ddbf", function (content, url) {
                 $(selectorId).html(hljs.highlight("java", content).value);
                 linkToFile(selectorId, 'play2_java', 24);
->>>>>>> 1364ca1a775641f23beb64fec45ee871e0ee3643
             }, 24, 28)
         })
     </script>
