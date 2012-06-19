@@ -425,7 +425,7 @@
         $(function() {
             var selectorId = '#playhaserrors';
             getSource("600b9cd3b927759207093233a376f235d305ddbf", function (content, url) {
-                $(selectorId).html(hljs.highlight("java", content).value);
+                $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
                 linkToFile(selectorId, 'play2_java', 24);
             }, 24, 28)
         })
@@ -437,7 +437,7 @@
         $(function() {
             var selectorId = '#playform';
             getSource("22d0518aaa3aae6942ad9893b56f07b263e51caa", function (content, url) {
-                $(selectorId).html(hljs.highlight("java", content).value);
+                $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
                 linkToFile(selectorId, 'play2_java', 7);
             }, 7, 18)
         })
@@ -575,7 +575,6 @@
         <li>Dependency:<br/>"com.typesafe" %% "play-plugins-mailer" % "2.0.2"</li>
     </ul>
     <br/>
-    <br/>
 
     <p id="playemailsend-filename" class="filename">app/jobs/DailyRegionDigestEmailJob.java</p>
     <script>
@@ -624,7 +623,7 @@
             }, 57, 65)
         })
     </script>
-    <pre><code id="plays3photo"></code></pre>
+    <pre style="width: 900px;"><code id="plays3photo"></code></pre>
 
     <p id="playphotoupload-filename" class="filename">app/controllers/RegionController.java</p>
     <script>
@@ -636,7 +635,7 @@
             }, 125, 125)
         })
     </script>
-    <pre><code id="playphotoupload"></code></pre>
+    <pre style="width: 900px;"><code id="playphotoupload"></code></pre>
 </section>
 
 <section>
@@ -661,7 +660,7 @@
     <ul>
         <li>Standard JUnit</li>
         <li>Unit Tests &amp; Functional Tests</li>
-        <li>Simulated App: FakeApplication, FakeRequest, inMemoryDatabase</li>
+        <li>FakeApplication, FakeRequest, inMemoryDatabase</li>
         <li>Test: Controllers, Views, Routing, Real Server, Browser</li>
     </ul>
     <br/>
@@ -677,7 +676,7 @@
             }, 18, 30)
         })
     </script>
-    <pre><code id="playtest"></code></pre>
+    <pre style="width: 900px;"><code id="playtest"></code></pre>
 </section>
 
 <section>
