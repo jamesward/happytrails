@@ -45,6 +45,10 @@ pre code {
 }
 
 #reveal .slides {
-    top: 30px;
+    top: 20px;
+    margin-top: 0px;
+}
+
+#reveal section img {
     margin-top: 0px;
 }
