@@ -1,5 +1,5 @@
 .down-arrow {
-    margin-top: 100px;
+    margin-top: 30px;
     font-weight: bold
 }
 
@@ -17,7 +17,7 @@ pre code {
 }
 
 .top {
-    top: -60px;
+    top: -200px;
 }
 
 .column2 {
@@ -36,4 +36,14 @@ pre code {
     text-align: right;
     color: #EEEEEE;
     font-size: 18px;
+}
+
+.comparison {
+    position: absolute;
+}
+
+.comparison .fragment {
+    position: absolute;
+    top: 0;
+    opacity: 0;
 }

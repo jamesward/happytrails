@@ -30,7 +30,3 @@ Feature Complete Testing
 8. Add rating and comment to Route
 9. Delete newly added route
 10. Logout
-
-Load Testing
-------------------
-TBD

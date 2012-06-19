@@ -58,7 +58,7 @@
 
     <p style="margin-top: 100px">
         <i>
-            <small>- We wanted to know how they enhanced the Developer Experience (DX).</small>
+            <small>* We wanted to know how they enhanced the Developer Experience (DX).</small>
         </i>
     </p>
 </section>
@@ -776,8 +776,76 @@
 </section>
 
 <section>
+  <section>
+    <h2>Application Comparison</h2>
+    <ul>
+      <li><a href="#/8/1">YSlow</a></li>
+      <li><a href="#/8/2">PageSpeed</a></li>
+      <li><a href="#/8/3">Lines of Code</a></li>
+      <li><a href="#/8/4">Load Testing</a></li>
+    </ul>
+  </section>
+  <section class="top">
+    <h2>YSlow</h2>
+    <div class="comparison">
+      <img src="assets/images/yslow-bike.png" width="900"/>
+      <img class="fragment" src="assets/images/yslow-hike.png" width="900"/>
+    </div>
+  </section>
+
+  <section class="top">
+    <h2>PageSpeed</h2>
+    <div class="comparison">
+      <img src="assets/images/pagespeed-bike.png" width="900"/>
+      <img class="fragment" src="assets/images/pagespeed-hike.png" width="900"/>
+    </div>
+  </section>
+
+  <section class="top">
+    <h2>Lines of Code</h2>
+    <div class="comparison">
+      <img src="assets/images/cloc-grails.png" width="900"/>
+      <img class="fragment" src="assets/images/cloc-play.png" width="900"/>
+    </div>
+  </section>
+
+  <section class="top">
+    <h2>Load Testing with BrowserMob</h2>
+    <img src="assets/images/neustar-dashboard.png" width="900"/>
+  </section>
+  <section class="top">
+    <h2>Load Testing - 1 Dyno</h2>
+    <div style="width: 600px; margin: 0 auto">
+      <div style="float: left">
+        <img src="assets/images/bike-test-stats.png" height="254" width="258"/>
+        <p>Bike (Grails)</p>
+      </div>
+      <div style="float: right">
+        <img src="assets/images/hike-test-stats.png" height="255" width="260"/>
+        <p>Hike (Play)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="top">
+    <h2>Load Testing - 1 Dyno</h2>
+    <div class="comparison">
+      <div>
+        <img src="assets/images/bike-throughput.png" width="800"/>
+        <p>Bike (Grails)</p>
+      </div>
+      <div class="fragment">
+        <img src="assets/images/hike-throughput.png" width="800"/>
+        <p>Hike (Play)</p>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<section>
     <section>
-        <h2>Comparison and Pretty Graphs</h2>
+        <h2>Framework Comparison</h2>
         <ul>
             <li>Jobs</li>
             <li>LinkedIn Skills</li>
@@ -976,11 +1044,6 @@
     var query = {};
     location.search.replace(/[A-Z0-9]+?=(\w*)/gi, function (a) {
         query[ a.split('=').shift() ] = a.split('=').pop();
-    });
-
-    // Fires when a slide with data-state=customevent is activated
-    Reveal.addEventListener('customevent', function () {
-        alert('"customevent" has fired');
     });
 
     // Fires each time a new slide is activated
