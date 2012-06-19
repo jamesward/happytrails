@@ -16,10 +16,6 @@ pre code {
     padding: 2em !important;
 }
 
-.top {
-    top: -200px;
-}
-
 .column2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -49,6 +45,6 @@ pre code {
 }
 
 #reveal .slides {
-    top: 0px;
+    top: 30px;
     margin-top: 0px;
 }
