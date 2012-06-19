@@ -26,7 +26,7 @@ class RouteController {
             return
         }
 
-		flash.message = message(code: 'default.created.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.name])
+        flash.message = message(code: 'default.created.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.name])
         redirect(action: "show", id: routeInstance.id)
     }
 
@@ -35,7 +35,7 @@ class RouteController {
         def route = Route.findBySeoName(params.route)
 
         if (!route) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), params.id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), params.id])
             redirect(uri: "/" + params.region)
             return
         }
@@ -46,7 +46,7 @@ class RouteController {
     def show() {
         def routeInstance = Route.get(params.id)
         if (!routeInstance) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), params.id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), params.id])
             redirect(action: "list")
             return
         }
@@ -77,8 +77,8 @@ class RouteController {
             def version = params.version.toLong()
             if (routeInstance.version > version) {
                 routeInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'route.label', default: 'Route')] as Object[],
-                          "Another user has updated this Route while you were editing")
+                        [message(code: 'route.label', default: 'Route')] as Object[],
+                        "Another user has updated this Route while you were editing")
                 render(view: "edit", model: [routeInstance: routeInstance])
                 return
             }
@@ -101,25 +101,25 @@ class RouteController {
             return
         }
 
-		flash.message = message(code: 'default.updated.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.name])
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.name])
         redirect(action: "show", id: routeInstance.id)
     }
 
     def delete() {
         def routeInstance = Route.get(params.id)
         if (!routeInstance) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), params.id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), params.id])
             redirect(action: "list")
             return
         }
 
         try {
             routeInstance.delete(flush: true)
-			flash.message = message(code: 'default.deleted.message', args: [message(code: 'route.label', default: 'Route'), params.id])
+            flash.message = message(code: 'default.deleted.message', args: [message(code: 'route.label', default: 'Route'), params.id])
             redirect(controller: "region", action: "show", id: routeInstance.region.id)
         }
         catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'route.label', default: 'Route'), params.id])
+            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'route.label', default: 'Route'), params.id])
             redirect(action: "show", id: params.id)
         }
     }
