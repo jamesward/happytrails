@@ -9,7 +9,7 @@ section > code {
 
 pre {
     max-height: 400px;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 pre code {
@@ -46,4 +46,9 @@ pre code {
     position: absolute;
     top: 0;
     opacity: 0;
+}
+
+#reveal .slides {
+    top: 0px;
+    margin-top: 0px;
 }
