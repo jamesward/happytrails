@@ -130,10 +130,35 @@
 </section>
 <section>
     <section>
-        <h2>Intro to Grails 2</h2>
+        <h1>Intro to Grails 2</h1>
+        <br/>
+        <img src="assets/images/grails_framework.png"/>
+    </section>
+    <section>
+        <div class="comparison" style="left: 100px; width: 700px; height: 100%">
+            <blockquote style="position: absolute; width: 100%; background: rgba(32, 32, 32, 0.6);">
+              Powered by Spring, Grails outperforms the competition. Dynamic, agile web development without compromises.
+            </blockquote>
+            <blockquote class="fragment" style="position: absolute; width: 100%; background: rgba(32, 32, 32, 0.8);">
+              <span style="opacity: 0">Powered by </span>Spring<span style="opacity: 0">, Grails outperforms the competition. Dynamic, agile web development without compromises.</span>
+            </blockquote>
+        </div>
+    </section>
+    <section>
+        <h2>My Top 10 Favorite Features</h2>
+        <ol>
+            <li>Documentation</li>
+            <li>Clean URLs</li>
+            <li>GORM</li>
+            <li>Zero Turnaround</li>
+            <li>Excellent Testing Support</li>
+            <li>Groovy</li>
+            <li>GSPs</li>
+            <li>Resource Optimizer</li>
+            <li>Instant Deployment on Heroku</li>
+        </ol>
     </section>
 </section>
-
 
 <section>
     <h2>Our Setup</h2>
@@ -397,7 +422,7 @@
     <script>
           $(function() {
               var selectorId = '#grails-controller-validation';
-              getSource("todo", function (content, url) {
+              getSource("cb33a2dda2e723fa66f6bf2501cf512cac135587", function (content, url) {
                   $(selectorId).html(hljs.highlight("java", content).value);
                   linkToFile(selectorId, 'grails2', 22);
               }, 22, 31)
@@ -409,7 +434,7 @@
     <script>
           $(function() {
               var selectorId = '#grails-view-validation';
-              getSource("todo", function (content, url) {
+              getSource("37c61e83552818b6dff7d92c74d04882e745c6ca", function (content, url) {
                   $(selectorId).html(hljs.highlight("java", content).value);
                   linkToFile(selectorId, 'grails2', 25);
               }, 25, 31)
@@ -507,9 +532,10 @@
 <section>
     <h3>Feed - Grails</h3>
 
-    <p><strong>Step 1:</strong> grails install-plugin feeds</p>
-
-    <p><strong>Step 2:</strong> Add feeds method to controller</p>
+    <ol>
+      <li>grails install-plugin feeds</li>
+      <li>Add feed() method to controller</li>
+    </ol>
 
     <p id="grails-feed-filename" class="filename">grails-app/controllers/happytrails/RegionController.groovy</p>
     <script>
@@ -640,7 +666,12 @@
 
 <section>
     <h3>Testing - Grails</h3>
-
+    <ul>
+      <li>Unit Tests with @TestFor and @Mock</li>
+      <li>Test URL Mappings with UrlMappingsUnitTestMixin</li>
+      <li>Integration Testing with GroovyTestCase</li>
+      <li>Functional Testing with Geb</li>
+    </ul>
     <p id="grails-tests-filename" class="filename">test/unit/happytrails/RouteTests.groovy</p>
     <script>
         $(function () {
@@ -652,7 +683,7 @@
         })
     </script>
     <pre><code id="grails-tests"></code></pre>
-    <p>grails plugin scopes</p>
+    <p><small>* Grails plugins often aren't in test scope.</small></p>
 </section>
 <section>
     <h3>Testing - Play</h3>
@@ -681,6 +712,8 @@
 
 <section>
     <h3>Demo Data - Grails</h3>
+
+    <br/>
 
     <p id="grails-data-filename" class="filename">grails-app/conf/BootStrap.groovy</p>
     <script>
@@ -819,7 +852,7 @@
       <li><a href="#/8/4">Load Testing</a></li>
     </ul>
   </section>
-  <section class="top">
+  <section>
     <h2>YSlow</h2>
     <div class="comparison">
       <img src="assets/images/yslow-bike.png" width="900"/>
@@ -827,7 +860,7 @@
     </div>
   </section>
 
-  <section class="top">
+  <section>
     <h2>PageSpeed</h2>
     <div class="comparison">
       <img src="assets/images/pagespeed-bike.png" width="900"/>
@@ -835,7 +868,7 @@
     </div>
   </section>
 
-  <section class="top">
+  <section>
     <h2>Lines of Code</h2>
     <div class="comparison">
       <img src="assets/images/cloc-grails.png" width="900"/>
@@ -843,12 +876,12 @@
     </div>
   </section>
 
-  <section class="top">
+  <section>
     <h2>Load Testing with BrowserMob</h2>
     <img src="assets/images/neustar-dashboard.png" width="900"/>
   </section>
 
-  <section class="top">
+  <section>
     <h2>Load Testing - 1 Dyno</h2>
 
     <div style="width: 600px; margin: 0 auto">
@@ -865,7 +898,7 @@
     </div>
   </section>
 
-  <section class="top">
+  <section>
     <h2>Load Testing - 1 Dyno</h2>
 
     <div class="comparison">
@@ -880,7 +913,7 @@
     </div>
   </section>
 
-  <section class="top">
+  <section>
     <h2>Load Testing - 5 Dynos</h2>
 
     <div style="width: 600px; margin: 0 auto">
@@ -897,7 +930,7 @@
     </div>
   </section>
 
-  <section class="top">
+  <section>
     <h2>Load Testing - 5 Dynos</h2>
     <div class="comparison">
       <div>
@@ -909,7 +942,7 @@
     </div>
   </section>
 
-  <section class="top" style="text-align: center;">
+  <section style="text-align: center;">
     <h2>Load Testing - 5 Dynos</h2>
     <div class="comparison" style="width: 100%;">
         <img src="assets/images/bike-ab.png" width="440" style="float: left; border: 0px;"/>
@@ -919,7 +952,7 @@
     </div>
   </section>
 
-  <section class="top">
+  <section>
     <h2>Load Testing - 5 Dynos + 100 users</h2>
     <div class="comparison">
       <div>
