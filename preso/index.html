@@ -130,7 +130,6 @@
 </section>
 <section>
     <section>
-
         <h2>Intro to Grails 2</h2>
     </section>
 </section>
@@ -138,8 +137,14 @@
 
 <section>
     <h2>Our Setup</h2>
+    <ul>
+      <li><strong>IntelliJ IDEA</strong> for Development</li>
+      <li><strong>GitHub</strong> for Source Control</li>
+      <li><strong>CloudBees</strong> for Continuous Integration</li>
+      <li><strong>Heroku</strong> for Production</li>
+    </ul>
 
-    <p>Infrastructure / CI / Deployment</p>
+    <p style="margin-top: 30px">Later added: QA Person and BrowserMob</p>
 </section>
 
 <section>
@@ -344,7 +349,12 @@
 
 <section>
     <h3>Views - Grails</h3>
-
+    <ul>
+      <li>Groovy Server Pages, like JSPs</li>
+      <li>GSP Tags</li>
+      <li>Layouts and Templates</li>
+      <li>Optimized Resources</li>
+    </ul>
     <p id="grails-view-filename" class="filename">grails-app/views/region/show.gsp</p>
     <script>
         $(function () {
@@ -383,6 +393,29 @@
 
 <section>
     <h3>Validation - Grails</h3>
+    <p id="grails-controller-validation-filename" class="filename">grails-app/controllers/happytrails/RouteController.groovy</p>
+    <script>
+          $(function() {
+              var selectorId = '#grails-controller-validation';
+              getSource("todo", function (content, url) {
+                  $(selectorId).html(hljs.highlight("java", content).value);
+                  linkToFile(selectorId, 'grails2', 22);
+              }, 22, 31)
+          })
+      </script>
+      <pre><code id="grails-controller-validation"></code></pre>
+
+    <p id="grails-view-validation-filename" class="filename">grails-app/views/route/create.gsp</p>
+    <script>
+          $(function() {
+              var selectorId = '#grails-view-validation';
+              getSource("todo", function (content, url) {
+                  $(selectorId).html(hljs.highlight("java", content).value);
+                  linkToFile(selectorId, 'grails2', 25);
+              }, 25, 31)
+          })
+      </script>
+      <pre><code id="grails-view-validation"></code></pre>
 </section>
 <section>
     <h3>Validation - Play</h3>
@@ -884,6 +917,20 @@
         <img src="assets/images/hike-ab.png" width="440" style="float: right; border: 0px;"/>
         <p style="float: left;">bike.ubertracks.com</p>
         <p style="float: right;">hike.ubertracks.com</p>
+    </div>
+  </section>
+
+  <section class="top">
+    <h2>Load Testing - 5 Dynos + 100 users</h2>
+    <div class="comparison">
+      <div>
+        <img src="assets/images/bike-throughput-100users.png" width="900"/>
+        <img src="assets/images/bike-stats-100users.png" style="position: absolute; top: 50px; right: 30px;"/>
+      </div>
+      <div class="fragment">
+        <img src="assets/images/hike-throughput-100users.png" width="900"/>
+        <img src="assets/images/hike-stats-100users.png" style="position: absolute; top: 50px; right: 30px;"/>
+      </div>
     </div>
   </section>
 
