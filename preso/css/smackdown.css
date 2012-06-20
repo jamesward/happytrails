@@ -52,3 +52,10 @@ pre code {
 #reveal section img {
     margin-top: 0px;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+}
