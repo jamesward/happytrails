@@ -10,3 +10,5 @@ Happy Trails is a web application that was written in Play 2 (Java) and Grails 2
 
 ## License
 Happy Trails is released under version 2.0 of the [Apache License][].
+
+[Apache License]: http://www.apache.org/licenses/LICENSE-2.0
