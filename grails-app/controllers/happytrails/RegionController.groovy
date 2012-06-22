@@ -34,6 +34,11 @@ class RegionController {
     }
 
     def find() {
+        if (params.region == "login") {
+            redirect(controller: "login", action: "auth")
+            return
+        }
+
         println("finding by name: " + params.region)
 
         if (params.route) {

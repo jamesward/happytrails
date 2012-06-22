@@ -123,7 +123,8 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
         '/user/**': ['ROLE_ADMIN'],
         '/role/**': ['ROLE_ADMIN'],
         '/registrationCode/**': ['ROLE_ADMIN'],
-        '/securityInfo/**': ['ROLE_ADMIN']
+        '/securityInfo/**': ['ROLE_ADMIN'],
+        '/**/edit/**': ['IS_AUTHENTICATED_FULLY']
 ]
 
 // Added by the Spring Security Core plugin:

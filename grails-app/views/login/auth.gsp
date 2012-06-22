@@ -4,7 +4,7 @@
     <title><g:message code="springSecurity.login.title"/></title>
     <style type='text/css' media='screen'>
     h2 {
-        margin-bottom: 15px;
+        margin-bottom: 15px !important;
     }
 
     .login-form {
