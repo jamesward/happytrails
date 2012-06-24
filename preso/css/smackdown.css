@@ -53,9 +53,14 @@ pre code {
     margin-top: 0px;
 }
 
+.footnote {
+    margin-top: 10px; 
+    font-size: 18px
+}
+
 .footer {
     position: absolute;
     bottom: 0;
-    left: 0;
-    padding: 15px;
+    text-align: center;
+    width: 100%;
 }

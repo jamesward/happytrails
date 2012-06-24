@@ -1,5 +1,0 @@
-Both
-* Load Testing
-* Performance Testing
-* Project Metrics
-* Finish Presentation
