@@ -21,6 +21,10 @@ public class RegionController extends Controller {
     public static Result getRegionFeed(String urlFriendlyRegionName) throws FeedException, IOException {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
 
+        if (region == null) {
+            return notFound("Could not find that region");
+        }
+        
         SyndFeed feed = new SyndFeedImpl();
         feed.setFeedType("rss_2.0");
 
@@ -219,7 +223,7 @@ public class RegionController extends Controller {
     public static Result getRegionHtml(String urlFriendlyRegionName, String sort) {
         Region region = Region.findByUrlFriendlyName(urlFriendlyRegionName);
         if (region == null) {
-            return badRequest("Could not find that region");
+            return notFound("Could not find that region");
         }
         else {
             return ok(views.html.region.render(region, sort));
