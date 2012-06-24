@@ -945,12 +945,21 @@
 
   <section style="text-align: center;">
     <h2>Load Testing - 5 Dynos</h2>
-    <div class="comparison" style="width: 100%;">
-        <img src="assets/images/bike-ab.png" width="440" style="float: left; border: 0px;"/>
-        <img src="assets/images/hike-ab.png" width="440" style="float: right; border: 0px;"/>
-        <p style="float: left;">bike.ubertracks.com</p>
-        <p style="float: right;">hike.ubertracks.com</p>
-    </div>
+    <script>
+        google.setOnLoadCallback(drawLoadChart);
+
+        function drawLoadChart() {
+
+           var data = google.visualization.arrayToDataTable([
+                ['10000 Requests (100 Concurrent)', 'Grails', 'Play Framework'],
+                ['Requests / Second', 198, 251]
+            ]);
+
+            var chart = new google.visualization.BarChart(document.getElementById('load_chart_div'));
+            chart.draw(data, {width:900, height:500, hAxis: {viewWindow: {min:0}}});
+        }
+    </script>
+    <div id="load_chart_div" style="width: 900px; height: 500px;"></div>
   </section>
 
   <section>
