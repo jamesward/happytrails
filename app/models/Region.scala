@@ -1,12 +1,27 @@
 package models;
 
-import play.data.validation.Constraints;
-import play.db.ebean.Model;
-import utils.UrlUtils;
+import reflect.BeanProperty
+import org.codehaus.jackson.annotate.JsonProperty
+import net.vz.mongodb.jackson.{Id, ObjectId}
+import play.modules.mongodb.jackson.MongoDB
+;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+class Region(@ObjectId @Id val id: String,
+             @BeanProperty @JsonProperty("name") val name: String,
+             @BeanProperty @JsonProperty("urlFriendlyName") val urlFriendlyName: String,
+             @BeanProperty @JsonProperty("routes") val routes: List[Route],
+             @BeanProperty @JsonProperty("regionSubscriptions") val regionSubscriptions: List[RegionSubscription],
+             @BeanProperty @JsonProperty("photo") val photo: S3Photo) {
+  @ObjectId @Id def getId = id;
+}
+
+object Region {
+  private lazy val db = MongoDB.collection("regions", classOf[Region], classOf[String])
+
+  def create(region: Region) { db.save(region) }
+  def findAll() = { db.find().toArray }
+}
+/*
 
 @Entity
 public class Region extends Model {
@@ -65,3 +80,4 @@ public class Region extends Model {
     }
 
 }
+*/

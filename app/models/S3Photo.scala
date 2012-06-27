@@ -1,22 +1,40 @@
-package models;
+package models
 
-import com.amazonaws.services.s3.model.CannedAccessControlList;
-import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.amazonaws.services.s3.model.PutObjectRequest;
-import org.imgscalr.Scalr;
-import play.Logger;
-import play.db.ebean.Model;
-import utils.S3Blob;
+import com.amazonaws.services.s3.model.CannedAccessControlList
+import com.amazonaws.services.s3.model.ObjectMetadata
+import com.amazonaws.services.s3.model.PutObjectRequest
+import org.imgscalr.Scalr
+import play.Logger
+import play.db.ebean.Model
+import utils.S3Blob
 
-import javax.imageio.ImageIO;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.UUID;
+import javax.imageio.ImageIO
 
+import java.awt.image.BufferedImage
+import java.net.MalformedURLException
+import java.net.URL
+import java.util.UUID
+import reflect.BeanProperty
+import org.codehaus.jackson.annotate.JsonProperty
+import net.vz.mongodb.jackson.{Id, ObjectId}
+import play.modules.mongodb.jackson.MongoDB
+;
+
+class S3Photo(@ObjectId @Id val id: String,
+            @BeanProperty @JsonProperty("name") val name: String,
+            @BeanProperty @JsonProperty("bucket") val bucket: String,
+            @BeanProperty @JsonProperty("key") val key: String) {
+  @ObjectId @Id def getId = id;
+}
+
+object S3Photo {
+  private lazy val db = MongoDB.collection("s3photos", classOf[S3Photo], classOf[String])
+
+  def create(s3photos: S3Photo) { db.save(s3photos) }
+  def findAll() = { db.find().toArray }
+}
+
+/*
 @Entity
 public class S3Photo extends Model {
 
@@ -66,3 +84,4 @@ public class S3Photo extends Model {
     }
 
 }
+*/

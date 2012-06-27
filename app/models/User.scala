@@ -1,20 +1,39 @@
-package models;
+package models
 
-import play.Logger;
-import play.data.validation.Constraints;
-import play.db.ebean.Model;
+import java.io.UnsupportedEncodingException
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
+import java.util.ArrayList
+import java.util.Date
+import java.util.List
+import java.util.UUID
 
-import javax.persistence.*;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import reflect.BeanProperty
+import org.codehaus.jackson.annotate.JsonProperty
+import net.vz.mongodb.jackson.{Id, ObjectId}
+import play.modules.mongodb.jackson.MongoDB
 
-import static play.libs.Json.toJson;
 
+class User(@ObjectId @Id val id: String,
+           @BeanProperty @JsonProperty("token") val token: String,
+           @BeanProperty @JsonProperty("emailAddress") val emailAddress: String,
+           @BeanProperty @JsonProperty("shaPassword") val shaPassword: Array[Byte],
+           @BeanProperty @JsonProperty("fullName") val fullName: String,
+           @BeanProperty @JsonProperty("creationDate") val creationDate: Date,
+           @BeanProperty @JsonProperty("isAdmin") val isAdmin: Boolean,
+           @BeanProperty @JsonProperty("regionSubscriptions") val regionSubscriptions: List[RegionSubscription],
+           @BeanProperty @JsonProperty("comments") val comments: List[Comment]) {
+  @ObjectId @Id def getId = id;
+}
+
+object User {
+  private lazy val db = MongoDB.collection("users", classOf[User], classOf[String])
+
+  def create(user: User) { db.save(user) }
+  def findAll() = { db.find().toArray }
+}
+
+/*
 @Entity
 @Table(name="account")  // because "user" is an invalid table name in some databases
 public class User extends Model {
@@ -133,3 +152,4 @@ public class User extends Model {
         return find.where().eq("emailAddress", emailAddress.toLowerCase()).findUnique();
     }
 }
+*/

@@ -1,14 +1,29 @@
 package models;
 
-import play.data.validation.Constraints;
-import play.db.ebean.Model;
+import java.util.Date
+import play.api.Play.current
+import net.vz.mongodb.jackson.{Id, ObjectId}
+import org.codehaus.jackson.annotate.JsonProperty
+import play.modules.mongodb.jackson.MongoDB
+import reflect.BeanProperty
+;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.validation.Constraint;
-import java.util.Date;
+class Rating(@ObjectId @Id val id: String,
+             @BeanProperty @JsonProperty("value") val value: Int,
+             @BeanProperty @JsonProperty("creationDate") val creationDate: Date,
+             @BeanProperty @JsonProperty("route") val route: Route,
+             @BeanProperty @JsonProperty("user") val user: User) {
+  @ObjectId @Id def getId = id;
+}
+
+object Rating {
+  private lazy val db = MongoDB.collection("ratings", classOf[Rating], classOf[String])
+
+  def create(rating: Rating) { db.save(rating) }
+  def findAll() = { db.find().toArray }
+}
+
+/*
 
 @Entity
 public class Rating extends Model {
@@ -56,3 +71,4 @@ public class Rating extends Model {
     }
 
 }
+*/

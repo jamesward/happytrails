@@ -1,17 +1,37 @@
 package models;
 
-import com.avaje.ebean.FetchConfig;
-import play.data.validation.Constraints;
-import play.db.ebean.Model;
-import utils.UrlUtils;
-
-import javax.persistence.*;
-import javax.validation.Valid;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import reflect.BeanProperty
+import org.codehaus.jackson.annotate.JsonProperty
+import net.vz.mongodb.jackson.{Id, ObjectId}
+import play.modules.mongodb.jackson.MongoDB
+;
 
+class Route(@ObjectId @Id val id: String,
+            @BeanProperty @JsonProperty("name") val name: String,
+            @BeanProperty @JsonProperty("urlFriendlyName") val urlFriendlyName: String,
+            @BeanProperty @JsonProperty("description") val description: String,
+            @BeanProperty @JsonProperty("distanceInMiles") val distanceInMiles: Double,
+            @BeanProperty @JsonProperty("location") val location: String,
+            @BeanProperty @JsonProperty("region") val region: Region,
+            @BeanProperty @JsonProperty("photo") val photo: S3Photo,
+            @BeanProperty @JsonProperty("mapUrl") val mapUrl: URL,
+            @BeanProperty @JsonProperty("creationDate") val creationDate: Date,
+            @BeanProperty @JsonProperty("directions") val directions: List[Direction],
+            @BeanProperty @JsonProperty("ratings") val ratings: List[Rating],
+            @BeanProperty @JsonProperty("comments") val comments: List[Comment]) {
+  @ObjectId @Id def getId = id;
+}
+
+object Route {
+  private lazy val db = MongoDB.collection("routes", classOf[Route], classOf[String])
+
+  def create(route: Route) { db.save(route) }
+  def findAll() = { db.find().toArray }
+}
+
+/*
 @Entity
 public class Route extends Model {
 
@@ -113,3 +133,5 @@ public class Route extends Model {
     }
 
 }
+
+*/

@@ -1,12 +1,30 @@
 package models;
 
-import com.avaje.ebean.FetchConfig;
-import play.data.validation.Constraints;
-import play.db.ebean.Model;
+import play.api.Play.current
+import net.vz.mongodb.jackson.{Id, ObjectId}
+import org.codehaus.jackson.annotate.JsonProperty
+import play.modules.mongodb.jackson.MongoDB
+import reflect.BeanProperty
+import java.util.Date
 
-import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+
+class Comment(@ObjectId @Id val id: String,
+              @BeanProperty @JsonProperty("value") val value: String,
+              @BeanProperty @JsonProperty("creationDate") val creationDate: Date,
+              @BeanProperty @JsonProperty("photo") val photo: S3Photo,
+              @BeanProperty @JsonProperty("user") val user: User,
+              @BeanProperty @JsonProperty("route") val route: Route) {
+  @ObjectId @Id def getId = id;
+}
+
+object Comment {
+  private lazy val db = MongoDB.collection("comments", classOf[Comment], classOf[String])
+
+  def create(comment: Comment) { db.save(comment) }
+  def findAll() = { db.find().toArray }
+}
+
+/*
 
 @Entity
 public class Comment extends Model {
@@ -52,3 +70,5 @@ public class Comment extends Model {
     }
     
 }
+
+*/
