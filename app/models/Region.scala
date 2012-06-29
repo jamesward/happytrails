@@ -4,7 +4,7 @@ import reflect.BeanProperty
 import org.codehaus.jackson.annotate.JsonProperty
 import net.vz.mongodb.jackson.{Id, ObjectId}
 import play.modules.mongodb.jackson.MongoDB
-;
+import play.api.Play.current
 
 class Region(@ObjectId @Id val id: String,
              @BeanProperty @JsonProperty("name") val name: String,

@@ -1,17 +1,14 @@
 package models
 
-import java.io.UnsupportedEncodingException
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
-import java.util.ArrayList
 import java.util.Date
-import java.util.List
-import java.util.UUID
 
+import play.api.Play.current
 import reflect.BeanProperty
 import org.codehaus.jackson.annotate.JsonProperty
-import net.vz.mongodb.jackson.{Id, ObjectId}
+import net.vz.mongodb.jackson.ObjectId
 import play.modules.mongodb.jackson.MongoDB
+import javax.persistence.Id
+import java.security.MessageDigest
 
 
 class User(@ObjectId @Id val id: String,
@@ -20,17 +17,27 @@ class User(@ObjectId @Id val id: String,
            @BeanProperty @JsonProperty("shaPassword") val shaPassword: Array[Byte],
            @BeanProperty @JsonProperty("fullName") val fullName: String,
            @BeanProperty @JsonProperty("creationDate") val creationDate: Date,
-           @BeanProperty @JsonProperty("isAdmin") val isAdmin: Boolean,
+           @BeanProperty @JsonProperty("admin") val admin: Boolean,
            @BeanProperty @JsonProperty("regionSubscriptions") val regionSubscriptions: List[RegionSubscription],
            @BeanProperty @JsonProperty("comments") val comments: List[Comment]) {
   @ObjectId @Id def getId = id;
 }
 
 object User {
+  
+  def apply(fullName: String, emailAddress: String, password: String): User = {
+    new User(null, null, emailAddress, getSha512(password), fullName, new Date(), false, List.empty[RegionSubscription], List.empty[Comment])
+  }
+  
   private lazy val db = MongoDB.collection("users", classOf[User], classOf[String])
 
   def create(user: User) { db.save(user) }
   def findAll() = { db.find().toArray }
+
+  def getSha512(value: String): Array[Byte] = {
+      MessageDigest.getInstance("SHA-512").digest(value.getBytes("UTF-8"))
+  }
+  
 }
 
 /*

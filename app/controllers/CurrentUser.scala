@@ -1,10 +1,8 @@
-package controllers;
+package controllers
 
-import models.User;
-import play.mvc.Action;
-import play.mvc.Http;
-import play.mvc.Result;
 
+
+/*
 public class CurrentUser extends Action.Simple {
 
     public Result call(Http.Context ctx) throws Throwable {
@@ -18,3 +16,4 @@ public class CurrentUser extends Action.Simple {
         return (User)Http.Context.current().args.get("user");
     }
 }
+*/

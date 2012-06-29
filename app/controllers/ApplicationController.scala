@@ -1,15 +1,36 @@
-package controllers;
+package controllers
 
-import models.Region;
-import models.User;
-import play.data.Form;
-import play.data.validation.Constraints;
-import play.mvc.Controller;
-import play.mvc.Result;
-import play.mvc.Security;
-import play.mvc.With;
+import play.api.mvc.{Action, Controller}
 
+object ApplicationController extends Controller {
+  
+  def index = Action { implicit request =>
+    Ok("")
+  }
+  
+  def signupForm = Action { implicit request =>
+    Ok("")
+  }
 
+  def signup = Action { implicit request =>
+    Ok("")
+  }
+
+  def loginForm = Action { implicit request =>
+    Ok("")
+  }
+
+  def login = Action { implicit request =>
+    Ok("")
+  }
+
+  def logout = Action { implicit request =>
+    Ok("")
+  }
+  
+}
+
+/*
 @With(CurrentUser.class)
 public class ApplicationController extends Controller {
 
@@ -88,3 +109,4 @@ public class ApplicationController extends Controller {
     }
 
 }
+*/

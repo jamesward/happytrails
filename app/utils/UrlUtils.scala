@@ -1,5 +1,6 @@
-package utils;
+package utils
 
+/*
 public class UrlUtils {
 
     // converts the name to a URL friendly name
@@ -13,3 +14,4 @@ public class UrlUtils {
     }
     
 }
+*/

@@ -1,25 +1,17 @@
-import models.User;
-import play.Application;
-import play.GlobalSettings;
-import play.Play;
-import utils.DemoData;
-import utils.S3Blob;
+import models.User
+import play.api.{Mode, Play, GlobalSettings, Application}
+import utils.DemoData
 
-public class Global extends GlobalSettings {
+object Global extends GlobalSettings {
+  
+  override def onStart(app: Application) {
 
-    @Override
-    public void onStart(Application application) {
+    //S3Blob.initialize(application);
 
-        //Ebean.getServer(null).getAdminLogging().setDebugGeneratedSql(true);
-
-        S3Blob.initialize(application);
-        
-        // load the demo data in dev mode if no other data exists
-        if (Play.isDev() && (User.find.all().size() == 0)) {
-            DemoData.loadDemoData();
-        }
-
-        super.onStart(application);
+    if (app.mode.equals(Mode.Dev) && (User.findAll().size() == 0)) {
+      DemoData.loadDemoData();
     }
-
+    
+  }
+  
 }

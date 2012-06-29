@@ -1,13 +1,28 @@
-package controllers;
+package controllers
 
-import ch.qos.logback.core.pattern.parser.FormattingNode;
-import models.*;
-import play.data.Form;
-import play.mvc.Controller;
-import play.mvc.Result;
-import play.mvc.Security;
-import play.mvc.With;
+import play.api.mvc.{Action, Controller}
 
+
+object RouteController extends Controller {
+
+  def saveRating(urlFriendlyRegionName: String, urlFriendlyRouteName: String, rating: Int) = Action { implicit request =>
+    Ok("")
+  }
+
+  def saveComment(urlFriendlyRegionName: String, urlFriendlyRouteName: String) = Action { implicit request =>
+    Ok("")
+  }
+
+  def deleteRoute(urlFriendlyRegionName: String, urlFriendlyRouteName: String) = Action { implicit request =>
+    Ok("")
+  }
+
+  def getRouteHtml(urlFriendlyRegionName: String, urlFriendlyRouteName: String) = Action { implicit request =>
+    Ok("")
+  }
+  
+}
+/*
 @With(CurrentUser.class)
 public class RouteController extends Controller {
 
@@ -94,3 +109,5 @@ public class RouteController extends Controller {
     }
     
 }
+
+*/

@@ -34,7 +34,7 @@ GET     /:region/:route/delete      controllers.RouteController.deleteRoute(regi
 
 GET     /:region/:route             controllers.RouteController.getRouteHtml(region, route)
 
-GET     /:region                    controllers.RegionController.getRegionHtml(region, sort ?= "name")
+GET     /:region                    controllers.RegionController.getRegionHtml(region)
 
 
 

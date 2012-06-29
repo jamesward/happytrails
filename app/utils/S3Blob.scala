@@ -1,12 +1,6 @@
-package utils;
+package utils
 
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
-import play.Application;
-import play.Logger;
-
+/*
 public class S3Blob {
     
     public static AmazonS3 amazonS3;
@@ -48,3 +42,4 @@ public class S3Blob {
     }
     
 }
+*/

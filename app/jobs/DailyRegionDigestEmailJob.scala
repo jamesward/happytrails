@@ -1,18 +1,6 @@
 package jobs;
 
-import com.typesafe.plugin.MailerAPI;
-import com.typesafe.plugin.MailerPlugin;
-import models.*;
-import play.Logger;
-import play.api.Play;
-import play.api.Mode;
-import play.api.Application;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+/*
 public class DailyRegionDigestEmailJob {
     
     public static void main(String[] args) {
@@ -95,3 +83,4 @@ public class DailyRegionDigestEmailJob {
     }
     
 }
+*/

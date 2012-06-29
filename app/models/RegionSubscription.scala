@@ -1,5 +1,6 @@
 package models;
 
+import play.api.Play.current
 import java.util.Date
 import reflect.BeanProperty
 import org.codehaus.jackson.annotate.JsonProperty

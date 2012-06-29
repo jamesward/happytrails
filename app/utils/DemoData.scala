@@ -1,8 +1,20 @@
-package utils;
+package utils
 
-import models.*;
-import play.Logger;
+import models.User
 
+object DemoData {
+  
+  def loadDemoData() {
+    
+    val jamesUser = User("James Ward", "james@demo.com", "password")
+    
+    User.create(jamesUser)
+    
+  }
+
+}
+
+/*
 public class DemoData {
 
     public static final String CRESTED_BUTTE_COLORADO_REGION = "Crested Butte, Colorado";
@@ -80,3 +92,4 @@ public class DemoData {
     }
 
 }
+*/

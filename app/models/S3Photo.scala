@@ -1,19 +1,6 @@
 package models
 
-import com.amazonaws.services.s3.model.CannedAccessControlList
-import com.amazonaws.services.s3.model.ObjectMetadata
-import com.amazonaws.services.s3.model.PutObjectRequest
-import org.imgscalr.Scalr
-import play.Logger
-import play.db.ebean.Model
-import utils.S3Blob
-
-import javax.imageio.ImageIO
-
-import java.awt.image.BufferedImage
-import java.net.MalformedURLException
-import java.net.URL
-import java.util.UUID
+import play.api.Play.current
 import reflect.BeanProperty
 import org.codehaus.jackson.annotate.JsonProperty
 import net.vz.mongodb.jackson.{Id, ObjectId}

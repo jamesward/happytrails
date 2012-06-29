@@ -1,5 +1,6 @@
 package models;
 
+import play.api.Play.current
 import java.net.URL;
 import java.util.Date;
 import reflect.BeanProperty

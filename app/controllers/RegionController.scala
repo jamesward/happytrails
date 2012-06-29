@@ -1,20 +1,50 @@
-package controllers;
+package controllers
 
-import com.sun.syndication.feed.synd.*;
-import com.sun.syndication.io.FeedException;
-import com.sun.syndication.io.SyndFeedOutput;
-import models.*;
-import play.Logger;
-import play.data.Form;
-import play.mvc.*;
 
-import java.io.IOException;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import play.api.mvc.{Action, Controller}
 
+object RegionController extends Controller {
+
+  def getRegionFeed(urlFriendlyRegionName: String) = Action { implicit request =>
+    Ok("")
+  }
+
+  def subscribe(urlFriendlyRegionName: String) = Action { implicit request =>
+    Ok("")
+  }
+
+  def unsubscribe(urlFriendlyRegionName: String) = Action { implicit request =>
+    Ok("")
+  }
+
+  def addRegion = Action { implicit request =>
+    Ok("")
+  }
+
+  def saveRegion = Action { implicit request =>
+    Ok("")
+  }
+
+  def deleteRegion(urlFriendlyRegionName: String) = Action { implicit request =>
+    Ok("")
+  }
+
+  def addRoute(urlFriendlyRegionName: String) = Action { implicit request =>
+    Ok("")
+  }
+
+  def saveRoute(urlFriendlyRegionName: String) = Action { implicit request =>
+    Ok("")
+  }
+
+  def getRegionHtml(urlFriendlyRegionName: String) = Action { implicit request =>
+    Ok("")
+  }
+  
+}
+
+
+/*
 @With(CurrentUser.class)
 public class RegionController extends Controller {
 
@@ -231,3 +261,5 @@ public class RegionController extends Controller {
     }
     
 }
+
+*/
