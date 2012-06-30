@@ -1,14 +1,53 @@
 package utils
 
-import models.User
+
+import models.Region
+import org.beaucatcher.bson.ObjectId
+import plugins.MongoDB
+import play.api.Play.current
 
 object DemoData {
   
   def loadDemoData() {
+
+    implicit val context = MongoDB.context
     
-    val jamesUser = User("James Ward", "james@demo.com", "password")
+    Region.createJson("""{"name": "Denver Front Range"}""")
+    Region.createJson("""{"name": "Park City Utah"}""")
     
-    User.create(jamesUser)
+    /*
+    val jamesUser =
+      
+        |{
+        |  fullName: "James Ward",
+        |  emailAddress: "james@demo.com",
+        |  password: "password" 
+        |}
+      """.stripMargin
+    
+    MongoDB.collection("users").insert(JSON.parse(jamesUser).asInstanceOf[DBObject])
+
+    
+    //todo: merge these into one JSON block
+    
+    val denverRegion =
+      """
+        |{
+        |  name: "Denver Front Range"
+        |}
+      """.stripMargin
+    
+    MongoDB.collection("regions").insert(JSON.parse(denverRegion).asInstanceOf[DBObject])
+    
+    val parkCityRegion = 
+      """
+        |{
+        |  name: "Park City Utah"
+        |}
+      """.stripMargin
+
+    MongoDB.collection("regions").insert(JSON.parse(parkCityRegion).asInstanceOf[DBObject])
+    */
     
   }
 

@@ -1,12 +1,26 @@
 package models;
 
-import play.api.Play.current
-import net.vz.mongodb.jackson.{Id, ObjectId}
-import org.codehaus.jackson.annotate.JsonProperty
-import play.modules.mongodb.jackson.MongoDB
-import reflect.BeanProperty
+
+import org.beaucatcher.bson.ObjectId
+import java.util.Date
+import org.beaucatcher.bobject.{BObject, JsonMethods, CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId}
+import org.beaucatcher.mongo.{BoundSyncCollection, Context}
+import org.beaucatcher.caseclass.ClassAnalysis
+
+case class Direction(_id: ObjectId, stepNumber: Int, instruction: String)
+
+object Direction extends CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId[Direction] with JsonMethods[Direction] {
+
+  override def jsonSync(implicit context: Context): BoundSyncCollection[BObject, BObject, BObject, _, _] = sync[BObject]
+
+  override val jsonAnalysis = new ClassAnalysis(classOf[Direction])
+
+  override def createQueryForAllObjects() = BObject()
+
+}
 
 
+/*
 class Direction(@ObjectId @Id val id: String,
                 @BeanProperty @JsonProperty("stepNumber") val stepNumber: Int,
                 @BeanProperty @JsonProperty("instruction") val instruction: String,
@@ -20,6 +34,7 @@ object Direction {
   def create(direction: Direction) { db.save(direction) }
   def findAll() = { db.find().toArray }
 }
+*/
 
 /*
 @Entity

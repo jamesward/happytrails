@@ -1,11 +1,17 @@
 package controllers
 
 import play.api.mvc.{Action, Controller}
+import plugins.MongoDB
+import play.api.Play.current
+import models.Region
 
 object ApplicationController extends Controller {
   
   def index = Action { implicit request =>
-    Ok("")
+    
+    implicit val context = MongoDB.context
+    
+    Ok(Region.readJson(None).get)
   }
   
   def signupForm = Action { implicit request =>

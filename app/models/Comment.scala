@@ -1,14 +1,26 @@
-package models;
+package models
 
-import play.api.Play.current
-import net.vz.mongodb.jackson.{Id, ObjectId}
-import org.codehaus.jackson.annotate.JsonProperty
-import play.modules.mongodb.jackson.MongoDB
-import reflect.BeanProperty
 import java.util.Date
 
+import org.beaucatcher.bson.ObjectId
+import org.beaucatcher.bobject.{BObject, JsonMethods, CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId}
+import org.beaucatcher.mongo.{BoundSyncCollection, Context}
+import org.beaucatcher.caseclass.ClassAnalysis
 
-class Comment(@ObjectId @Id val id: String,
+case class Comment(_id: ObjectId, value: String, creationDate: Date)
+
+object Comment extends CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId[Comment] with JsonMethods[Comment] {
+
+  override def jsonSync(implicit context: Context): BoundSyncCollection[BObject, BObject, BObject, _, _] = sync[BObject]
+
+  override val jsonAnalysis = new ClassAnalysis(classOf[Comment])
+
+  override def createQueryForAllObjects() = BObject()
+
+}
+
+/*
+case class Comment(@ObjectId @Id val id: String,
               @BeanProperty @JsonProperty("value") val value: String,
               @BeanProperty @JsonProperty("creationDate") val creationDate: Date,
               @BeanProperty @JsonProperty("photo") val photo: S3Photo,
@@ -24,6 +36,7 @@ object Comment {
   def findAll() = { db.find().toArray }
 }
 
+*/
 /*
 
 @Entity

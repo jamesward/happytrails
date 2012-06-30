@@ -1,5 +1,25 @@
-package models;
+package models
 
+import org.beaucatcher.bson.ObjectId
+import java.util.Date
+import org.beaucatcher.bobject.{BObject, JsonMethods, CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId}
+import org.beaucatcher.mongo.{BoundSyncCollection, Context}
+import org.beaucatcher.caseclass.ClassAnalysis
+
+
+case class RegionSubscription(_id: ObjectId, lastSend: Date)
+
+object RegionSubscription extends CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId[RegionSubscription] with JsonMethods[RegionSubscription] {
+
+  override def jsonSync(implicit context: Context): BoundSyncCollection[BObject, BObject, BObject, _, _] = sync[BObject]
+
+  override val jsonAnalysis = new ClassAnalysis(classOf[RegionSubscription])
+
+  override def createQueryForAllObjects() = BObject()
+
+}
+
+/*
 import play.api.Play.current
 import java.util.Date
 import reflect.BeanProperty
@@ -22,7 +42,7 @@ object RegionSubscription {
   def findAll() = { db.find().toArray }
 }
 
-/*
+
 @Entity
 public class RegionSubscription extends Model {
     

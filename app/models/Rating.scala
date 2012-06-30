@@ -1,5 +1,25 @@
-package models;
+package models
 
+import org.beaucatcher.bson.ObjectId
+import java.util.Date
+import org.beaucatcher.bobject.{BObject, JsonMethods, CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId}
+import org.beaucatcher.mongo.{BoundSyncCollection, Context}
+import org.beaucatcher.caseclass.ClassAnalysis
+
+
+case class Rating(_id: ObjectId, value: Int, creationDate: Date)
+
+object Rating extends CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId[Rating] with JsonMethods[Rating] {
+
+  override def jsonSync(implicit context: Context): BoundSyncCollection[BObject, BObject, BObject, _, _] = sync[BObject]
+
+  override val jsonAnalysis = new ClassAnalysis(classOf[Rating])
+
+  override def createQueryForAllObjects() = BObject()
+
+}
+
+/*
 import java.util.Date
 import play.api.Play.current
 import net.vz.mongodb.jackson.{Id, ObjectId}
@@ -23,7 +43,6 @@ object Rating {
   def findAll() = { db.find().toArray }
 }
 
-/*
 
 @Entity
 public class Rating extends Model {

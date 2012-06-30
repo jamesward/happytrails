@@ -1,5 +1,25 @@
 package models
 
+import org.beaucatcher.bson.ObjectId
+import org.beaucatcher.bobject.{BObject, JsonMethods, CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId}
+import org.beaucatcher.mongo.{BoundSyncCollection, Context}
+import org.beaucatcher.caseclass.ClassAnalysis
+import java.util.Date
+
+
+case class User(_id: ObjectId, token: String, emailAddress: String, shaPassword: Array[Byte], fullName: String, creationDate: Date, admin: Boolean)
+
+object User extends CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId[User] with JsonMethods[User] {
+
+  override def jsonSync(implicit context: Context): BoundSyncCollection[BObject, BObject, BObject, _, _] = sync[BObject]
+
+  override val jsonAnalysis = new ClassAnalysis(classOf[User])
+
+  override def createQueryForAllObjects() = BObject()
+
+}
+
+/*
 import java.util.Date
 
 import play.api.Play.current
@@ -40,7 +60,7 @@ object User {
   
 }
 
-/*
+
 @Entity
 @Table(name="account")  // because "user" is an invalid table name in some databases
 public class User extends Model {

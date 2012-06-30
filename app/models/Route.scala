@@ -1,5 +1,25 @@
-package models;
+package models
 
+import org.beaucatcher.bson.ObjectId
+import java.util.Date
+import org.beaucatcher.bobject.{BObject, JsonMethods, CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId}
+import org.beaucatcher.mongo.{BoundSyncCollection, Context}
+import org.beaucatcher.caseclass.ClassAnalysis
+
+
+case class Route(_id: ObjectId, name: String, urlFriendlyName: String, description: String, distanceInMiles: Double, location: String, creationDate: Date)
+
+object Route extends CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId[Route] with JsonMethods[Route] {
+
+  override def jsonSync(implicit context: Context): BoundSyncCollection[BObject, BObject, BObject, _, _] = sync[BObject]
+
+  override val jsonAnalysis = new ClassAnalysis(classOf[Route])
+
+  override def createQueryForAllObjects() = BObject()
+
+}
+
+/*
 import play.api.Play.current
 import java.net.URL;
 import java.util.Date;
@@ -32,7 +52,7 @@ object Route {
   def findAll() = { db.find().toArray }
 }
 
-/*
+
 @Entity
 public class Route extends Model {
 

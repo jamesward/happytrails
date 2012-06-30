@@ -1,5 +1,25 @@
 package models
 
+
+import org.beaucatcher.bson.ObjectId
+import org.beaucatcher.bobject.{BObject, JsonMethods, CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId}
+import org.beaucatcher.mongo.{BoundSyncCollection, Context}
+import org.beaucatcher.caseclass.ClassAnalysis
+
+
+case class S3Photo(_id: ObjectId, name: String, bucket: String, key: String)
+
+object S3Photo extends CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId[S3Photo] with JsonMethods[S3Photo] {
+
+  override def jsonSync(implicit context: Context): BoundSyncCollection[BObject, BObject, BObject, _, _] = sync[BObject]
+
+  override val jsonAnalysis = new ClassAnalysis(classOf[S3Photo])
+
+  override def createQueryForAllObjects() = BObject()
+
+}
+
+/*
 import play.api.Play.current
 import reflect.BeanProperty
 import org.codehaus.jackson.annotate.JsonProperty
@@ -21,7 +41,7 @@ object S3Photo {
   def findAll() = { db.find().toArray }
 }
 
-/*
+
 @Entity
 public class S3Photo extends Model {
 
