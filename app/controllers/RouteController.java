@@ -81,6 +81,11 @@ public class RouteController extends Controller {
 
     public static Result getRouteHtml(String urlFriendlyRegionName, String urlFriendlyRouteName) {
         Route route = getRoute(urlFriendlyRegionName, urlFriendlyRouteName);
+        
+        if (route == null) {
+            return notFound("Region not found");
+        }
+        
         return ok(views.html.route.render(route));
     }
     
