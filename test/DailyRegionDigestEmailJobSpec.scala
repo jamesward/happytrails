@@ -1,3 +1,14 @@
+import org.specs2.mutable._
+
+import play.api.http.ContentTypes
+import play.api.test._
+import play.api.test.Helpers._
+
+class DailyRegionDigestEmailJobSpec extends Specification {
+
+}
+
+/*
 import jobs.DailyRegionDigestEmailJob;
 import models.*;
 import org.junit.Test;
@@ -11,7 +22,7 @@ import static play.test.Helpers.fakeApplication;
 import static play.test.Helpers.inMemoryDatabase;
 import static play.test.Helpers.running;
 
-public class DailyRegionDigestEmailJobTest {
+public class DailyRegionDigestEmailJobSpec {
     
     @Test
     public void getRegionUserDigests() {
@@ -44,3 +55,4 @@ public class DailyRegionDigestEmailJobTest {
     }
     
 }
+*/

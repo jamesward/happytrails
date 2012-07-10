@@ -1,3 +1,30 @@
+import org.specs2.mutable._
+
+import play.api.http.ContentTypes
+import play.api.libs.MimeTypes
+import play.api.mvc.{Result, AsyncResult}
+import play.api.test._
+import play.api.test.Helpers._
+
+class ApplicationControllerSpec extends Specification {
+
+  "All regions" should {
+    "be returned as JSON via the index page" in {
+      running(FakeApplication()) {
+    
+        val result = controllers.ApplicationController.index()(FakeRequest()).asInstanceOf[AsyncResult].result.value.get
+        
+        println(contentType(result))
+        
+        status(result) must equalTo(OK)
+        contentType(result) must beSome("application/json")
+        contentAsString(result) must contain("Denver Front Range")
+      }
+    }
+  }
+  
+}
+/*
 import controllers.routes;
 import org.junit.Test;
 import play.mvc.Http;
@@ -13,7 +40,7 @@ import java.util.Map;
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.*;
 
-public class ApplicationControllerTest {
+public class ApplicationControllerSpec {
 
     @Test
     public void index() {
@@ -132,3 +159,4 @@ public class ApplicationControllerTest {
     }
 
 }
+*/

@@ -1,3 +1,14 @@
+import org.specs2.mutable._
+
+import play.api.http.ContentTypes
+import play.api.test._
+import play.api.test.Helpers._
+
+class RouteControllerSpec extends Specification {
+
+}
+
+/*
 import controllers.routes;
 import models.Region;
 import models.Route;
@@ -14,7 +25,7 @@ import java.util.Map;
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.*;
 
-public class RouteControllerTest {
+public class RouteControllerSpec {
 
     @Test
     public void getRouteHtml() {
@@ -98,3 +109,4 @@ public class RouteControllerTest {
         });
     }
 }
+*/

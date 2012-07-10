@@ -4,7 +4,6 @@ import play.api.Play.current
 import play.api.libs.concurrent._
 import play.api.mvc.{Action, Controller}
 import org.beaucatcher.bobject.{BObject, JsonFlavor, JArray}
-import org.beaucatcher.mongo.AsyncCursor
 import plugins.MongoDB
 import models.Region
 
@@ -15,15 +14,15 @@ object ApplicationController extends Controller {
     implicit val context = MongoDB.context
     
     Async {
-      Region.async.find().mapTo[AsyncCursor[BObject]].asPromise.map { asyncCursor =>
+      Region.async[BObject].find().asPromise.map { asyncCursor =>
         val jsonBuilder = JArray.newBuilder
         
         for (bobject <- asyncCursor) {
           jsonBuilder += bobject.toJValue(JsonFlavor.CLEAN)
         }
-        
-        Ok(jsonBuilder.result.toJson())      
-      }  
+
+        Ok(jsonBuilder.result.toJson()).as(JSON)
+      }
     }
   }
   

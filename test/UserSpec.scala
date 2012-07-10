@@ -1,3 +1,14 @@
+import org.specs2.mutable._
+
+import play.api.http.ContentTypes
+import play.api.test._
+import play.api.test.Helpers._
+
+class UserSpec extends Specification {
+
+}
+
+/*
 import models.User;
 
 import org.junit.Test;
@@ -9,7 +20,7 @@ import java.util.List;
 import static play.test.Helpers.*;
 import static org.fest.assertions.Assertions.*;
 
-public class UserTest {
+public class UserSpec {
 
     @Test
     public void testCreate() {
@@ -145,3 +156,4 @@ public class UserTest {
     }
 
 }
+*/

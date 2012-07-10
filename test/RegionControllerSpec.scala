@@ -1,3 +1,13 @@
+import org.specs2.mutable._
+
+import play.api.http.ContentTypes
+import play.api.test._
+import play.api.test.Helpers._
+
+class RegionControllerSpec extends Specification {
+
+}
+/*
 import controllers.routes;
 import models.RegionSubscription;
 import org.junit.Test;
@@ -16,7 +26,7 @@ import java.util.Map;
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.*;
 
-public class RegionControllerTest {
+public class RegionControllerSpec {
 
     @Test
     public void getRegionHtml() {
@@ -225,3 +235,4 @@ public class RegionControllerTest {
     }
 
 }
+*/

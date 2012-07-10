@@ -1,3 +1,14 @@
+import org.specs2.mutable._
+
+import play.api.http.ContentTypes
+import play.api.test._
+import play.api.test.Helpers._
+
+class CommentSpec extends Specification {
+
+}
+
+/*
 import models.Comment;
 import models.Region;
 import models.Route;
@@ -14,7 +25,7 @@ import static play.test.Helpers.fakeApplication;
 import static play.test.Helpers.inMemoryDatabase;
 import static play.test.Helpers.running;
 
-public class CommentTest {
+public class CommentSpec {
 
     @Test
     public void create() {
@@ -83,3 +94,4 @@ public class CommentTest {
     }
 
 }
+*/

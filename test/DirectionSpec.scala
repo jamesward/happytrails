@@ -1,3 +1,14 @@
+import org.specs2.mutable._
+
+import play.api.http.ContentTypes
+import play.api.test._
+import play.api.test.Helpers._
+
+class DirectionSpec extends Specification {
+
+}
+
+/*
 import models.Direction;
 
 import models.Route;
@@ -10,7 +21,7 @@ import static play.test.Helpers.fakeApplication;
 import static play.test.Helpers.inMemoryDatabase;
 import static play.test.Helpers.running;
 
-public class DirectionTest {
+public class DirectionSpec {
 
     @Test
     public void testCreate() {
@@ -47,3 +58,4 @@ public class DirectionTest {
     }
 
 }
+*/

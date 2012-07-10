@@ -1,3 +1,14 @@
+import org.specs2.mutable._
+
+import play.api.http.ContentTypes
+import play.api.test._
+import play.api.test.Helpers._
+
+class RatingSpec extends Specification {
+
+}
+
+/*
 import models.Rating;
 import models.Region;
 import models.Route;
@@ -16,7 +27,7 @@ import static play.test.Helpers.fakeApplication;
 import static play.test.Helpers.inMemoryDatabase;
 import static play.test.Helpers.running;
 
-public class RatingTest {
+public class RatingSpec {
 
     @Test
     public void create() {
@@ -53,7 +64,7 @@ public class RatingTest {
     }
 
     // todo: test constraints
-    /*
+    
     @Test
     public void testCreateValueBelowMin() {
         running(fakeApplication(inMemoryDatabase()), new Runnable() {
@@ -81,6 +92,7 @@ public class RatingTest {
             }
         });
     }
-    */
+    
 
 }
+*/
