@@ -4,12 +4,15 @@ import play.api.Play.current
 import play.api.libs.concurrent._
 import play.api.mvc.{Action, Controller}
 import org.beaucatcher.bobject.{BObject, JsonFlavor, JArray}
+
 import plugins.MongoDB
-import models.Region
+
+import controllers.utils.ContentAction
+import models.{User, Region}
 
 object ApplicationController extends Controller {
   
-  def index = Action { implicit request =>
+  def index = ContentAction { implicit request =>
     
     implicit val context = MongoDB.context
     
@@ -25,24 +28,44 @@ object ApplicationController extends Controller {
       }
     }
   }
+
+  def signup = ContentAction { implicit request =>
+    
+    implicit val context = MongoDB.context
+
+    request.body.asJson.map { json =>
+      // do some validation
+      
+      // save the user
+      
+      // return the token
+      
+      Ok(json).as(JSON)
+    }.getOrElse {
+      
+      BadRequest(""" {"error": "something went wrong"} """).as(JSON)
+    }
+    
+    /*
+    Async {
+      Region.async[BObject].find().asPromise.map { asyncCursor =>
+        val jsonBuilder = JArray.newBuilder
+        
+        for (bobject <- asyncCursor) {
+          jsonBuilder += bobject.toJValue(JsonFlavor.CLEAN)
+        }
+
+        Ok(jsonBuilder.result.toJson()).as(JSON)
+      }
+    }
+    */
+  }
   
-  def signupForm = Action { implicit request =>
+  def login = ContentAction { implicit request =>
     Ok("")
   }
 
-  def signup = Action { implicit request =>
-    Ok("")
-  }
-
-  def loginForm = Action { implicit request =>
-    Ok("")
-  }
-
-  def login = Action { implicit request =>
-    Ok("")
-  }
-
-  def logout = Action { implicit request =>
+  def logout = ContentAction { implicit request =>
     Ok("")
   }
   

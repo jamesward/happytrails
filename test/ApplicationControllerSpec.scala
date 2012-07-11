@@ -1,6 +1,9 @@
+import controllers.utils.AcceptExtractors
+import models.User
 import org.specs2.mutable._
 
 import play.api.http.ContentTypes
+import play.api.libs.json.{JsValue, Json}
 import play.api.libs.MimeTypes
 import play.api.mvc.{Result, AsyncResult}
 import play.api.test._
@@ -8,20 +11,61 @@ import play.api.test.Helpers._
 
 class ApplicationControllerSpec extends Specification {
 
-  "All regions" should {
-    "be returned as JSON via the index page" in {
+  "The index page" should {
+    "return all regions as JSON when the accept content type is json" in {
       running(FakeApplication()) {
-    
-        val result = controllers.ApplicationController.index()(FakeRequest()).asInstanceOf[AsyncResult].result.value.get
-        
-        println(contentType(result))
+        val fakeRequest = FakeRequest().withHeaders(ACCEPT -> AcceptExtractors.Accepts.Json.mimeType)
+        val result = controllers.ApplicationController.index()(fakeRequest).asInstanceOf[AsyncResult].result.value.get
         
         status(result) must equalTo(OK)
-        contentType(result) must beSome("application/json")
+        contentType(result) must beSome(AcceptExtractors.Accepts.Json.mimeType)
         contentAsString(result) must contain("Denver Front Range")
       }
     }
   }
+
+  "The index page" should {
+    "return the index HTML page when the accept content type is html" in {
+      running(FakeApplication()) {
+        val fakeRequest = FakeRequest().withHeaders(ACCEPT -> AcceptExtractors.Accepts.Html.mimeType)
+        val result = controllers.ApplicationController.index()(fakeRequest)
+
+        status(result) must equalTo(OK)
+        contentType(result) must beSome(AcceptExtractors.Accepts.Html.mimeType)
+        contentAsString(result) must contain("Uber Tracks")
+      }
+    }
+  }
+
+  "GET signup page" should {
+    "return the index HTML page when the accept content type is html" in {
+      running(FakeApplication()) {
+        val fakeRequest = FakeRequest().withHeaders(ACCEPT -> AcceptExtractors.Accepts.Html.mimeType)
+        val result = controllers.ApplicationController.signup()(fakeRequest)
+
+        status(result) must equalTo(OK)
+        contentType(result) must beSome(AcceptExtractors.Accepts.Html.mimeType)
+        contentAsString(result) must contain("Uber Tracks")
+      }
+    }
+  }
+  
+  "POST signup page with JSON" should {
+    "signup a new user" in {
+      running(FakeApplication()) {
+        val json = Json.parse(""" {"emailAddress": "foo@bar.com", "fullname": "Foo Bar", "password": "password"} """)
+        val fakeRequest = FakeRequest().withJsonBody(json)
+        val result = controllers.ApplicationController.signup()(fakeRequest)
+        
+        //println(contentAsString(result))
+
+        status(result) must equalTo(OK)
+        contentType(result) must beSome(AcceptExtractors.Accepts.Json.mimeType)
+      }
+    }
+  }
+  
+  
   
 }
 /*
@@ -41,31 +85,6 @@ import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.*;
 
 public class ApplicationControllerSpec {
-
-    @Test
-    public void index() {
-        running(fakeApplication(inMemoryDatabase()), new Runnable() {
-            public void run() {
-                DemoData.loadDemoData();
-                
-                Result result = callAction(routes.ref.ApplicationController.index());
-                assertThat(status(result)).isEqualTo(OK);
-                assertThat(contentAsString(result)).contains(DemoData.CRESTED_BUTTE_COLORADO_REGION);
-                assertThat(contentAsString(result)).contains("<li>");
-            }
-        });
-    }
-
-    @Test
-    public void signupForm() {
-        running(fakeApplication(inMemoryDatabase()), new Runnable() {
-            public void run() {
-                Result result = callAction(routes.ref.ApplicationController.signupForm());
-                assertThat(status(result)).isEqualTo(OK);
-                assertThat(contentAsString(result)).contains("<form");
-            }
-        });
-    }
 
     @Test
     public void signup() {

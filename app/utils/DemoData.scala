@@ -1,7 +1,7 @@
 package utils
 
 
-import models.Region
+import models.{User, Region}
 import org.beaucatcher.bson.ObjectId
 import plugins.MongoDB
 import play.api.Play.current
@@ -12,8 +12,12 @@ object DemoData {
 
     implicit val context = MongoDB.context
     
-    Region.createJson("""{"name": "Denver Front Range"}""")
-    Region.createJson("""{"name": "Park City Utah"}""")
+    Region.createJson(""" {"name": "Denver Front Range"} """)
+    Region.createJson(""" {"name": "Park City Utah"} """)
+    
+    User.createJson(""" {"fullName": "James Ward", "emailAddress": "james@demo.com", "password": "password"} """)
+    
+    
     
     /*
     val jamesUser =

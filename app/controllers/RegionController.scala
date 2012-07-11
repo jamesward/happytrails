@@ -1,7 +1,16 @@
 package controllers
 
-
+import play.api.Play.current
+import play.api.libs.concurrent._
 import play.api.mvc.{Action, Controller}
+
+import org.beaucatcher.bobject.{JValue, JsonFlavor, JArray, BObject}
+
+import plugins.MongoDB
+
+import models.Region
+import org.beaucatcher.bson.ObjectId
+
 
 object RegionController extends Controller {
 
@@ -17,19 +26,62 @@ object RegionController extends Controller {
     Ok("")
   }
 
-  def addRegion = Action { implicit request =>
-    Ok("")
-  }
+  def saveRegion = Action(parse.tolerantText) { implicit request =>
 
-  def saveRegion = Action { implicit request =>
+    implicit val context = MongoDB.context
+
+    println(request.body)
+    
     Ok("")
+    /*
+    request.body.map { jsonString =>
+    
+      println(jsonString)
+      
+      Async {
+        
+        val region = Region.parseJson(jsonString)
+        
+        println(region)
+
+        // todo: validate
+
+        // save
+        Region.async[BObject].insert(region).asPromise.map { writeResult =>
+
+          println(writeResult)
+          
+          /*
+          Region.async[Region].findOneById(region._id).asPromise.map { something =>
+            println(something)
+            
+            Ok("").as(JSON)
+          }
+          */
+          Ok(region.toJson(JsonFlavor.CLEAN)).as(JSON)
+        }
+      }
+    }.getOrElse {
+      BadRequest(""" {"error": "something went wrong"} """).as(JSON)
+    }
+    */
+    
+    /*
+    request.body.asJson.map { json =>
+      // do some validation
+
+      val region = Region.createJson(json.toString())
+
+      Ok(region).as(JSON)
+    }.getOrElse {
+
+      BadRequest(""" {"error": "something went wrong"} """).as(JSON)
+    }
+    */
+    
   }
 
   def deleteRegion(urlFriendlyRegionName: String) = Action { implicit request =>
-    Ok("")
-  }
-
-  def addRoute(urlFriendlyRegionName: String) = Action { implicit request =>
     Ok("")
   }
 
@@ -37,7 +89,7 @@ object RegionController extends Controller {
     Ok("")
   }
 
-  def getRegionHtml(urlFriendlyRegionName: String) = Action { implicit request =>
+  def getRegion(urlFriendlyRegionName: String) = Action { implicit request =>
     Ok("")
   }
   

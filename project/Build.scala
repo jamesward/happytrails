@@ -10,10 +10,10 @@ object ApplicationBuild extends Build {
     val appDependencies = Seq(
       "com.github.twitter" % "bootstrap" % "2.0.4",
       "rome" % "rome" % "1.0",
-      "org.mongodb" % "mongo-java-driver" % "2.8.0",
+      "org.mongodb" % "mongo-java-driver" % "2.8.0" ,
       "org.scala-lang" % "scalap" % "2.9.1",
       "com.typesafe" %% "play-plugins-mailer" % "2.0.2",
-      "com.amazonaws" % "aws-java-sdk" % "1.3.11",
+      //"com.amazonaws" % "aws-java-sdk" % "1.3.11",
       "org.imgscalr" % "imgscalr-lib" % "4.2"
     )      
   

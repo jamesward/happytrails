@@ -5,36 +5,36 @@
 # Home page
 GET     /                           controllers.ApplicationController.index()
 
-GET     /signup                     controllers.ApplicationController.signupForm()
+GET     /signup                     controllers.ApplicationController.signup()
 POST    /signup                     controllers.ApplicationController.signup()
 
-GET     /login                      controllers.ApplicationController.loginForm()
+GET     /login                      controllers.ApplicationController.login()
 POST    /login                      controllers.ApplicationController.login()
 
-GET     /logout                     controllers.ApplicationController.logout()
+POST    /logout                     controllers.ApplicationController.logout()
 
-GET     /addregion                  controllers.RegionController.addRegion()
+GET     /addregion                  controllers.RegionController.saveRegion()
 POST    /addregion                  controllers.RegionController.saveRegion()
 
 GET     /:region/feed               controllers.RegionController.getRegionFeed(region)
 
-GET     /:region/subscribe          controllers.RegionController.subscribe(region)
-GET     /:region/unsubscribe        controllers.RegionController.unsubscribe(region)
+POST    /:region/subscribe          controllers.RegionController.subscribe(region)
+POST    /:region/unsubscribe        controllers.RegionController.unsubscribe(region)
 
-GET     /:region/addroute           controllers.RegionController.addRoute(region)
+GET     /:region/addroute           controllers.RegionController.saveRoute(region)
 POST    /:region/addroute           controllers.RegionController.saveRoute(region)
 
-GET     /:region/delete             controllers.RegionController.deleteRegion(region)
+DELETE  /:region                    controllers.RegionController.deleteRegion(region)
 
-GET     /:region/:route/rate        controllers.RouteController.saveRating(region, route, rating: java.lang.Integer)
+POST    /:region/:route/rate        controllers.RouteController.saveRating(region, route, rating: java.lang.Integer)
 
 POST    /:region/:route/comment     controllers.RouteController.saveComment(region, route)
 
-GET     /:region/:route/delete      controllers.RouteController.deleteRoute(region, route)
+DELETE  /:region/:route             controllers.RouteController.deleteRoute(region, route)
 
-GET     /:region/:route             controllers.RouteController.getRouteHtml(region, route)
+GET     /:region/:route             controllers.RouteController.getRoute(region, route)
 
-GET     /:region                    controllers.RegionController.getRegionHtml(region)
+GET     /:region                    controllers.RegionController.getRegion(region)
 
 
 

@@ -17,9 +17,11 @@ object RouteController extends Controller {
     Ok("")
   }
 
-  def getRouteHtml(urlFriendlyRegionName: String, urlFriendlyRouteName: String) = Action { implicit request =>
+  def getRoute(urlFriendlyRegionName: String, urlFriendlyRouteName: String) = Action { implicit request =>
     Ok("")
   }
+  
+  
   
 }
 /*
