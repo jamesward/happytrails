@@ -7,7 +7,7 @@ import org.beaucatcher.caseclass.ClassAnalysis
 import java.util.Date
 
 
-case class User(_id: ObjectId, token: String, emailAddress: String, shaPassword: Array[Byte], fullName: String, creationDate: Date, admin: Boolean)
+case class User(_id: ObjectId, token: Option[String], emailAddress: String, shaPassword: Array[Byte], fullName: String, creationDate: Date = new Date(), admin: Boolean= false)
 
 object User extends CollectionAccessWithEntitiesBObjectOrCaseClassIdObjectId[User] with JsonMethods[User] {
 

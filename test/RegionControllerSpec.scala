@@ -1,8 +1,7 @@
 import controllers.utils.AcceptExtractors
+import models.Region
 import org.specs2.mutable._
 
-import play.api.http.ContentTypes
-import play.api.libs.json.Json
 import play.api.mvc.AsyncResult
 import play.api.test._
 import play.api.test.Helpers._
@@ -11,16 +10,25 @@ class RegionControllerSpec extends Specification {
 
   "POST addregion with JSON" should {
     "add a new region" in {
-      running(FakeApplication()) {
-        val json = Json.parse(""" {"name": "New Region"} """)
-        //val fakeRequest = FakeRequest()  //  withJsonBody(json)
-        val fakeRequest = FakeRequest(Helpers.POST, controllers.routes.RegionController.saveRegion().url, FakeHeaders(), "")
+      implicit val app = FakeApplication()
+      running(app) {
+        val fakeRequest = FakeRequest(Helpers.POST, controllers.routes.RegionController.saveRegion().url, FakeHeaders(), """ {"name": "New Region"} """)
         
         val result = controllers.RegionController.saveRegion()(fakeRequest).asInstanceOf[AsyncResult].result.value.get
 
         status(result) must equalTo(OK)
         contentType(result) must beSome(AcceptExtractors.Accepts.Json.mimeType)
         contentAsString(result) must contain("New Region")
+        
+        val region = Region.parseJson(contentAsString(result))
+        
+        // todo: test that the region was parsed
+        
+        val id = region.get("_id").get.unwrapped.toString
+        
+        // cleanup
+        val deleteResult = controllers.RegionController.deleteRegion(id)(FakeRequest()).asInstanceOf[AsyncResult].result.value.get
+        status(deleteResult) must equalTo(OK)
       }
     }
   }

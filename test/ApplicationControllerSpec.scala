@@ -1,5 +1,5 @@
 import controllers.utils.AcceptExtractors
-import models.User
+import models.{Region, User}
 import org.specs2.mutable._
 
 import play.api.http.ContentTypes
@@ -8,18 +8,31 @@ import play.api.libs.MimeTypes
 import play.api.mvc.{Result, AsyncResult}
 import play.api.test._
 import play.api.test.Helpers._
+import plugins.MongoDB
 
 class ApplicationControllerSpec extends Specification {
 
   "The index page" should {
     "return all regions as JSON when the accept content type is json" in {
-      running(FakeApplication()) {
+      implicit val app = FakeApplication()
+      running(app) {
+        // add a new region
+        implicit val context = MongoDB.context
+
+        val regionJson = Region.createJson(""" {"name": "Denver Front Range"} """)
+        
+        val region = Region.parseJson(regionJson)
+        
         val fakeRequest = FakeRequest().withHeaders(ACCEPT -> AcceptExtractors.Accepts.Json.mimeType)
         val result = controllers.ApplicationController.index()(fakeRequest).asInstanceOf[AsyncResult].result.value.get
         
         status(result) must equalTo(OK)
         contentType(result) must beSome(AcceptExtractors.Accepts.Json.mimeType)
         contentAsString(result) must contain("Denver Front Range")
+        
+        // delete the region
+        Region.sync.remove(region) must not beNull // todo: what happens when remove fails?
+        
       }
     }
   }

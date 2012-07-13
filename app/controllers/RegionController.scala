@@ -29,60 +29,27 @@ object RegionController extends Controller {
   def saveRegion = Action(parse.tolerantText) { implicit request =>
 
     implicit val context = MongoDB.context
-
-    println(request.body)
-    
-    Ok("")
-    /*
-    request.body.map { jsonString =>
-    
-      println(jsonString)
       
-      Async {
-        
-        val region = Region.parseJson(jsonString)
-        
-        println(region)
+    Async {
+      
+      val region = Region.parseJson(request.body)
 
-        // todo: validate
+      // todo: validate
 
-        // save
-        Region.async[BObject].insert(region).asPromise.map { writeResult =>
-
-          println(writeResult)
-          
-          /*
-          Region.async[Region].findOneById(region._id).asPromise.map { something =>
-            println(something)
-            
-            Ok("").as(JSON)
-          }
-          */
-          Ok(region.toJson(JsonFlavor.CLEAN)).as(JSON)
-        }
+      Region.async[BObject].insert(region).asPromise.map { writeResult =>
+        Ok(region.toJson(JsonFlavor.CLEAN)).as(JSON)
       }
-    }.getOrElse {
-      BadRequest(""" {"error": "something went wrong"} """).as(JSON)
     }
-    */
-    
-    /*
-    request.body.asJson.map { json =>
-      // do some validation
-
-      val region = Region.createJson(json.toString())
-
-      Ok(region).as(JSON)
-    }.getOrElse {
-
-      BadRequest(""" {"error": "something went wrong"} """).as(JSON)
-    }
-    */
-    
   }
 
-  def deleteRegion(urlFriendlyRegionName: String) = Action { implicit request =>
-    Ok("")
+  def deleteRegion(id: String) = Action { implicit request =>
+    implicit val context = MongoDB.context
+
+    Async {
+      Region.async.removeById(ObjectId(id)).asPromise.map { writeResult =>
+        Ok
+      }
+    }
   }
 
   def saveRoute(urlFriendlyRegionName: String) = Action { implicit request =>
