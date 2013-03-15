@@ -94,21 +94,52 @@ Solution:
 
     Changed AddRoutePage from:
 
-    	static content = {
-    		createButton(to: ShowRoutePage) { create() }
+        static content = {
+            createButton(to: ShowRoutePage) { create() }
             name { value("Name") }
             distance { value("Distance") }
             location { value("Location") }
-    	}
+        }
 
     To:
 
-    	static content = {
-    		createButton(to: ShowRoutePage) { create() }
+        static content = {
+            createButton(to: ShowRoutePage) { create() }
             form { $("form") }
-    	}
+        }
 
     And referenced accordingly in AuthenticatedUserSpec.
 
+Problem:
 
+    CloudBees doesn't support Grails 2.2.1
+    
+Solution:
 
+    Install Grails Wrapper, Upgrade Grails Jenkins Plugin and reconfigure
+    
+Problem:
+
+    CloudBees error when using Java 7
+    | Error Compilation error: startup failed:
+      Invalid commandline usage for javac.
+      javac: invalid source release: 1.7
+      Usage: javac <options> <source files>
+      use -help for a list of possible options
+      
+Problem:
+
+    CloudBees error when using Java 8
+    | Error Compilation error: startup failed:
+    Compile error during compilation with javac.
+    /scratch/jenkins/workspace/Happy Trails - Grails 2/work/plugins/searchable-0.6.4/src/java/grails/plugin/searchable/internal/compass/index/DefaultUnindexMethod.java:94: error: reference to delete is ambiguous
+                        session.delete(query);
+                               ^
+      both method delete(CompassQuery) in CompassOperations and method delete(CompassQuery) in CompassIndexSession match
+    Note: Some input files use or override a deprecated API.
+    Note: Recompile with -Xlint:deprecation for details.
+    Note: Some input files use unchecked or unsafe operations.
+    Note: Recompile with -Xlint:unchecked for details.
+    1 error
+    
+    
