@@ -145,4 +145,21 @@ Problem:
     Note: Recompile with -Xlint:unchecked for details.
     1 error
     
+Problem:
+
+    Upgraded app fails to start on Heroku:
+    
+    2013-03-15T21:10:56+00:00 app[web.1]: java.lang.NoClassDefFoundError: javax/servlet/AsyncContext
+    2013-03-15T21:10:56+00:00 app[web.1]: 	at org.codehaus.groovy.util.LazyReference.getLocked(LazyReference.java:46)
+    2013-03-15T21:10:56+00:00 app[web.1]: 	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:59)
+    2013-03-15T21:10:56+00:00 app[web.1]: 	at java.lang.Class.privateGetDeclaredMethods(Class.java:2444)
+    2013-03-15T21:10:56+00:00 app[web.1]: Caused by:
+    2013-03-15T21:10:56+00:00 app[web.1]: 	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:643)
+    2013-03-15T21:10:56+00:00 app[web.1]: 	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:233)
+    2013-03-15T21:10:56+00:00 app[web.1]: 	at org.codehaus.groovy.util.LazyReference.get(LazyReference.java:33)
+    2013-03-15T21:10:56+00:00 app[web.1]: 	at java.lang.Class.forName(Class.java:264)
+    
+Solution:
+
+    Changed servlet version to 2.5
     
