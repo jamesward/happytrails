@@ -22,7 +22,7 @@ class AuthenticatedUserSpec extends GebReportingSpec {
     def "signup as a new user"() {
         given:
         def server = SimpleSmtpServer.start(1025)
-        driver = new ChromeDriver()
+        //driver = new ChromeDriver()
 
         when:
         to SignupPage
@@ -75,9 +75,9 @@ class AuthenticatedUserSpec extends GebReportingSpec {
         at AddRoutePage
 
         when:
-        name = "Fun Ride"
-        distance = "10.2"
-        location = "Green River, UT"
+        form.name = "Fun Ride"
+        form.distance = "10.2"
+        form.location = "Green River, UT"
         createButton.click()
 
         then:

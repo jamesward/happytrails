@@ -24,44 +24,29 @@
         <div class="container-fluid">
             <a class="brand" href="http://ubertracks.com">Über Tracks</a>
 
-            <div class="nav-collapse">
-                <ul class="nav">
-                    <li <g:if test="${request.forwardURI == request.contextPath + '/'}">class="active"</g:if>><g:link uri="/">Bike</g:link></li>
-                    <li <g:if test="${request.forwardURI.contains('/regions')}">class="active"</g:if>><g:link uri='/regions'><g:message code="default.list.label" args="['Region']" /></g:link></li>
-                    %{--<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="nav-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>--}%
+            <ul class="nav">
+                <li <g:if test="${request.forwardURI == request.contextPath + '/'}">class="active"</g:if>><g:link uri="/">Bike</g:link></li>
+                <li <g:if test="${request.forwardURI.contains('/regions')}">class="active"</g:if>><g:link uri='/regions'><g:message code="default.list.label" args="['Region']" /></g:link></li>
+            </ul>
+            <sec:ifLoggedIn>
+            <div class="btn-group pull-right">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="icon-user"></i> <sec:loggedInUserInfo field="fullName"/>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Profile</a></li>
+                    <li class="divider"></li>
+                    <li><g:link uri="/logout">Sign Out</g:link></li>
                 </ul>
-                <sec:ifLoggedIn>
-                <div class="btn-group pull-right">
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="icon-user"></i> <sec:loggedInUserInfo field="fullName"/>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Profile</a></li>
-                        <li class="divider"></li>
-                        <li><g:link uri="/logout">Sign Out</g:link></li>
-                    <ul>
-                </div>
-                </sec:ifLoggedIn>
-                <sec:ifNotLoggedIn>
-                <g:if test="${!request.forwardURI.contains('login')}">
-                    <div class="pull-right links"><g:link uri="/login" class="login">Login</g:link> or
-                        <g:link uri="/signup" class="signup">Sign Up</g:link></div>
-                </g:if>
-                </sec:ifNotLoggedIn>
             </div>
-            <!-- /.nav-collapse -->
+            </sec:ifLoggedIn>
+            <sec:ifNotLoggedIn>
+            <g:if test="${!request.forwardURI.contains('login')}">
+                <div class="pull-right links"><g:link uri="/login" class="login">Login</g:link> or
+                    <g:link uri="/signup" class="signup">Sign Up</g:link></div>
+            </g:if>
+            </sec:ifNotLoggedIn>
         </div>
     </div>
     <!-- /navbar-inner -->

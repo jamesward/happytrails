@@ -8,9 +8,7 @@ class AddRoutePage extends ScaffoldPage {
 	
 	static content = {
 		createButton(to: ShowRoutePage) { create() }
-        name { value("Name") }
-        distance { value("Distance") }
-        location { value("Location") }
+        form { $("form") }
 	}
 
 }
