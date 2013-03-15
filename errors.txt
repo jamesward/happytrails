@@ -126,6 +126,9 @@ Problem:
       javac: invalid source release: 1.7
       Usage: javac <options> <source files>
       use -help for a list of possible options
+
+Solution:
+    Changed source/target to 1.6
       
 Problem:
 
