@@ -18,11 +18,11 @@ public class ApplicationController extends Controller {
     }
 
     public static Result signupForm() {
-        return ok(views.html.signupForm.render(form(User.class)));
+        return ok(views.html.signupForm.render(Form.form(User.class)));
     }
 
     public static Result signup() {
-        Form<User> signupForm = form(User.class).bindFromRequest();
+        Form<User> signupForm = Form.form(User.class).bindFromRequest();
         if (signupForm.hasErrors()) {
             return badRequest(views.html.signupForm.render(signupForm));
         }
@@ -44,12 +44,12 @@ public class ApplicationController extends Controller {
     }
 
     public static Result loginForm() {
-        return ok(views.html.loginForm.render(form(Login.class)));
+        return ok(views.html.loginForm.render(Form.form(Login.class)));
     }
 
     public static Result login() {
         
-        Form<Login> loginForm = form(Login.class).bindFromRequest();
+        Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
         
         if (loginForm.hasErrors()) {
             return badRequest(views.html.loginForm.render(loginForm));

@@ -1,5 +1,7 @@
 @(region: Region, sort: String)
 
+@import scala.collection.JavaConversions._
+
 @headContent = {
     <link rel="alternate" type="application/rss+xml" title="@region.getName RSS Feed" href="@routes.RegionController.getRegionFeed(region.getUrlFriendlyName)" />
 }

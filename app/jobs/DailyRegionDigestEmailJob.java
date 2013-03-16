@@ -4,6 +4,7 @@ import com.typesafe.plugin.MailerAPI;
 import com.typesafe.plugin.MailerPlugin;
 import models.*;
 import play.Logger;
+import play.api.DefaultApplication;
 import play.api.Play;
 import play.api.Mode;
 import play.api.Application;
@@ -17,7 +18,7 @@ public class DailyRegionDigestEmailJob {
     
     public static void main(String[] args) {
 
-        Application application = new Application(new File(args[0]), DailyRegionDigestEmailJob.class.getClassLoader(), null, Mode.Prod());
+        Application application = new DefaultApplication(new File(args[0]), DailyRegionDigestEmailJob.class.getClassLoader(), null, Mode.Prod());
 
         Play.start(application);
         

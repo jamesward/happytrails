@@ -5,8 +5,8 @@
 <head>
     <title>@title</title>
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("com.github.twitter/bootstrap/css/bootstrap.min.css")">
-    <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
+    <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("css/bootstrap.min.css"))'>
+    <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
     <style type="text/css">
         body {
             margin-top: 50px;

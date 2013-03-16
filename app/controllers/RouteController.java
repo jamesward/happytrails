@@ -44,14 +44,14 @@ public class RouteController extends Controller {
             return badRequest("User or Route not found");
         }
 
-        Form<Comment> commentForm = form(Comment.class).bindFromRequest();
+        Form<Comment> commentForm = Form.form(Comment.class).bindFromRequest();
         
         if (commentForm.hasErrors()) {
             flash("error", "Comment must not be empty.");
             return redirect(routes.RouteController.getRouteHtml(urlFriendlyRegionName, urlFriendlyRouteName));
         }
         
-        Comment comment = form(Comment.class).bindFromRequest().get();
+        Comment comment = Form.form(Comment.class).bindFromRequest().get();
         if (comment != null) {
             comment.user = user;
             comment.route = route;

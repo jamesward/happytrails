@@ -20,8 +20,8 @@
             <div class="row-fluid">
             @for(i <- 0.to(regions.size - 1)) {
                 <div class="span4 well">
-                    <h3><a href="@routes.RegionController.getRegionHtml(regions.get(i).getUrlFriendlyName)">@regions.get(i).getName</a></h3>
-                    <a href="@routes.RegionController.getRegionHtml(regions.get(i).getUrlFriendlyName)"><img src="@regions.get(i).photo.getUrl"></a>
+                    <h3><a href="@routes.RegionController.getRegionHtml(regions(i).getUrlFriendlyName)">@regions(i).getName</a></h3>
+                    <a href="@routes.RegionController.getRegionHtml(regions(i).getUrlFriendlyName)"><img src="@regions(i).photo.getUrl"></a>
                 </div>
             }
             </div>

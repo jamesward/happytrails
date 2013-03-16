@@ -1,4 +1,10 @@
-This is your new Play 2.0 application
-=====================================
+Setup
+-----
 
-This file will be packaged with your application, when using `play dist`.
+Create the local Postgres User and Datase:
+
+1. sudo -u postgres createuser -P hikeubertracks
+2. Enter `passsword` as the password for the `hikeubertracks` user
+3. Select `y` to enable the user to be a superuser
+4. createdb -U hikeubertracks -W -h localhost hikeubertracks
+
