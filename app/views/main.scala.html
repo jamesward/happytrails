@@ -57,8 +57,7 @@
         @bodyContent
     </div>
 
-    <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
-    <script src="@routes.Assets.at("com.github.twitter/bootstrap/js/bootstrap.min.js")"></script>
+    <script src=@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.js"))"></script>
 
 </body>
 </html>
