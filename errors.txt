@@ -116,7 +116,8 @@ Problem:
     
 Solution:
 
-    Install Grails Wrapper, Upgrade Grails Jenkins Plugin and reconfigure
+    1. Install Grails Wrapper, Upgrade Grails Jenkins Plugin and reconfigure
+    2. You can setup another Grails installation to automatically download and install Grails 2.2.1.
     
 Problem:
 
@@ -128,7 +129,9 @@ Problem:
       use -help for a list of possible options
 
 Solution:
-    Changed source/target to 1.6
+    Changed source/target to 1.6.
+    * This error is from Heroku, not CloudBees. Configured Heroku for Java 7 to fix.
+      https://devcenter.heroku.com/articles/add-java-version-to-an-existing-maven-app
       
 Problem:
 
