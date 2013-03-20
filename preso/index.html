@@ -14,26 +14,32 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet'
-          type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/smackdown.css">
-    <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
 
-    <link rel="stylesheet" href="css/sunburst.css">
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
 
     <script src="http://www.google.com/jsapi"></script>
-    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 
 <body>
 
-<div id="reveal">
-
-<!-- Used to fade in a background when a specific slide state is reached -->
-<div class="state-background"></div>
+<div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
@@ -47,14 +53,23 @@
         // Delicously hacky. Look away.
         if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) document.write('<p style="color: rgba(0,0,0,0.3); text-shadow: none;">(' + 'Swipe to navigate' + ')</p>');
     </script>
-    <div class="footnote footer">
-        <div style="border-bottom: 1px solid silver">
+    <p class="themes">
+        Theme:
+        <a href="?theme=sky#/themes">Sky</a> -
+        <a href="?theme=beige#/themes">Beige</a> -
+        <a href="?theme=simple#/themes">Simple</a> -
+        <a href="?theme=serif#/themes">Serif</a> -
+        <a href="?theme=night#/themes">Night</a> -
+        <a href="?#/themes">Default</a>
+    </p>
+    <div class="footer">
+        <header>
             Changelog
-        </div>
-        <div style="margin-left: 10px; width: 310px; margin: 0 auto; text-align: left">
-        June 24, 2012: <a href="https://gist.github.com/2973705">Play Performance Fix</a>.<br/>
-        June 19, 2012: Published for <a href="http://uberconf.com/">ÜberConf</a>.
-        </div>
+        </header>
+        <ul>
+            <li>June 24, 2012: <a href="https://gist.github.com/2973705">Play Performance Fix</a>.</li>
+            <li>June 19, 2012: Published for <a href="http://uberconf.com/">ÜberConf</a>.</li>
+        </ul>
     </div>
 </section>
 
@@ -123,18 +138,18 @@
     </section>
     <section>
         <h2>My Top 10 Favorite Features</h2>
-        <ul style="list-style-type: none;">
-            <li>0) Simple</li>
-            <li>1) URL Routing</li>
-            <li>2) Class Reloading</li>
-            <li>3) Share-Nothing</li>
-            <li>4) Java &amp; Scala Support</li>
-            <li>5) Great Testing Support</li>
-            <li>6) JPA/EBean Support</li>
-            <li>7) NIO Server (Netty)</li>
-            <li>8) Asset Compiler</li>
-            <li>9) Instant Deployment on Heroku</li>
-        </ul>
+        <ol>
+            <li>Simple</li>
+            <li>URL Routing</li>
+            <li>Class Reloading</li>
+            <li>Share-Nothing</li>
+            <li>Java &amp; Scala Support</li>
+            <li>Great Testing Support</li>
+            <li>JPA/EBean Support</li>
+            <li>NIO Server (Netty)</li>
+            <li>Asset Compiler</li>
+            <li>Instant Deployment on Heroku</li>
+        </ol>
     </section>
 </section>
 <section>
@@ -598,7 +613,7 @@
     </script>
     <pre><code id="grails-email"></code></pre>
     <p style="margin-top: 30px">
-        <small style="line-height: 1.5">* powered by the <a href="http://grails.org/plugin/mail">mail plugin</a>
+        <small>* powered by the <a href="http://grails.org/plugin/mail">mail plugin</a>
             (built-in)
         </small>
     </p>
@@ -863,7 +878,7 @@
     </ul>
   </section>
   <section>
-    <h2>YSlow</h2>
+    <h2 class="top">YSlow</h2>
     <div class="comparison">
       <img src="assets/images/yslow-bike.png" width="900"/>
       <img class="fragment" src="assets/images/yslow-hike.png" width="900"/>
@@ -871,7 +886,7 @@
   </section>
 
   <section>
-    <h2>PageSpeed</h2>
+    <h2 class="top">PageSpeed</h2>
     <div class="comparison">
       <img src="assets/images/pagespeed-bike.png" width="900"/>
       <img class="fragment" src="assets/images/pagespeed-hike.png" width="900"/>
@@ -879,7 +894,7 @@
   </section>
 
   <section>
-    <h2>Lines of Code</h2>
+    <h2 class="top">Lines of Code</h2>
     <div class="comparison">
       <img src="assets/images/cloc-grails.png" width="900"/>
       <img class="fragment" src="assets/images/cloc-play.png" width="900"/>
@@ -909,17 +924,11 @@
   </section>
 
   <section>
-    <h2>Load Testing - 1 Dyno</h2>
+    <h2 class="top">Load Testing - 1 Dyno</h2>
 
     <div class="comparison">
-      <div>
-        <img src="assets/images/bike-throughput.png" width="900"/>
-
-      </div>
-      <div class="fragment">
-        <img src="assets/images/hike-throughput.png" width="900"/>
-
-      </div>
+      <img src="assets/images/bike-throughput.png" width="900"/>
+      <img class="fragment" src="assets/images/hike-throughput.png" width="900"/>
     </div>
   </section>
 
@@ -941,14 +950,11 @@
   </section>
 
   <section>
-    <h2>Load Testing - 5 Dynos</h2>
+    <h2 class="top">Load Testing - 5 Dynos</h2>
     <div class="comparison">
-      <div>
-        <img src="assets/images/bike-throughput-5dynos.png" width="900"/>
-      </div>
-      <div class="fragment">
-        <img src="assets/images/hike-throughput-5dynos.png" width="900"/>
-      </div>
+      <img src="assets/images/bike-throughput-5dynos.png" width="900"/>
+      <img class="fragment" src="assets/images/hike-throughput-5dynos.png" width="900"/>
+
     </div>
   </section>
 
@@ -972,7 +978,7 @@
   </section>
 
   <section>
-    <h2>Load Testing - 5 Dynos + 100 users</h2>
+    <h2 class="top">Load Testing - 5 Dynos + 100 users</h2>
     <div class="comparison">
       <div>
         <img src="assets/images/bike-throughput-100users.png" width="900"/>
@@ -1207,73 +1213,45 @@
     <p><em>Learn something new*!</em></p>
 
     <a href="http://www.mcginityphoto.com/Nature/Nature/4725995_szrsM">
-      <img src="http://www.mcginityphoto.com/Nature/Nature/i-W4mgd99/2/M/DSC6057-M.jpg" width="600" height="399"/>
+      <img src="http://www.mcginityphoto.com/Nature/Nature/i-WLmNjZW/0/M/ArcdeTriumphNov2011-M.jpg" width="600" height="399"/>
     </a>
     <p class="footnote">* Or prove that we're wrong...</p>
 </section>
 </div>
 
-<!-- The navigational controls UI -->
-<aside class="controls">
-    <a class="left" href="#">&#x25C4;</a>
-    <a class="right" href="#">&#x25BA;</a>
-    <a class="up" href="#">&#x25B2;</a>
-    <a class="down" href="#">&#x25BC;</a>
-</aside>
-
-<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
-<div class="progress"><span></span></div>
-
 </div>
 
-<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
-<script src="lib/highlight.js"></script>
-<script src="lib/classList.js"></script>
 <script src="js/github-files.js"></script>
+<script src="lib/js/head.min.js"></script>
 <script src="js/reveal.min.js"></script>
 
 <script>
     // load the google charts library
     google.load('visualization', '1.0', {'packages':['corechart']});
 
-    // Parse the query string into a key/value object
-    var query = {};
-    location.search.replace(/[A-Z0-9]+?=(\w*)/gi, function (a) {
-        query[ a.split('=').shift() ] = a.split('=').pop();
-    });
-
-    // Fires each time a new slide is activated
-    Reveal.addEventListener('slidechanged', function (event) {
-        // event.indexh & event.indexv
-    });
-
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
-        // Display controls in the bottom right corner
-        controls:true,
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-        // Display a presentation progress bar
-        progress:true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-        // If true; each slide will be pushed to the browser history
-        history:true,
-
-        // Loops the presentation, defaults to false
-        loop:false,
-
-        // Flags if mouse wheel navigation should be enabled
-        mouseWheel:true,
-
-        // Apply a 3D roll to links on hover
-        rollingLinks:true,
-
-        // UI style
-        theme:query.theme || 'neon', // default/neon
-
-        // Transition style
-        transition:query.transition || 'default' // default/cube/page/concave/linear(2d)
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            //{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            //{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+            //{ src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+            //{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
     });
-
-    //hljs.initHighlightingOnLoad();
 </script>
 </body>
 </html>

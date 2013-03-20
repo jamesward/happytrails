@@ -16,7 +16,20 @@ pre code {
     padding: 2em !important;
 }
 
-.column2 {
+.reveal .themes {
+    font-size: .5em;
+    margin: 40px auto 0 auto;
+}
+
+.reveal .filename {
+    margin-top: 20px;
+    margin-right: 45px;
+    text-align: right;
+    color: #EEEEEE;
+    font-size: 18px;
+}
+
+.reveal .column2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
@@ -26,41 +39,47 @@ pre code {
     width: 100%;
 }
 
-.filename {
-    margin-top: 20px;
-    margin-right: 45px;
-    text-align: right;
-    color: #EEEEEE;
-    font-size: 18px;
-}
-
-.comparison {
+.reveal .top {
     position: absolute;
-}
-
-.comparison .fragment {
-    position: absolute;
-    top: 0;
-    opacity: 0;
-}
-
-#reveal .slides {
-    top: 20px;
-    margin-top: 0px;
-}
-
-#reveal section img {
-    margin-top: 0px;
-}
-
-.footnote {
-    margin-top: 10px; 
-    font-size: 18px
-}
-
-.footer {
-    position: absolute;
-    bottom: 0;
+    top: -350px;
     text-align: center;
     width: 100%;
+}
+
+.reveal .comparison {
+    position: absolute;
+    top: -250px;
+    width: 100%;
+}
+
+.reveal .comparison .fragment {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+}
+
+.reveal .comparison img.fragment {
+    left: 20px;
+}
+
+.reveal .footer {
+    margin: 50px auto 0 auto;
+    text-align: center;
+    width: 80%;
+    font-size: 20px;
+}
+
+.reveal .footer ul {
+    list-style: none;
+}
+
+.reveal .footer .roll {
+    line-height: 2.1;
+}
+
+.footer header {
+    border-bottom: 1px solid silver;
+    font-size: 24px;
 }
