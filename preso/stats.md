@@ -3,17 +3,17 @@ Comparison Statistics
 
 (a.k.a.) Pretty Graphs
 
-As of Tuesday (March 19th, 3 PM)
+As of Tuesday (March 19th, 10 PM)
 
 Jobs on Dice (World)
-    grails: 208
+    grails: 209
     playframework -> "play framework": 9
-    play framework: 503
+    "spring mvc": 552
 
 LinkedIn Skills (World)
-    grails: 14,048
-    play framework: 23,610
-    playframework: 238
+    grails: 14051
+    "play framework": 3397
+    "spring mvc": 13685
 
 Google Trends
     google-trends.png

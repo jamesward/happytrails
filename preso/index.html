@@ -1017,13 +1017,13 @@
 
                 var data = google.visualization.arrayToDataTable([
                     ['Jobs', 'Grails', 'Play Framework', 'Spring MVC'],
-                    ['Dice', 202, 5, 494],
-                    ['Monster', 79, 4, 193],
-                    ['Indeed', 1113, 31, 1844]
+                    ['Dice', 209, 9, 552],
+                    ['Monster', 67, 11, 188],
+                    ['Indeed', 951, 58, 1388]
                 ]);
 
                 var chart = new google.visualization.BarChart(document.getElementById('jobs_chart_div'));
-                chart.draw(data, {width:900, height:500});
+                chart.draw(data, {width:900, height:500, title: 'March 19, 2013'});
             }
         </script>
         <div id="jobs_chart_div" style="width: 900px; height: 500px;"></div>
@@ -1037,16 +1037,19 @@
 
                 var data = google.visualization.arrayToDataTable([
                     ['Skill', '# People'],
-                    ['Grails', 3240],
-                    ['Play Framework', 234],
-                    ['Spring MVC', 2890]
+                    ['Grails', 14051],
+                    ['Play Framework', 3397],
+                    ['Spring MVC', 13685]
                 ]);
 
                 var chart = new google.visualization.BarChart(document.getElementById('linkedin_chart_div'));
-                chart.draw(data, {width:900, height:500});
+                chart.draw(data, {width:900, height:500, title: 'March 19, 2013'});
             }
         </script>
         <div id="linkedin_chart_div" style="width: 900px; height: 500px;"></div>
+        <aside class="notes">
+            Grails up 20% y/y, Play up 69%
+        </aside>
     </section>
     <section>
         <h2>Google Trends</h2>
@@ -1055,7 +1058,7 @@
     <section>
         <h2>Indeed Job Trends</h2>
         <p style="text-align: center">
-          <img src="assets/images/indeed-absolute.png" width="779">
+          <img src="assets/images/indeed-absolute.png" width="777">
         </p>
     </section>
     <section>
@@ -1069,11 +1072,28 @@
                     ['March', 1503, 3365],
                     ['April', 1377, 2884],
                     ['May', 1299, 2760]
-                ]), {width:900, height:500}
+                ]), {width:900, height:500, title: 'June 2012'}
                 );
             }
         </script>
         <div id="mailinglist_messages_chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section>
+        <h2>User Mailing List Traffic</h2>
+        <script>
+            google.setOnLoadCallback(drawMailingListChart);
+
+            function drawMailingListChart() {
+                new google.visualization.BarChart(document.getElementById('mailinglist_messages_chart_div2')).draw(google.visualization.arrayToDataTable([
+                    ['Messages', 'Grails', 'Play Framework'],
+                    ['December', 1059, 1181],
+                    ['January', 973, 1797],
+                    ['February', 828, 1623]
+                ]), {width:900, height:500, title: 'March 2013'}
+                );
+            }
+        </script>
+        <div id="mailinglist_messages_chart_div2" style="width: 900px; height: 500px;"></div>
     </section>
     <section>
         <h2>Books on Amazon</h2>
@@ -1083,12 +1103,27 @@
             function drawBooksChart() {
                 new google.visualization.PieChart(document.getElementById('books_chart_div')).draw(google.visualization.arrayToDataTable([
                     ['Books', 'Amazon'],
-                    ['Grails', 12],
-                    ['Play Framework', 2]
-                ]), {width:900, height:500, pieSliceText:'value'});
+                    ['Grails', 8],
+                    ['Play Framework', 3]
+                ]), {width:900, height:500, pieSliceText:'value', title: 'March 2013'});
             }
         </script>
         <div id="books_chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section>
+        <h2>2013 Releases</h2>
+        <script>
+            google.setOnLoadCallback(drawReleasesChart);
+
+            function drawReleasesChart() {
+                new google.visualization.PieChart(document.getElementById('releases_chart_div2')).draw(google.visualization.arrayToDataTable([
+                    ['2013 Releases', '2013'],
+                    ['Grails', 1],
+                    ['Play Framework', 1]
+                ]), {width:900, height:500, pieSliceText:'value'});
+            }
+        </script>
+        <div id="releases_chart_div2" style="width: 900px; height: 500px;"></div>
     </section>
     <section>
         <h2>2012 Releases</h2>
@@ -1098,8 +1133,8 @@
             function drawReleasesChart() {
                 new google.visualization.PieChart(document.getElementById('releases_chart_div')).draw(google.visualization.arrayToDataTable([
                     ['2012 Releases', '2012'],
-                    ['Grails', 3],
-                    ['Play Framework', 2]
+                    ['Grails', 9],
+                    ['Play Framework', 6]
                 ]), {width:900, height:500, pieSliceText:'value'});
             }
         </script>
@@ -1113,8 +1148,8 @@
             function drawStackOverflowChart() {
                 new google.visualization.PieChart(document.getElementById('stackoverflow_chart_div')).draw(google.visualization.arrayToDataTable([
                     ['Tagged Questions', '#'],
-                    ['grails', 7430],
-                    ['playframework', 2467]
+                    ['grails', 10710],
+                    ['playframework', 3950]
                 ]), {width:900, height:500, pieSliceText:'value'});
             }
         </script>
