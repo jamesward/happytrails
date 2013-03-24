@@ -79,6 +79,36 @@ pre code {
     line-height: 2.1;
 }
 
+.reveal .legend {
+    background: white;
+    font-size: .4em;
+    color: black;
+    width: 200px;
+    position: absolute;
+    top: 175px;
+    right: 80px;
+}
+
+.legend .box {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.legend .box:last-child {
+    margin-left: 20px;
+}
+
+.legend .blue {
+    background: blue;
+}
+
+.legend .red {
+    background: red;
+}
+
 .footer header {
     border-bottom: 1px solid silver;
     font-size: 24px;

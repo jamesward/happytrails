@@ -911,12 +911,12 @@
 
     <div style="width: 600px; margin: 0 auto">
       <div style="float: left">
-        <img src="assets/images/bike-test-stats.png" height="254" width="258"/>
+        <img src="assets/images/bike-test-stats.png" height="253" width="257"/>
 
         <p>Bike (Grails)</p>
       </div>
       <div style="float: right">
-        <img src="assets/images/hike-test-stats.png" height="255" width="260"/>
+        <img src="assets/images/hike-test-stats.png" height="253" width="257"/>
 
         <p>Hike (Play)</p>
       </div>
@@ -937,12 +937,12 @@
 
     <div style="width: 600px; margin: 0 auto">
       <div style="float: left">
-        <img src="assets/images/bike-test-stats-5dynos.png" height="250" width="245"/>
+        <img src="assets/images/bike-test-stats-5dynos.png" height="253" width="248"/>
 
         <p>Bike (Grails)</p>
       </div>
       <div style="float: right">
-        <img src="assets/images/hike-test-stats-5dynos.png" height="250" width="247"/>
+        <img src="assets/images/hike-test-stats-5dynos.png" height="253" width="248"/>
 
         <p>Hike (Play)</p>
       </div>
@@ -967,7 +967,7 @@
 
            var data = google.visualization.arrayToDataTable([
                 ['10000 Requests (100 Concurrent)', 'Grails', 'Play Framework'],
-                ['Requests / Second', 198, 251]
+                ['Requests / Second', 118, 233]
             ]);
 
             var chart = new google.visualization.BarChart(document.getElementById('load_chart_div'));
@@ -1054,6 +1054,11 @@
     <section>
         <h2>Google Trends</h2>
         <img src="assets/images/google-trends.png">
+        <div class="legend">
+            <span class="box blue"></span> Grails
+            <span class="box red"></span> Play
+        </div>
+        <!--script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=Grails,+%22Play+Framework%22&content=1&cid=TIMESERIES_GRAPH_AVERAGES_CHART&export=5&w=500&h=300"></script-->
     </section>
     <section>
         <h2>Indeed Job Trends</h2>
@@ -1187,18 +1192,16 @@
     <h2>Conclusions: Statistical Analysis</h2>
     <ul>
       <li>Grails has better support for FEO (YSlow, PageSpeed)</li>
-      <li>Grails has less LOC! (6 lines less, but 40% more files)</li>
-      <li>1 Dyno - Grails had 2x transactions!
-        <ul><li>Grails experienced OOM about halfway through.</li></ul>
-      </li>
+      <li>Grails has less LOC! (4 more files, but 20% less code)</li>
+      <li>1 Dyno - Grails had 30% more transactions!</li>
       <li>Apache Benchmark with 10K requests:
         <ul>
-          <li>Requests per second: {Play: 251, Grails: 198}</li>
+          <li>Requests per second: {Play: 233, Grails: 118}</li>
         </ul>
       </li>
       <li>Load Test with 100 Real Users:
         <ul>
-          <li>Grails: 10% more transactions, 0 errors</li>
+          <li>Grails: 25% more transactions, but 1 error (Play: 0)</li>
         </ul>
       </li>
     </ul>
