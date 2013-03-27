@@ -12,7 +12,7 @@ object ApplicationBuild extends Build {
     javaCore,
     javaJdbc,
     javaEbean,
-    "org.webjars" % "webjars-play" % "2.1.0",
+    "org.webjars" % "webjars-play" % "2.1.0-1",
     "org.webjars" % "bootstrap" % "2.3.1",
     "postgresql" % "postgresql" % "9.1-901-1.jdbc4",
     "rome" % "rome" % "1.0",

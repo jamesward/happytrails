@@ -6,6 +6,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import org.imgscalr.Scalr;
 import play.Logger;
 import play.db.ebean.Model;
+import play.Play;
 import utils.S3Blob;
 
 import javax.imageio.ImageIO;
@@ -28,7 +29,7 @@ public class S3Photo extends Model {
     public String key;
     
     public URL getUrl() throws MalformedURLException {
-        return new URL("https://s3.amazonaws.com/" + bucket + "/" + key);
+        return new URL(Play.application().configuration().getString("s3url") + "/" + key);
     }
     
     public S3Photo() {
