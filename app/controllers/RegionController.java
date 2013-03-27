@@ -5,6 +5,7 @@ import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedOutput;
 import models.*;
 import play.Logger;
+import play.cache.Cache;
 import play.data.Form;
 import play.mvc.*;
 
@@ -108,6 +109,7 @@ public class RegionController extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result addRegion() {
+        Cache.remove("regions");
         return ok(views.html.regionForm.render(Form.form(Region.class)));
     }
 
@@ -142,6 +144,7 @@ public class RegionController extends Controller {
                 S3Photo photo = new S3Photo(photoFilePart.getFile(), 300);
                 region.photo = photo;
                 region.save();
+                Cache.remove("regions");
                 return redirect(routes.RegionController.getRegionHtml(region.getUrlFriendlyName(), "name"));
             } catch (IOException e) {
                 Logger.error(e.getMessage());
@@ -165,6 +168,8 @@ public class RegionController extends Controller {
         }
 
         region.delete();
+
+        Cache.remove("regions");
 
         return redirect(routes.ApplicationController.index());
     }

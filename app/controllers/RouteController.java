@@ -1,7 +1,7 @@
 package controllers;
 
-import ch.qos.logback.core.pattern.parser.FormattingNode;
 import models.*;
+import play.cache.Cache;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -56,6 +56,7 @@ public class RouteController extends Controller {
             comment.user = user;
             comment.route = route;
             comment.save();
+            Cache.remove("five-most-recent-comments");
         }
         
         return redirect(routes.RouteController.getRouteHtml(urlFriendlyRegionName, urlFriendlyRouteName));
@@ -75,6 +76,7 @@ public class RouteController extends Controller {
         }
         
         route.delete();
+        Cache.remove("five-most-recent-comments");
 
         return redirect(routes.RegionController.getRegionHtml(urlFriendlyRegionName, "name"));
     }

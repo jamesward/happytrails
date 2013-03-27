@@ -2,6 +2,7 @@ package controllers;
 
 import models.Region;
 import models.User;
+import play.cache.Cache;
 import play.data.Form;
 import play.data.validation.Constraints;
 import play.mvc.Controller;
@@ -9,12 +10,19 @@ import play.mvc.Result;
 import play.mvc.Security;
 import play.mvc.With;
 
+import java.util.List;
+
 
 @With(CurrentUser.class)
 public class ApplicationController extends Controller {
 
     public static Result index() {
-        return ok(views.html.index.render(Region.find.all()));
+        List<Region> regions = (List<Region>)Cache.get("regions");
+        if (regions == null) {
+            regions = Region.find.all();
+            Cache.set("regions", regions);
+        }
+        return ok(views.html.index.render(regions));
     }
 
     public static Result signupForm() {
@@ -48,7 +56,6 @@ public class ApplicationController extends Controller {
     }
 
     public static Result login() {
-        
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
         
         if (loginForm.hasErrors()) {
@@ -72,6 +79,7 @@ public class ApplicationController extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result logout() {
+        Cache.remove(session().get("token"));
         session().remove("token");
         return redirect(routes.ApplicationController.index());
     }

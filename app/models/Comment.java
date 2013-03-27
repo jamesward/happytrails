@@ -1,6 +1,7 @@
 package models;
 
 import com.avaje.ebean.FetchConfig;
+import play.cache.*;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
@@ -48,7 +49,12 @@ public class Comment extends Model {
     public static Finder<Long, Comment> find = new Finder<Long, Comment>(Long.class, Comment.class);
 
     public static List<Comment> fiveMostRecent() {
-        return find.orderBy("creationDate desc").fetch("route.region", new FetchConfig().query()).setMaxRows(5).findList();
+        List<Comment> comments = (List<Comment>)play.cache.Cache.get("five-most-recent-comments");
+        if (comments == null) {
+            comments = find.orderBy("creationDate desc").fetch("route.region", new FetchConfig().query()).setMaxRows(5).findList();
+            play.cache.Cache.set("five-most-recent-comments", comments);
+        }
+        return comments;
     }
     
 }
