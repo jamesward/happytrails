@@ -22,9 +22,6 @@ grails.mime.types = [html: ['text/html', 'application/xhtml+xml'],
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
 
-grails.resources.mappers.baseurl.enabled = true
-grails.resources.mappers.baseurl.default = "http://d21keq213e95n.cloudfront.net"
-
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
 grails.views.gsp.encoding = "UTF-8"
@@ -76,6 +73,9 @@ environments {
                 password=System.env.SENDGRID_PASSWORD
             }
         }
+
+        grails.resources.mappers.baseurl.enabled = true
+        grails.resources.mappers.baseurl.default = "http://d21keq213e95n.cloudfront.net"
     }
 }
 
