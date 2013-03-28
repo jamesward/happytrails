@@ -8,6 +8,10 @@ class Photo {
         thumbnailUrl blank: false
     }
 
+    static mapping = {
+        cache true
+    }
+
     URL thumbnailUrl
     URL fullUrl
 }

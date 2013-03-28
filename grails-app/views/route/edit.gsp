@@ -13,7 +13,7 @@
             <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a> <span class="divider">/</span></li>
             <li><g:link controller="region" action="list">Regions</g:link> <span class="divider">/</span></li>
             <li><g:link uri="/${routeInstance.region.seoName}">${routeInstance.region.name}</g:link> <span class="divider">/</span></li>
-            <li>${routeInstance.name}</fieldset>
+            <li>${routeInstance.name}</li>
         </ul>
         </g:set>
     <div class="row-fluid">

@@ -1,7 +1,11 @@
+package happytrails
+
+import groovy.transform.CompileStatic
 import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUser
 
 import org.springframework.security.core.GrantedAuthority
 
+@CompileStatic
 class CustomUserDetails extends GrailsUser {
 
    final String fullName

@@ -24,6 +24,7 @@ class Route implements Rateable, Commentable {
 
     static mapping = {
         directions sort: 'stepNumber'
+        cache true
     }
 
     String name

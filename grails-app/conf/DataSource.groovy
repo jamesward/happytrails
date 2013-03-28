@@ -33,7 +33,7 @@ environments {
             password = uri.userInfo.split(":")[1]
             pooled = true
             properties {
-                maxActive = 4
+                maxActive = -1
                 minEvictableIdleTimeMillis = 1800000
                 timeBetweenEvictionRunsMillis = 1800000
                 numTestsPerEvictionRun = 3
