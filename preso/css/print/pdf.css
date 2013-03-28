@@ -162,3 +162,36 @@ ul, ol, div, p {
 .reveal small a {
 	font-size: 16pt !important;
 }
+
+.reveal .top {
+    position: relative;
+    top: 20px;
+}
+
+.reveal .comparison {
+    position: relative;
+    min-height: 600px;
+    top: 50px;
+}
+
+.reveal .comparison .fragment {
+    position: relative;
+}
+
+.reveal .comparison img.fragment {
+
+}
+
+.reveal .quote {
+    position: relative;
+}
+
+.reveal .faded {
+    position: relative;
+    display: none;
+}
+
+.reveal .legend {
+    position: relative;
+}
+
