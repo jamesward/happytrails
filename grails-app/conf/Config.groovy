@@ -74,8 +74,8 @@ environments {
             }
         }
 
-        grails.resources.mappers.baseurl.enabled = false
-        grails.resources.mappers.baseurl.default = "http://d21keq213e95n.cloudfront.net"
+        grails.resources.mappers.baseurl.enabled = true
+        grails.resources.mappers.baseurl.default = "http://dke2vwgtydyev.cloudfront.net"
     }
 }
 
