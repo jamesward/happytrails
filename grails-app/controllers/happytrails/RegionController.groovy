@@ -1,7 +1,9 @@
 package happytrails
 
+import grails.plugin.cache.CacheEvict
+import grails.plugin.cache.CachePut
+import grails.plugin.cache.Cacheable
 import org.springframework.dao.DataIntegrityViolationException
-import grails.plugins.springsecurity.Secured
 
 class RegionController {
 
@@ -13,15 +15,18 @@ class RegionController {
         redirect(action: "list", params: params)
     }
 
+    @Cacheable("region")
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [regionInstanceList: Region.list(params), regionInstanceTotal: Region.count()]
     }
 
+    @CachePut(value='region', key='#region.name')
     def create() {
         [regionInstance: new Region(params)]
     }
 
+    @CachePut(value='region', key='#region.name')
     def save() {
         def regionInstance = new Region(params)
         if (!regionInstance.save(flush: true)) {
@@ -33,6 +38,7 @@ class RegionController {
         redirect(action: "show", id: regionInstance.id)
     }
 
+    @Cacheable("region")
     def find() {
         if (params.region == "login") {
             redirect(controller: "login", action: "auth")
@@ -55,6 +61,7 @@ class RegionController {
         render(view: "show", model: [regionInstance: regionInstance])
     }
 
+    @Cacheable("region")
     def show() {
         def regionInstance = Region.get(params.id)
         if (!regionInstance) {
@@ -121,7 +128,7 @@ class RegionController {
         }
     }
 
-    //@Secured(['ROLE_ADMIN'])
+    @Cacheable("region")
     def edit() {
         def regionInstance = Region.get(params.id)
         if (!regionInstance) {
@@ -133,6 +140,7 @@ class RegionController {
         [regionInstance: regionInstance]
     }
 
+    @CachePut(value='region', key='#region.name')
     def update() {
         def regionInstance = Region.get(params.id)
         if (!regionInstance) {
@@ -163,6 +171,7 @@ class RegionController {
         redirect(action: "show", id: regionInstance.id)
     }
 
+    @CacheEvict(value='region', key='#region.name')
     def delete() {
         def regionInstance = Region.get(params.id)
         if (!regionInstance) {
