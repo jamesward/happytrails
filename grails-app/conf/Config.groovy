@@ -143,3 +143,12 @@ grails.commentable.poster.evaluator = {
 cloudbees.account = 'happytrails'
 cloudbees.api.key = '3160AB4C28E2FC90'
 cloudbees.api.secret = 'SHSLTMEQEQXKN8RI0IHOTUZVAMUPKGQFBMKGJT9YT7G='
+
+grails.cache.config = {
+   cache {
+      name 'home'
+   }
+   cache {
+      name 'user'
+   }
+}

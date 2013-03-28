@@ -3,6 +3,7 @@ package happytrails
 import groovy.transform.CompileStatic
 import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUserDetailsService
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
+import grails.plugin.cache.Cacheable
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.GrantedAuthorityImpl
 import org.springframework.security.core.userdetails.UserDetails
@@ -23,6 +24,7 @@ class UserDetailsService implements GrailsUserDetailsService {
 		return loadUserByUsername(username)
 	}
 
+    @Cacheable("user")
 	UserDetails loadUserByUsername(String _username) throws UsernameNotFoundException {
 
 		UserDetails userDetails = null

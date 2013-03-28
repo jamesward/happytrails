@@ -46,6 +46,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
+        compile ":cache:1.0.1"
         compile ":cache-headers:1.1.5"
         compile ":cloud-bees:0.6.2"
         compile ":commentable:0.8.1"
