@@ -2,7 +2,7 @@ function getGithubFile(user, repo, sha, callback, startLineNum, endLineNum) {
     startLineNum = (typeof startLineNum == "undefined") ? 1 : startLineNum
     endLineNum = (typeof endLineNum == "undefined") ? 0 : endLineNum
 
-    var url = "https://api.github.com/repos/" + user + "/" + repo + "/git/blobs/" + sha;
+    var url = "https://api.github.com/repos/" + user + "/" + repo + "/git/blobs/" + sha + "?client_id=703475a99fa5017d2921&client_secret=99ed6dc1edac3f3f5d5f300ac0d4d682ff641b3a"
 
     $.ajax({
         type:"GET",
