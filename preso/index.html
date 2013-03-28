@@ -1201,10 +1201,10 @@
     <h2>Conclusions: Code</h2>
     <ul>
       <li>From a code perspective, very similar frameworks.</li>
-      <li>Code authoring good in both, but lacking for Scala Templates.</li>
+      <li>Code authoring good in both.</li>
       <li>Grails Plugin Ecosystem is excellent.</li>
       <li>TDD-Style Development easy with both.</li>
-      <li>Type-safety in Play 2 was really useful, especially routes.</li>
+      <li>Type-safety in Play 2 was really useful, especially routes and upgrades.</li>
     </ul>
   </section>
   <section>
@@ -1212,18 +1212,12 @@
     <ul>
       <li>Grails has better support for FEO (YSlow, PageSpeed)</li>
       <li>Grails has less LOC! (4 more files, but 20% less code)</li>
-      <li>1 Dyno - Grails had 30% more transactions!</li>
-      <li>Apache Benchmark with 10K requests:
+      <li>Apache Bench with 10K requests (2 Dynos):
         <ul>
-          <li>Requests per second: {Play: 233, Grails: 118}</li>
+          <li>Requests per second: {Play: 2227, Grails: 1053}</li>
         </ul>
       </li>
-      <li>Load Test with 100 Real Users:
-        <ul>
-          <li>Grails: 25% more transactions, but 1 error (Play: 0)</li>
-        </ul>
-      </li>
-      <li>Load Time: Grails 60% faster!</li>
+      <li>Caching significantly helps!</li>
     </ul>
   </section>
   <section>
