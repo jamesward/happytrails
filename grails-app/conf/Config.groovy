@@ -1,16 +1,4 @@
-// locations to search for config files that get merged into the main config
-// config files can either be Java properties files or ConfigSlurper scripts
-
-// grails.config.locations = [ "classpath:${appName}-config.properties",
-//                             "classpath:${appName}-config.groovy",
-//                             "file:${userHome}/.grails/${appName}-config.properties",
-//                             "file:${userHome}/.grails/${appName}-config.groovy"]
-
-// if (System.properties["${appName}.config.location"]) {
-//    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
-// }
-
-
+grails.app.context = "/"
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -33,6 +21,9 @@ grails.mime.types = [html: ['text/html', 'application/xhtml+xml'],
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
+
+grails.resources.mappers.baseurl.enabled = true
+grails.resources.mappers.baseurl.default = "http://d21keq213e95n.cloudfront.net"
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
@@ -77,7 +68,7 @@ environments {
             mail {
                 host = "smtp.sendgrid.net"
                 port = 587
-                props = ["mail.smtp.auth":"true", 					   
+                props = ["mail.smtp.auth":"true",
                          "mail.smtp.socketFactory.port":"465",
                          "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
                          "mail.smtp.socketFactory.fallback":"false"]
@@ -90,13 +81,6 @@ environments {
 
 // log4j configuration
 log4j = {
-    // Example of changing the log pattern for the default console
-    // appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
-
     warn 'grails.app.services.grails.plugins.springsecurity.ui.SpringSecurityUiService'
 
     error 'org.codehaus.groovy.grails.web.servlet',  //  controllers
