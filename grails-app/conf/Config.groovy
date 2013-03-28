@@ -1,4 +1,4 @@
-//grails.app.context = "/"
+grails.app.context = "/"
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -75,7 +75,7 @@ environments {
         }
 
         grails.resources.mappers.baseurl.enabled = true
-        grails.resources.mappers.baseurl.default = "http://dke2vwgtydyev.cloudfront.net"
+        grails.resources.mappers.baseurl.default = "http://dke2vwgtydyev.cloudfront.net/static"
     }
 }
 
