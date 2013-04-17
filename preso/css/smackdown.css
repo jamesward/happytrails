@@ -9,7 +9,7 @@ section > code {
 
 pre {
     max-height: 400px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 pre code {
@@ -129,4 +129,8 @@ pre code {
 .footer header {
     border-bottom: 1px solid silver;
     font-size: 24px;
+}
+
+.reveal .chart {
+    margin: 0 auto;
 }
