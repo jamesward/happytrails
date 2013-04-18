@@ -165,7 +165,8 @@ ul, ol, div, p {
 
 .reveal .top {
     position: relative;
-    top: 20px;
+    top: -20px;
+    margin-bottom: 10px;
 }
 
 .reveal .themes {
@@ -174,7 +175,7 @@ ul, ol, div, p {
 
 .reveal .comparison {
     position: relative;
-    top: 50px;
+    top: 30px;
 }
 
 .reveal .quote {
@@ -188,18 +189,19 @@ ul, ol, div, p {
 
 .reveal .comparison img:first-child {
     margin-top: -50px;
-    height: 80%;
+    width: 75% !important;
 }
 
 .reveal section > h2 + img {
     margin-top: -10px;
     height: 80%;
-    width: 80%;
 }
 
 .reveal .comparison img.fragment {
     display: block;
-    top: 50px;
+    top: 30px;
+    width: 80% !important;
+    margin: 0 auto;
 }
 
 .reveal .column2 ul {
@@ -230,7 +232,7 @@ ul, ol, div, p {
 }
 
 .reveal .endnote {
-    margin-top: -20px;
+    margin-top: -18px;
 }
 
 .reveal .conclusions ul {
