@@ -88,7 +88,7 @@ public class RouteController extends Controller {
             return notFound("Region not found");
         }
         
-        return ok(views.html.route.render(route));
+        return ok(views.html.route.render(route, flash()));
     }
     
     private static Route getRoute(String urlFriendlyRegionName, String urlFriendlyRouteName) {
