@@ -83,12 +83,11 @@ pre code {
 }
 
 .reveal .legend {
-    background: white;
     font-size: .4em;
     color: black;
     width: 200px;
     position: absolute;
-    top: 175px;
+    top: 170px;
     right: 80px;
 }
 
