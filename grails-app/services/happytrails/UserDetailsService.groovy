@@ -31,7 +31,7 @@ class UserDetailsService implements GrailsUserDetailsService {
 
 		User.withSession {
 
-			User user = User.findWhere(username: _username) as User
+			User user = (User) User.findWhere(username: _username)
 
 			if (!user) throw new UsernameNotFoundException(
 					'User not found', _username)
