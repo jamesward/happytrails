@@ -157,29 +157,59 @@ ul, ol, div, p {
 }
 .reveal .roll {
 	overflow: visible;
-	line-height: 1em;
 }
+
 .reveal small a {
 	font-size: 16pt !important;
 }
 
 .reveal .top {
     position: relative;
-    top: 20px;
+    top: -20px;
+    margin-bottom: 10px;
+}
+
+.reveal .themes {
+    display: none;
 }
 
 .reveal .comparison {
     position: relative;
-    min-height: 600px;
-    top: 50px;
+    top: 30px;
+}
+
+.reveal .quote {
+    left: 0;
 }
 
 .reveal .comparison .fragment {
     position: relative;
+    display: none;
+}
+
+.reveal .comparison img:first-child {
+    margin-top: -50px;
+    width: 75% !important;
+}
+
+.reveal section > h2 + img {
+    margin-top: -10px;
+    height: 80%;
 }
 
 .reveal .comparison img.fragment {
+    display: block;
+    top: 30px;
+    width: 80% !important;
+    margin: 0 auto;
+}
 
+.reveal .column2 ul {
+    vertical-align: top;
+}
+
+.reveal .column2 .right-column {
+    margin-left: 200px;
 }
 
 .reveal .quote {
@@ -193,5 +223,18 @@ ul, ol, div, p {
 
 .reveal .legend {
     position: relative;
+    top: -350px;
+    right: -660px;
 }
 
+.reveal .footnote {
+    margin-top: -90px;
+}
+
+.reveal .endnote {
+    margin-top: -18px;
+}
+
+.reveal .conclusions ul {
+    width: 80%;
+}

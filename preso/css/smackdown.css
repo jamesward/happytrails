@@ -9,7 +9,7 @@ section > code {
 
 pre {
     max-height: 400px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 pre code {
@@ -83,12 +83,11 @@ pre code {
 }
 
 .reveal .legend {
-    background: white;
     font-size: .4em;
     color: black;
     width: 200px;
     position: absolute;
-    top: 175px;
+    top: 170px;
     right: 80px;
 }
 
@@ -129,4 +128,8 @@ pre code {
 .footer header {
     border-bottom: 1px solid silver;
     font-size: 24px;
+}
+
+.reveal .chart {
+    margin: 0 auto;
 }

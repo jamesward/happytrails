@@ -218,7 +218,7 @@
             <li><a href="#/7/12">Validation</a></li>
             <li><a href="#/7/14">IDE Support</a></li>
         </ul>
-        <ul>
+        <ul class="right-column">
             <li><a href="#/7/16">Job</a></li>
             <li><a href="#/7/18">Feed</a></li>
             <li><a href="#/7/20">Email</a></li>
@@ -261,7 +261,6 @@
         <li>Auto-created schema file is database dependent</li>
         <li>Play 2 supports multiple datasources (Play 1 does not)</li>
     </ul>
-    <br/><br/>
 
     <p id="playsql2-filename" class="filename">conf/evolutions/default/2.sql</p>
     <script>
@@ -336,7 +335,7 @@
             })
         })
     </script>
-    <pre><code id="grails-models"></code></pre>
+    <pre style="height: 350px"><code id="grails-models"></code></pre>
 </section>
 <section>
     <h3>Models - Play</h3>
@@ -346,8 +345,6 @@
         <li>Query DSL</li>
         <li>Lazy Loading (except in Scala Templates)</li>
     </ul>
-    <br/>
-    <br/>
 
     <p id="playebean-filename" class="filename">app/models/Direction.java</p>
     <script>
@@ -359,7 +356,7 @@
             }, 11, 27)
         })
     </script>
-    <pre><code id="playebean"></code></pre>
+    <pre style="height: 350px"><code id="playebean"></code></pre>
 </section>
 <section>
     <h3>Controllers - Grails</h3>
@@ -383,8 +380,6 @@
         <li>Stateless - Composable - Interceptable</li>
         <li>Clean connection between URLs and response code</li>
     </ul>
-    <br/>
-    <br/>
 
     <p id="playcontroller-filename" class="filename">app/controllers/RouteController.java</p>
     <script>
@@ -417,7 +412,7 @@
             })
         })
     </script>
-    <pre><code id="grails-view"></code></pre>
+    <pre style="height: 350px"><code id="grails-view"></code></pre>
 </section>
 <section>
     <h3>Views - Play</h3>
@@ -427,8 +422,6 @@
         <li>Composable</li>
         <li>Compiled</li>
     </ul>
-    <br/>
-    <br/>
 
     <p id="playview-filename" class="filename">app/views/region.scala.html</p>
     <script>
@@ -454,8 +447,8 @@
                   linkToFile(selectorId, 'grails2', 22);
               }, 22, 31)
           })
-      </script>
-      <pre><code id="grails-controller-validation"></code></pre>
+    </script>
+    <pre style="font-size: 15px"><code id="grails-controller-validation"></code></pre>
 
     <p id="grails-view-validation-filename" class="filename">grails-app/views/route/create.gsp</p>
     <script>
@@ -467,7 +460,7 @@
               }, 25, 31)
           })
       </script>
-      <pre><code id="grails-view-validation"></code></pre>
+      <pre style="font-size: 15px"><code id="grails-view-validation"></code></pre>
 </section>
 <section>
     <h3>Validation - Play</h3>
@@ -482,7 +475,7 @@
             }, 24, 28)
         })
     </script>
-    <pre><code id="playhaserrors"></code></pre>
+    <pre style="font-size: 16px"><code id="playhaserrors"></code></pre>
 
     <p id="playform-filename" class="filename">app/views/signupForm.scala.html</p>
     <script>
@@ -494,7 +487,7 @@
             }, 7, 18)
         })
     </script>
-    <pre><code id="playform"></code></pre>
+    <pre style="font-size: 16px"><code id="playform"></code></pre>
 </section>
 
 <section>
@@ -502,7 +495,7 @@
 
     <p><img src="assets/images/grails-intellij.png" width="80%"/></p>
 
-    <p><em>IntelliJ Rocks!</em></p>
+    <p class="footnote"><em>IntelliJ Rocks!</em></p>
 </section>
 <section>
     <h3>IDE Support - Play</h3>
@@ -584,8 +577,6 @@
         <li>No direct RSS/Atom support</li>
         <li>Dependency: "rome" % "rome" % "1.0"</li>
     </ul>
-    <br/>
-    <br/>
 
     <p id="playfeed-filename" class="filename">app/jobs/DailyRegionDigestEmailJob.java</p>
     <script>
@@ -613,7 +604,7 @@
             }, 19, 24)
         })
     </script>
-    <pre><code id="grails-email"></code></pre>
+    <pre><code id="grails-email" style="padding-left: 0 !important"></code></pre>
     <p style="margin-top: 30px">
         <small>* powered by the <a href="http://grails.org/plugin/mail">mail plugin</a>
             (built-in)
@@ -639,7 +630,7 @@
             }, 35, 39)
         })
     </script>
-    <pre><code id="playemailsend"></code></pre>
+    <pre style="font-size: 17px"><code id="playemailsend"></code></pre>
 
     <p id="playemailconfig-filename" class="filename">conf/prod.conf</p>
     <script>
@@ -651,7 +642,7 @@
             }, 9, 13)
         })
     </script>
-    <pre><code id="playemailconfig"></code></pre>
+    <pre style="font-size: 18px"><code id="playemailconfig"></code></pre>
 </section>
 
 <section>
@@ -663,8 +654,6 @@
     <ul>
         <li>Amazon S3 for Persistent File Storage</li>
     </ul>
-    <br/>
-    <br/>
 
     <p id="plays3photo-filename" class="filename">app/models/S3Photo.java</p>
     <script>
@@ -709,8 +698,8 @@
             })
         })
     </script>
-    <pre><code id="grails-tests"></code></pre>
-    <p><small>* Grails plugins often aren't in test scope.</small></p>
+    <pre style="height: 350px"><code id="grails-tests"></code></pre>
+    <p class="footnote"><small>* Grails plugins often aren't in test scope.</small></p>
 </section>
 <section>
     <h3>Testing - Play</h3>
@@ -721,8 +710,6 @@
         <li>FakeApplication, FakeRequest, inMemoryDatabase</li>
         <li>Test: Controllers, Views, Routing, Real Server, Browser</li>
     </ul>
-    <br/>
-    <br/>
 
     <p id="playtest-filename" class="filename">test/ApplicationControllerTest.java</p>
     <script>
@@ -734,7 +721,7 @@
             }, 18, 30)
         })
     </script>
-    <pre style="width: 900px;"><code id="playtest"></code></pre>
+    <pre style="width: 900px; font-size: 17px"><code id="playtest"></code></pre>
 </section>
 
 <section>
@@ -746,13 +733,13 @@
     <script>
         $(function () {
             var selectorId = '#grails-data';
-            getSource("89cb6acef9133f295a340fd15e031833e80ffa02", function (content, url) {
+            getSource("63c182b3298713b703d552f95b69633135d1cac6", function (content, url) {
                 $(selectorId).html(hljs.highlight("java", content).value);
                 linkToFile(selectorId, 'grails2');
             })
         })
     </script>
-    <pre><code id="grails-data"></code></pre>
+    <pre style="font-size: .45em; width: 101%"><code id="grails-data"></code></pre>
 </section>
 <section>
     <h3>Demo Data - Play</h3>
@@ -779,7 +766,7 @@
     <script>
         $(function () {
             var selectorId = '#grails-config';
-            getSource("c0f703e135ea35bc68c3e0b42d5da91b4e110f4e", function (content, url) {
+            getSource("f428eb526adeb5af40ad8a64537283ade6d4328c", function (content, url) {
                 $(selectorId).html(hljs.highlight("java", content).value);
                 linkToFile(selectorId, 'grails2');
             })
@@ -790,16 +777,12 @@
 <section>
     <h3>Configuration - Play</h3>
 
-    <br/>
     <ul>
         <li>Based on the TypeSafe Config Library</li>
         <li>Override config with Java Properties:<br/>-Dfoo=bar</li>
         <li>Environment Variable substitution</li>
         <li>Run with different config files:<br/>-Dconfig.file=conf/prod.conf</li>
     </ul>
-
-    <br/>
-    <br/>
 
     <p id="playconfig-filename" class="filename">conf/prod.conf</p>
     <script>
@@ -974,7 +957,7 @@
             chart.draw(data, {width:900, height:500, hAxis: {viewWindow: {min:0}}});
         }
     </script>
-    <div id="load_chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="load_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
   </section>
 
   <section>
@@ -1031,16 +1014,16 @@
 
                 var data = google.visualization.arrayToDataTable([
                     ['Jobs', 'Grails', 'Play Framework', 'Spring MVC'],
-                    ['Dice', 209, 9, 552],
-                    ['Monster', 67, 11, 188],
-                    ['Indeed', 951, 58, 1388]
+                    ['Dice', 194, 38, 539],
+                    ['Monster', 54, 18, 209],
+                    ['Indeed', 851, 115, 1499]
                 ]);
 
                 var chart = new google.visualization.BarChart(document.getElementById('jobs_chart_div'));
-                chart.draw(data, {width:900, height:500, title: 'March 19, 2013'});
+                chart.draw(data, {width:900, height:500, title: 'September 22, 2013'});
             }
         </script>
-        <div id="jobs_chart_div" style="width: 900px; height: 500px;"></div>
+        <div id="jobs_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
     </section>
     <section>
         <h2>LinkedIn Skills</h2>
@@ -1051,23 +1034,23 @@
 
                 var data = google.visualization.arrayToDataTable([
                     ['Skill', '# People'],
-                    ['Grails', 14051],
-                    ['Play Framework', 3397],
-                    ['Spring MVC', 13685]
+                    ['Grails', 17303],
+                    ['Play Framework', 5254],
+                    ['Spring MVC', 17973]
                 ]);
 
                 var chart = new google.visualization.BarChart(document.getElementById('linkedin_chart_div'));
-                chart.draw(data, {width:900, height:500, title: 'March 19, 2013'});
+                chart.draw(data, {width:900, height:500, title: 'September 22, 2013'});
             }
         </script>
-        <div id="linkedin_chart_div" style="width: 900px; height: 500px;"></div>
+        <div id="linkedin_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
         <aside class="notes">
             Grails up 20% y/y, Play up 69%
         </aside>
     </section>
     <section>
         <h2>Google Trends</h2>
-        <img src="assets/images/google-trends.png">
+        <img src="assets/images/google-trends.png" style="width: 813px; height: 300px">
         <div class="legend">
             <span class="box blue"></span> Grails
             <span class="box red"></span> Play
@@ -1088,31 +1071,17 @@
             function drawMailingListChart() {
                 new google.visualization.BarChart(document.getElementById('mailinglist_messages_chart_div')).draw(google.visualization.arrayToDataTable([
                     ['Messages', 'Grails', 'Play Framework'],
-                    ['March', 1503, 3365],
-                    ['April', 1377, 2884],
-                    ['May', 1299, 2760]
-                ]), {width:900, height:500, title: 'June 2012'}
+                    ['March', 931, 1443],
+                    ['April', 863, 1448],
+                    ['May', 1005, 1177],
+                    ['June', 766, 1049],
+                    ['July', 971, 858],
+                    ['August', 922, 1033]
+                ]), {width:900, height:500}
                 );
             }
         </script>
-        <div id="mailinglist_messages_chart_div" style="width: 900px; height: 500px;"></div>
-    </section>
-    <section>
-        <h2>User Mailing List Traffic</h2>
-        <script>
-            google.setOnLoadCallback(drawMailingListChart);
-
-            function drawMailingListChart() {
-                new google.visualization.BarChart(document.getElementById('mailinglist_messages_chart_div2')).draw(google.visualization.arrayToDataTable([
-                    ['Messages', 'Grails', 'Play Framework'],
-                    ['December', 1059, 1181],
-                    ['January', 973, 1797],
-                    ['February', 828, 1623]
-                ]), {width:900, height:500, title: 'March 2013'}
-                );
-            }
-        </script>
-        <div id="mailinglist_messages_chart_div2" style="width: 900px; height: 500px;"></div>
+        <div id="mailinglist_messages_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
     </section>
     <section>
         <h2>Books on Amazon</h2>
@@ -1122,12 +1091,12 @@
             function drawBooksChart() {
                 new google.visualization.PieChart(document.getElementById('books_chart_div')).draw(google.visualization.arrayToDataTable([
                     ['Books', 'Amazon'],
-                    ['Grails', 8],
+                    ['Grails', 11],
                     ['Play Framework', 3]
-                ]), {width:900, height:500, pieSliceText:'value', title: 'March 2013'});
+                ]), {width:900, height:500, pieSliceText:'value', title: 'September 2013'});
             }
         </script>
-        <div id="books_chart_div" style="width: 900px; height: 500px;"></div>
+        <div id="books_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
     </section>
     <section>
         <h2>2013 Releases</h2>
@@ -1137,12 +1106,12 @@
             function drawReleasesChart() {
                 new google.visualization.PieChart(document.getElementById('releases_chart_div2')).draw(google.visualization.arrayToDataTable([
                     ['2013 Releases', '2013'],
-                    ['Grails', 1],
-                    ['Play Framework', 1]
+                    ['Grails', 8],
+                    ['Play Framework', 10]
                 ]), {width:900, height:500, pieSliceText:'value'});
             }
         </script>
-        <div id="releases_chart_div2" style="width: 900px; height: 500px;"></div>
+        <div id="releases_chart_div2" class="chart" style="width: 900px; height: 500px;"></div>
     </section>
     <section>
         <h2>2012 Releases</h2>
@@ -1157,7 +1126,7 @@
                 ]), {width:900, height:500, pieSliceText:'value'});
             }
         </script>
-        <div id="releases_chart_div" style="width: 900px; height: 500px;"></div>
+        <div id="releases_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
     </section>
     <section>
         <h2>StackOverflow Questions</h2>
@@ -1167,12 +1136,12 @@
             function drawStackOverflowChart() {
                 new google.visualization.PieChart(document.getElementById('stackoverflow_chart_div')).draw(google.visualization.arrayToDataTable([
                     ['Tagged Questions', '#'],
-                    ['grails', 10710],
-                    ['playframework', 3950]
+                    ['grails', 12978],
+                    ['playframework', 5149]
                 ]), {width:900, height:500, pieSliceText:'value'});
             }
         </script>
-        <div id="stackoverflow_chart_div" style="width: 900px; height: 500px;"></div>
+        <div id="stackoverflow_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
     </section>
     <section>
         <h2>Hacker News</h2>
@@ -1187,11 +1156,11 @@
                 ]), {width:900, height:500, pieSliceText:'value'});
             }
         </script>
-        <div id="hackernews_chart_div" style="width: 900px; height: 500px;"></div>
+        <div id="hackernews_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
     </section>
 </section>
 
-<section>
+<section class="conclusions">
   <section>
     <h2>Conclusions: Code</h2>
     <ul>
@@ -1262,7 +1231,7 @@
     <a href="http://www.mcginityphoto.com/Nature/Nature/4725995_szrsM">
       <img src="http://www.mcginityphoto.com/Nature/Nature/i-WLmNjZW/0/M/ArcdeTriumphNov2011-M.jpg" width="600" height="399"/>
     </a>
-    <p class="footnote">* Or prove that we're wrong...</p>
+    <p class="endnote">* Or prove that we're wrong...</p>
 </section>
 </div>
 
