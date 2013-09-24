@@ -156,6 +156,11 @@ grails.cache.config = {
    }
 }
 
+/* Memcached Plugin */
+grails.plugin.memcached.hosts = System.env.MEMCACHIER_SERVERS
+grails.plugin.memcached.username = System.env.MEMCACHIER_USERNAME
+grails.plugin.memcached.password = System.env.MEMCACHIER_PASSWORD
+
 // Uncomment and edit the following lines to start using Grails encoding & escaping improvements
 
 /* remove this line 
