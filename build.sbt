@@ -2,6 +2,8 @@ name := "happytrails"
 
 version := "1.0-SNAPSHOT"
 
+resolvers += "Spy Repository" at "http://files.couchbase.com/maven2"
+
 libraryDependencies ++= Seq(
   javaJdbc,
   javaEbean,
@@ -12,7 +14,8 @@ libraryDependencies ++= Seq(
   "rome" % "rome" % "1.0",
   "com.typesafe" %% "play-plugins-mailer" % "2.1.0",
   "com.amazonaws" % "aws-java-sdk" % "1.3.11",
-  "org.imgscalr" % "imgscalr-lib" % "4.2"
+  "org.imgscalr" % "imgscalr-lib" % "4.2",
+  "com.github.mumoshu" %% "play2-memcached" % "0.3.0.2"
 )
 
 play.Project.playJavaSettings
