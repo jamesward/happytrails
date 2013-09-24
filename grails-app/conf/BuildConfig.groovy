@@ -58,7 +58,7 @@ grails.project.dependency.resolution = {
         compile ":cloud-bees:0.6.2"
         compile ":commentable:0.8.1"
         compile ":famfamfam:1.0.1"
-        compile ":feeds:1.5"
+        compile ":feeds:1.6"
         compile ":jquery-ui:1.8.24"
         compile ":mail:1.0.1"
         compile ":quartz:1.0-RC5"
