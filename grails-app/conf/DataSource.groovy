@@ -19,6 +19,9 @@ environments {
     }
     test {
         dataSource {
+            driverClassName = "org.h2.Driver" 
+        	username = "sa" 
+        	password = ""
             dbCreate = "update"
             url = "jdbc:h2:mem:testDb;MVCC=TRUE"
         }

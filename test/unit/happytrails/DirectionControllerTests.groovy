@@ -1,12 +1,13 @@
 package happytrails
 
 import grails.test.mixin.*
+import org.junit.Ignore
 
 @TestFor(DirectionController)
 @Mock([Direction, Route])
 class DirectionControllerTests {
 
-    def populateValidParams(params) {
+    static def populateValidParams(params) {
         assert params != null
         params["stepNumber"] = '1'
         params["instruction"] = 'Go right at the river'

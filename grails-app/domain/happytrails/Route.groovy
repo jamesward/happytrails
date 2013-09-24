@@ -11,6 +11,7 @@ class Route implements Rateable, Commentable {
     static transients = ["averageRating"]
 
     static constraints = {
+        id bindable:true
         name blank: false, unique: true, matches: charactersNumbersAndSpaces
         description nullable: true
         distance blank: false, min: 0.1D

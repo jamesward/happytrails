@@ -4,8 +4,8 @@ class SignupPage extends ScaffoldPage {
     static url = "signup"
 
     static at = {
-   		$('.ui-dialog-title').text() ==~ /Create Account!.+/
-   	}
+        title == "Register"
+    }
 
     static content = {
         form { $("form") }

@@ -6,8 +6,8 @@ class RegionsPage extends ScaffoldPage {
 	static url = "regions"
 	
 	static at = {
-		title ==~ /Regions/
-	}
+        title.startsWith('Regions')
+    }
 	
 	static content = {
 		newRegionButton(to: AddRegionPage) { $("a", text: "New Region") }

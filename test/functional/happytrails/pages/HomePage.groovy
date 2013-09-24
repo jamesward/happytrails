@@ -3,7 +3,7 @@ package happytrails.pages
 class HomePage extends ScaffoldPage {
 
 	static at = {
-		$('title').text() ==~ /Welcome to Happy Trails!.+/
+		title ==~ /Welcome to Happy Trails!.+/
 	}
 	
 	static content = {
