@@ -61,7 +61,7 @@ grails.project.dependency.resolution = {
         compile ":feeds:1.6"
         compile ":jquery-ui:1.8.24"
         compile ":mail:1.0.1"
-        compile ":memcached:1.0.3.2"
+        //compile ":memcached:1.0.3.2"
         compile ":quartz:1.0-RC5"
         compile ":rateable:0.7.1"
         compile ":searchable:0.6.5-SNAPSHOT"
