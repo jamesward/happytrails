@@ -943,7 +943,7 @@
   </section>
 
   <section style="text-align: center;">
-    <h2>Load Testing - 2 Dynos</h2>
+    <h2>Load Testing - 2 Dynos (March 2013)</h2>
     <script>
         google.setOnLoadCallback(drawLoadChart);
 
@@ -960,6 +960,25 @@
     </script>
     <div id="load_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
   </section>
+
+    <section style="text-align: center;">
+        <h2>Load Testing - 2 Dynos (Sept 2013)</h2>
+        <script>
+            google.setOnLoadCallback(drawLoadChart);
+
+            function drawLoadChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['10000 Requests (100 Concurrent)', 'Grails', 'Play Framework'],
+                    ['Requests / Second', 257, 242]
+                ]);
+
+                var chart = new google.visualization.BarChart(document.getElementById('load_chart_div-sept_2013'));
+                chart.draw(data, {width:900, height:500, hAxis: {viewWindow: {min:0}}});
+            }
+        </script>
+        <div id="load_chart_div-sept_2013" class="chart" style="width: 900px; height: 500px;"></div>
+    </section>
 
   <section>
     <h2 class="top">Load Testing - 5 Dynos + 100 users</h2>
