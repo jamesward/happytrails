@@ -137,23 +137,22 @@
     </section>
     <section>
         <div class="comparison" style="margin: 0 auto; width: 700px">
-            <blockquote class="quote">Play is based on a lightweight, stateless, web-friendly architecture and features predictable and minimal resource consumption (CPU, memory, threads) for highly-scalable applications - thanks to its reactive model, based on Iteratee IO.</blockquote>
-            <blockquote class="fragment faded"><span style="opacity: 0">Play is based on a</span> lightweight, stateless, web-friendly<span style="opacity: 0"> architecture and features predictable and minimal resource consumption (CPU, memory, threads)</span> for highly-scalable applications<span style="opacity: 0"> - thanks to its reactive model, based on Iteratee IO.</span></blockquote>
+            <blockquote class="quote">Play Framework is based on a lightweight, stateless, web-friendly architecture.  Built on Akka, Play provides predictable and minimal resource consumption (CPU, memory, threads) for highly-scalable applications.</blockquote>
         </div>
     </section>
     <section>
         <h2>My Top 10 Favorite Features</h2>
         <ol>
-            <li>Simple</li>
-            <li>URL Routing</li>
-            <li>Class Reloading</li>
-            <li>Share-Nothing</li>
-            <li>Java &amp; Scala Support</li>
-            <li>Great Testing Support</li>
-            <li>JPA/EBean Support</li>
-            <li>NIO Server (Netty)</li>
+            <li>Just hit refresh workflow</li>
+            <li>Type safety</li>
+            <li>RESTful</li>
+            <li>Stateless</li>
+            <li>Reactive</li>
             <li>Asset Compiler</li>
-            <li>Instant Deployment on Heroku</li>
+            <li>First-class JSON</li>
+            <li>Java &amp; Scala</li>
+            <li>Templates in Activator</li>
+            <li>LinkedIn, Gawker, etc</li>
         </ol>
     </section>
 </section>
@@ -944,7 +943,7 @@
   </section>
 
   <section style="text-align: center;">
-    <h2>Load Testing - 2 Dynos</h2>
+    <h2>Load Testing - 2 Dynos (March 2013)</h2>
     <script>
         google.setOnLoadCallback(drawLoadChart);
 
@@ -961,6 +960,25 @@
     </script>
     <div id="load_chart_div" class="chart" style="width: 900px; height: 500px;"></div>
   </section>
+
+    <section style="text-align: center;">
+        <h2>Load Testing - 2 Dynos (Sept 2013)</h2>
+        <script>
+            google.setOnLoadCallback(drawLoadChart);
+
+            function drawLoadChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['10000 Requests (100 Concurrent)', 'Grails', 'Play Framework'],
+                    ['Requests / Second', 257, 242]
+                ]);
+
+                var chart = new google.visualization.BarChart(document.getElementById('load_chart_div-sept_2013'));
+                chart.draw(data, {width:900, height:500, hAxis: {viewWindow: {min:0}}});
+            }
+        </script>
+        <div id="load_chart_div-sept_2013" class="chart" style="width: 900px; height: 500px;"></div>
+    </section>
 
   <section>
     <h2 class="top">Load Testing - 5 Dynos + 100 users</h2>
