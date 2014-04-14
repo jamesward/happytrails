@@ -45,6 +45,8 @@ public class DailyRegionDigestEmailJob {
                 regionSubscription.update();
             }
         }
+        
+        System.exit(0);
     }
     
     public static List<RegionUserDigest> getRegionUserDigests() {
