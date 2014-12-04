@@ -1,8 +1,8 @@
 package happytrails
 
+import grails.plugin.springsecurity.userdetails.GrailsUserDetailsService
 import groovy.transform.CompileStatic
-import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUserDetailsService
-import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
+import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.cache.Cacheable
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.GrantedAuthorityImpl

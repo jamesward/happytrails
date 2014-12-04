@@ -1,4 +1,4 @@
-<%@ page import="org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils" %>
+<%@ page import="grails.plugin.springsecurity.SpringSecurityUtils" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
@@ -14,8 +14,7 @@
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
     <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
     <g:layoutHead/>
-    <r:require module="core"/>
-    <r:layoutResources/>
+    <asset:stylesheet src="application.css"/>
 </head>
 
 <body>
@@ -58,7 +57,7 @@ ${request.breadcrumb}
     <g:layoutBody/>
 </div>
 
-<r:layoutResources disposition="footer"/>
+<asset:javascript src="application.js"/>
 
 </body>
 </html>

@@ -90,21 +90,21 @@ body {
 
 .grand-valley {
     /*background: url('http://farm3.staticflickr.com/2505/3947853369_e7bf939355_m.jpg') no-repeat 5px 30px;*/
-    background: url('../images/grand-valley.jpg') no-repeat 5px 30px;
+    background: url('grand-valley.jpg') no-repeat 5px 30px;
 }
 
 .colorado-western-slope {
     /*background: url('http://farm3.staticflickr.com/2440/3947853583_dccc0b37a0_m.jpg') no-repeat 5px 30px;*/
-    background: url('../images/western-slope.jpg') no-repeat 5px 30px;
+    background: url('western-slope.jpg') no-repeat 5px 30px;
 }
 
 .colorado-front-range {
     /*background: url('http://farm4.staticflickr.com/3422/3948635568_4c69bfb92f_m.jpg') no-repeat 5px 30px;*/
-    background: url('../images/front-range.jpg') no-repeat 5px 30px;
+    background: url('front-range.jpg') no-repeat 5px 30px;
 }
 
 .moab {
-    background: url('../images/moab.jpg') no-repeat 5px 30px;
+    background: url('moab.jpg') no-repeat 5px 30px;
     /*background: url('http://farm5.staticflickr.com/4031/4662051819_aa2c75e107_m.jpg') no-repeat 5px 30px;*/
 }
 

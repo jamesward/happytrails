@@ -1,3 +1,6 @@
+import happytrails.User
+import org.springframework.security.core.context.SecurityContextHolder
+
 grails.app.context = "/"
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
@@ -50,6 +53,7 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.plugin.springsecurity.debug.useFilter = true
     }
     test {
         grails {
@@ -74,14 +78,14 @@ environments {
             }
         }
 
-        grails.resources.mappers.baseurl.enabled = true
-        grails.resources.mappers.baseurl.default = "http://dke2vwgtydyev.cloudfront.net/static"
+        grails.assets.url = "http://dke2vwgtydyev.cloudfront.net/static"
     }
 }
 
 // log4j configuration
 log4j = {
-    warn 'grails.app.services.grails.plugins.springsecurity.ui.SpringSecurityUiService'
+    warn 'grails.plugin.springsecurity.ui.SpringSecurityUiService'
+    //info 'grails.plugin.springsecurity.web.filter.DebugFilter'
 
     error 'org.codehaus.groovy.grails.web.servlet',  //  controllers
             'org.codehaus.groovy.grails.web.pages', //  GSP
@@ -98,12 +102,12 @@ log4j = {
 
 grails.mail.default.from = "Bike Über Tracks <bike@ubertracks.com>"
 
-grails.plugins.springsecurity.ui.register.emailFrom = grails.mail.default.from
-grails.plugins.springsecurity.ui.register.emailSubject = 'Welcome to Über Tracks!'
-grails.plugins.springsecurity.ui.forgotPassword.emailFrom = grails.mail.default.from
-grails.plugins.springsecurity.ui.forgotPassword.emailSubject = 'Password Reset'
+grails.plugin.springsecurity.ui.register.emailFrom = grails.mail.default.from
+grails.plugin.springsecurity.ui.register.emailSubject = 'Welcome to Über Tracks!'
+grails.plugin.springsecurity.ui.forgotPassword.emailFrom = grails.mail.default.from
+grails.plugin.springsecurity.ui.forgotPassword.emailSubject = 'Password Reset'
 
-grails.plugins.springsecurity.controllerAnnotations.staticRules = [
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/user/**': ['ROLE_ADMIN'],
         '/role/**': ['ROLE_ADMIN'],
         '/registrationCode/**': ['ROLE_ADMIN'],
@@ -112,29 +116,32 @@ grails.plugins.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'happytrails.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'happytrails.UserRole'
-grails.plugins.springsecurity.authority.className = 'happytrails.Role'
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.rejectIfNoRule = false
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'happytrails.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'happytrails.UserRole'
+grails.plugin.springsecurity.authority.className = 'happytrails.Role'
 
 /* Use Spring Security to get Rater and Commentor:
    - http://stackoverflow.com/questions/3541142/grails-user-evaluator-for-commentable-with-spring-security-plugin
 */
 grails.rateable.rater.evaluator = {
-    def principal = org.springframework.security.core.context.SecurityContextHolder.context.authentication.principal
+    def principal = SecurityContextHolder.context.authentication.principal
     if (principal.hasProperty('id')) {
         def currentUserId = principal.id
         if (currentUserId) {
-            happytrails.User.get(currentUserId)
+            User.get(currentUserId)
         }
     }
 }
 
 grails.commentable.poster.evaluator = {
-    def principal = org.springframework.security.core.context.SecurityContextHolder.context.authentication.principal
+    def principal = SecurityContextHolder.context.authentication.principal
     if (principal.hasProperty('id')) {
         def currentUserId = principal.id
         if (currentUserId) {
-            happytrails.User.get(currentUserId)
+            User.get(currentUserId)
         }
     }
 }
@@ -163,7 +170,7 @@ grails.plugin.memcached.password = System.env.MEMCACHIER_PASSWORD*/
 
 // Uncomment and edit the following lines to start using Grails encoding & escaping improvements
 
-/* remove this line 
+/* remove this line
 // GSP settings
 grails {
     views {
