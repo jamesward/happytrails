@@ -33,8 +33,8 @@
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
 
-    <script src="http://www.google.com/jsapi"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
 
     <h3 class="inverted">James Ward and Matt Raible</h3>
 
-    <p><a href="http://twitter.com/_jamesward">@_JamesWard</a> and <a href="http://twitter.com/mraible">@mraible</a></p>
+    <p><a href="https://twitter.com/_jamesward">@_JamesWard</a> and <a href="https://twitter.com/mraible">@mraible</a></p>
     <script>
         // Delicously hacky. Look away.
         if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) document.write('<p style="color: rgba(0,0,0,0.3); text-shadow: none;">(' + 'Swipe to navigate' + ')</p>');
@@ -239,15 +239,16 @@
         <li>Hibernate is the default persistence provider</li>
         <li>Create models, Hibernate creates the schema for you</li>
     </ul>
+
     <p id="grails-ds-filename" class="filename">grails-app/conf/DataSource.groovy</p>
     <script>
         // todo: refactor to use data-attributes to define metadata for code
         $(function () {
             var selectorId = "#grails-ds";
-            getSource("7992cea3891aaab896a2c3dbd693e865791dc60e", function (content, url) {
+            getSrc("13cf83c", "grails-app/conf/DataSource.groovy", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2', 13);
-            }, 13, 19)
+                linkToFile(selectorId, '13cf83c', 13, 19);
+            }, 13, 19);
         })
     </script>
     <pre><code id="grails-ds"></code></pre>
@@ -267,9 +268,9 @@
     <script>
         $(function() {
             var selectorId = "#playsql2";
-            getSource("0492621e9816e6d3101f70cfddb38d00e651dad0", function (content, url) {
+            getSrc("9e33de5", "conf/evolutions/default/2.sql", function (content) {
                 $(selectorId).html(hljs.highlightAuto(content).value);
-                linkToFile(selectorId, 'play2_java');
+                linkToFile(selectorId, '9e33de5');
             })
         })
     </script>
@@ -294,9 +295,9 @@
     <script>
         $(function () {
             var selectorId = '#grails-urls';
-            getSource("f276d476660440224fadb30cdbfe95ffd68fc086", function (content, url) {
+            getSrc("443a814", "grails-app/conf/UrlMappings.groovy", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2');
+                linkToFile(selectorId, '443a814');
             })
         })
     </script>
@@ -309,9 +310,9 @@
     <script>
         $(function() {
             var selectorId = '#playconfroutes';
-            getSource("7b3a20560efa0678b215dd8780d166118181b2b5", function (content, url) {
+            getSrc("6f48713", "conf/routes", function (content) {
                 $(selectorId).html(hljs.highlightAuto(content).value);
-                linkToFile(selectorId, 'play2_java', 6);
+                linkToFile(selectorId, '6f48713', 6);
             }, 6)
         })
     </script>
@@ -330,13 +331,13 @@
     <script>
         $(function () {
             var selectorId = '#grails-models';
-            getSource("7ddc8f7586ec556c78b5d5da80b5d9817f3ffd4e", function (content, url) {
+            getSrc("443a814", "grails-app/domain/happytrails/Region.groovy", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2');
+                linkToFile(selectorId, '443a814');
             })
         })
     </script>
-    <pre style="height: 350px"><code id="grails-models"></code></pre>
+    <pre style="max-height: 460px;"><code id="grails-models"></code></pre>
 </section>
 <section>
     <h3>Models - Play</h3>
@@ -351,9 +352,9 @@
     <script>
         $(function() {
             var selectorId = '#playebean';
-            getSource("2605e7194b8dcb3e86937d104f01189f66650c26", function (content, url) {
+            getSrc("9e33de5", "app/models/Direction.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'play2_java', 11);
+                linkToFile(selectorId, '9e33de5', 11, 27);
             }, 11, 27)
         })
     </script>
@@ -366,9 +367,9 @@
     <script>
         $(function () {
             var selectorId = '#grails-controller';
-            getSource("0217fb588ae56bfa1f1baa647b92502a0bac601d", function (content, url) {
+            getSrc("ea911b6", "grails-app/controllers/happytrails/HomeController.groovy", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2');
+                linkToFile(selectorId, 'ea911b6');
             })
         })
     </script>
@@ -386,9 +387,9 @@
     <script>
         $(function() {
             var selectorId = '#playcontroller';
-            getSource("c17b49e3cc79505069114f854834daedb2d80032", function (content, url) {
+            getSrc("5d8ab80", "app/controllers/RouteController.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'play2_java', 11);
+                linkToFile(selectorId, '5d8ab80', 11, 36);
             }, 11, 36)
         })
     </script>
@@ -407,9 +408,9 @@
     <script>
         $(function () {
             var selectorId = '#grails-view';
-            getSource("3097236d2514779b10a85ab5abfdb4f7079d832c", function (content, url) {
+            getSrc("443a814", "grails-app/views/region/show.gsp", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2');
+                linkToFile(selectorId, '443a814');
             })
         })
     </script>
@@ -428,9 +429,9 @@
     <script>
         $(function() {
             var selectorId = '#playview';
-            getSource("514cdcfcb2bfd603f090de26aee617b3d315957b", function (content, url) {
+            getSrc("6f48713", "app/views/region.scala.html", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'play2_java');
+                linkToFile(selectorId, '6f48713', 1, 18);
             }, 1, 18)
         })
     </script>
@@ -443,9 +444,9 @@
     <script>
           $(function() {
               var selectorId = '#grails-controller-validation';
-              getSource("cb33a2dda2e723fa66f6bf2501cf512cac135587", function (content, url) {
-                  $(selectorId).html(hljs.highlight("java", content).value);
-                  linkToFile(selectorId, 'grails2', 22);
+              getSrc("443a814", "grails-app/controllers/happytrails/RouteController.groovy", function (content) {
+                  $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
+                  linkToFile(selectorId, '443a814', 22, 31);
               }, 22, 31)
           })
     </script>
@@ -455,9 +456,9 @@
     <script>
           $(function() {
               var selectorId = '#grails-view-validation';
-              getSource("37c61e83552818b6dff7d92c74d04882e745c6ca", function (content, url) {
-                  $(selectorId).html(hljs.highlight("java", content).value);
-                  linkToFile(selectorId, 'grails2', 25);
+              getSrc("443a814", "grails-app/views/route/create.gsp", function (content) {
+                  $(selectorId).html(hljs.highlight("java", content.replace(/\n            /g, "\n").replace(/^            /g, "")).value);
+                  linkToFile(selectorId, '443a814', 25, 31);
               }, 25, 31)
           })
       </script>
@@ -470,9 +471,9 @@
     <script>
         $(function() {
             var selectorId = '#playhaserrors';
-            getSource("600b9cd3b927759207093233a376f235d305ddbf", function (content, url) {
-                $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
-                linkToFile(selectorId, 'play2_java', 24);
+            getSrc("6f48713", "app/controllers/RouteController.java", function (content) {
+                $(selectorId).html(hljs.highlight("java", content.replace(/            /g, "")).value);
+                linkToFile(selectorId, '6f48713', 24, 28);
             }, 24, 28)
         })
     </script>
@@ -482,9 +483,9 @@
     <script>
         $(function() {
             var selectorId = '#playform';
-            getSource("22d0518aaa3aae6942ad9893b56f07b263e51caa", function (content, url) {
+            getSrc("9e33de5", "app/views/signupForm.scala.html", function (content) {
                 $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
-                linkToFile(selectorId, 'play2_java', 7);
+                linkToFile(selectorId, '9e33de5', 7, 18);
             }, 7, 18)
         })
     </script>
@@ -518,9 +519,9 @@
     <script>
         $(function () {
             var selectorId = '#grails-job';
-            getSource("10ac49315d39b1c84506d660dc75524e691cf55e", function (content, url) {
+            getSrc("443a814", "grails-app/jobs/happytrails/DailyRegionDigestEmailJob.groovy", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2');
+                linkToFile(selectorId, '443a814');
             })
         })
     </script>
@@ -541,9 +542,9 @@
     <script>
         $(function() {
             var selectorId = '#playjob';
-            getSource("daf09a1d1dd3ca85fca2d6d9c3ff5e3951cc56dc", function (content, url) {
+            getSrc("7f7d163", "app/jobs/DailyRegionDigestEmailJob.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'play2_java', 15);
+                linkToFile(selectorId, '7f7d163', 15, 23);
             }, 15, 23)
         })
     </script>
@@ -562,13 +563,13 @@
     <script>
         $(function () {
             var selectorId = '#grails-feed';
-            getSource("f5ac1ac2c7634e5686b3cb00792811b8f704b78a", function (content, url) {
-                $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2', 99);
+            getSrc("103ac6a", "grails-app/controllers/happytrails/RegionController.groovy", function (content) {
+                $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
+                linkToFile(selectorId, '103ac6a', 99, 117);
             }, 99, 117)
         })
     </script>
-    <pre><code id="grails-feed"></code></pre>
+    <pre style="max-height: 460px;"><code id="grails-feed"></code></pre>
 </section>
 <section>
     <h3>Feed - Play</h3>
@@ -583,9 +584,9 @@
     <script>
         $(function() {
             var selectorId = '#playfeed';
-            getSource("88bdca4db08657d104917c4343bb1deb8f2bf739", function (content, url) {
-                $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'play2_java', 22);
+            getSrc("8b7fb4a", "app/jobs/DailyRegionDigestEmailJob.java", function (content) {
+                $(selectorId).html(hljs.highlight("java", content.replace(/\n        /g, "\n").replace(/^        /g, "")).value);
+                linkToFile(selectorId, '8b7fb4a', 22, 36);
             }, 22, 36)
         })
     </script>
@@ -599,9 +600,9 @@
     <script>
         $(function () {
             var selectorId = '#grails-email';
-            getSource("10ac49315d39b1c84506d660dc75524e691cf55e", function (content, url) {
-                $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2', 19);
+            getSrc("443a814", "grails-app/jobs/happytrails/DailyRegionDigestEmailJob.groovy", function (content) {
+                $(selectorId).html(hljs.highlight("java", content.replace(/\n        /g, "\n").replace(/^        /g, "")).value);
+                linkToFile(selectorId, '443a814', 19, 24);
             }, 19, 24)
         })
     </script>
@@ -625,9 +626,9 @@
     <script>
         $(function () {
             var selectorId = '#playemailsend';
-            getSource("daf09a1d1dd3ca85fca2d6d9c3ff5e3951cc56dc", function (content, url) {
+            getSrc("7f7d163", "app/jobs/DailyRegionDigestEmailJob.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content.replace(/            /g, "")).value);
-                linkToFile(selectorId, 'play2_java', 35);
+                linkToFile(selectorId, '7f7d163', 35, 39);
             }, 35, 39)
         })
     </script>
@@ -637,9 +638,9 @@
     <script>
         $(function () {
             var selectorId = '#playemailconfig';
-            getSource("8dc070ef87d14717ba93a77155abae5c5f50daf7", function (content, url) {
+            getSrc("860b7b4", "conf/prod.conf", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'play2_java', 9);
+                linkToFile(selectorId, '860b7b4', 9, 13);
             }, 9, 13)
         })
     </script>
@@ -660,9 +661,9 @@
     <script>
         $(function () {
             var selectorId = '#plays3photo';
-            getSource("90cc9f870fdff7a012730c525430342590e76601", function (content, url) {
+            getSrc("73a977a", "app/models/S3Photo.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content.replace(/        /g, "")).value);
-                linkToFile(selectorId, 'play2_java', 57);
+                linkToFile(selectorId, '73a977a', 57, 65);
             }, 57, 65)
         })
     </script>
@@ -672,9 +673,9 @@
     <script>
         $(function () {
             var selectorId = '#playphotoupload';
-            getSource("88bdca4db08657d104917c4343bb1deb8f2bf739", function (content, url) {
+            getSrc("8b7fb4a", "app/controllers/RegionController.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content.replace(/        /g, "").replace(/\.asMultipart/g, "\n    .asMultipart")).value);
-                linkToFile(selectorId, 'play2_java', 125);
+                linkToFile(selectorId, '8b7fb4a', 125, 125);
             }, 125, 125)
         })
     </script>
@@ -693,9 +694,9 @@
     <script>
         $(function () {
             var selectorId = '#grails-tests';
-            getSource("62215b1ccc17bbdc41ee1800a52d08e06d195584", function (content, url) {
+            getSrc("443a814", "test/unit/happytrails/RouteTests.groovy", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2');
+                linkToFile(selectorId, '443a814');
             })
         })
     </script>
@@ -716,9 +717,9 @@
     <script>
         $(function () {
             var selectorId = '#playtest';
-            getSource("c119ae53d0085811ec367ef095676bfa86a2a11a", function (content, url) {
+            getSrc("9e33de5", "test/ApplicationControllerTest.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
-                linkToFile(selectorId, 'play2_java', 18);
+                linkToFile(selectorId, '9e33de5', 18, 30);
             }, 18, 30)
         })
     </script>
@@ -734,13 +735,13 @@
     <script>
         $(function () {
             var selectorId = '#grails-data';
-            getSource("63c182b3298713b703d552f95b69633135d1cac6", function (content, url) {
+            getSrc("443a814", "grails-app/conf/BootStrap.groovy", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2');
+                linkToFile(selectorId, '443a814');
             })
         })
     </script>
-    <pre style="font-size: .45em; width: 101%"><code id="grails-data"></code></pre>
+    <pre style="max-height: 460px; font-size: .45em; width: 101%"><code id="grails-data"></code></pre>
 </section>
 <section>
     <h3>Demo Data - Play</h3>
@@ -751,9 +752,9 @@
     <script>
         $(function () {
             var selectorId = '#playdemodata';
-            getSource("b9c352fe070d084b1e52cd7c6f04bfcf99faa5e4", function (content, url) {
+            getSrc("9e33de5", "app/Global.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
-                linkToFile(selectorId, 'play2_java', 11);
+                linkToFile(selectorId, '9e33de5', 11, 23);
             }, 11, 23)
         })
     </script>
@@ -767,13 +768,13 @@
     <script>
         $(function () {
             var selectorId = '#grails-config';
-            getSource("f428eb526adeb5af40ad8a64537283ade6d4328c", function (content, url) {
+            getSrc("2b878a0", "grails-app/conf/Config.groovy", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2');
+                linkToFile(selectorId, '2b878a0');
             })
         })
     </script>
-    <pre><code id="grails-config"></code></pre>
+    <pre style="max-height: 460px;"><code id="grails-config"></code></pre>
 </section>
 <section>
     <h3>Configuration - Play</h3>
@@ -789,9 +790,9 @@
     <script>
         $(function () {
             var selectorId = '#playconfig';
-            getSource("8dc070ef87d14717ba93a77155abae5c5f50daf7", function (content, url) {
+            getSrc("860b7b4", "conf/prod.conf", function (content) {
                 $(selectorId).html(hljs.highlightAuto(content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
-                linkToFile(selectorId, 'play2_java', 1);
+                linkToFile(selectorId, '860b7b4', 1, 7);
             }, 1, 7)
         })
     </script>
@@ -807,13 +808,13 @@
     <script>
         $(function () {
             var selectorId = '#grails-security';
-            getSource("c0f703e135ea35bc68c3e0b42d5da91b4e110f4e", function (content, url) {
+            getSrc("103ac6a", "grails-app/conf/Config.groovy", function (content) {
                 $(selectorId).html(hljs.highlight("java", content).value);
-                linkToFile(selectorId, 'grails2', 115);
+                linkToFile(selectorId, '103ac6a', 115, 132);
             }, 115, 132)
         })
     </script>
-    <pre><code id="grails-security"></code></pre>
+    <pre style="max-height: 460px;"><code id="grails-security"></code></pre>
 </section>
 <section>
     <h3>Authentication - Play</h3>
@@ -826,9 +827,9 @@
     <script>
         $(function () {
             var selectorId = '#playauthsecured';
-            getSource("442f0a61bff2b0f09a98ccd1e19418b0b9cf244b", function (content, url) {
+            getSrc("9e33de5", "app/controllers/Secured.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
-                linkToFile(selectorId, 'play2_java', 9);
+                linkToFile(selectorId, '9e33de5', 9, 15);
             }, 9, 15)
         })
     </script>
@@ -838,9 +839,9 @@
     <script>
         $(function () {
             var selectorId = '#playsecurity';
-            getSource("88bdca4db08657d104917c4343bb1deb8f2bf739", function (content, url) {
+            getSrc("8b7fb4a", "app/controllers/RegionController.java", function (content) {
                 $(selectorId).html(hljs.highlight("java", content.replace(/\n    /g, "\n").replace(/^    /g, "")).value);
-                linkToFile(selectorId, 'play2_java', 105);
+                linkToFile(selectorId, '8b7fb4a', 105, 108);
             }, 105, 108)
         })
     </script>
